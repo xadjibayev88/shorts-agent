@@ -1,0 +1,76 @@
+# ===============================================================
+#  YouTube Shorts Agent — sozlamalar
+#  Kalitlar (API key, token) bu yerga YOZILMAYDI — ular GitHub Secrets'da.
+# ===============================================================
+
+channel:
+  language: uz                 # video tili
+  niche: "qisqa hikoyalar"     # kanal yo'nalishi
+  # Har safar shu janrlardan biri navbat bilan tanlanadi
+  genres:
+    - "ibratli hayotiy hikoya, oxirida kutilmagan burilish"
+    - "sirli va mistik hikoya (qo'rqinchli emas, qiziqarli)"
+    - "detektiv hikoya, oxirida jumboq yechiladi"
+    - "motivatsion hikoya: kambag'aldan muvaffaqiyatga"
+    - "oilaviy, ta'sirli hikoya (ota-ona, farzand)"
+    - "donishmand va shogird haqida rivoyat"
+    - "kulgili hikoya, oxirida zo'r punchline"
+    - "tarixiy uslubdagi afsona (to'qima qahramonlar)"
+
+story:
+  min_words: 85
+  max_words: 150
+  scenes_min: 5
+  scenes_max: 8
+  history_avoid_last: 60       # oxirgi N ta sarlavhani takrorlamaydi
+
+gemini:
+  # Navbat bilan sinab ko'riladi — biri ishlamasa keyingisi
+  models:
+    - "gemini-flash-latest"
+    - "gemini-3.6-flash"
+    - "gemini-2.5-flash"
+  temperature: 1.0
+
+tts:
+  # O'zbek ovozlari: uz-UZ-SardorNeural (erkak), uz-UZ-MadinaNeural (ayol)
+  voice: "uz-UZ-SardorNeural"
+  rate: "+8%"
+  pitch: "+0Hz"
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  max_duration: 58             # soniya (Shorts uchun xavfsiz chegara)
+  crf: 20
+  preset: "medium"
+  progress_bar: true
+  progress_color: "0xFFD400"
+
+subtitles:
+  font_file: "assets/fonts/Montserrat-ExtraBold.ttf"   # bo'lmasa DejaVu ishlatiladi
+  font_size: 92
+  words_per_line: 3
+  highlight_color: "&H0000D4FF"   # ASS formatda (BGR): sariq
+  base_color: "&H00FFFFFF"
+  outline: 7
+  position_y: 1150                # subtitr markazi (piksel)
+  hook_seconds: 2.6               # tepada "hook" matni necha soniya turadi
+
+music:
+  enabled: true
+  folder: "assets/music"          # .mp3 fayllarni shu yerga tashlang
+  volume: 0.16                    # ovoz ostida (ducking bilan)
+
+pexels:
+  per_page: 15
+  min_height: 1280
+
+youtube:
+  privacy: "public"               # public | unlisted | private
+  category_id: "24"               # 24 = Entertainment
+  made_for_kids: false
+  synthetic_media: true           # AI kontent belgisi (YouTube talabi)
+  extra_tags: ["shorts", "hikoya", "qisqa hikoya", "ibratli hikoyalar", "uzbek"]
+  hashtags: ["#shorts", "#hikoya", "#ibratli"]
