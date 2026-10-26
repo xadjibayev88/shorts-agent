@@ -27,6 +27,27 @@
       "genre": "okean va dengiz tubidagi sirli fakt",
       "video_id": "GBeLD7TVf74",
       "words": 89
+    },
+    {
+      "date": "2026-10-26T11:59:04+00:00",
+      "title": "Kosmosdan ko'rinadigan birinchi sun'iy inshoot",
+      "genre": "texnologiya va ixtirolar haqida qiziq fakt",
+      "video_id": "Afk4aTSyUHA",
+      "words": 75
+    },
+    {
+      "date": "2026-10-26T12:03:25+00:00",
+      "title": "Yer yuzidagi eng kuchli shamol: 408 km/soat rekord!",
+      "genre": "tabiat hodisalari va ob-havo haqida fakt",
+      "video_id": "Za6wUuwS3wQ",
+      "words": 71
+    },
+    {
+      "date": "2026-10-26T12:07:42+00:00",
+      "title": "Fransiyaning hayratlanarli vaqt mintaqalari siri",
+      "genre": "dunyo davlatlari va shaharlari haqida g'alati fakt",
+      "video_id": "H2Unx81O1eY",
+      "words": 76
     }
   ],
   "used_pexels_ids": [
@@ -53,7 +74,29 @@
     "pb312",
     "pb378834",
     "pb4037",
-    "pb90544"
+    "pb90544",
+    "pb127428",
+    "pb137719",
+    "pb141673",
+    "pb20763",
+    "pb217105",
+    "pb267748",
+    "pb732",
+    "pb187050",
+    "pb211188",
+    "pb327359",
+    "pb32936",
+    "pb49443",
+    "pb5657",
+    "pb7619",
+    "pb116577",
+    "pb142647",
+    "pb1844",
+    "pb204326",
+    "pb236256",
+    "pb33237",
+    "pb350914",
+    "pb63241"
   ],
-  "genre_index": 5
+  "genre_index": 8
 }
