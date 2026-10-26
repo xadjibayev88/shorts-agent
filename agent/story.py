@@ -16,13 +16,14 @@ GEMINI = "https://generativelanguage.googleapis.com/v1beta"
 # Model nomlari tez-tez yangilanadi, shuning uchun har safar /models ro'yxatidan eng mosini tanlaymiz.
 OPENAI_PROVIDERS = {
     "groq": ("GROQ_API_KEY", "https://api.groq.com/openai/v1",
-             [r"gpt-oss-120b", r"llama.*70b", r"qwen.*(235b|32b|27b)", r"qwen", r"llama"]),
+             [r"gpt-oss-120b", r"qwen.*(235b|32b|27b)", r"llama.*70b", r"gpt-oss-20b", r"qwen", r"llama"]),
     "cerebras": ("CEREBRAS_API_KEY", "https://api.cerebras.ai/v1",
                  [r"gpt-oss-120b", r"qwen.*235b", r"llama.*70b", r"qwen", r"llama"]),
     "openrouter": ("OPENROUTER_API_KEY", "https://openrouter.ai/api/v1",
                    [r"deepseek.*:free$", r"qwen.*:free$", r"llama.*70b.*:free$", r"gemma.*:free$", r":free$"]),
     "mistral": ("MISTRAL_API_KEY", "https://api.mistral.ai/v1",
-                [r"^mistral-medium-latest$", r"^mistral-large-latest$", r"^mistral-small-latest$"]),
+                [r"^mistral-medium-latest$", r"^mistral-large-latest$", r"^mistral-small-latest$",
+                 r"ministral.*14b", r"ministral.*8b", r"ministral"]),
     "nvidia": ("NVIDIA_API_KEY", "https://integrate.api.nvidia.com/v1",
                [r"deepseek-v\d", r"llama.*70b-instruct", r"qwen.*instruct"]),
     "sambanova": ("SAMBANOVA_API_KEY", "https://api.sambanova.ai/v1",
@@ -34,8 +35,8 @@ OPENAI_PROVIDERS = {
     "ovh": (None, "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
             [r"llama.*70b", r"qwen.*(235b|72b|32b)", r"mistral", r"llama"]),
 }
-SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|coder|math", re.I)
-_model_cache: dict[str, str] = {}
+SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|code|math|allam|robotics", re.I)
+_model_cache: dict[str, list[str]] = {}
 
 PROMPT = """Sen "Bilarmidingiz" nomli o'zbek tilidagi YouTube Shorts kanali uchun virusli fakt-videolar yozadigan ssenariynavissan.
 Kanal yo'nalishi: "{niche}". Bugungi mavzu: {genre}.
@@ -88,18 +89,26 @@ def _extract_json(text: str) -> dict:
 
 # ---------------- Gemini ----------------
 def _gemini_models(cfg: dict) -> list[str]:
-    """Kalitga ochiq eng yangi Gemini Flash modellar (topilmasa config'dagi ro'yxat)."""
+    """Kalitga ochiq Gemini/Gemma modellar: eng yangi Flash'lar, Gemma 4, keyin Flash-Lite."""
     try:
         r = requests.get(f"{GEMINI}/models", headers={"x-goog-api-key": env("GEMINI_API_KEY")},
                          params={"pageSize": 200}, timeout=20)
         r.raise_for_status()
         names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
                  if "generateContent" in m.get("supportedGenerationMethods", [])]
-        flash = [n for n in names if re.fullmatch(r"gemini-[\d.]+-flash(-lite)?", n)]
-        flash.sort(key=lambda n: (float(re.search(r"\d+(?:\.\d+)?", n).group(0)), "lite" not in n),
-                   reverse=True)
-        if flash:
-            return flash[:2]
+
+        def ver(n: str) -> float:
+            return float(re.search(r"\d+(?:\.\d+)?", n).group(0))
+
+        flash = [n for n in names if re.fullmatch(r"gemini-[\d.]+-flash(-preview)?", n)]
+        lite = [n for n in names if re.fullmatch(r"gemini-[\d.]+-flash-lite(-preview)?", n)]
+        gemma = [n for n in names if re.fullmatch(r"gemma-\d+-\d+b-it", n)]
+        flash.sort(key=ver, reverse=True)
+        lite.sort(key=ver, reverse=True)
+        gemma.sort(key=lambda n: (ver(n), int(re.search(r"(\d+)b", n).group(1))), reverse=True)
+        models = flash[:3] + gemma[:2] + lite[:1]
+        if models:
+            return models
     except Exception as e:  # noqa: BLE001
         log.warning("Gemini modellar ro'yxati olinmadi: %s", e)
     return cfg["gemini"]["models"]
@@ -127,7 +136,8 @@ def _call_gemini(model: str, prompt: str, temperature: float) -> str:
 
 
 # ---------------- OpenAI-mos provayderlar ----------------
-def _pick_model(name: str, base: str, key: str, prefs: list[str]) -> str:
+def _pick_models(name: str, base: str, key: str, prefs: list[str], limit: int = 3) -> list[str]:
+    """Provayderning /models ro'yxatidan afzal andozalarga mos eng yaxshi bir nechta model."""
     if name in _model_cache:
         return _model_cache[name]
     r = requests.get(f"{base}/models", headers={"Authorization": f"Bearer {key}"} if key else {}, timeout=20)
@@ -135,7 +145,12 @@ def _pick_model(name: str, base: str, key: str, prefs: list[str]) -> str:
     ids = [m["id"] for m in r.json().get("data", []) if not SKIP_MODELS.search(m["id"])]
     if not ids:
         raise RuntimeError(f"{name}: mos model topilmadi")
-    chosen = next((mid for pat in prefs for mid in ids if re.search(pat, mid, re.I)), ids[0])
+    chosen = []
+    for pat in prefs:
+        for mid in ids:
+            if mid not in chosen and re.search(pat, mid, re.I):
+                chosen.append(mid)
+    chosen = (chosen or ids)[:limit]
     _model_cache[name] = chosen
     return chosen
 
@@ -149,11 +164,9 @@ def _message_text(data: dict) -> str:
     return text
 
 
-def _call_openai(name: str, prompt: str, temperature: float) -> str:
-    var, base, prefs = OPENAI_PROVIDERS[name]
+def _call_openai(name: str, model: str, prompt: str, temperature: float) -> str:
+    var, base, _prefs = OPENAI_PROVIDERS[name]
     key = env(var) if var else ""
-    model = _pick_model(name, base, key, prefs)
-    log.info("%s modeli: %s", name, model)
     r = requests.post(
         f"{base}/chat/completions",
         headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {key}"} if key else {})},
@@ -180,7 +193,7 @@ def _call_pollinations(prompt: str, temperature: float) -> str:
 
 
 def _llm_chain(cfg: dict) -> list:
-    """Kaliti bor provayderlar config'dagi tartibda: [(nomi, chaqiruvchi funksiya), ...]."""
+    """Kaliti bor provayderlarning barcha mos modellari, config'dagi tartibda: [(nomi, funksiya), ...]."""
     order = cfg.get("llm", {}).get("order") or ["gemini", *OPENAI_PROVIDERS, "pollinations"]
     chain = []
     for name in order:
@@ -190,9 +203,19 @@ def _llm_chain(cfg: dict) -> list:
                     chain.append((f"gemini/{m}", lambda p, t, m=m: _call_gemini(m, p, t)))
         elif name == "pollinations":
             chain.append((name, _call_pollinations))
-        elif name in OPENAI_PROVIDERS and (OPENAI_PROVIDERS[name][0] is None
-                                           or env(OPENAI_PROVIDERS[name][0], required=False)):
-            chain.append((name, lambda p, t, n=name: _call_openai(n, p, t)))
+        elif name in OPENAI_PROVIDERS:
+            var, base, prefs = OPENAI_PROVIDERS[name]
+            key = env(var, required=False) if var else ""
+            if var and not key:
+                continue
+            try:
+                models = _pick_models(name, base, key, prefs)
+            except Exception as e:  # noqa: BLE001
+                log.warning("%s modellar ro'yxati olinmadi: %s", name, e)
+                continue
+            for m in models:
+                chain.append((f"{name}/{m}", lambda p, t, n=name, m=m: _call_openai(n, m, p, t)))
+    log.info("Model zanjiri (%d ta): %s", len(chain), ", ".join(label for label, _ in chain))
     return chain
 
 
