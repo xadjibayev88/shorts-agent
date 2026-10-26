@@ -55,6 +55,13 @@
       "genre": "ovqat va ichimliklar haqida bilmagan faktingiz",
       "video_id": "Q3Q2dH9X24w",
       "words": 93
+    },
+    {
+      "date": "2026-10-26T20:36:54+00:00",
+      "title": "Antik Romet Betoniyati Hali Qoldi Ijtimoi",
+      "genre": "qadimiy sivilizatsiyalar va ularning sirlari",
+      "video_id": "bvOFww_sK1E",
+      "words": 70
     }
   ],
   "used_pexels_ids": [
@@ -111,7 +118,15 @@
     "pb30470",
     "pb37144",
     "pb39120",
-    "pb71119"
+    "pb71119",
+    "pb114257",
+    "pb148541",
+    "pb152085",
+    "pb20299",
+    "pb272520",
+    "pb32248",
+    "pb3741",
+    "pb45978"
   ],
-  "genre_index": 9
+  "genre_index": 10
 }
