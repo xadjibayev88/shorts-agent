@@ -13,6 +13,13 @@
       "genre": "detektiv hikoya, oxirida jumboq yechiladi",
       "video_id": "lsgsQKmz-fI",
       "words": 86
+    },
+    {
+      "date": "2026-10-26T09:42:23+00:00",
+      "title": "Anglo‑Zanzibar urushi faqat 38 daqiqada yakunlandi!",
+      "genre": "tarixdagi kutilmagan, ishonish qiyin fakt",
+      "video_id": "w3UcFdt9shE",
+      "words": 105
     }
   ],
   "used_pexels_ids": [
@@ -22,7 +29,16 @@
     "pb185096",
     "pb197482",
     "pb259792",
-    "pb7093"
+    "pb7093",
+    "pb137614",
+    "pb170294",
+    "pb205519",
+    "pb216973",
+    "pb61412",
+    "pb61415",
+    "pb71565",
+    "pb84006",
+    "pb9005"
   ],
-  "genre_index": 3
+  "genre_index": 4
 }
