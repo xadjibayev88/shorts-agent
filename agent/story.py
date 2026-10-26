@@ -8,32 +8,35 @@ from .utils import env, log, retry
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
-PROMPT = """Sen YouTube Shorts uchun virusli qisqa hikoyalar yozadigan professional ssenariynavissan.
-Kanal: o'zbek tilidagi "{niche}". Bugungi janr: {genre}.
+PROMPT = """Sen "Bilarmidingiz" nomli o'zbek tilidagi YouTube Shorts kanali uchun virusli fakt-videolar yozadigan ssenariynavissan.
+Kanal yo'nalishi: "{niche}". Bugungi mavzu: {genre}.
 
-VAZIFA: butunlay ORIGINAL, to'qima qahramonli qisqa hikoya yoz (real shaxslar, siyosat, din mavzularida bahs yo'q).
+VAZIFA: shu mavzu bo'yicha bitta HAQIQIY, ilmiy tasdiqlangan, hayratlanarli faktni tanla va u haqida qisqa video matni yoz.
 Talablar:
-- Til: sof, jonli adabiy o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof ishlat: o', g'.
-- Hikoya {min_words}-{max_words} so'zdan iborat bo'lsin (ovozda ~45-55 soniya).
-- 1-gap — kuchli HOOK: tomoshabinni birinchi 2 soniyada ushlab qolsin (savol, sir yoki shok fakt).
-- O'rtada taranglik oshib borsin, oxirida kutilmagan burilish yoki chuqur xulosa bo'lsin.
-- Oxirgi gap qisqa va esda qoladigan bo'lsin. "Obuna bo'ling" deb yozma.
+- Fakt to'qima bo'lmasin. Shubhali, afsonaviy yoki tekshirib bo'lmaydigan faktlarni tanlama. Raqamlar aniq bo'lsin.
+- Til: sof, jonli o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof ishlat: o', g'.
+- Matn {min_words}-{max_words} so'zdan iborat bo'lsin (ovozda ~35-50 soniya).
+- 1-gap ALBATTA "Bilarmidingiz," so'zi bilan boshlansin va eng kuchli, shok qiladigan faktni aytsin.
+  Masalan: "Bilarmidingiz, sakkizoyoqning uchta yuragi bor!"
+- Keyingi gaplarda nega shunday ekanini oddiy tilda tushuntir va 2-3 ta qo'shimcha qiziq detal qo'sh.
+- Oxirgi gap tomoshabinni izoh yozishga undovchi qisqa savol bo'lsin (masalan: "Siz buni bilarmidingiz?"). "Obuna bo'ling" deb yozma.
 - Gaplar qisqa, ovozda o'qishga qulay. Raqamlarni so'z bilan yoz. Emoji ishlatma.
-- Hikoyani {scenes_min}-{scenes_max} ta sahnaga bo'l. Har sahna uchun Pexels stok videodan
-  qidirish uchun 2-4 so'zli INGLIZCHA kalit so'z ber (aniq, vizual: "old man walking village",
-  "rainy city night", "hands counting money"). Yuz/odam aniq bo'lmagan, kayfiyatga mos kadrlar yaxshi.
+- Matnni {scenes_min}-{scenes_max} ta sahnaga bo'l (har sahna 1-2 qisqa gap, ~3-5 soniya).
+- Har sahna uchun stok VIDEO qidirish uchun 2-4 so'zli INGLIZCHA kalit so'z ber. Kadr HARAKATLI va aynan
+  shu gapga mos bo'lsin: "octopus swimming ocean", "rocket launch fire smoke", "cheetah running savanna",
+  "blood cells flowing", "lightning storm night sky". Harakatsiz narsalarni ("old book", "stone") tanlama.
 
-Shu sarlavhalar ALLAQACHON ishlatilgan, takrorlama va ularga o'xshatma:
+Shu faktlar ALLAQACHON ishlatilgan, takrorlama va ularga o'xshatma:
 {used}
 
 FAQAT shu JSON formatda javob ber:
 {{
-  "title": "Qiziqarli sarlavha, 40-70 belgi, clickbait lekin halol",
-  "hook": "Ekran tepasidagi 2-5 so'zli qisqa ilmoq matni",
+  "title": "Qiziqarli sarlavha, 40-70 belgi, faktning eng hayratli qismi bilan",
+  "hook": "Ekran tepasidagi 2-4 so'zli qisqa ilmoq matni (masalan: BILARMIDINGIZ?)",
   "scenes": [
-    {{"text": "sahnadagi ovozli matn (1-3 gap)", "keywords": "english search words"}}
+    {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
   ],
-  "description": "2-3 gaplik tavsif, hikoyani ochib bermasdan qiziqtiradi",
+  "description": "2-3 gaplik tavsif: fakt qisqacha va qiziqtiruvchi savol",
   "tags": ["8-12 ta o'zbekcha va inglizcha teg"],
   "hashtags": ["#3-5", "#ta", "#heshteg"]
 }}
@@ -82,6 +85,10 @@ def validate(story: dict, cfg: dict) -> dict:
     for s in scenes:
         s["text"] = re.sub(r"\s+", " ", s["text"]).strip()
         s["keywords"] = (s.get("keywords") or "nature landscape").strip()
+    # Kanal uslubi: har video "Bilarmidingiz," bilan boshlanadi
+    first = scenes[0]["text"]
+    if not first.lower().startswith("bilarmidingiz"):
+        scenes[0]["text"] = "Bilarmidingiz, " + first[:1].lower() + first[1:]
     words = sum(_word_count(s["text"]) for s in scenes)
     if not (sc["min_words"] * 0.85 <= words <= sc["max_words"] * 1.15):
         raise ValueError(f"So'z soni mos emas: {words}")
