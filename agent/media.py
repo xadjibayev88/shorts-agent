@@ -13,21 +13,25 @@ from .utils import env, log, retry
 def _pixabay(query: str, min_h: int) -> list[tuple[str, str]]:
     r = requests.get(
         "https://pixabay.com/api/videos/",
-        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "per_page": 30,
-                "safesearch": "true", "order": "popular"},
+        params={"key": env("PIXABAY_API_KEY"), "q": query[:100], "per_page": 50,
+                "video_type": "film", "safesearch": "true", "order": "popular"},
         timeout=30,
     )
     r.raise_for_status()
-    out = []
+    vertical, horizontal = [], []
     for hit in r.json().get("hits", []):
+        # Juda qisqa kliplar odatda harakatsiz — tashlab ketamiz
+        if hit.get("duration", 0) < 5:
+            continue
         vids = hit.get("videos", {})
-        # Pixabay ko'pincha gorizontal — kesib vertikal qilamiz, shuning uchun balandligi muhim
         for size in ("large", "medium"):
             f = vids.get(size) or {}
             if f.get("url") and f.get("height", 0) >= min(min_h, 1080) * 0.66:
-                out.append((f"pb{hit['id']}", f["url"]))
+                item = (f"pb{hit['id']}", f["url"])
+                # Vertikal kliplar kesilmasdan to'liq ko'rinadi — ular birinchi navbatda
+                (vertical if f["height"] > f.get("width", 0) else horizontal).append(item)
                 break
-    return out
+    return vertical + horizontal
 
 
 # ---------------- Pexels ----------------
