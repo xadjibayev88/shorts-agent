@@ -54,19 +54,24 @@ def scene_timings(scenes: list[dict], words: list[dict], total: float) -> list[t
 def _prep_scene(src: Path | None, dur: float, cfg: dict, out: Path):
     v = cfg["video"]
     W, H, fps = v["width"], v["height"], v["fps"]
-    # 112% kattalashtirib, sekin "pan" — kadr jonli ko'rinadi
-    bw, bh = int(W * 1.12) // 2 * 2, int(H * 1.12) // 2 * 2
-    direction = random.choice([1, -1])
-    xexpr = f"(iw-ow)*(0.5+{direction}*0.4*(t/{dur:.3f}-0.5))"
-    vf = (f"scale={bw}:{bh}:force_original_aspect_ratio=increase,"
-          f"crop={W}:{H}:x='{xexpr}':y='(ih-oh)/2',setsar=1,fps={fps},"
-          f"eq=brightness=-0.05:contrast=1.06:saturation=1.12,format=yuv420p")
+    # Klipning o'z harakati saqlanadi: faqat 9:16 ga markazdan kesamiz (sun'iy "pan" yo'q)
+    vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
+          f"crop={W}:{H},setsar=1,fps={fps},"
+          f"eq=contrast=1.05:saturation=1.1,format=yuv420p")
     if src is None:
         c0, c1, c2 = random.choice(GRADIENTS)
         inp = ["-f", "lavfi", "-i",
                f"gradients=s={W}x{H}:c0={c0}:c1={c1}:c2={c2}:n=3:speed=0.015:r={fps}"]
     else:
-        inp = ["-stream_loop", "-1", "-i", str(src)]
+        # Klip boshidagi harakatsiz qismni tashlab, tasodifiy joydan boshlaymiz
+        start = 0.0
+        try:
+            clip_dur = ffprobe_duration(src)
+            if clip_dur > dur + 1.5:
+                start = random.uniform(0.5, clip_dur - dur - 0.5)
+        except Exception:  # noqa: BLE001
+            pass
+        inp = ["-ss", f"{start:.2f}", "-stream_loop", "-1", "-i", str(src)]
     run(["ffmpeg", "-y", "-hide_banner", *inp, "-t", f"{dur:.3f}", "-an",
          "-vf", vf, "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
          "-r", str(fps), str(out)])
