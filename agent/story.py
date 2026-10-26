@@ -63,6 +63,7 @@ FAQAT shu JSON formatda javob ber:
 {{
   "title": "Qiziqarli sarlavha, 40-70 belgi, faktning eng hayratli qismi bilan",
   "hook": "Ekran tepasidagi 2-4 so'zli qisqa ilmoq matni (masalan: BILARMIDINGIZ?)",
+  "thumbnail_text": "Muqova uchun 3-6 so'zli, eng hayratli raqam yoki faktli, KATTA HARFLI yozuv (masalan: OKEANDA 3 YURAKLI MAXLUQ!)",
   "scenes": [
     {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
   ],
@@ -232,11 +233,12 @@ def validate(story: dict, cfg: dict) -> dict:
     if not first.lower().startswith("bilarmidingiz"):
         scenes[0]["text"] = "Bilarmidingiz, " + first[:1].lower() + first[1:]
     words = sum(_word_count(s["text"]) for s in scenes)
-    if not (sc["min_words"] * 0.85 <= words <= sc["max_words"] * 1.15):
+    if not (sc["min_words"] * 0.7 <= words <= sc["max_words"] * 1.2):
         raise ValueError(f"So'z soni mos emas: {words}")
     story["scenes"] = scenes
     story["title"] = story.get("title", "Qiziqarli hikoya").strip()[:90]
     story["hook"] = (story.get("hook") or "").strip()[:40]
+    story["thumbnail_text"] = (story.get("thumbnail_text") or story["hook"] or story["title"]).strip()[:60]
     story["tags"] = [t.strip("# ").strip() for t in story.get("tags", []) if t.strip()][:15]
     story["hashtags"] = [h if h.startswith("#") else f"#{h}" for h in story.get("hashtags", [])][:5]
     story["description"] = story.get("description", "").strip()
