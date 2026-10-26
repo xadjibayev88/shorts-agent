@@ -29,7 +29,8 @@ story:
 llm:
   # Matn yozuvchi modellar shu tartibda sinab ko'riladi. Kaliti (GitHub Secret) yo'q provayder o'tkazib yuboriladi.
   # Har provayderning eng yaxshi modeli avtomatik tanlanadi, shuning uchun model nomlarini yozish shart emas.
-  order: [gemini, groq, cerebras, openrouter, mistral, nvidia, sambanova, pollinations]
+  # Yozgan model faktni boshqa provayderdagi model tekshiradi (fakt-tekshiruv).
+  order: [gemini, groq, agnes, mistral, cerebras, openrouter, nvidia, sambanova, kilo, ovh, pollinations]
 
 gemini:
   # Faqat Gemini modellar ro'yxatini olib bo'lmasa ishlatiladi
