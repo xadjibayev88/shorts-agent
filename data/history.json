@@ -6,8 +6,23 @@
       "genre": "sirli va mistik hikoya (qo'rqinchli emas, qiziqarli)",
       "video_id": "SnyR85Q8QVk",
       "words": 86
+    },
+    {
+      "date": "2026-10-26T08:32:18+00:00",
+      "title": "Yoritilmagan Yolg'on: Izquvar Bitta Sham Bilan Siri Ochdi",
+      "genre": "detektiv hikoya, oxirida jumboq yechiladi",
+      "video_id": "lsgsQKmz-fI",
+      "words": 86
     }
   ],
-  "used_pexels_ids": [],
-  "genre_index": 2
+  "used_pexels_ids": [
+    "pb107280",
+    "pb15178",
+    "pb173028",
+    "pb185096",
+    "pb197482",
+    "pb259792",
+    "pb7093"
+  ],
+  "genre_index": 3
 }
