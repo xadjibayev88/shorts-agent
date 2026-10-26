@@ -110,7 +110,7 @@ def _call_gemini(model: str, prompt: str, temperature: float) -> str:
                 "responseMimeType": "application/json",
             },
         },
-        timeout=60,
+        timeout=120,
     )
     if r.status_code != 200:
         raise RuntimeError(f"Gemini {model} HTTP {r.status_code}: {r.text[:300]}")
@@ -133,6 +133,15 @@ def _pick_model(name: str, base: str, key: str, prefs: list[str]) -> str:
     return chosen
 
 
+def _message_text(data: dict) -> str:
+    """OpenAI-uslubidagi javobdan matnni oladi (ba'zi modellar uni boshqa maydonga qo'yadi)."""
+    msg = (data.get("choices") or [{}])[0].get("message") or {}
+    text = msg.get("content") or msg.get("reasoning_content") or msg.get("reasoning") or ""
+    if not text:
+        raise RuntimeError(f"Bo'sh javob: {str(data)[:200]}")
+    return text
+
+
 def _call_openai(name: str, prompt: str, temperature: float) -> str:
     var, base, prefs = OPENAI_PROVIDERS[name]
     key = env(var)
@@ -147,7 +156,7 @@ def _call_openai(name: str, prompt: str, temperature: float) -> str:
     )
     if r.status_code != 200:
         raise RuntimeError(f"{name} {model} HTTP {r.status_code}: {r.text[:300]}")
-    return r.json()["choices"][0]["message"]["content"] or ""
+    return _message_text(r.json())
 
 
 def _call_pollinations(prompt: str, temperature: float) -> str:
@@ -160,7 +169,7 @@ def _call_pollinations(prompt: str, temperature: float) -> str:
     )
     if r.status_code != 200:
         raise RuntimeError(f"Pollinations HTTP {r.status_code}: {r.text[:300]}")
-    return r.json()["choices"][0]["message"]["content"] or ""
+    return _message_text(r.json())
 
 
 def _llm_chain(cfg: dict) -> list:
