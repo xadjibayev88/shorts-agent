@@ -27,6 +27,12 @@ OPENAI_PROVIDERS = {
                [r"deepseek-v\d", r"llama.*70b-instruct", r"qwen.*instruct"]),
     "sambanova": ("SAMBANOVA_API_KEY", "https://api.sambanova.ai/v1",
                   [r"deepseek-v\d", r"llama.*70b", r"qwen"]),
+    "agnes": ("AGNES_API_KEY", "https://apihub.agnes-ai.com/v1",
+              [r"agnes.*pro", r"agnes.*flash", r"agnes"]),
+    # Kalitsiz bepul provayderlar (FreeLLMAPI ro'yxatidan) — kalit kerak emas
+    "kilo": (None, "https://api.kilo.ai/api/gateway/v1", [r":free$", r"free"]),
+    "ovh": (None, "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+            [r"llama.*70b", r"qwen.*(235b|72b|32b)", r"mistral", r"llama"]),
 }
 SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|coder|math", re.I)
 _model_cache: dict[str, str] = {}
@@ -60,6 +66,7 @@ FAQAT shu JSON formatda javob ber:
     {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
   ],
   "description": "2-3 gaplik tavsif: fakt qisqacha va qiziqtiruvchi savol",
+  "source": "Faktning ishonchli manbasi (masalan: NASA, Britannica, National Geographic, WHO)",
   "tags": ["8-12 ta o'zbekcha va inglizcha teg"],
   "hashtags": ["#3-5", "#ta", "#heshteg"]
 }}
@@ -123,7 +130,7 @@ def _call_gemini(model: str, prompt: str, temperature: float) -> str:
 def _pick_model(name: str, base: str, key: str, prefs: list[str]) -> str:
     if name in _model_cache:
         return _model_cache[name]
-    r = requests.get(f"{base}/models", headers={"Authorization": f"Bearer {key}"}, timeout=20)
+    r = requests.get(f"{base}/models", headers={"Authorization": f"Bearer {key}"} if key else {}, timeout=20)
     r.raise_for_status()
     ids = [m["id"] for m in r.json().get("data", []) if not SKIP_MODELS.search(m["id"])]
     if not ids:
@@ -144,12 +151,12 @@ def _message_text(data: dict) -> str:
 
 def _call_openai(name: str, prompt: str, temperature: float) -> str:
     var, base, prefs = OPENAI_PROVIDERS[name]
-    key = env(var)
+    key = env(var) if var else ""
     model = _pick_model(name, base, key, prefs)
     log.info("%s modeli: %s", name, model)
     r = requests.post(
         f"{base}/chat/completions",
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {key}"} if key else {})},
         json={"model": model, "temperature": temperature,
               "messages": [{"role": "user", "content": prompt}]},
         timeout=90,
@@ -183,7 +190,8 @@ def _llm_chain(cfg: dict) -> list:
                     chain.append((f"gemini/{m}", lambda p, t, m=m: _call_gemini(m, p, t)))
         elif name == "pollinations":
             chain.append((name, _call_pollinations))
-        elif name in OPENAI_PROVIDERS and env(OPENAI_PROVIDERS[name][0], required=False):
+        elif name in OPENAI_PROVIDERS and (OPENAI_PROVIDERS[name][0] is None
+                                           or env(OPENAI_PROVIDERS[name][0], required=False)):
             chain.append((name, lambda p, t, n=name: _call_openai(n, p, t)))
     return chain
 
@@ -209,8 +217,43 @@ def validate(story: dict, cfg: dict) -> dict:
     story["tags"] = [t.strip("# ").strip() for t in story.get("tags", []) if t.strip()][:15]
     story["hashtags"] = [h if h.startswith("#") else f"#{h}" for h in story.get("hashtags", [])][:5]
     story["description"] = story.get("description", "").strip()
+    source = (story.get("source") or "").strip()
+    if source and "Manba:" not in story["description"]:
+        story["description"] = f"{story['description']}\n\nManba: {source[:120]}".strip()
     story["word_count"] = words
     return story
+
+
+VERIFY_PROMPT = """Sen qat'iy fakt-tekshiruvchisan. Quyidagi o'zbekcha qisqa video matnidagi har bir faktni va raqamni tekshir.
+Matn:
+{text}
+
+Agar barcha asosiy faktlar va raqamlar haqiqatga to'g'ri kelsa "true", biror muhim fakt noto'g'ri, bo'rttirilgan
+yoki to'qima bo'lsa "false", ishonchli bilmasang "uncertain" de.
+FAQAT shu JSON formatda javob ber:
+{{"verdict": "true", "issues": "qisqa izoh"}}
+"""
+
+
+def _fact_check(story: dict, chain: list, author: str) -> None:
+    """Faktni BOSHQA provayderdagi model tekshiradi; tasdiqlanmasa ValueError."""
+    provider = author.split("/")[0]
+    text = " ".join(s["text"] for s in story["scenes"])
+    for label, call in chain:
+        if label.split("/")[0] in (provider, "pollinations"):
+            continue
+        try:
+            res = _extract_json(call(VERIFY_PROMPT.format(text=text), 0.1))
+        except Exception as e:  # noqa: BLE001
+            log.warning("Tekshiruvchi %s ishlamadi: %s", label, e)
+            continue
+        verdict = str(res.get("verdict", "")).lower()
+        log.info("Fakt tekshiruvi (%s): %s — %s", label, verdict, str(res.get("issues", ""))[:200])
+        if verdict != "true":
+            raise ValueError(f"Fakt tasdiqlanmadi ({label}): {res.get('issues', '')}"[:300])
+        story["verified_by"] = label
+        return
+    log.warning("Tekshiruvchi model topilmadi — fakt tekshirilmadi")
 
 
 @retry(times=2, delay=20)
@@ -226,7 +269,8 @@ def generate_story(cfg: dict, history: dict) -> dict:
         used="\n".join(f"- {t}" for t in used) or "- (hali yo'q)",
     )
     last_err = None
-    for label, call in _llm_chain(cfg):
+    chain = _llm_chain(cfg)
+    for label, call in chain:
         try:
             log.info("%s matn yozmoqda — mavzu: %s", label, genre)
             raw = call(prompt, cfg["gemini"]["temperature"])
@@ -234,6 +278,7 @@ def generate_story(cfg: dict, history: dict) -> dict:
             used_lower = {t.lower() for t in used}
             if story["title"].lower() in used_lower:
                 raise ValueError("Sarlavha takrorlandi")
+            _fact_check(story, chain, label)
             story["genre"] = genre
             story["model"] = label
             history["genre_index"] = gi + 1
