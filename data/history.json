@@ -1,5 +1,13 @@
 {
-  "videos": [],
+  "videos": [
+    {
+      "date": "2026-10-26T05:59:01+00:00",
+      "title": "Umr Qadamlarini Sanaydigan Mistik Soat Siri",
+      "genre": "sirli va mistik hikoya (qo'rqinchli emas, qiziqarli)",
+      "video_id": "SnyR85Q8QVk",
+      "words": 86
+    }
+  ],
   "used_pexels_ids": [],
-  "genre_index": 1
+  "genre_index": 2
 }
