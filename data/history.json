@@ -48,6 +48,13 @@
       "genre": "dunyo davlatlari va shaharlari haqida g'alati fakt",
       "video_id": "H2Unx81O1eY",
       "words": 76
+    },
+    {
+      "date": "2026-10-26T14:49:52+00:00",
+      "title": "Bilarmidingiz, 3000 yillik asal hanuz ham iste'molga yaroqli!",
+      "genre": "ovqat va ichimliklar haqida bilmagan faktingiz",
+      "video_id": "Q3Q2dH9X24w",
+      "words": 93
     }
   ],
   "used_pexels_ids": [
@@ -96,7 +103,15 @@
     "pb236256",
     "pb33237",
     "pb350914",
-    "pb63241"
+    "pb63241",
+    "pb165065",
+    "pb178049",
+    "pb178826",
+    "pb276628",
+    "pb30470",
+    "pb37144",
+    "pb39120",
+    "pb71119"
   ],
-  "genre_index": 8
+  "genre_index": 9
 }
