@@ -1,6 +1,7 @@
 """Stok videolar: Pixabay (asosiy) yoki Pexels (kalit bo'lsa). Ikkalasi ham bepul.
 Hech biri ishlamasa — render chiroyli gradient fon yasaydi."""
 import random
+import re
 from pathlib import Path
 
 import requests
@@ -18,7 +19,8 @@ def _pixabay(query: str, min_h: int) -> list[tuple[str, str]]:
         timeout=30,
     )
     r.raise_for_status()
-    vertical, horizontal = [], []
+    words = {w for w in re.findall(r"[a-z]+", query.lower()) if len(w) > 2}
+    ranked = []
     for hit in r.json().get("hits", []):
         # Juda qisqa kliplar odatda harakatsiz — tashlab ketamiz
         if hit.get("duration", 0) < 5:
@@ -27,11 +29,14 @@ def _pixabay(query: str, min_h: int) -> list[tuple[str, str]]:
         for size in ("large", "medium"):
             f = vids.get(size) or {}
             if f.get("url") and f.get("height", 0) >= min(min_h, 1080) * 0.66:
-                item = (f"pb{hit['id']}", f["url"])
-                # Vertikal kliplar kesilmasdan to'liq ko'rinadi — ular birinchi navbatda
-                (vertical if f["height"] > f.get("width", 0) else horizontal).append(item)
+                # Teglari sahna so'zlariga ko'proq mos keladigan klip — birinchi; tenglikda vertikal klip
+                tags = hit.get("tags", "").lower()
+                score = sum(1 for w in words if w in tags)
+                vertical = f["height"] > f.get("width", 0)
+                ranked.append((score, vertical, (f"pb{hit['id']}", f["url"])))
                 break
-    return vertical + horizontal
+    ranked.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    return [item for _, _, item in ranked]
 
 
 # ---------------- Pexels ----------------
@@ -98,7 +103,7 @@ def fetch_clips(scenes: list[dict], cfg: dict, history: dict, workdir: Path) -> 
                 fresh = [x for x in items if x[0] not in used and x[0] not in taken]
                 pool = fresh or [x for x in items if x[0] not in taken]
                 if pool:
-                    chosen = random.choice(pool[:8])
+                    chosen = random.choice(pool[:3])
                     log.info("Sahna %d: %s %s ('%s')", i + 1, name, chosen[0], q)
                     break
             if chosen:
