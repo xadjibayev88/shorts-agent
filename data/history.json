@@ -20,6 +20,13 @@
       "genre": "tarixdagi kutilmagan, ishonish qiyin fakt",
       "video_id": "w3UcFdt9shE",
       "words": 105
+    },
+    {
+      "date": "2026-10-26T10:04:40+00:00",
+      "title": "Mariana chuqurligida 1,100 bar bosim – hayratlanarli haqiqat",
+      "genre": "okean va dengiz tubidagi sirli fakt",
+      "video_id": "GBeLD7TVf74",
+      "words": 89
     }
   ],
   "used_pexels_ids": [
@@ -38,7 +45,15 @@
     "pb61415",
     "pb71565",
     "pb84006",
-    "pb9005"
+    "pb9005",
+    "pb127644",
+    "pb131993",
+    "pb213622",
+    "pb2333",
+    "pb312",
+    "pb378834",
+    "pb4037",
+    "pb90544"
   ],
-  "genre_index": 4
+  "genre_index": 5
 }
