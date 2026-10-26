@@ -33,8 +33,8 @@ def build_metadata(story: dict, cfg: dict) -> dict:
     description = (
         f"{story.get('description', '')}\n\n"
         f"{' '.join(hashtags)}\n\n"
-        "Hikoya to'qima, barcha qahramonlar xayoliy. "
-        "Kadrlar: Pexels. Ovoz: sun'iy intellekt."
+        "Fakt sun'iy intellekt tomonidan tayyorlangan va ikkinchi model bilan tekshirilgan. "
+        "Kadrlar: Pixabay. Ovoz: sun'iy intellekt."
     )[:4900]
     tags, total = [], 0
     for t in story.get("tags", []) + y["extra_tags"]:
@@ -82,4 +82,22 @@ def upload(video: Path, story: dict, cfg: dict) -> str:
         raise
     vid = resp["id"]
     log.info("✅ Joylandi: https://youtube.com/shorts/%s", vid)
+    _set_thumbnail(yt, vid, video, story, cfg)
     return vid
+
+
+def _set_thumbnail(yt, vid: str, video: Path, story: dict, cfg: dict):
+    """Diqqatni tortuvchi muqovani o'rnatadi. Xato bo'lsa video baribir joylangan qoladi."""
+    try:
+        from .thumbnail import make_thumbnail
+        thumb = make_thumbnail(video, story, cfg, video.with_name("thumb.jpg"))
+        yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb), mimetype="image/jpeg")).execute()
+        log.info("🖼 Muqova o'rnatildi")
+    except HttpError as e:
+        if e.resp.status == 403:
+            log.warning("Muqova o'rnatilmadi: kanal telefon orqali tasdiqlanmagan "
+                        "(youtube.com/verify). Xato: %s", e)
+        else:
+            log.warning("Muqova o'rnatilmadi: %s", e)
+    except Exception as e:  # noqa: BLE001
+        log.warning("Muqova yasalmadi: %s", e)
