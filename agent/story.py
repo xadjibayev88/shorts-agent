@@ -1,4 +1,8 @@
-"""Gemini orqali o'zbekcha qisqa hikoya + sahnalar + YouTube metadata yaratish."""
+"""Bepul LLM'lar orqali o'zbekcha fakt-video matni + sahnalar + YouTube metadata yaratish.
+
+Bir nechta provayder navbat bilan sinab ko'riladi (Gemini, Groq, Cerebras, OpenRouter, ...).
+Qaysi birining kaliti GitHub Secrets'da bo'lsa o'shasi ishlatiladi; band bo'lsa keyingisiga o'tiladi.
+"""
 import json
 import re
 
@@ -6,7 +10,26 @@ import requests
 
 from .utils import env, log, retry
 
-API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+GEMINI = "https://generativelanguage.googleapis.com/v1beta"
+
+# OpenAI-mos bepul provayderlar: nomi -> (kalit o'zgaruvchisi, base url, afzal model andozalari).
+# Model nomlari tez-tez yangilanadi, shuning uchun har safar /models ro'yxatidan eng mosini tanlaymiz.
+OPENAI_PROVIDERS = {
+    "groq": ("GROQ_API_KEY", "https://api.groq.com/openai/v1",
+             [r"gpt-oss-120b", r"llama.*70b", r"qwen.*(235b|32b|27b)", r"qwen", r"llama"]),
+    "cerebras": ("CEREBRAS_API_KEY", "https://api.cerebras.ai/v1",
+                 [r"gpt-oss-120b", r"qwen.*235b", r"llama.*70b", r"qwen", r"llama"]),
+    "openrouter": ("OPENROUTER_API_KEY", "https://openrouter.ai/api/v1",
+                   [r"deepseek.*:free$", r"qwen.*:free$", r"llama.*70b.*:free$", r"gemma.*:free$", r":free$"]),
+    "mistral": ("MISTRAL_API_KEY", "https://api.mistral.ai/v1",
+                [r"^mistral-medium-latest$", r"^mistral-large-latest$", r"^mistral-small-latest$"]),
+    "nvidia": ("NVIDIA_API_KEY", "https://integrate.api.nvidia.com/v1",
+               [r"deepseek-v\d", r"llama.*70b-instruct", r"qwen.*instruct"]),
+    "sambanova": ("SAMBANOVA_API_KEY", "https://api.sambanova.ai/v1",
+                  [r"deepseek-v\d", r"llama.*70b", r"qwen"]),
+}
+SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|coder|math", re.I)
+_model_cache: dict[str, str] = {}
 
 PROMPT = """Sen "Bilarmidingiz" nomli o'zbek tilidagi YouTube Shorts kanali uchun virusli fakt-videolar yozadigan ssenariynavissan.
 Kanal yo'nalishi: "{niche}". Bugungi mavzu: {genre}.
@@ -48,7 +71,7 @@ def _word_count(s: str) -> int:
 
 
 def _extract_json(text: str) -> dict:
-    text = text.strip()
+    text = re.sub(r"<think>.*?</think>", "", text or "", flags=re.S).strip()
     text = re.sub(r"^```(?:json)?|```$", "", text, flags=re.M).strip()
     m = re.search(r"\{.*\}", text, flags=re.S)
     if not m:
@@ -56,10 +79,29 @@ def _extract_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
+# ---------------- Gemini ----------------
+def _gemini_models(cfg: dict) -> list[str]:
+    """Kalitga ochiq eng yangi Gemini Flash modellar (topilmasa config'dagi ro'yxat)."""
+    try:
+        r = requests.get(f"{GEMINI}/models", headers={"x-goog-api-key": env("GEMINI_API_KEY")},
+                         params={"pageSize": 200}, timeout=20)
+        r.raise_for_status()
+        names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
+                 if "generateContent" in m.get("supportedGenerationMethods", [])]
+        flash = [n for n in names if re.fullmatch(r"gemini-[\d.]+-flash(-lite)?", n)]
+        flash.sort(key=lambda n: (float(re.search(r"\d+(?:\.\d+)?", n).group(0)), "lite" not in n),
+                   reverse=True)
+        if flash:
+            return flash[:2]
+    except Exception as e:  # noqa: BLE001
+        log.warning("Gemini modellar ro'yxati olinmadi: %s", e)
+    return cfg["gemini"]["models"]
+
+
 def _call_gemini(model: str, prompt: str, temperature: float) -> str:
     key = env("GEMINI_API_KEY")
     r = requests.post(
-        API.format(model=model),
+        f"{GEMINI}/models/{model}:generateContent",
         headers={"x-goog-api-key": key, "Content-Type": "application/json"},
         json={
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -68,13 +110,73 @@ def _call_gemini(model: str, prompt: str, temperature: float) -> str:
                 "responseMimeType": "application/json",
             },
         },
-        timeout=120,
+        timeout=60,
     )
     if r.status_code != 200:
         raise RuntimeError(f"Gemini {model} HTTP {r.status_code}: {r.text[:300]}")
     data = r.json()
     parts = data["candidates"][0]["content"]["parts"]
     return "".join(p.get("text", "") for p in parts if not p.get("thought"))
+
+
+# ---------------- OpenAI-mos provayderlar ----------------
+def _pick_model(name: str, base: str, key: str, prefs: list[str]) -> str:
+    if name in _model_cache:
+        return _model_cache[name]
+    r = requests.get(f"{base}/models", headers={"Authorization": f"Bearer {key}"}, timeout=20)
+    r.raise_for_status()
+    ids = [m["id"] for m in r.json().get("data", []) if not SKIP_MODELS.search(m["id"])]
+    if not ids:
+        raise RuntimeError(f"{name}: mos model topilmadi")
+    chosen = next((mid for pat in prefs for mid in ids if re.search(pat, mid, re.I)), ids[0])
+    _model_cache[name] = chosen
+    return chosen
+
+
+def _call_openai(name: str, prompt: str, temperature: float) -> str:
+    var, base, prefs = OPENAI_PROVIDERS[name]
+    key = env(var)
+    model = _pick_model(name, base, key, prefs)
+    log.info("%s modeli: %s", name, model)
+    r = requests.post(
+        f"{base}/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model, "temperature": temperature,
+              "messages": [{"role": "user", "content": prompt}]},
+        timeout=90,
+    )
+    if r.status_code != 200:
+        raise RuntimeError(f"{name} {model} HTTP {r.status_code}: {r.text[:300]}")
+    return r.json()["choices"][0]["message"]["content"] or ""
+
+
+def _call_pollinations(prompt: str, temperature: float) -> str:
+    """Kalitsiz bepul zaxira — boshqa hech biri ishlamasa."""
+    r = requests.post(
+        "https://text.pollinations.ai/openai",
+        json={"model": "openai", "temperature": temperature,
+              "messages": [{"role": "user", "content": prompt}]},
+        timeout=120,
+    )
+    if r.status_code != 200:
+        raise RuntimeError(f"Pollinations HTTP {r.status_code}: {r.text[:300]}")
+    return r.json()["choices"][0]["message"]["content"] or ""
+
+
+def _llm_chain(cfg: dict) -> list:
+    """Kaliti bor provayderlar config'dagi tartibda: [(nomi, chaqiruvchi funksiya), ...]."""
+    order = cfg.get("llm", {}).get("order") or ["gemini", *OPENAI_PROVIDERS, "pollinations"]
+    chain = []
+    for name in order:
+        if name == "gemini":
+            if env("GEMINI_API_KEY", required=False):
+                for m in _gemini_models(cfg):
+                    chain.append((f"gemini/{m}", lambda p, t, m=m: _call_gemini(m, p, t)))
+        elif name == "pollinations":
+            chain.append((name, _call_pollinations))
+        elif name in OPENAI_PROVIDERS and env(OPENAI_PROVIDERS[name][0], required=False):
+            chain.append((name, lambda p, t, n=name: _call_openai(n, p, t)))
+    return chain
 
 
 def validate(story: dict, cfg: dict) -> dict:
@@ -102,7 +204,7 @@ def validate(story: dict, cfg: dict) -> dict:
     return story
 
 
-@retry(times=3, delay=5)
+@retry(times=2, delay=20)
 def generate_story(cfg: dict, history: dict) -> dict:
     genres = cfg["channel"]["genres"]
     gi = history.get("genre_index", 0) % len(genres)
@@ -115,21 +217,21 @@ def generate_story(cfg: dict, history: dict) -> dict:
         used="\n".join(f"- {t}" for t in used) or "- (hali yo'q)",
     )
     last_err = None
-    for model in cfg["gemini"]["models"]:
+    for label, call in _llm_chain(cfg):
         try:
-            log.info("Gemini (%s) hikoya yozmoqda — janr: %s", model, genre)
-            raw = _call_gemini(model, prompt, cfg["gemini"]["temperature"])
+            log.info("%s matn yozmoqda — mavzu: %s", label, genre)
+            raw = call(prompt, cfg["gemini"]["temperature"])
             story = validate(_extract_json(raw), cfg)
             used_lower = {t.lower() for t in used}
             if story["title"].lower() in used_lower:
                 raise ValueError("Sarlavha takrorlandi")
             story["genre"] = genre
-            story["model"] = model
+            story["model"] = label
             history["genre_index"] = gi + 1
-            log.info("Hikoya tayyor: «%s» (%d so'z, %d sahna)",
-                     story["title"], story["word_count"], len(story["scenes"]))
+            log.info("Matn tayyor (%s): «%s» (%d so'z, %d sahna)",
+                     label, story["title"], story["word_count"], len(story["scenes"]))
             return story
         except Exception as e:  # noqa: BLE001
             last_err = e
-            log.warning("Model %s ishlamadi: %s", model, e)
-    raise RuntimeError(f"Hech bir Gemini modeli hikoya bermadi: {last_err}")
+            log.warning("%s ishlamadi: %s", label, e)
+    raise RuntimeError(f"Hech bir model matn bermadi: {last_err}")
