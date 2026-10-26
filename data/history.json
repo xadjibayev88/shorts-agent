@@ -62,6 +62,13 @@
       "genre": "qadimiy sivilizatsiyalar va ularning sirlari",
       "video_id": "bvOFww_sK1E",
       "words": 70
+    },
+    {
+      "date": "2026-10-26T21:41:38+00:00",
+      "title": "Venerada bir kun bir yildan uzunroq davom etadi!",
+      "genre": "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt",
+      "video_id": "OdBLZiQhsdI",
+      "words": 89
     }
   ],
   "used_pexels_ids": [
@@ -126,7 +133,15 @@
     "pb272520",
     "pb32248",
     "pb3741",
-    "pb45978"
+    "pb45978",
+    "pb179777",
+    "pb27803",
+    "pb34855",
+    "pb370344",
+    "pb38388",
+    "pb384849",
+    "pb55990",
+    "pb65543"
   ],
-  "genre_index": 10
+  "genre_index": 1
 }
