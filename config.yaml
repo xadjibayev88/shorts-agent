@@ -5,37 +5,39 @@
 
 channel:
   language: uz                 # video tili
-  niche: "qisqa hikoyalar"     # kanal yo'nalishi
-  # Har safar shu janrlardan biri navbat bilan tanlanadi
+  niche: "Bilarmidingiz — qiziqarli faktlar"   # kanal yo'nalishi
+  # Har safar shu mavzulardan biri navbat bilan tanlanadi
   genres:
-    - "ibratli hayotiy hikoya, oxirida kutilmagan burilish"
-    - "sirli va mistik hikoya (qo'rqinchli emas, qiziqarli)"
-    - "detektiv hikoya, oxirida jumboq yechiladi"
-    - "motivatsion hikoya: kambag'aldan muvaffaqiyatga"
-    - "oilaviy, ta'sirli hikoya (ota-ona, farzand)"
-    - "donishmand va shogird haqida rivoyat"
-    - "kulgili hikoya, oxirida zo'r punchline"
-    - "tarixiy uslubdagi afsona (to'qima qahramonlar)"
+    - "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt"
+    - "hayvonlar olamidagi g'aroyib fakt"
+    - "inson tanasi va miyasi haqida kam odam biladigan fakt"
+    - "tarixdagi kutilmagan, ishonish qiyin fakt"
+    - "okean va dengiz tubidagi sirli fakt"
+    - "texnologiya va ixtirolar haqida qiziq fakt"
+    - "tabiat hodisalari va ob-havo haqida fakt"
+    - "dunyo davlatlari va shaharlari haqida g'alati fakt"
+    - "ovqat va ichimliklar haqida bilmagan faktingiz"
+    - "qadimiy sivilizatsiyalar va ularning sirlari"
 
 story:
-  min_words: 85
-  max_words: 150
-  scenes_min: 5
-  scenes_max: 8
-  history_avoid_last: 60       # oxirgi N ta sarlavhani takrorlamaydi
+  min_words: 70
+  max_words: 120
+  scenes_min: 7
+  scenes_max: 10
+  history_avoid_last: 120      # oxirgi N ta sarlavhani takrorlamaydi
 
 gemini:
   # Navbat bilan sinab ko'riladi — biri ishlamasa keyingisi
   models:
-    - "gemini-flash-latest"
     - "gemini-3.6-flash"
     - "gemini-2.5-flash"
-  temperature: 1.0
+    - "gemini-flash-latest"
+  temperature: 0.9
 
 tts:
   # O'zbek ovozlari: uz-UZ-SardorNeural (erkak), uz-UZ-MadinaNeural (ayol)
   voice: "uz-UZ-SardorNeural"
-  rate: "+8%"
+  rate: "+10%"
   pitch: "+0Hz"
 
 video:
@@ -69,8 +71,8 @@ pexels:
 
 youtube:
   privacy: "public"               # public | unlisted | private
-  category_id: "24"               # 24 = Entertainment
+  category_id: "27"               # 27 = Education
   made_for_kids: false
   synthetic_media: true           # AI kontent belgisi (YouTube talabi)
-  extra_tags: ["shorts", "hikoya", "qisqa hikoya", "ibratli hikoyalar", "uzbek"]
-  hashtags: ["#shorts", "#hikoya", "#ibratli"]
+  extra_tags: ["shorts", "bilarmidingiz", "qiziqarli faktlar", "faktlar", "bilasizmi", "uzbek"]
+  hashtags: ["#shorts", "#bilarmidingiz", "#faktlar"]
