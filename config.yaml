@@ -26,12 +26,16 @@ story:
   scenes_max: 10
   history_avoid_last: 120      # oxirgi N ta sarlavhani takrorlamaydi
 
+llm:
+  # Matn yozuvchi modellar shu tartibda sinab ko'riladi. Kaliti (GitHub Secret) yo'q provayder o'tkazib yuboriladi.
+  # Har provayderning eng yaxshi modeli avtomatik tanlanadi, shuning uchun model nomlarini yozish shart emas.
+  order: [gemini, groq, cerebras, openrouter, mistral, nvidia, sambanova, pollinations]
+
 gemini:
-  # Navbat bilan sinab ko'riladi — biri ishlamasa keyingisi
+  # Faqat Gemini modellar ro'yxatini olib bo'lmasa ishlatiladi
   models:
-    - "gemini-3.6-flash"
-    - "gemini-2.5-flash"
-    - "gemini-flash-latest"
+    - "gemini-3.8-flash"
+    - "gemini-3.7-flash"
   temperature: 0.9
 
 tts:
