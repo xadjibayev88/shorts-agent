@@ -20,17 +20,17 @@ channel:
     - "qadimiy sivilizatsiyalar va ularning sirlari"
 
 story:
-  min_words: 70
-  max_words: 120
-  scenes_min: 7
-  scenes_max: 10
+  min_words: 45
+  max_words: 75
+  scenes_min: 5
+  scenes_max: 8
   history_avoid_last: 120      # oxirgi N ta sarlavhani takrorlamaydi
 
 llm:
   # Matn yozuvchi modellar shu tartibda sinab ko'riladi. Kaliti (GitHub Secret) yo'q provayder o'tkazib yuboriladi.
   # Har provayderning eng yaxshi modeli avtomatik tanlanadi, shuning uchun model nomlarini yozish shart emas.
   # Yozgan model faktni boshqa provayderdagi model tekshiradi (fakt-tekshiruv).
-  order: [gemini, omniroute, groq, agnes, mistral, cerebras, openrouter, nvidia, sambanova, kilo, ovh, pollinations]
+  order: [gemini, omniroute, groq, mistral, kilo, ovh]
 
 gemini:
   # Faqat Gemini modellar ro'yxatini olib bo'lmasa ishlatiladi
@@ -49,7 +49,7 @@ video:
   width: 1080
   height: 1920
   fps: 30
-  max_duration: 58             # soniya (Shorts uchun xavfsiz chegara)
+  max_duration: 40             # soniya: qisqa Shorts oxirigacha ko'riladi
   crf: 20
   preset: "medium"
   progress_bar: true
