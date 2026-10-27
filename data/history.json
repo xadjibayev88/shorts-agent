@@ -90,6 +90,13 @@
       "genre": "okean va dengiz tubidagi sirli fakt",
       "video_id": "wn9xpkKunuA",
       "words": 53
+    },
+    {
+      "date": "2026-10-27T18:06:38+00:00",
+      "title": "Nega Eynshteyn miyasi qirqib tashlangan va uning siri nima?",
+      "genre": "texnologiya va ixtirolar haqida qiziq fakt",
+      "video_id": "47rliNs6jyg",
+      "words": 34
     }
   ],
   "used_pexels_ids": [
@@ -184,7 +191,11 @@
     "pb242125",
     "pb247497",
     "pb321183",
-    "pb38971"
+    "pb38971",
+    "pb15305",
+    "pb218504",
+    "pb314346",
+    "pb76395"
   ],
-  "genre_index": 5
+  "genre_index": 6
 }
