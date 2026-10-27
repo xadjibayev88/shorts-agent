@@ -69,6 +69,13 @@
       "genre": "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt",
       "video_id": "OdBLZiQhsdI",
       "words": 89
+    },
+    {
+      "date": "2026-10-27T08:14:26+00:00",
+      "title": "Inson tomirlari Yer sharini necha marta o'ray oladi?",
+      "genre": "inson tanasi va miyasi haqida kam odam biladigan fakt",
+      "video_id": "-ekxXk-pqqY",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -148,7 +155,12 @@
     "pb216530",
     "pb245968",
     "pb253997",
-    "pb5270"
+    "pb5270",
+    "pb11066",
+    "pb24072",
+    "pb3593",
+    "pb43270",
+    "pb43633"
   ],
-  "genre_index": 2
+  "genre_index": 3
 }
