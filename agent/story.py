@@ -89,7 +89,12 @@ def _extract_json(text: str) -> dict:
     m = re.search(r"\{.*\}", text, flags=re.S)
     if not m:
         raise ValueError("Javobda JSON topilmadi")
-    return json.loads(m.group(0))
+    blob = m.group(0)
+    try:
+        return json.loads(blob)
+    except json.JSONDecodeError:
+        # Modellar ko'pincha oxirgi elementdan keyin vergul qoldiradi
+        return json.loads(re.sub(r",\s*([}\]])", r"\1", blob))
 
 
 # ---------------- Gemini ----------------
@@ -266,11 +271,31 @@ FAQAT shu JSON formatda javob ber:
 """
 
 
+class FactError(ValueError):
+    """Tekshiruvchi faktni tasdiqlamadi; xabarda uning izohi bor."""
+
+
+FIX_PROMPT = """Quyidagi video matni fakt-tekshiruvdan o'tmadi. Tekshiruvchi izohi:
+{issues}
+
+Xatolarni tuzat: noto'g'ri yoki shubhali faktlarni olib tashla yoki aniq, tasdiqlangan ma'lumot bilan almashtir.
+Boshqa barcha talablar o'zgarmaydi. Asl topshiriq:
+{prompt}
+
+Avvalgi matn (JSON):
+{story}
+
+FAQAT tuzatilgan to'liq JSON bilan javob ber.
+"""
+
+
 def _fact_check(story: dict, chain: list, author: str) -> None:
-    """Faktni BOSHQA provayderdagi model tekshiradi; tasdiqlanmasa ValueError."""
+    """Faktni BOSHQA provayderdagi model tekshiradi; tasdiqlanmasa FactError."""
     provider = author.split("/")[0]
     text = " ".join(s["text"] for s in story["scenes"])
-    for label, call in chain:
+    # OmniRoute birinchi: u o'zi tirik provayderni tanlaydi, band Gemini'ni kutib o'tirmaymiz
+    verifiers = sorted(chain, key=lambda c: not c[0].startswith("omniroute/"))
+    for label, call in verifiers:
         if label.split("/")[0] in (provider, "pollinations"):
             continue
         try:
@@ -281,7 +306,7 @@ def _fact_check(story: dict, chain: list, author: str) -> None:
         verdict = str(res.get("verdict", "")).lower()
         log.info("Fakt tekshiruvi (%s): %s — %s", label, verdict, str(res.get("issues", ""))[:200])
         if verdict != "true":
-            raise ValueError(f"Fakt tasdiqlanmadi ({label}): {res.get('issues', '')}"[:300])
+            raise FactError(f"Fakt tasdiqlanmadi ({label}): {res.get('issues', '')}"[:300])
         story["verified_by"] = label
         return
     log.warning("Tekshiruvchi model topilmadi — fakt tekshirilmadi")
@@ -309,7 +334,16 @@ def generate_story(cfg: dict, history: dict) -> dict:
             used_lower = {t.lower() for t in used}
             if story["title"].lower() in used_lower:
                 raise ValueError("Sarlavha takrorlandi")
-            _fact_check(story, chain, label)
+            try:
+                _fact_check(story, chain, label)
+            except FactError as fe:
+                # Tashlab yubormaymiz: muallif model tekshiruvchi izohi bo'yicha bir marta tuzatadi
+                log.info("%s matnni tuzatmoqda: %s", label, fe)
+                draft = {k: story[k] for k in ("title", "hook", "thumbnail_text", "scenes", "source") if k in story}
+                raw = call(FIX_PROMPT.format(issues=fe, prompt=prompt,
+                                             story=json.dumps(draft, ensure_ascii=False)), 0.4)
+                story = validate(_extract_json(raw), cfg)
+                _fact_check(story, chain, label)
             story["genre"] = genre
             story["model"] = label
             history["genre_index"] = gi + 1
