@@ -97,6 +97,13 @@
       "genre": "texnologiya va ixtirolar haqida qiziq fakt",
       "video_id": "47rliNs6jyg",
       "words": 34
+    },
+    {
+      "date": "2026-10-27T20:11:52+00:00",
+      "title": "Bulutlar NEGA osmondan tushib KETMAYDI?",
+      "genre": "tabiat hodisalari va ob-havo haqida fakt",
+      "video_id": "V0vOw9ekdVw",
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -195,7 +202,13 @@
     "pb15305",
     "pb218504",
     "pb314346",
-    "pb76395"
+    "pb76395",
+    "pb126216",
+    "pb148060",
+    "pb183136",
+    "pb265041",
+    "pb28381",
+    "pb38128"
   ],
-  "genre_index": 6
+  "genre_index": 7
 }
