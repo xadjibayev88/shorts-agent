@@ -37,9 +37,13 @@ jobs:
           cache: pip
 
       - name: ffmpeg va shriftlar
+        timeout-minutes: 8
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          # Ubuntu mirror ba'zan osilib qoladi — update'ni cheklaymiz, ffmpeg bor bo'lsa o'tkazib yuboramiz
+          if ! command -v ffmpeg > /dev/null || ! fc-list | grep -qi dejavu; then
+            timeout 180 sudo apt-get update -qq || echo "apt update sekin — davom etamiz"
+            sudo apt-get install -y -qq -o Acquire::Retries=3 ffmpeg fonts-dejavu-core
+          fi
           mkdir -p assets/fonts
           if [ ! -f assets/fonts/Montserrat-ExtraBold.ttf ]; then
             curl -fsSL -o assets/fonts/Montserrat-ExtraBold.ttf \
