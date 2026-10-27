@@ -7,7 +7,6 @@ on:
     - cron: "23 7 * * *"    # 12:23
     - cron: "11 12 * * *"   # 17:11
     - cron: "17 15 * * *"   # 20:17
-    - cron: "13 17 * * *"   # 22:13
   workflow_dispatch:
     inputs:
       count:
