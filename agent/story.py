@@ -66,9 +66,9 @@ Shu faktlar ALLAQACHON ishlatilgan, takrorlama va ularga o'xshatma:
 
 FAQAT shu JSON formatda javob ber:
 {{
-  "title": "Xatosiz o'zbekcha sarlavha, 35-60 belgi: aniq raqam yoki savol bilan (masalan: Sakkizoyoqning nega 3 ta yuragi bor?)",
+  "title": "Xatosiz o'zbekcha sarlavha, 35-60 belgi, asosiy so'z birinchi 40 belgida (telefonda shuncha ko'rinadi), ko'pi bilan 2 ta KATTA HARFLI so'z: aniq raqam yoki savol bilan (masalan: Sakkizoyoqning nega 3 ta yuragi bor?)",
   "hook": "Ekran tepasidagi 2-4 so'zli, faktning eng shok qismi, KATTA HARFDA (masalan: 3 TA YURAK!). BILARMIDINGIZ so'zini yozma",
-  "thumbnail_text": "Muqova uchun 3-6 so'zli, eng hayratli raqam yoki faktli, KATTA HARFLI yozuv (masalan: OKEANDA 3 YURAKLI MAXLUQ!)",
+  "thumbnail_text": "Muqova uchun 2-3 so'zli KATTA HARFLI yozuv, eng hayratli raqam bilan. Sarlavhadagi so'zlarni TAKRORLAMA — muqova sarlavha aytmagan narsani aytsin (masalan: 3 TA YURAK!)",
   "scenes": [
     {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
   ],
