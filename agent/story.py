@@ -37,7 +37,7 @@ OPENAI_PROVIDERS = {
     "ovh": (None, "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
             [r"llama.*70b", r"qwen.*(235b|72b|32b)", r"mistral", r"llama"]),
 }
-SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|code|math|allam|robotics", re.I)
+SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|code|math|allam|robotics|\bvl\b|-vl", re.I)
 # /models ro'yxati yopiq yoki keraksiz bo'lgan provayderlar uchun qat'iy modellar
 FIXED_MODELS = {"omniroute": ["auto"]}
 _model_cache: dict[str, list[str]] = {}
@@ -49,11 +49,12 @@ VAZIFA: shu mavzu bo'yicha bitta HAQIQIY, ilmiy tasdiqlangan, hayratlanarli fakt
 Talablar:
 - Fakt to'qima bo'lmasin. Shubhali, afsonaviy yoki tekshirib bo'lmaydigan faktlarni tanlama. Raqamlar aniq bo'lsin.
 - Til: sof, jonli o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof ishlat: o', g'.
-- Matn {min_words}-{max_words} so'zdan iborat bo'lsin (ovozda ~35-50 soniya).
-- 1-gap ALBATTA "Bilarmidingiz," so'zi bilan boshlansin va eng kuchli, shok qiladigan faktni aytsin.
+- Matn {min_words}-{max_words} so'zdan iborat bo'lsin (ovozda ~20-30 soniya). Qisqa video oxirigacha ko'riladi — bu Shorts uchun eng muhim ko'rsatkich.
+- 1-gap ALBATTA "Bilarmidingiz," so'zi bilan boshlansin va eng kuchli, shok qiladigan faktni RAQAM bilan aytsin. 1-gap 10 so'zdan oshmasin — tomoshabin 1-soniyada qolishga qaror qiladi.
   Masalan: "Bilarmidingiz, sakkizoyoqning uchta yuragi bor!"
-- Keyingi gaplarda nega shunday ekanini oddiy tilda tushuntir va 2-3 ta qo'shimcha qiziq detal qo'sh.
+- Keyingi gaplarda nega shunday ekanini oddiy tilda tushuntir va 1-2 ta qo'shimcha qiziq detal qo'sh. Suv qo'shma: har gap yangi ma'lumot bersin.
 - Oxirgi gap tomoshabinni izoh yozishga undovchi qisqa savol bo'lsin (masalan: "Siz buni bilarmidingiz?"). "Obuna bo'ling" deb yozma.
+- Imlo: grammatik jihatdan to'g'ri o'zbekcha yoz, so'z to'qima, inglizcha so'zlarni aralashtirma. Sarlavha ayniqsa xatosiz bo'lsin.
 - Gaplar qisqa, ovozda o'qishga qulay. Raqamlarni so'z bilan yoz. Emoji ishlatma.
 - Matnni {scenes_min}-{scenes_max} ta sahnaga bo'l (har sahna 1-2 qisqa gap, ~3-5 soniya).
 - Har sahna uchun stok VIDEO qidirish uchun 2-4 so'zli INGLIZCHA kalit so'z ber. Kadr HARAKATLI va aynan
@@ -65,8 +66,8 @@ Shu faktlar ALLAQACHON ishlatilgan, takrorlama va ularga o'xshatma:
 
 FAQAT shu JSON formatda javob ber:
 {{
-  "title": "Qiziqarli sarlavha, 40-70 belgi, faktning eng hayratli qismi bilan",
-  "hook": "Ekran tepasidagi 2-4 so'zli qisqa ilmoq matni (masalan: BILARMIDINGIZ?)",
+  "title": "Xatosiz o'zbekcha sarlavha, 35-60 belgi: aniq raqam yoki savol bilan (masalan: Sakkizoyoqning nega 3 ta yuragi bor?)",
+  "hook": "Ekran tepasidagi 2-4 so'zli, faktning eng shok qismi, KATTA HARFDA (masalan: 3 TA YURAK!). BILARMIDINGIZ so'zini yozma",
   "thumbnail_text": "Muqova uchun 3-6 so'zli, eng hayratli raqam yoki faktli, KATTA HARFLI yozuv (masalan: OKEANDA 3 YURAKLI MAXLUQ!)",
   "scenes": [
     {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
@@ -249,6 +250,9 @@ def validate(story: dict, cfg: dict) -> dict:
     story["scenes"] = scenes
     story["title"] = story.get("title", "Qiziqarli hikoya").strip()[:90]
     story["hook"] = (story.get("hook") or "").strip()[:40]
+    # Har videoda bir xil "BILARMIDINGIZ?" ilmog'i e'tiborni tortmaydi — o'rniga faktning o'zi
+    if not story["hook"] or "bilarmidingiz" in story["hook"].lower():
+        story["hook"] = (story.get("thumbnail_text") or story["title"]).strip()[:40]
     story["thumbnail_text"] = (story.get("thumbnail_text") or story["hook"] or story["title"]).strip()[:60]
     story["tags"] = [t.strip("# ").strip() for t in story.get("tags", []) if t.strip()][:15]
     story["hashtags"] = [h if h.startswith("#") else f"#{h}" for h in story.get("hashtags", [])][:5]
