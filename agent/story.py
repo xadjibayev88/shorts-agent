@@ -265,9 +265,10 @@ Matn:
 {text}
 
 Agar barcha asosiy faktlar va raqamlar haqiqatga to'g'ri kelsa "true", biror muhim fakt noto'g'ri, bo'rttirilgan
-yoki to'qima bo'lsa "false", ishonchli bilmasang "uncertain" de.
+yoki to'qima bo'lsa "false", ishonchli bilmasang "uncertain" de. "Umrbod", "yagona", "hamma" kabi mutlaq
+da'volarga ayniqsa qattiq qara. Avval har bir da'voni qisqa tekshir, keyin hukm chiqar.
 FAQAT shu JSON formatda javob ber:
-{{"verdict": "true", "issues": "qisqa izoh"}}
+{{"issues": "har bir asosiy da'vo bo'yicha 1-2 gapli tekshiruv", "verdict": "true | false | uncertain"}}
 """
 
 
@@ -303,7 +304,10 @@ def _fact_check(story: dict, chain: list, author: str) -> None:
         except Exception as e:  # noqa: BLE001
             log.warning("Tekshiruvchi %s ishlamadi: %s", label, e)
             continue
-        verdict = str(res.get("verdict", "")).lower()
+        verdict = str(res.get("verdict", "")).lower().strip()
+        if len(str(res.get("issues", ""))) < 25:
+            log.warning("Tekshiruvchi %s izohsiz javob berdi — keyingisiga o'tamiz", label)
+            continue
         log.info("Fakt tekshiruvi (%s): %s — %s", label, verdict, str(res.get("issues", ""))[:200])
         if verdict != "true":
             raise FactError(f"Fakt tasdiqlanmadi ({label}): {res.get('issues', '')}"[:300])
