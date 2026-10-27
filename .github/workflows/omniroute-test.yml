@@ -1,0 +1,68 @@
+name: OmniRoute test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: "1"
+      OMNIROUTE_SKIP_POSTINSTALL: "1"
+      REQUIRE_API_KEY: "false"
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install OmniRoute
+        run: |
+          npm install -g omniroute
+          omniroute --version
+
+      - name: Start OmniRoute
+        run: |
+          nohup omniroute serve --no-open --no-tray --port 20128 > omniroute.log 2>&1 &
+          for i in $(seq 1 90); do
+            if curl -sf http://127.0.0.1:20128/v1/models > /dev/null; then echo "Tayyor: $((i*2)) s"; break; fi
+            sleep 2
+          done
+          omniroute status || true
+
+      - name: Catalog (free providers)
+        run: |
+          omniroute providers available --search free | head -80 || true
+          for q in groq openrouter gemini mistral agnes pollinations kilo opencode ovh llm7; do
+            echo "== $q"; omniroute providers available --search "$q" | head -8 || true
+          done
+
+      - name: Connect providers
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
+        run: |
+          add() { omniroute providers add "$1" --credential-env "$2" --yes && echo "OK $1" || echo "FAIL $1"; }
+          add groq GROQ_API_KEY
+          add openrouter OPENROUTER_API_KEY
+          add gemini GEMINI_API_KEY
+          add mistral MISTRAL_API_KEY
+          add agnes AGNES_API_KEY
+          for p in pollinations kilo opencode-zen ovh llm7; do
+            omniroute providers add "$p" --no-credential --yes && echo "OK $p" || echo "FAIL $p"
+          done
+          omniroute providers list || true
+
+      - name: Chat test
+        run: |
+          curl -s http://127.0.0.1:20128/v1/models | head -c 1500; echo
+          curl -s -m 120 http://127.0.0.1:20128/v1/chat/completions \
+            -H "Content-Type: application/json" \
+            -d '{"model":"auto","messages":[{"role":"user","content":"Bilarmidingiz, deb boshlanadigan bitta qisqa qiziqarli fakt yoz, uzbek tilida."}]}' | head -c 2000; echo
+
+      - name: Server log
+        if: always()
+        run: tail -n 80 omniroute.log || true
