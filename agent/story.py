@@ -30,12 +30,16 @@ OPENAI_PROVIDERS = {
                   [r"deepseek-v\d", r"llama.*70b", r"qwen"]),
     "agnes": ("AGNES_API_KEY", "https://apihub.agnes-ai.com/v1",
               [r"agnes.*pro", r"agnes.*flash", r"agnes"]),
+    # OmniRoute — workflow ichida ishga tushadigan lokal router; o'zi provayderlar orasida aylanadi
+    "omniroute": (None, "http://127.0.0.1:20128/v1", []),
     # Kalitsiz bepul provayderlar (FreeLLMAPI ro'yxatidan) — kalit kerak emas
     "kilo": (None, "https://api.kilo.ai/api/gateway/v1", [r":free$", r"free"]),
     "ovh": (None, "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
             [r"llama.*70b", r"qwen.*(235b|72b|32b)", r"mistral", r"llama"]),
 }
 SKIP_MODELS = re.compile(r"guard|whisper|tts|embed|audio|image|vision|moderation|ocr|rerank|code|math|allam|robotics", re.I)
+# /models ro'yxati yopiq yoki keraksiz bo'lgan provayderlar uchun qat'iy modellar
+FIXED_MODELS = {"omniroute": ["auto"]}
 _model_cache: dict[str, list[str]] = {}
 
 PROMPT = """Sen "Bilarmidingiz" nomli o'zbek tilidagi YouTube Shorts kanali uchun virusli fakt-videolar yozadigan ssenariynavissan.
@@ -139,6 +143,8 @@ def _call_gemini(model: str, prompt: str, temperature: float) -> str:
 # ---------------- OpenAI-mos provayderlar ----------------
 def _pick_models(name: str, base: str, key: str, prefs: list[str], limit: int = 3) -> list[str]:
     """Provayderning /models ro'yxatidan afzal andozalarga mos eng yaxshi bir nechta model."""
+    if name in FIXED_MODELS:
+        return FIXED_MODELS[name]
     if name in _model_cache:
         return _model_cache[name]
     r = requests.get(f"{base}/models", headers={"Authorization": f"Bearer {key}"} if key else {}, timeout=20)
