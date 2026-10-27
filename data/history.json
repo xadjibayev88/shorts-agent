@@ -83,6 +83,13 @@
       "genre": "tarixdagi kutilmagan, ishonish qiyin fakt",
       "video_id": "pJ-PQaoKYoE",
       "words": 34
+    },
+    {
+      "date": "2026-10-27T13:31:27+00:00",
+      "title": "Meduza qanday qilib YOSHLANISHi mumkin?",
+      "genre": "okean va dengiz tubidagi sirli fakt",
+      "video_id": "wn9xpkKunuA",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -171,7 +178,13 @@
     "pb126560",
     "pb129421",
     "pb345377",
-    "pb345424"
+    "pb345424",
+    "pb213616",
+    "pb228699",
+    "pb242125",
+    "pb247497",
+    "pb321183",
+    "pb38971"
   ],
-  "genre_index": 4
+  "genre_index": 5
 }
