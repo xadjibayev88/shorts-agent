@@ -104,6 +104,13 @@
       "genre": "tabiat hodisalari va ob-havo haqida fakt",
       "video_id": "V0vOw9ekdVw",
       "words": 47
+    },
+    {
+      "date": "2026-10-28T09:38:59+00:00",
+      "title": "ISLANDIYADA nega birorta ham chivin yo'q?",
+      "genre": "dunyo davlatlari va shaharlari haqida g'alati fakt",
+      "video_id": "hs2C-JRhM9M",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -208,7 +215,13 @@
     "pb183136",
     "pb265041",
     "pb28381",
-    "pb38128"
+    "pb38128",
+    "pb13100",
+    "pb15036",
+    "pb192649",
+    "pb251262",
+    "pb282838",
+    "pb7081"
   ],
-  "genre_index": 7
+  "genre_index": 8
 }
