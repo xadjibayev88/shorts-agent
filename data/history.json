@@ -111,6 +111,13 @@
       "genre": "dunyo davlatlari va shaharlari haqida g'alati fakt",
       "video_id": "hs2C-JRhM9M",
       "words": 50
+    },
+    {
+      "date": "2026-10-28T14:15:00+00:00",
+      "title": "Qizil qalampirda 127 mg C vitamini – sog'liq uchun ajoyib!",
+      "genre": "ovqat va ichimliklar haqida bilmagan faktingiz",
+      "video_id": "tXfJRFnUI2c",
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -221,7 +228,13 @@
     "pb192649",
     "pb251262",
     "pb282838",
-    "pb7081"
+    "pb7081",
+    "pb11642",
+    "pb11664",
+    "pb161464",
+    "pb3591",
+    "pb45285",
+    "pb72551"
   ],
-  "genre_index": 8
+  "genre_index": 9
 }
