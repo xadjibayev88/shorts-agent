@@ -125,6 +125,13 @@
       "genre": "qadimiy sivilizatsiyalar va ularning sirlari",
       "video_id": "lFsTHOXOurM",
       "words": 41
+    },
+    {
+      "date": "2026-10-28T20:24:00+00:00",
+      "title": "Quyosh har soniyada 4 MILLION tonna yo‘qotadi – Nega?",
+      "genre": "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt",
+      "video_id": "OK2bBpHiohI",
+      "words": 62
     }
   ],
   "used_pexels_ids": [
@@ -247,7 +254,13 @@
     "pb205637",
     "pb46349",
     "pb50044",
-    "pb6096"
+    "pb6096",
+    "pb1089",
+    "pb16261",
+    "pb197531",
+    "pb385077",
+    "pb46906",
+    "pb922"
   ],
-  "genre_index": 10
+  "genre_index": 1
 }
