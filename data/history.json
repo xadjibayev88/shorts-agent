@@ -118,6 +118,13 @@
       "genre": "ovqat va ichimliklar haqida bilmagan faktingiz",
       "video_id": "tXfJRFnUI2c",
       "words": 51
+    },
+    {
+      "date": "2026-10-28T18:25:43+00:00",
+      "title": "Masajoni Kichkintoyi: 3000 Yillik SIR!",
+      "genre": "qadimiy sivilizatsiyalar va ularning sirlari",
+      "video_id": "lFsTHOXOurM",
+      "words": 41
     }
   ],
   "used_pexels_ids": [
@@ -234,7 +241,13 @@
     "pb161464",
     "pb3591",
     "pb45285",
-    "pb72551"
+    "pb72551",
+    "pb11186",
+    "pb15283",
+    "pb205637",
+    "pb46349",
+    "pb50044",
+    "pb6096"
   ],
-  "genre_index": 9
+  "genre_index": 10
 }
