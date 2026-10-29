@@ -139,6 +139,13 @@
       "genre": "hayvonlar olamidagi g'aroyib fakt",
       "video_id": "SuNiHVPnzFE",
       "words": 45
+    },
+    {
+      "date": "2026-10-29T09:50:45+00:00",
+      "title": "Inson miyasi 20 VATT elektr ishlab chiqaradi!",
+      "genre": "inson tanasi va miyasi haqida kam odam biladigan fakt",
+      "video_id": "Y_U7cfvsmvM",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -272,7 +279,13 @@
     "pb28167",
     "pb342229",
     "pb368117",
-    "pb74889"
+    "pb74889",
+    "pb10",
+    "pb122440",
+    "pb209140",
+    "pb27088",
+    "pb2800",
+    "pb35590"
   ],
-  "genre_index": 2
+  "genre_index": 3
 }
