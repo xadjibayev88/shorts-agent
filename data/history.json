@@ -146,6 +146,13 @@
       "genre": "inson tanasi va miyasi haqida kam odam biladigan fakt",
       "video_id": "Y_U7cfvsmvM",
       "words": 49
+    },
+    {
+      "date": "2026-10-29T14:39:52+00:00",
+      "title": "Inson tishlari nega suyakka kirmasligini bilasizmi?",
+      "genre": "tarixdagi kutilmagan, ishonish qiyin fakt",
+      "video_id": "686fJCROvgQ",
+      "words": 36
     }
   ],
   "used_pexels_ids": [
@@ -285,7 +292,12 @@
     "pb209140",
     "pb27088",
     "pb2800",
-    "pb35590"
+    "pb35590",
+    "pb125430",
+    "pb4041",
+    "pb45132",
+    "pb49809",
+    "pb93286"
   ],
-  "genre_index": 3
+  "genre_index": 4
 }
