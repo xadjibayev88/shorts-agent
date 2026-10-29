@@ -153,6 +153,13 @@
       "genre": "tarixdagi kutilmagan, ishonish qiyin fakt",
       "video_id": "686fJCROvgQ",
       "words": 36
+    },
+    {
+      "date": "2026-10-29T18:39:53+00:00",
+      "title": "Okean SUYIDAGI Qora Tog' Emasmi?",
+      "genre": "okean va dengiz tubidagi sirli fakt",
+      "video_id": "dpsuh40piaE",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -297,7 +304,13 @@
     "pb4041",
     "pb45132",
     "pb49809",
-    "pb93286"
+    "pb93286",
+    "pb152636",
+    "pb204165",
+    "pb253436",
+    "pb258241",
+    "pb284576",
+    "pb797"
   ],
-  "genre_index": 4
+  "genre_index": 5
 }
