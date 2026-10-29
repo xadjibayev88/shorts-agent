@@ -270,7 +270,9 @@ Matn:
 
 Agar barcha asosiy faktlar va raqamlar haqiqatga to'g'ri kelsa "true", biror muhim fakt noto'g'ri, bo'rttirilgan
 yoki to'qima bo'lsa "false", ishonchli bilmasang "uncertain" de. "Umrbod", "yagona", "hamma" kabi mutlaq
-da'volarga ayniqsa qattiq qara. Avval har bir da'voni qisqa tekshir, keyin hukm chiqar.
+da'volarga ayniqsa qattiq qara. Matndagi har bir nom (odam, joy, hayvon, inshoot, atama) haqiqatda
+mavjudligini tekshir: to'qima, buzilgan yoki ma'nosiz nom/so'z bo'lsa (sarlavhada ham) "false" de.
+Avval har bir da'voni qisqa tekshir, keyin hukm chiqar.
 FAQAT shu JSON formatda javob ber:
 {{"issues": "har bir asosiy da'vo bo'yicha 1-2 gapli tekshiruv", "verdict": "true | false | uncertain"}}
 """
@@ -297,7 +299,7 @@ FAQAT tuzatilgan to'liq JSON bilan javob ber.
 def _fact_check(story: dict, chain: list, author: str) -> None:
     """Faktni BOSHQA provayderdagi model tekshiradi; tasdiqlanmasa FactError."""
     provider = author.split("/")[0]
-    text = " ".join(s["text"] for s in story["scenes"])
+    text = f"Sarlavha: {story['title']}\n" + " ".join(s["text"] for s in story["scenes"])
     # OmniRoute birinchi: u o'zi tirik provayderni tanlaydi, band Gemini'ni kutib o'tirmaymiz
     verifiers = sorted(chain, key=lambda c: not c[0].startswith("omniroute/"))
     for label, call in verifiers:
