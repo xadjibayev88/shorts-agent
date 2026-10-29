@@ -160,6 +160,13 @@
       "genre": "okean va dengiz tubidagi sirli fakt",
       "video_id": "dpsuh40piaE",
       "words": 52
+    },
+    {
+      "date": "2026-10-29T20:25:03+00:00",
+      "title": "GOOGLE SYCAMORE 53 Qubit kompyuteri nima qilmoqda?",
+      "genre": "texnologiya va ixtirolar haqida qiziq fakt",
+      "video_id": "EL046dZY2vc",
+      "words": 74
     }
   ],
   "used_pexels_ids": [
@@ -310,7 +317,14 @@
     "pb253436",
     "pb258241",
     "pb284576",
-    "pb797"
+    "pb797",
+    "pb126924",
+    "pb197489",
+    "pb19798",
+    "pb253998",
+    "pb3188",
+    "pb47217",
+    "pb71350"
   ],
-  "genre_index": 5
+  "genre_index": 6
 }
