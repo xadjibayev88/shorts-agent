@@ -132,6 +132,13 @@
       "genre": "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt",
       "video_id": "OK2bBpHiohI",
       "words": 62
+    },
+    {
+      "date": "2026-10-29T03:10:55+00:00",
+      "title": "Delfinlarning nega bir ko'zi ochiq uxlashini bilasizmi?",
+      "genre": "hayvonlar olamidagi g'aroyib fakt",
+      "video_id": "SuNiHVPnzFE",
+      "words": 45
     }
   ],
   "used_pexels_ids": [
@@ -260,7 +267,12 @@
     "pb197531",
     "pb385077",
     "pb46906",
-    "pb922"
+    "pb922",
+    "pb10480",
+    "pb28167",
+    "pb342229",
+    "pb368117",
+    "pb74889"
   ],
-  "genre_index": 1
+  "genre_index": 2
 }
