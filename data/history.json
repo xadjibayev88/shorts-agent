@@ -188,6 +188,13 @@
       "genre": "ovqat va ichimliklar haqida bilmagan faktingiz",
       "video_id": "eaciqtSB9kI",
       "words": 50
+    },
+    {
+      "date": "2026-10-30T20:01:22+00:00",
+      "title": "Qadimgi Rim sementi ming yillar davomida mustahkam turadi",
+      "genre": "qadimiy sivilizatsiyalar va ularning sirlari",
+      "video_id": "gCt7WZ2Gt0k",
+      "words": 48
     }
   ],
   "used_pexels_ids": [
@@ -361,7 +368,12 @@
     "pb183638",
     "pb197946",
     "pb260027",
-    "pb33250"
+    "pb33250",
+    "pb138961",
+    "pb189018",
+    "pb33239",
+    "pb354976",
+    "pb373499"
   ],
-  "genre_index": 9
+  "genre_index": 10
 }
