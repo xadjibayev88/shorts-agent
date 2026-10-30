@@ -181,6 +181,13 @@
       "genre": "dunyo davlatlari va shaharlari haqida g'alati fakt",
       "video_id": "4YxGNuGftng",
       "words": 48
+    },
+    {
+      "date": "2026-10-30T18:07:38+00:00",
+      "title": "Banan o'simligi o'zi aslida nima?",
+      "genre": "ovqat va ichimliklar haqida bilmagan faktingiz",
+      "video_id": "eaciqtSB9kI",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -349,7 +356,12 @@
     "pb28301",
     "pb28303",
     "pb28488",
-    "pb3149"
+    "pb3149",
+    "pb136466",
+    "pb183638",
+    "pb197946",
+    "pb260027",
+    "pb33250"
   ],
-  "genre_index": 8
+  "genre_index": 9
 }
