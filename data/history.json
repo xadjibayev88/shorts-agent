@@ -167,6 +167,13 @@
       "genre": "texnologiya va ixtirolar haqida qiziq fakt",
       "video_id": "EL046dZY2vc",
       "words": 74
+    },
+    {
+      "date": "2026-10-30T09:57:52+00:00",
+      "title": "Chaqmoq harorati QUYOSHDAN 5 baravar issiqmi?",
+      "genre": "tabiat hodisalari va ob-havo haqida fakt",
+      "video_id": "vYB2R53-iTo",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -324,7 +331,13 @@
     "pb253998",
     "pb3188",
     "pb47217",
-    "pb71350"
+    "pb71350",
+    "pb129904",
+    "pb16160",
+    "pb168801",
+    "pb2106",
+    "pb259653",
+    "pb61291"
   ],
-  "genre_index": 6
+  "genre_index": 7
 }
