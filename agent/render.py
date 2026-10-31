@@ -4,6 +4,7 @@ from pathlib import Path
 
 from PIL import ImageFont
 
+from .looks import BARS, GRADES
 from .subtitles import build_ass
 from .utils import ROOT, ffprobe_duration, log, run
 
@@ -51,13 +52,16 @@ def scene_timings(scenes: list[dict], words: list[dict], total: float) -> list[t
     return [(a * scale, b * scale) for a, b in fixed]
 
 
-def _prep_scene(src: Path | None, dur: float, cfg: dict, out: Path):
+XFADE_T = 0.35  # sahna o'tishi davomiyligi (soniya)
+
+
+def _prep_scene(src: Path | None, dur: float, cfg: dict, out: Path, grade: str = "natural"):
     v = cfg["video"]
     W, H, fps = v["width"], v["height"], v["fps"]
     # Klipning o'z harakati saqlanadi: faqat 9:16 ga markazdan kesamiz (sun'iy "pan" yo'q)
     vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
           f"crop={W}:{H},setsar=1,fps={fps},"
-          f"eq=contrast=1.05:saturation=1.1,format=yuv420p")
+          f"{GRADES.get(grade, GRADES['natural'])},format=yuv420p")
     if src is None:
         c0, c1, c2 = random.choice(GRADIENTS)
         inp = ["-f", "lavfi", "-i",
@@ -77,8 +81,31 @@ def _prep_scene(src: Path | None, dur: float, cfg: dict, out: Path):
          "-r", str(fps), str(out)])
 
 
+def _join(parts: list[Path], spans: list[tuple[float, float]], transition: str, out: Path):
+    """Sahnalarni ulash: oddiy kesish (concat) yoki xfade o'tishlari bilan."""
+    if transition == "cut" or len(parts) < 2:
+        lst = out.parent / "list.txt"
+        lst.write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
+        run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(out)])
+        return
+    # Har sahna (oxirgisidan tashqari) XFADE_T ga uzunroq yasalgan, shuning uchun umumiy uzunlik
+    # va sahna chegaralari ovoz bilan mos qoladi: o'tish aynan chegarada boshlanadi.
+    inputs, chain, prev, acc = [], [], "[0:v]", 0.0
+    for p in parts:
+        inputs += ["-i", str(p)]
+    for i in range(1, len(parts)):
+        acc += spans[i - 1][1] - spans[i - 1][0]
+        lbl = f"[x{i}]"
+        chain.append(f"{prev}[{i}:v]xfade=transition={transition}:duration={XFADE_T}:offset={acc:.3f}{lbl}")
+        prev = lbl
+    run(["ffmpeg", "-y", "-hide_banner", *inputs, "-filter_complex", ";".join(chain),
+         "-map", prev, "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+         "-pix_fmt", "yuv420p", str(out)])
+
+
 def render(story: dict, clips: list, voice_mp3: Path, words: list[dict], audio_dur: float,
-           cfg: dict, workdir: Path, out_mp4: Path) -> Path:
+           cfg: dict, workdir: Path, out_mp4: Path, look: dict | None = None) -> Path:
+    look = look or {}
     v = cfg["video"]
     max_d = v["max_duration"]
 
@@ -96,19 +123,26 @@ def render(story: dict, clips: list, voice_mp3: Path, words: list[dict], audio_d
 
     # 2) Sahnalar
     spans = scene_timings(story["scenes"], words, total)
+    transition = look.get("transition", "cut")
+    log.info("Ko'rinish: %s", ", ".join(f"{k}={v_}" for k, v_ in look.items()) or "standart")
     parts = []
     for i, ((a, b), clip) in enumerate(zip(spans, clips)):
         p = workdir / f"scene_{i:02d}.mp4"
-        _prep_scene(clip, b - a, cfg, p)
+        extra = XFADE_T if transition != "cut" and i + 1 < len(spans) else 0.0
+        _prep_scene(clip, b - a + extra, cfg, p, look.get("grade", "natural"))
         parts.append(p)
-    lst = workdir / "list.txt"
-    lst.write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
     joined = workdir / "joined.mp4"
-    run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)])
+    try:
+        _join(parts, spans, transition, joined)
+    except Exception as e:  # noqa: BLE001 — o'tish ishlamasa ham video chiqsin
+        log.warning("O'tish (%s) ishlamadi, oddiy kesish: %s", transition, e)
+        for i, ((a, b), clip) in enumerate(zip(spans, clips)):
+            _prep_scene(clip, b - a, cfg, parts[i], look.get("grade", "natural"))
+        _join(parts, spans, "cut", joined)
 
     # 3) Subtitr
     font_name, font_dir = _font(cfg)
-    ass = build_ass(words, story.get("hook", ""), total, font_name, cfg, workdir / "subs.ass")
+    ass = build_ass(words, story.get("hook", ""), total, font_name, cfg, workdir / "subs.ass", look)
 
     # 4) Yakuniy montaj
     music = None
@@ -122,8 +156,11 @@ def render(story: dict, clips: list, voice_mp3: Path, words: list[dict], audio_d
     ass_esc = str(ass).replace("\\", "/").replace(":", "\\:")
     fdir_esc = str(font_dir).replace("\\", "/").replace(":", "\\:")
     vchain = f"[0:v]ass='{ass_esc}':fontsdir='{fdir_esc}'"
-    if v.get("progress_bar"):
-        vchain += (f",drawbox=x=0:y=ih-14:w='iw*t/{total:.3f}':h=14:"
+    bar = BARS.get(look.get("bar", "bottom"), ("bottom", 14))
+    if v.get("progress_bar") and bar:
+        where, bh = bar
+        by = "0" if where == "top" else f"ih-{bh}"
+        vchain += (f",drawbox=x=0:y={by}:w='iw*t/{total:.3f}':h={bh}:"
                    f"color={v['progress_color']}@0.95:t=fill")
     vchain += "[v]"
 

@@ -1,5 +1,11 @@
-"""Karaoke uslubidagi (so'z-so'z yonadigan) ASS subtitrlar + tepadagi HOOK."""
+"""Karaoke uslubidagi (so'z-so'z yonadigan) ASS subtitrlar + tepadagi HOOK.
+
+Joyi, o'lchami, animatsiyasi va hook ko'rinishi har videoda boshqacha (agent/looks.py),
+rangi esa doim brend bo'yicha: oq matn, qora kontur.
+"""
 from pathlib import Path
+
+from .looks import CAPTIONS
 
 
 def _ts(sec: float) -> str:
@@ -27,9 +33,44 @@ def _groups(words: list[dict], per_line: int) -> list[list[dict]]:
     return groups
 
 
-def build_ass(words: list[dict], hook: str, total: float, font_name: str, cfg: dict, out: Path):
+# Hook uslublari: (ASS style qatori, matn oldidagi teglar). {x} {top} — joy.
+def _hook_style(kind: str, font: str) -> tuple[str, str]:
+    if kind == "black_box":
+        return (f"Style: Hook,{font},74,&H00FFFFFF,&H000000FF,&H20000000,&H20000000,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
+                "\\fad(120,200)\\fscx85\\fscy85\\t(0,140,\\fscx100\\fscy100)")
+    if kind == "outline_big":
+        return (f"Style: Hook,{font},96,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,8,4,8,70,70,250,1",
+                "\\fad(100,200)\\fscx70\\fscy70\\t(0,160,\\fscx100\\fscy100)")
+    if kind == "middle_zoom":
+        return (f"Style: Hook,{font},110,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,9,4,5,70,70,0,1",
+                "\\pos({x},560)\\fad(80,220)\\fscx55\\fscy55\\t(0,220,\\fscx100\\fscy100)")
+    if kind == "top_slide":
+        return (f"Style: Hook,{font},74,&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
+                "\\move({x},120,{x},{top},0,200)\\fad(0,200)")
+    # white_box (asl uslub)
+    return (f"Style: Hook,{font},74,&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
+            "\\fad(120,200)\\fscx85\\fscy85\\t(0,140,\\fscx100\\fscy100)")
+
+
+def _enter(anim: str, x: int, y: int) -> str:
+    """Yangi qator paydo bo'lish animatsiyasi (faqat qatorning 1-so'zida)."""
+    return {
+        "pop": f"\\pos({x},{y})\\fscx80\\fscy80\\t(0,90,\\fscx100\\fscy100)",
+        "rise": f"\\move({x},{y + 45},{x},{y},0,130)\\fad(90,0)",
+        "fade": f"\\pos({x},{y})\\fad(110,0)",
+        "bounce": f"\\pos({x},{y})\\fscx122\\fscy122\\t(0,80,\\fscx94\\fscy94)\\t(80,160,\\fscx100\\fscy100)",
+        "slide": f"\\move({x - 70},{y},{x},{y},0,120)\\fad(80,0)",
+    }.get(anim, f"\\pos({x},{y})")
+
+
+def build_ass(words: list[dict], hook: str, total: float, font_name: str, cfg: dict, out: Path,
+              look: dict | None = None):
     s = cfg["subtitles"]
     W, H = cfg["video"]["width"], cfg["video"]["height"]
+    look = look or {}
+    cap = CAPTIONS.get(look.get("caption"), {"y": s["position_y"], "size": s["font_size"],
+                                             "anim": "pop", "active": "scale"})
+    hook_style, hook_tags = _hook_style(look.get("hook", "white_box"), font_name)
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -39,8 +80,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,{font_name},{s['font_size']},{s['base_color']},&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,{s['outline']},3,5,60,60,0,1
-Style: Hook,{font_name},74,&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1
+Style: Sub,{font_name},{cap['size']},{s['base_color']},&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,{s['outline']},3,5,60,60,0,1
+{hook_style}
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -48,7 +89,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     lines = []
     hi = s["highlight_color"]
     base = s["base_color"]
-    x, y = W // 2, s["position_y"]
+    x, y = W // 2, cap["y"]
 
     groups = _groups(words, s["words_per_line"])
     for gi, g in enumerate(groups):
@@ -62,19 +103,21 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             parts = []
             for j, ww in enumerate(g):
                 txt = _clean(ww["word"].upper())
-                if j == k:
+                if j == k and cap["active"] == "scale":
                     parts.append(f"{{\\c{hi}\\fscx108\\fscy108}}{txt}{{\\c{base}\\fscx100\\fscy100}}")
+                elif j == k and cap["active"] == "underline":
+                    parts.append(f"{{\\u1}}{txt}{{\\u0}}")
                 else:
                     parts.append(txt)
-            pop = "\\fscx80\\fscy80\\t(0,90,\\fscx100\\fscy100)" if k == 0 else ""
-            text = f"{{\\pos({x},{y}){pop}}}" + " ".join(parts)
+            tags = _enter(cap["anim"], x, y) if k == 0 else f"\\pos({x},{y})"
+            text = "{" + tags + "}" + " ".join(parts)
             lines.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Sub,,0,0,0,,{text}")
 
     if hook:
         hs = cfg["subtitles"]["hook_seconds"]
         lines.append(
             f"Dialogue: 1,{_ts(0)},{_ts(hs)},Hook,,0,0,0,,"
-            f"{{\\fad(120,200)\\fscx85\\fscy85\\t(0,140,\\fscx100\\fscy100)}}{_clean(hook.upper())}"
+            "{" + hook_tags.format(x=W // 2, top=260) + "}" + _clean(hook.upper())
         )
 
     out.write_text(header + "\n".join(lines) + "\n", encoding="utf-8")
