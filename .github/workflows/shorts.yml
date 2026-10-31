@@ -108,7 +108,7 @@ jobs:
         run: |
           git config user.name "shorts-agent"
           git config user.email "actions@users.noreply.github.com"
-          git add data/history.json
+          git add data/history.json queue
           git diff --cached --quiet || git commit -m "history: $(date -u +%F_%H%M)"
           git pull --rebase -q || true
           git push || echo "push qilinmadi"

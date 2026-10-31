@@ -16,6 +16,49 @@ from pathlib import Path
 from .utils import ROOT, load_config, load_history, log, save_history, setup_logging
 
 
+QUEUE = ROOT / "queue"
+
+
+def _move(path: Path, sub: str) -> None:
+    dest = QUEUE / sub
+    dest.mkdir(parents=True, exist_ok=True)
+    path.rename(dest / path.name)
+
+
+def next_queued(cfg: dict, history: dict):
+    """queue/*.json dagi tayyor ssenariylar navbat bilan (fayl nomi tartibida) ishlatiladi.
+
+    Har biri ham internet orqali fakt-tekshiruvdan o'tadi; o'tmasa queue/rejected/ ga tushadi.
+    Qaytaradi: (story, fayl) yoki (None, None).
+    """
+    from .story import FactError, _fact_check, _llm_chain, validate
+
+    used = {v["title"].lower() for v in history.get("videos", [])}
+    for path in sorted(QUEUE.glob("*.json")):
+        try:
+            story = validate(json.loads(path.read_text(encoding="utf-8")), cfg)
+            if story["title"].lower() in used:
+                log.info("Navbatdagi «%s» allaqachon joylangan — done/ ga", story["title"])
+                _move(path, "done")
+                continue
+            _fact_check(story, _llm_chain(cfg), "queue", cfg)
+        except FactError as e:
+            log.warning("Navbatdagi %s fakt-tekshiruvdan o'tmadi: %s", path.name, e)
+            _move(path, "rejected")
+            continue
+        except Exception as e:  # noqa: BLE001
+            # Tekshiruvchi ishlamadi va h.k. — fayl navbatda qoladi, keyingi safar yana urinadi
+            log.warning("Navbatdagi %s hozircha ishlatilmadi: %s", path.name, e)
+            return None, None
+        sites = list(dict.fromkeys(s["title"] for s in story.get("fact_sources", []) if s.get("title")))[:3]
+        if sites:
+            story["description"] += "\nTekshirildi: " + ", ".join(sites)
+        story["model"] = "queue"
+        log.info("Navbatdan olindi: %s «%s»", path.name, story["title"])
+        return story, path
+    return None, None
+
+
 def make_one(cfg: dict, history: dict, args) -> dict:
     from .media import fetch_clips
     from .render import render
@@ -26,11 +69,14 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     workdir = ROOT / "output" / stamp
     workdir.mkdir(parents=True, exist_ok=True)
 
-    # 1) Hikoya
+    # 1) Hikoya: qo'lda berilgan fayl > queue/ navbati > model yozadi
+    queued = None
     if args.story:
         story = validate(json.loads(Path(args.story).read_text(encoding="utf-8")), cfg)
     else:
-        story = generate_story(cfg, history)
+        story, queued = next_queued(cfg, history)
+        if story is None:
+            story = generate_story(cfg, history)
     (workdir / "story.json").write_text(json.dumps(story, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # 2) Ovoz
@@ -63,6 +109,8 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     }
     if video_id:
         history.setdefault("videos", []).append(record)
+    if queued and video_id:  # sinov (--no-upload) navbatni sarflamaydi
+        _move(queued, "done")
 
     # Joy tejash: oraliq fayllarni o'chiramiz
     if not args.keep_temp:
