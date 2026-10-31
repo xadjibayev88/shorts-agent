@@ -33,10 +33,13 @@ def _pixabay(query: str, min_h: int) -> list[tuple[str, str]]:
                 tags = hit.get("tags", "").lower()
                 score = sum(1 for w in words if w in tags)
                 vertical = f["height"] > f.get("width", 0)
-                ranked.append((score, vertical, (f"pb{hit['id']}", f["url"])))
+                # Odamlar ko'p yoqtirgan va yuklab olgan klip odatda chiroyliroq va jonliroq
+                appeal = hit.get("likes", 0) + hit.get("downloads", 0) / 50
+                hd = f.get("height", 0) >= 1080
+                ranked.append(((score, hd, vertical, appeal), (f"pb{hit['id']}", f["url"])))
                 break
-    ranked.sort(key=lambda x: (x[0], x[1]), reverse=True)
-    return [item for _, _, item in ranked]
+    ranked.sort(key=lambda x: x[0], reverse=True)
+    return [item for _, item in ranked]
 
 
 # ---------------- Pexels ----------------
@@ -92,6 +95,9 @@ def fetch_clips(scenes: list[dict], cfg: dict, history: dict, workdir: Path) -> 
     for i, sc in enumerate(scenes):
         kw = sc["keywords"]
         queries = [kw, " ".join(kw.split()[:2]), kw.split()[0] if kw.split() else "nature"]
+        style = (cfg["pexels"].get("style") or "").strip()
+        if style:  # avval kanal uslubidagi kadr (masalan "cinematic"), topilmasa oddiy qidiruv
+            queries = [f"{kw} {style}"] + queries
         chosen = None
         for q in queries:
             for name, fn in providers:

@@ -69,7 +69,8 @@ music:
   volume: 0.16
 pexels:
   per_page: 15
-  min_height: 1280
+  min_height: 1080
+  style: cinematic
 youtube:
   privacy: public
   category_id: '22'

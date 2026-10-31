@@ -95,8 +95,10 @@ Talablar:
 - Oxirgi gap izohga undovchi qisqa savol. "Obuna bo'ling" deb yozma.
 - Gaplar qisqa, ovozda o'qishga qulay. Raqamlarni so'z bilan yoz. Emoji ishlatma.
 - Matnni {scenes_min}-{scenes_max} ta sahnaga bo'l (har sahna 1-2 qisqa gap).
-- Har sahna uchun 2-4 so'zli INGLIZCHA stok-video kalit so'z: harakatli, premium ko'rinishli kadr
-  ("businessman walking city", "sunrise running track", "writing notebook desk", "stock chart screen", "city skyline night").
+- Har sahna uchun 2-4 so'zli INGLIZCHA stok-video kalit so'z: odam ko'zini uzolmaydigan, harakatli, premium kadr.
+  Odamlar ishlayotgan yoki harakatdagi kadrlar, chiroyli yorug'lik, shahar va tabiat dronda ("young man running sunrise",
+  "woman working laptop cafe", "city skyline night drone", "hands counting money", "mountain summit hiker", "luxury car night city").
+  Har sahna boshqacha kadr bo'lsin, bir xil mavzu takrorlanmasin. Matn so'zma-so'z emas, kayfiyat va ma'noni ko'rsatsin.
 
 Shu sarlavhalar ALLAQACHON ishlatilgan, takrorlama:
 {used}
