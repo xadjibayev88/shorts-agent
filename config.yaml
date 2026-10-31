@@ -26,6 +26,10 @@ story:
   scenes_max: 8
   history_avoid_last: 120      # oxirgi N ta sarlavhani takrorlamaydi
 
+fact_check:
+  web_search: true      # Gemini + Google Search bilan internetdan tekshirish (eskirgan faktlarni ham ushlaydi)
+  required: true        # hech bir tekshiruvchi ishlamasa, video joylanmaydi
+
 llm:
   # Matn yozuvchi modellar shu tartibda sinab ko'riladi. Kaliti (GitHub Secret) yo'q provayder o'tkazib yuboriladi.
   # Har provayderning eng yaxshi modeli avtomatik tanlanadi, shuning uchun model nomlarini yozish shart emas.

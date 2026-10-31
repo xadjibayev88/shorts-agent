@@ -5,6 +5,7 @@ Qaysi birining kaliti GitHub Secrets'da bo'lsa o'shasi ishlatiladi; band bo'lsa 
 """
 import json
 import re
+from datetime import datetime, timezone
 
 import requests
 
@@ -146,6 +147,26 @@ def _call_gemini(model: str, prompt: str, temperature: float) -> str:
     return "".join(p.get("text", "") for p in parts if not p.get("thought"))
 
 
+def _call_gemini_search(model: str, prompt: str) -> tuple[str, list[dict]]:
+    """Gemini + Google Search: model javobdan oldin internetdan qidiradi. (matn, manbalar) qaytaradi."""
+    r = requests.post(
+        f"{GEMINI}/models/{model}:generateContent",
+        headers={"x-goog-api-key": env("GEMINI_API_KEY"), "Content-Type": "application/json"},
+        # Qidiruv vositasi JSON rejimi bilan birga ishlamaydi, shuning uchun JSON'ni matndan ajratamiz
+        json={"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+              "tools": [{"google_search": {}}],
+              "generationConfig": {"temperature": 0.1}},
+        timeout=120,
+    )
+    if r.status_code != 200:
+        raise RuntimeError(f"Gemini qidiruv {model} HTTP {r.status_code}: {r.text[:300]}")
+    cand = r.json()["candidates"][0]
+    text = "".join(p.get("text", "") for p in cand["content"]["parts"] if not p.get("thought"))
+    chunks = (cand.get("groundingMetadata") or {}).get("groundingChunks") or []
+    sources = [c["web"] for c in chunks if c.get("web", {}).get("uri")]
+    return text, sources
+
+
 # ---------------- OpenAI-mos provayderlar ----------------
 def _pick_models(name: str, base: str, key: str, prefs: list[str], limit: int = 3) -> list[str]:
     """Provayderning /models ro'yxatidan afzal andozalarga mos eng yaxshi bir nechta model."""
@@ -265,6 +286,7 @@ def validate(story: dict, cfg: dict) -> dict:
 
 
 VERIFY_PROMPT = """Sen qat'iy fakt-tekshiruvchisan. Quyidagi o'zbekcha qisqa video matnidagi har bir faktni va raqamni tekshir.
+Bugungi sana: {today}. Fakt shu sanaga to'g'ri bo'lsin: yangi kashfiyot, rekord yoki o'zgarish bilan eskirgan bo'lsa "false" de.
 Matn:
 {text}
 
@@ -296,29 +318,64 @@ FAQAT tuzatilgan to'liq JSON bilan javob ber.
 """
 
 
-def _fact_check(story: dict, chain: list, author: str) -> None:
-    """Faktni BOSHQA provayderdagi model tekshiradi; tasdiqlanmasa FactError."""
+def _verdict(res: dict, label: str, story: dict) -> bool:
+    """Tekshiruvchi javobini baholaydi. True = qabul, False = javob yaroqsiz (keyingisiga o'tamiz)."""
+    verdict = str(res.get("verdict", "")).lower().strip()
+    if len(str(res.get("issues", ""))) < 25:
+        log.warning("Tekshiruvchi %s izohsiz javob berdi — keyingisiga o'tamiz", label)
+        return False
+    log.info("Fakt tekshiruvi (%s): %s — %s", label, verdict, str(res.get("issues", ""))[:200])
+    if verdict != "true":
+        raise FactError(f"Fakt tasdiqlanmadi ({label}): {res.get('issues', '')}"[:300])
+    story["verified_by"] = label
+    return True
+
+
+def _fact_check(story: dict, chain: list, author: str, cfg: dict) -> None:
+    """Fakt-tekshiruv. Avval Gemini Google Search bilan internetdan, bo'lmasa BOSHQA provayderdagi model.
+
+    Tasdiqlanmasa FactError. Hech bir tekshiruvchi ishlamasa va fact_check.required bo'lsa —
+    RuntimeError: tekshirilmagan video joylanmaydi.
+    """
+    fc = cfg.get("fact_check", {})
     provider = author.split("/")[0]
-    text = f"Sarlavha: {story['title']}\n" + " ".join(s["text"] for s in story["scenes"])
+    text = (f"Sarlavha: {story['title']}\nEkrandagi yozuv: {story.get('hook', '')}\n"
+            f"Muqova: {story.get('thumbnail_text', '')}\n" + " ".join(s["text"] for s in story["scenes"]))
+    prompt = VERIFY_PROMPT.format(text=text, today=datetime.now(timezone.utc).date().isoformat())
+
+    # 1) Internet bilan tekshiruv (Gemini + Google Search) — eskirgan faktlarni ham ushlaydi
+    if fc.get("web_search", True) and env("GEMINI_API_KEY", required=False):
+        for model in _gemini_models(cfg)[:3]:
+            label = f"gemini-search/{model}"
+            try:
+                raw, sources = _call_gemini_search(model, prompt)
+                res = _extract_json(raw)
+            except Exception as e:  # noqa: BLE001
+                log.warning("Tekshiruvchi %s ishlamadi: %s", label, e)
+                continue
+            if not sources:
+                log.warning("Tekshiruvchi %s internetdan qidirmadi — keyingisiga o'tamiz", label)
+                continue
+            if _verdict(res, label, story):
+                story["fact_sources"] = [{"title": s.get("title", ""), "uri": s["uri"]} for s in sources[:5]]
+                return
+
+    # 2) Zaxira: boshqa provayderdagi model (internetsiz, o'z bilimi bilan)
     # OmniRoute birinchi: u o'zi tirik provayderni tanlaydi, band Gemini'ni kutib o'tirmaymiz
     verifiers = sorted(chain, key=lambda c: not c[0].startswith("omniroute/"))
     for label, call in verifiers:
         if label.split("/")[0] in (provider, "pollinations"):
             continue
         try:
-            res = _extract_json(call(VERIFY_PROMPT.format(text=text), 0.1))
+            res = _extract_json(call(prompt, 0.1))
         except Exception as e:  # noqa: BLE001
             log.warning("Tekshiruvchi %s ishlamadi: %s", label, e)
             continue
-        verdict = str(res.get("verdict", "")).lower().strip()
-        if len(str(res.get("issues", ""))) < 25:
-            log.warning("Tekshiruvchi %s izohsiz javob berdi — keyingisiga o'tamiz", label)
-            continue
-        log.info("Fakt tekshiruvi (%s): %s — %s", label, verdict, str(res.get("issues", ""))[:200])
-        if verdict != "true":
-            raise FactError(f"Fakt tasdiqlanmadi ({label}): {res.get('issues', '')}"[:300])
-        story["verified_by"] = label
-        return
+        if _verdict(res, label, story):
+            return
+
+    if fc.get("required", True):
+        raise RuntimeError("Hech bir fakt-tekshiruvchi ishlamadi — tekshirilmagan video joylanmaydi")
     log.warning("Tekshiruvchi model topilmadi — fakt tekshirilmadi")
 
 
@@ -345,7 +402,7 @@ def generate_story(cfg: dict, history: dict) -> dict:
             if story["title"].lower() in used_lower:
                 raise ValueError("Sarlavha takrorlandi")
             try:
-                _fact_check(story, chain, label)
+                _fact_check(story, chain, label, cfg)
             except FactError as fe:
                 # Tashlab yubormaymiz: muallif model tekshiruvchi izohi bo'yicha bir marta tuzatadi
                 log.info("%s matnni tuzatmoqda: %s", label, fe)
@@ -353,7 +410,11 @@ def generate_story(cfg: dict, history: dict) -> dict:
                 raw = call(FIX_PROMPT.format(issues=fe, prompt=prompt,
                                              story=json.dumps(draft, ensure_ascii=False)), 0.4)
                 story = validate(_extract_json(raw), cfg)
-                _fact_check(story, chain, label)
+                _fact_check(story, chain, label, cfg)
+            # Tavsifga internetda topilgan manbalarni qo'shamiz (Gemini havolalari vaqtinchalik, shuning uchun sayt nomi)
+            sites = list(dict.fromkeys(s["title"] for s in story.get("fact_sources", []) if s.get("title")))[:3]
+            if sites:
+                story["description"] += "\nTekshirildi: " + ", ".join(sites)
             story["genre"] = genre
             story["model"] = label
             history["genre_index"] = gi + 1
