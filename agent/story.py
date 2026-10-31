@@ -360,19 +360,44 @@ def _fact_check(story: dict, chain: list, author: str, cfg: dict) -> None:
                 story["fact_sources"] = [{"title": s.get("title", ""), "uri": s["uri"]} for s in sources[:5]]
                 return
 
-    # 2) Zaxira: boshqa provayderdagi model (internetsiz, o'z bilimi bilan)
+    # 2) Zaxira: boshqa provayderlardagi modellar (internetsiz, o'z bilimi bilan).
+    # Bitta model adashishi mumkin, shuning uchun ko'pchilik ovozi: 2 ta bir xil hukm yetarli, aks holda 3-chisi hal qiladi.
     # OmniRoute birinchi: u o'zi tirik provayderni tanlaydi, band Gemini'ni kutib o'tirmaymiz
     verifiers = sorted(chain, key=lambda c: not c[0].startswith("omniroute/"))
+    votes: list[tuple[str, bool, str]] = []
+    seen: set[str] = set()
     for label, call in verifiers:
-        if label.split("/")[0] in (provider, "pollinations"):
+        prov = label.split("/")[0]
+        if prov in (provider, "pollinations") or prov in seen:
             continue
         try:
             res = _extract_json(call(prompt, 0.1))
         except Exception as e:  # noqa: BLE001
             log.warning("Tekshiruvchi %s ishlamadi: %s", label, e)
             continue
-        if _verdict(res, label, story):
+        issues = str(res.get("issues", ""))
+        if len(issues) < 25:
+            log.warning("Tekshiruvchi %s izohsiz javob berdi — keyingisiga o'tamiz", label)
+            continue
+        ok = str(res.get("verdict", "")).lower().strip() == "true"
+        log.info("Fakt tekshiruvi (%s): %s — %s", label, "true" if ok else "false", issues[:200])
+        seen.add(prov)
+        votes.append((label, ok, issues))
+        yes = sum(v[1] for v in votes)
+        no = len(votes) - yes
+        if yes >= 2:
+            story["verified_by"] = ", ".join(v[0] for v in votes if v[1])
             return
+        if no >= 2:
+            bad = "; ".join(f"{v[0]}: {v[2]}" for v in votes if not v[1])
+            raise FactError(f"Fakt tasdiqlanmadi (ko'pchilik ovozi): {bad}"[:400])
+    if votes and len(votes) < 2:
+        # Faqat bitta tekshiruvchi javob berdi: ehtiyot uchun uning hukmiga amal qilamiz
+        label, ok, issues = votes[0]
+        if ok:
+            story["verified_by"] = label
+            return
+        raise FactError(f"Fakt tasdiqlanmadi ({label}): {issues}"[:300])
 
     if fc.get("required", True):
         raise RuntimeError("Hech bir fakt-tekshiruvchi ishlamadi — tekshirilmagan video joylanmaydi")
