@@ -5,9 +5,9 @@ on:
     # Vaqtlar UTC'da. Toshkent = UTC+5
     # Kuniga 3 ta video: ertalab, tushda, kechqurun
     # Analitika (2026-10-31): katta natijalar 13:00-19:00 da chiqqan, kechasi yuklanganlar 9 ko'rishdan oshmagan
-    - cron: "23 8 * * *"    # 13:23 Toshkent
-    - cron: "47 10 * * *"   # 15:47
-    - cron: "23 13 * * *"   # 18:23
+    # 2026-11-01 dan 7 kun: kuniga 1 ta, sifatli va qisqa (kanal ko'rsatilishi tiklanguncha).
+    # Median 30+ ko'rishga chiqsa, 13:23 (23 8) va 18:23 (23 13) qaytariladi.
+    - cron: "47 10 * * *"   # 15:47 Toshkent
   workflow_dispatch:
     inputs:
       count:

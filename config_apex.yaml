@@ -18,8 +18,8 @@ channel:
   - sotuv va muzokara bo'yicha oddiy maslahat
   - diqqatni jamlash va telefon qaramligidan qutulish
 story:
-  min_words: 45
-  max_words: 75
+  min_words: 35
+  max_words: 55
   scenes_min: 5
   scenes_max: 8
   history_avoid_last: 120
@@ -42,10 +42,7 @@ gemini:
   - gemini-3.7-flash
   temperature: 0.9
 tts:
-  # Tabiiy ovoz: ElevenLabs (ELEVENLABS_API_KEY secret bo'lsa). Bo'lmasa yoki limit tugasa: Edge (pastdagi voice).
-  # Bepul tarifda kutubxona ovozlari API orqali ishlamaydi (402 paid_plan_required), shuning uchun premade ovoz.
-  # Pullik tarifga o'tilsa, o'zbekcha "SARHAD-SIZ Narrator" (rwtcHtZgYU6HN2zLNBlf) ga almashtiring.
-  elevenlabs_voice: hpp4J3VqNfWAUOO0d1Us   # premade "Bella", eleven_multilingual_v2 bilan o'zbekcha sinovdan o'tgan
+  elevenlabs_voice: hpp4J3VqNfWAUOO0d1Us
   elevenlabs_model: eleven_multilingual_v2
   voice: uz-UZ-SardorNeural
   rate: +5%
@@ -54,7 +51,7 @@ video:
   width: 1080
   height: 1920
   fps: 30
-  max_duration: 40
+  max_duration: 28
   crf: 20
   preset: medium
   progress_bar: true
@@ -84,16 +81,28 @@ youtube:
   extra_tags:
   - shorts
   - motivatsiya
+  - pul topish
   - biznes
-  - pul
-  - muvaffaqiyat
+  - muvaffaqiyat sirlari
+  - moliyaviy savodxonlik
+  - pul tejash
   - intizom
-  - uzbek
-  - apex
+  - tadbirkorlik
+  - biznes g'oyalar
+  - мотивация
+  - пул топиш
+  - бизнес ғоялар
+  - apex wealths
+  - финансовая грамотность
   hashtags:
   - '#shorts'
   - '#motivatsiya'
-  - '#biznes'
+  - '#pultopish'
+  description_footer: 'apex_wealths: pul, biznes va intizom haqida qisqa saboqlar.
+    Saqlab qo''ying.
+
+    Bu moliyaviy maslahat emas. Matn va ovoz sun''iy intellekt yordamida tayyorlangan,
+    faktlar alohida tekshirilgan.'
 thumbnail:
   top: APEX
   bottom: SAQLAB QO'YING
@@ -103,9 +112,11 @@ instagram:
   hashtags:
   - '#motivatsiya'
   - '#biznes'
-  - '#pul'
+  - '#pultopish'
   - '#muvaffaqiyat'
+  - '#moliyaviysavodxonlik'
+  - '#tadbirkor'
   - '#intizom'
   - '#uzbekistan'
+  - '#мотивация'
   - '#apex_wealths'
-  - '#reels'

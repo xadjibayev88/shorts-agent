@@ -21,11 +21,12 @@ channel:
     - "tarixdagi kutilmagan, ishonish qiyin fakt"
 
 story:
-  min_words: 45
-  max_words: 75
-  scenes_min: 5
-  scenes_max: 8
+  min_words: 22
+  max_words: 35
+  scenes_min: 3
+  scenes_max: 5
   history_avoid_last: 120      # oxirgi N ta sarlavhani takrorlamaydi
+  opener: ""                   # "Bilarmidingiz," har videoda shablon bo'lib qolgan edi
 
 fact_check:
   web_search: true      # Gemini + Google Search bilan internetdan tekshirish (eskirgan faktlarni ham ushlaydi)
@@ -54,10 +55,10 @@ video:
   width: 1080
   height: 1920
   fps: 30
-  max_duration: 40             # soniya: qisqa Shorts oxirigacha ko'riladi
+  max_duration: 18             # soniya: raqobatchilarning 7-14 s faktlari eng ko'p ko'riladi
   crf: 20
   preset: "medium"
-  progress_bar: true
+  progress_bar: false          # loop: video tugaganini bildirmasin
   progress_color: "0xFFFFFF"
 
 subtitles:
@@ -84,5 +85,11 @@ youtube:
   category_id: "27"               # 27 = Education
   made_for_kids: false
   synthetic_media: true           # AI kontent belgisi (YouTube talabi)
-  extra_tags: ["shorts", "bilarmidingiz", "qiziqarli faktlar", "faktlar", "bilasizmi", "uzbek"]
-  hashtags: ["#shorts", "#bilarmidingiz", "#faktlar"]
+  extra_tags: [shorts, bilarmidingiz, qiziqarli faktlar, bilasizmi, faktlar, қизиқарли фактлар,
+  биласизми, билармидингиз, ajoyib faktlar, hayratlanarli faktlar, dunyo sirlari,
+  o'zbekcha faktlar, uzbek, интересные факты, а вы знали]
+  hashtags: ['#shorts', '#qiziqarlifaktlar', '#bilarmidingiz']
+  description_footer: "Bilarmidingiz: har kuni qisqa va tekshirilgan qiziqarli faktlar. Obuna bo'ling va\
+  \ do'stingizga yuboring.
+Matn va ovoz sun'iy intellekt yordamida tayyorlangan,\
+  \ faktlar alohida tekshirilgan. Kadrlar: Pixabay."

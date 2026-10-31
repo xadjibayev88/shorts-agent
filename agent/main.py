@@ -37,7 +37,7 @@ def next_queued(cfg: dict, history: dict):
     used = {v["title"].lower() for v in history.get("videos", [])}
     for path in sorted(QUEUE.glob("*.json")):
         try:
-            story = validate(json.loads(path.read_text(encoding="utf-8")), cfg)
+            story = validate(json.loads(path.read_text(encoding="utf-8")), cfg, strict_words=False)
             if story["title"].lower() in used:
                 log.info("Navbatdagi «%s» allaqachon joylangan — done/ ga", story["title"])
                 _move(path, "done")

@@ -50,11 +50,13 @@ VAZIFA: shu mavzu bo'yicha bitta HAQIQIY, ilmiy tasdiqlangan, hayratlanarli fakt
 Talablar:
 - Fakt to'qima bo'lmasin. Shubhali, afsonaviy yoki tekshirib bo'lmaydigan faktlarni tanlama. Raqamlar aniq bo'lsin.
 - Til: sof, jonli o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof ishlat: o', g'.
-- Matn {min_words}-{max_words} so'zdan iborat bo'lsin (ovozda ~20-30 soniya). Qisqa video oxirigacha ko'riladi — bu Shorts uchun eng muhim ko'rsatkich.
-- 1-gap ALBATTA "Bilarmidingiz," so'zi bilan boshlansin va eng kuchli, shok qiladigan faktni RAQAM bilan aytsin. 1-gap 10 so'zdan oshmasin — tomoshabin 1-soniyada qolishga qaror qiladi.
-  Masalan: "Bilarmidingiz, sakkizoyoqning uchta yuragi bor!"
+- Matn {min_words}-{max_words} so'zdan iborat bo'lsin (ovozda 10-15 soniya). Qisqa video oxirigacha va qayta-qayta ko'riladi — bu Shorts uchun eng muhim ko'rsatkich.
+- 1-gap faktning o'zi bo'lsin: ko'pi bilan 7 so'z, 1,5 soniyada aytib bo'linadi, birinchi so'z raqam yoki ekranda ko'rinib turgan narsa.
+  Kirish, salomlashish, "bugun sizga", "Bilarmidingiz" YO'Q. Masalan: "Sakkizoyoqning uchta yuragi bor."
+- 1-sahna kalit so'zi eng harakatli, yaqin plandagi kadr bo'lsin (masalan: "octopus close up moving").
 - Keyingi gaplarda nega shunday ekanini oddiy tilda tushuntir va 1-2 ta qo'shimcha qiziq detal qo'sh. Suv qo'shma: har gap yangi ma'lumot bersin.
-- Oxirgi gap tomoshabinni izoh yozishga undovchi qisqa savol bo'lsin (masalan: "Siz buni bilarmidingiz?"). "Obuna bo'ling" deb yozma.
+- Oxirgi gap 1-gapga qaytib ulansin (loop): video qayta boshlanganda gap davom etayotgandek eshitilsin.
+  Oxirgi gap "chunki", "shuning uchun" yoki 1-gapdagi asosiy so'z bilan tugasin. Savol bilan TUGATMA. "Obuna bo'ling" deb yozma.
 - Imlo: grammatik jihatdan to'g'ri o'zbekcha yoz, so'z to'qima, inglizcha so'zlarni aralashtirma. Sarlavha ayniqsa xatosiz bo'lsin.
 - Gaplar qisqa, ovozda o'qishga qulay. Raqamlarni so'z bilan yoz. Emoji ishlatma.
 - Matnni {scenes_min}-{scenes_max} ta sahnaga bo'l (har sahna 1-2 qisqa gap, ~3-5 soniya).
@@ -62,7 +64,8 @@ Talablar:
   shu gapga mos bo'lsin: "octopus swimming ocean", "rocket launch fire smoke", "cheetah running savanna",
   "blood cells flowing", "lightning storm night sky". Harakatsiz narsalarni ("old book", "stone") tanlama.
 
-Shu faktlar ALLAQACHON ishlatilgan, takrorlama va ularga o'xshatma:
+Shu faktlar ALLAQACHON ishlatilgan, takrorlama va ularga o'xshatma. Ro'yxatdagi biror sarlavha bilan bir xil asosiy
+obyekt (masalan, Rim sementi, Xitoy devori, Venera) bo'lsa, boshqa obyekt tanla:
 {used}
 
 FAQAT shu JSON formatda javob ber:
@@ -73,7 +76,7 @@ FAQAT shu JSON formatda javob ber:
   "scenes": [
     {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
   ],
-  "description": "2-3 gaplik tavsif: fakt qisqacha va qiziqtiruvchi savol",
+  "description": "1-qator: fakt bitta gapda. 2-qator: 'Siz buni bilarmidingiz: A) ha, B) birinchi marta eshitdim? Izohda harf yozing.'",
   "source": "Faktning ishonchli manbasi (masalan: NASA, Britannica, National Geographic, WHO)",
   "tags": ["8-12 ta o'zbekcha va inglizcha teg"],
   "hashtags": ["#3-5", "#ta", "#heshteg"]
@@ -89,10 +92,11 @@ Talablar:
 - Faqat haqiqiy ma'lumot: mashhur odam, kompaniya yoki raqam keltirsang, u aniq va tekshiriladigan bo'lsin. Iqtibosni faqat muallifi aniq bo'lsa ishlat. To'qima hikoya, soxta statistika, "milliarder bo'lasiz" kabi va'dalar YO'Q.
 - Moliyaviy maslahat berma: aniq aksiya, kripto yoki "pul ikki baravar bo'ladi" kabi gaplar yo'q. Odatlar, fikrlash, intizom, biznes saboqlari haqida gapir.
 - Til: sof, jonli o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof: o', g'. Inglizcha so'z aralashtirma.
-- Matn {min_words}-{max_words} so'z (ovozda ~20-30 soniya).
+- Matn {min_words}-{max_words} so'z (ovozda 15-25 soniya).
 - 1-gap kuchli ilmoq: savol yoki kutilmagan fikr, 10 so'zdan oshmasin. Undov belgisi ishlatma.
 - Keyin: nega bu muhim, bitta misol yoki raqam, va bugun qilish mumkin bo'lgan bitta aniq qadam.
-- Oxirgi gap izohga undovchi qisqa savol. "Obuna bo'ling" deb yozma.
+- Oxirgi gap ikki variantli tanlov savoli, javobi bitta so'z (masalan: "Siz qaysi birini tanlaysiz: tejash yoki ishlash? Izohda bitta so'z yozing.").
+  Ochiq, umumiy savol berma. "Obuna bo'ling" deb yozma.
 - Gaplar qisqa, ovozda o'qishga qulay. Raqamlarni so'z bilan yoz. Emoji ishlatma.
 - Matnni {scenes_min}-{scenes_max} ta sahnaga bo'l (har sahna 1-2 qisqa gap).
 - Har sahna uchun 2-4 so'zli INGLIZCHA stok-video kalit so'z: odam ko'zini uzolmaydigan, harakatli, premium kadr.
@@ -309,7 +313,7 @@ def clean_title(title: str) -> str:
     return t[:1].upper() + t[1:] if t else "Qiziqarli fakt"
 
 
-def validate(story: dict, cfg: dict) -> dict:
+def validate(story: dict, cfg: dict, strict_words: bool = True) -> dict:
     sc = cfg["story"]
     scenes = [s for s in story.get("scenes", []) if s.get("text", "").strip()]
     if len(scenes) < 3:
@@ -323,7 +327,7 @@ def validate(story: dict, cfg: dict) -> dict:
     if opener and not first.lower().startswith(opener.lower()):
         scenes[0]["text"] = f"{opener}, " + first[:1].lower() + first[1:]
     words = sum(_word_count(s["text"]) for s in scenes)
-    if not (sc["min_words"] * 0.7 <= words <= sc["max_words"] * 1.2):
+    if strict_words and not (sc["min_words"] * 0.7 <= words <= sc["max_words"] * 1.2):
         raise ValueError(f"So'z soni mos emas: {words}")
     story["scenes"] = scenes
     story["title"] = clean_title(story.get("title", "Qiziqarli hikoya"))

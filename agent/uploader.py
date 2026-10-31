@@ -29,15 +29,18 @@ def build_metadata(story: dict, cfg: dict) -> dict:
     if "#shorts" not in title.lower() and len(title) <= 90:
         title = f"{title} #shorts"
     title = title[:100]
-    hashtags = list(dict.fromkeys(story.get("hashtags", []) + y["hashtags"]))[:8]
+    # Kanal heshteglari birinchi: YouTube sarlavha ustida dastlabki 3 tasini ko'rsatadi (#shorts va asosiy so'z)
+    hashtags = list(dict.fromkeys(y["hashtags"] + story.get("hashtags", [])))[:5]
+    footer = y.get("description_footer") or ("Fakt sun'iy intellekt tomonidan tayyorlangan va ikkinchi model bilan "
+                                              "tekshirilgan. Kadrlar: Pixabay. Ovoz: sun'iy intellekt.")
     description = (
         f"{story.get('description', '')}\n\n"
         f"{' '.join(hashtags)}\n\n"
-        "Fakt sun'iy intellekt tomonidan tayyorlangan va ikkinchi model bilan tekshirilgan. "
-        "Kadrlar: Pixabay. Ovoz: sun'iy intellekt."
+        f"{footer}"
     )[:4900]
     tags, total = [], 0
-    for t in story.get("tags", []) + y["extra_tags"]:
+    # Kanalning qidiruv so'zlari birinchi, keyin videoga xos teglar (450 belgi chegarasida qisqarib qolmasin)
+    for t in y["extra_tags"] + story.get("tags", []):
         t = t.strip()
         if t and t.lower() not in {x.lower() for x in tags} and total + len(t) < 450:
             tags.append(t)
