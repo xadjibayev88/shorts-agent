@@ -1,9 +1,9 @@
 {
- "fetched_at": "2026-10-31T13:29:12+00:00",
+ "fetched_at": "2026-10-31T20:16:48+00:00",
  "channels": {
   "bilarmidingiz": {
    "subscribers": 6,
-   "views": 3755,
+   "views": 3812,
    "videos": 29,
    "recent": [
     {
@@ -11,7 +11,7 @@
      "title": "Ibn Sinoning kitobi Yevropada asrlar o'qitilgan #shorts",
      "published": "2026-10-31T09:34:38Z",
      "duration": "PT27S",
-     "views": 16,
+     "views": 36,
      "likes": 0,
      "comments": 0
     },
@@ -20,7 +20,7 @@
      "title": "Xitoy devori kosmosdan ko'rinadimi? Afsona #shorts",
      "published": "2026-10-31T08:52:04Z",
      "duration": "PT23S",
-     "views": 1,
+     "views": 3,
      "likes": 0,
      "comments": 0
     },
@@ -38,7 +38,7 @@
      "title": "Banan o'simligi o'zi aslida nima? #shorts",
      "published": "2026-10-30T18:07:58Z",
      "duration": "PT24S",
-     "views": 5,
+     "views": 6,
      "likes": 0,
      "comments": 0
     },
@@ -74,7 +74,7 @@
      "title": "Okean SUYIDAGI Qora Tog' Emasmi? #shorts",
      "published": "2026-10-29T18:40:07Z",
      "duration": "PT23S",
-     "views": 8,
+     "views": 10,
      "likes": 0,
      "comments": 0
     },
@@ -83,7 +83,7 @@
      "title": "Inson tishlari nega suyakka kirmasligini bilasizmi? #shorts",
      "published": "2026-10-29T14:40:03Z",
      "duration": "PT19S",
-     "views": 14,
+     "views": 18,
      "likes": 0,
      "comments": 0
     },
@@ -155,7 +155,7 @@
      "title": "Nega Eynshteyn miyasi qirqib tashlangan va uning siri nima? #shorts",
      "published": "2026-10-27T18:07:00Z",
      "duration": "PT17S",
-     "views": 9,
+     "views": 10,
      "likes": 2,
      "comments": 0
     },
@@ -164,7 +164,7 @@
      "title": "Meduza qanday qilib YOSHLANISHi mumkin? #shorts",
      "published": "2026-10-27T13:31:40Z",
      "duration": "PT27S",
-     "views": 1521,
+     "views": 1537,
      "likes": 15,
      "comments": 0
     },
@@ -245,7 +245,7 @@
      "title": "Mariana chuqurligida 1,100 bar bosim – hayratlanarli haqiqat #shorts",
      "published": "2026-10-26T10:05:04Z",
      "duration": "PT40S",
-     "views": 1800,
+     "views": 1801,
      "likes": 8,
      "comments": 0
     },
@@ -271,15 +271,24 @@
   },
   "apex_wealths": {
    "subscribers": 2,
-   "views": 4350,
-   "videos": 6,
+   "views": 4411,
+   "videos": 7,
    "recent": [
+    {
+     "id": "Nk7eUYsBATg",
+     "title": "Ikki daqiqa qoidasi: kichik ishlar to'planmasin #shorts",
+     "published": "2026-10-31T18:02:21Z",
+     "duration": "PT25S",
+     "views": 0,
+     "likes": 0,
+     "comments": 0
+    },
     {
      "id": "1IoMiMT_v0A",
      "title": "80/20 qoidasi: oz ishdan katta natija #shorts",
      "published": "2026-10-31T13:13:10Z",
      "duration": "PT29S",
-     "views": 0,
+     "views": 2,
      "likes": 0,
      "comments": 0
     },
@@ -315,7 +324,7 @@
      "title": "Qo'rqishimiz kerak bo'lgan yagona narsa - qo'rquvning o'zi #shorts",
      "published": "2026-10-27T09:26:13Z",
      "duration": "PT36S",
-     "views": 1416,
+     "views": 1447,
      "likes": 11,
      "comments": 0
     },
@@ -324,8 +333,8 @@
      "title": "Hamma \"imkonsiz\" degan va'da 7 yil o'tib tarixga aylandi #shorts",
      "published": "2026-10-27T09:22:51Z",
      "duration": "PT24S",
-     "views": 1659,
-     "likes": 20,
+     "views": 1665,
+     "likes": 19,
      "comments": 0
     }
    ]
