@@ -202,6 +202,14 @@
       "genre": null,
       "video_id": "h6Xz4RCCbIo",
       "words": 50
+    },
+    {
+      "date": "2026-10-31T09:34:19+00:00",
+      "title": "Ibn Sinoning kitobi Yevropada asrlar o'qitilgan",
+      "genre": null,
+      "video_id": "Mn2J6AaBzyc",
+      "instagram_id": null,
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -386,7 +394,13 @@
     "pb232",
     "pb34608",
     "pb66433",
-    "pb846"
+    "pb846",
+    "pb111280",
+    "pb13053",
+    "pb165771",
+    "pb22704",
+    "pb302404",
+    "pb378590"
   ],
   "genre_index": 10
 }
