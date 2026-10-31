@@ -299,7 +299,8 @@ def clean_title(title: str) -> str:
     """
     t = re.sub(r"#\w+", "", title or "")
     t = re.sub(r"[!\"“”«»]", "", t)
-    t = re.sub(r"\b(\w*[A-Z]{4,}\w*)\b", lambda m: m.group(1).capitalize(), t)
+    keep = {"NASA", "UNESCO", "NATO", "AQSH", "YUNESKO", "FIFA", "BMT"}
+    t = re.sub(r"\b(\w*[A-Z]{4,}\w*)\b", lambda m: m.group(1) if m.group(1) in keep else m.group(1).capitalize(), t)
     t = re.sub(r"\s+", " ", t).strip(" -–—:")
     if len(t) > 60:
         t = t[:60].rsplit(" ", 1)[0].rstrip(" ,-–—:")
