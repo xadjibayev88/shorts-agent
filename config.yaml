@@ -59,7 +59,7 @@ subtitles:
   font_file: "assets/fonts/Montserrat-ExtraBold.ttf"   # bo'lmasa DejaVu ishlatiladi
   font_size: 92
   words_per_line: 3
-  highlight_color: "&H0000D4FF"   # ASS formatda (BGR): sariq
+  highlight_color: "&H00FFFFFF"   # ASS formatda (BGR): oq (brend qoidasi: subtitrlar to'liq oq)
   base_color: "&H00FFFFFF"
   outline: 7
   position_y: 1150                # subtitr markazi (piksel)
