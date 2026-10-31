@@ -1,0 +1,82 @@
+name: apex_wealths YouTube ulash
+
+# Telefondan YouTube ruxsatini olish (kompyutersiz):
+# 1) Kodsiz ishga tushirilsa: ruxsat havolasini Issue qilib ochadi.
+# 2) Egasi havolani ochib, apex_wealths akkauntini tanlab Allow bosadi; brauzer "localhost" xato sahifasini ochadi.
+# 3) O'sha sahifa manzili (yoki undagi code=...) bilan qayta ishga tushirilsa: tokenni oladi, shifrlab
+#    data/yt_apex_token.enc ga yozadi. apex.yml uni o'zi ochadi. YT_REFRESH_TOKEN_APEX secret qo'shish shart emas.
+
+on:
+  workflow_dispatch:
+    inputs:
+      code:
+        description: "Google qaytargan manzil (http://localhost:8080/?code=...) yoki faqat code. Bo'sh = havola yaratish"
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    env:
+      CID: ${{ secrets.YT_CLIENT_ID_APEX || secrets.YT_CLIENT_ID }}
+      CSECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
+      REDIRECT: http://localhost:8080
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ruxsat havolasini Issue qilib ochish
+        if: ${{ github.event.inputs.code == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          URL=$(python3 - <<'PY'
+          import os, urllib.parse as u
+          print("https://accounts.google.com/o/oauth2/v2/auth?" + u.urlencode({
+              "client_id": os.environ["CID"], "redirect_uri": os.environ["REDIRECT"], "response_type": "code",
+              "scope": "https://www.googleapis.com/auth/youtube.upload", "access_type": "offline", "prompt": "consent"}))
+          PY
+          )
+          printf '%s\n' \
+            "1. Shu havolani oching: [YouTube ruxsati]($URL)" \
+            "2. **apex_wealths** kanali turgan akkauntni tanlang. Kanal so'ralsa: apex_wealths." \
+            "3. \"Google hasn't verified this app\" chiqsa: Advanced -> Go to ... -> Continue / Allow." \
+            "4. Oxirida \"sayt ochilmadi (localhost)\" degan sahifa chiqadi: bu normal. Uning **manzil satridagi to'liq havolani** nusxalab, Claude'ga yuboring." \
+            > body.md
+          gh issue create --title "apex_wealths: YouTube ruxsati" --body-file body.md
+
+      - name: Kodni tokenga almashtirish va shifrlab saqlash
+        if: ${{ github.event.inputs.code != '' }}
+        env:
+          RAW: ${{ github.event.inputs.code }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, urllib.parse as u, urllib.request as r
+          raw = os.environ["RAW"].strip()
+          m = re.search(r"[?&]code=([^&\s]+)", raw)
+          code = u.unquote(m.group(1)) if m else raw
+          data = u.urlencode({"code": code, "client_id": os.environ["CID"], "client_secret": os.environ["CSECRET"],
+                              "redirect_uri": os.environ["REDIRECT"], "grant_type": "authorization_code"}).encode()
+          try:
+              resp = json.load(r.urlopen(r.Request("https://oauth2.googleapis.com/token", data=data), timeout=30))
+          except Exception as e:
+              body = getattr(e, "read", lambda: b"")().decode()[:300]
+              raise SystemExit(f"Google kodni qabul qilmadi (kod bir martalik va bir necha daqiqa yashaydi): {body}")
+          tok = resp.get("refresh_token")
+          if not tok:
+              raise SystemExit("refresh_token kelmadi: havolani qaytadan oching (prompt=consent).")
+          print(f"::add-mask::{tok}")
+          open("/tmp/tok", "w").write(tok)
+          PY
+          mkdir -p data
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in /tmp/tok -out data/yt_apex_token.enc -pass env:CSECRET
+          rm -f /tmp/tok
+          git config user.name "shorts-agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/yt_apex_token.enc
+          git commit -m "apex_wealths: YouTube token (encrypted)"
+          git pull --rebase -q
+          git push
+          echo "Tayyor: apex_wealths YouTube'ga ulandi."

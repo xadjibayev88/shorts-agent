@@ -77,6 +77,19 @@ jobs:
             omniroute providers add "${p%%:*}" --credential-env "${p#*:}" --yes > /dev/null && echo "OK ${p%%:*}" || echo "FAIL ${p%%:*}"
           done
 
+      # YouTube tokeni: YT_REFRESH_TOKEN_APEX secret bo'lsa o'sha, bo'lmasa yt-auth.yml saqlagan shifrlangan fayl
+      - name: apex YouTube tokeni
+        env:
+          CSECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
+          SECRET_TOK: ${{ secrets.YT_REFRESH_TOKEN_APEX }}
+        run: |
+          if [ -z "$SECRET_TOK" ] && [ -f data/yt_apex_token.enc ]; then
+            T=$(openssl enc -d -aes-256-cbc -pbkdf2 -in data/yt_apex_token.enc -pass env:CSECRET) || { echo "token faylini ochib bo'lmadi"; exit 0; }
+            echo "::add-mask::$T"
+            echo "YT_APEX_FILE_TOKEN=$T" >> "$GITHUB_ENV"
+            echo "Token shifrlangan fayldan olindi"
+          fi
+
       - name: Shorts yaratish va joylash
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -92,7 +105,7 @@ jobs:
           # apex uchun alohida OAuth client bo'lsa o'shasi, bo'lmasa Bilarmidingiz'niki
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID_APEX || secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
-          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_APEX }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_APEX || env.YT_APEX_FILE_TOKEN }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_APEX }}
           VIDEO_REPO: ${{ secrets.VIDEO_REPO }}
           VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
