@@ -11,7 +11,6 @@ FALLBACK_FONTS = [
     "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
 ]
 ACCENT = (255, 255, 255)  # brend qoidasi: muqova to'liq oq
-RED = (230, 30, 45)
 
 
 def _font_path(cfg: dict) -> str:
@@ -92,7 +91,7 @@ def make_thumbnail(video: Path, story: dict, cfg: dict, out: Path) -> Path:
         draw.text(((W - w) / 2, y), line, font=font, fill=color, stroke_width=12, stroke_fill=(0, 0, 0))
         y += lh
 
-    _badge(draw, "OXIRIGACHA KO'RING!", ImageFont.truetype(fp, 64), W / 2, H - 420, RED, (255, 255, 255))
+    _badge(draw, "OXIRIGACHA KO'RING", ImageFont.truetype(fp, 64), W / 2, H - 420, ACCENT, (0, 0, 0))
     img.save(out, "JPEG", quality=90)
     log.info("Muqova tayyor: %s", out.name)
     return out
