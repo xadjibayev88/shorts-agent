@@ -12,6 +12,9 @@ on:
       code:
         description: "Google qaytargan manzil (http://localhost:8080/?code=...) yoki faqat code. Bo'sh = havola yaratish"
         default: ""
+      redirect:
+        description: "Ruxsatdan keyin qaytiladigan manzil (client'da ro'yxatdan o'tgan bo'lishi kerak)"
+        default: "http://localhost:8080"
 
 permissions:
   contents: write
@@ -23,7 +26,7 @@ jobs:
     env:
       CID: ${{ secrets.YT_CLIENT_ID_APEX || secrets.YT_CLIENT_ID }}
       CSECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
-      REDIRECT: http://localhost:8080
+      REDIRECT: ${{ github.event.inputs.redirect || 'http://localhost:8080' }}
     steps:
       - uses: actions/checkout@v4
 
