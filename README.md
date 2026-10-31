@@ -1,6 +1,6 @@
 # 🎬 YouTube Shorts Agent (o'zbekcha qisqa hikoyalar)
 
-Har kuni **5 marta** o'zi ishga tushadi va to'liq avtomatik:
+Har kuni **3 marta** o'zi ishga tushadi va to'liq avtomatik:
 
 1. **Gemini AI** — original o'zbekcha qisqa hikoya yozadi (hook → taranglik → burilish), sarlavha, tavsif, teglar bilan. Janrlar navbat bilan almashadi, sarlavhalar takrorlanmaydi.
 2. **Edge TTS** — o'zbekcha tabiiy ovoz (Sardor yoki Madina), bepul.
@@ -61,7 +61,7 @@ Tugagach, pastdagi **Artifacts**'dan videoni yuklab ko'ring. Yoqsa — `upload =
 
 **1. YouTube API auditi.** 2020-yildan keyin yaratilgan, tekshiruvdan o'tmagan Google Cloud loyihalari orqali yuklangan videolar YouTube tomonidan avtomatik **Private (yopiq)** qilib qo'yiladi. Videolar ochiq chiqishi uchun bepul **"YouTube API Services – Audit and Quota Extension"** formasini to'ldiring (Google'da shu nom bilan qidiring). Javob odatda bir necha kundan bir necha haftagacha keladi. Shu orada videolarni YouTube Studio'da qo'lda Public qilishingiz mumkin.
 
-**2. Kunlik kvota.** Bepul kvota 10 000 birlik, bitta yuklash ≈ 1 600 birlik → kuniga **maksimal 6 ta**. Jadvalda 5 ta (8 000 birlik), zaxira qoldirilgan. Ko'proq kerak bo'lsa, o'sha audit formasida kvota oshirishni so'rang.
+**2. Kunlik kvota.** Bepul kvota 10 000 birlik, bitta yuklash ≈ 1 600 birlik → kuniga **maksimal 6 ta**. Jadvalda 3 ta (≈4 800 birlik), zaxira qoldirilgan. Ko'proq kerak bo'lsa, o'sha audit formasida kvota oshirishni so'rang.
 
 ---
 

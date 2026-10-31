@@ -3,9 +3,9 @@ name: YouTube Shorts Agent
 on:
   schedule:
     # Vaqtlar UTC'da. Toshkent = UTC+5
+    # Kuniga 3 ta video: ertalab, tushda, kechqurun
     - cron: "7 3 * * *"     # 08:07 Toshkent
-    - cron: "23 7 * * *"    # 12:23
-    - cron: "11 12 * * *"   # 17:11
+    - cron: "23 8 * * *"    # 13:23
     - cron: "17 15 * * *"   # 20:17
   workflow_dispatch:
     inputs:
