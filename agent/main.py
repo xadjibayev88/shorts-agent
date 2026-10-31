@@ -91,9 +91,13 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     else:
         clips = fetch_clips(story["scenes"], cfg, history, workdir)
 
-    # 4) Montaj
+    # 4) Montaj — har video o'z ko'rinishida (rang, o'tish, subtitr, hook), oxirgilarini takrorlamaydi
+    from .looks import pick_look, remember
+    look = pick_look(history)
+    story["look"] = look
     out = workdir / "short.mp4"
-    render(story, clips, voice, words, dur, cfg, workdir, out)
+    render(story, clips, voice, words, dur, cfg, workdir, out, look)
+    remember(history, look)
 
     # 5) Joylash: YouTube (kalit bo'lsa) + Instagram (yoqilgan va kalit bo'lsa)
     video_id, ig_id = None, None
@@ -116,6 +120,8 @@ def make_one(cfg: dict, history: dict, args) -> dict:
         "date": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "title": story["title"],
         "genre": story.get("genre"),
+        "format": story.get("format"),
+        "look": story.get("look"),
         "video_id": video_id,
         "instagram_id": ig_id,
         "words": story["word_count"],

@@ -124,6 +124,38 @@ FAQAT shu JSON formatda javob ber:
 
 PROMPTS = {"facts": PROMPT, "motivation": MOTIVATION_PROMPT}
 
+# Hikoya qurilishi ham har safar boshqacha bo'lsin (bir xil "fakt + tushuntirish + savol" qolipi takrorlanmasin).
+# Kanal qoidalari (birinchi so'z, uzunlik, oxirgi savol) o'zgarmaydi — faqat ichki tuzilish almashadi.
+FORMATS = {
+    "facts": [
+        "RAQAM ZARBASI: bitta hayratli raqamdan boshla, keyin uni kundalik narsa bilan taqqosla (masalan: 'bu uchta futbol maydoni kattaligida')",
+        "AFSONA VA HAQIQAT: ko'pchilik ishonadigan noto'g'ri fikrni ayt, keyin haqiqatni raqam bilan ko'rsat",
+        "SIR OCHILISHI: avval g'alati hodisani tasvirla, sababini oxiriga yaqin och, tomoshabin kutsin",
+        "TAQQOSLASH: ikki narsani yonma-yon qo'y (kichik va katta, qadimgi va hozirgi) va kutilmagan farqni ko'rsat",
+        "AGAR... BO'LSA: 'agar shunday bo'lsa nima bo'lardi' degan tasavvurni haqiqiy fakt bilan bog'la",
+        "UCH BOSQICH: bitta faktni uch qisqa qadam bilan ochib ber, har qadam oldingisidan qiziqroq",
+        "KUTILMAGAN BURILISH: oddiy tuyulgan narsadan boshla, o'rtada kutilmagan haqiqiy detal bilan burilish qil",
+    ],
+    "motivation": [
+        "TARIXIY VOQEA: bitta haqiqiy tarixiy voqea yoki shaxs hayotidagi lahzani hikoya qilib, undan bugungi saboq chiqar",
+        "XATO VA SABOQ: ko'p odam qiladigan bitta xatoni ko'rsat, keyin to'g'ri yo'lni bitta misol bilan ber",
+        "IKKI ODAM: bir xil sharoitdagi ikki odamni taqqosla, farqni bitta odat hal qilganini ko'rsat",
+        "BITTA RAQAM: tekshiriladigan bitta raqamdan boshla va uning kundalik hayotdagi ma'nosini och",
+        "SAVOL-JAVOB: tomoshabin o'ziga beradigan savolni ber va qadam-baqadam javob ber",
+        "KICHIK QADAM: bugun 5 daqiqada qilsa bo'ladigan bitta amaliy qadamni nima uchun ishlashi bilan tushuntir",
+    ],
+}
+
+
+def _pick_format(style: str, history: dict) -> str | None:
+    import random
+    options = FORMATS.get(style, [])
+    if not options:
+        return None
+    recent = [v.get("format") for v in history.get("videos", [])[-3:]]
+    pool = [f for f in options if f.split(":")[0] not in recent] or options
+    return random.choice(pool)
+
 
 def _word_count(s: str) -> int:
     return len(re.findall(r"\w[\w']*", s))
@@ -486,13 +518,18 @@ def generate_story(cfg: dict, history: dict) -> dict:
     gi = history.get("genre_index", 0) % len(genres)
     genre = genres[gi]
     used = [v["title"] for v in history.get("videos", [])][-cfg["story"]["history_avoid_last"]:]
-    template = PROMPTS.get(cfg["story"].get("style", "facts"), PROMPT)
+    style = cfg["story"].get("style", "facts")
+    template = PROMPTS.get(style, PROMPT)
     prompt = template.format(
         niche=cfg["channel"]["niche"], genre=genre,
         min_words=cfg["story"]["min_words"], max_words=cfg["story"]["max_words"],
         scenes_min=cfg["story"]["scenes_min"], scenes_max=cfg["story"]["scenes_max"],
         used="\n".join(f"- {t}" for t in used) or "- (hali yo'q)",
     )
+    fmt = _pick_format(style, history)
+    if fmt:
+        prompt += ("\nBU SAFARGI HIKOYA FORMATI (yuqoridagi barcha qoidalar kuchida qoladi, faqat ichki tuzilish shunday bo'lsin): "
+                   + fmt + "\nKadr kalit so'zlari ham shu formatga mos, bir-biridan farqli bo'lsin.\n")
     last_err = None
     chain = _llm_chain(cfg)
     for label, call in chain:
@@ -518,6 +555,7 @@ def generate_story(cfg: dict, history: dict) -> dict:
             if sites:
                 story["description"] += "\nTekshirildi: " + ", ".join(sites)
             story["genre"] = genre
+            story["format"] = fmt.split(":")[0] if fmt else None
             story["model"] = label
             history["genre_index"] = gi + 1
             log.info("Matn tayyor (%s): «%s» (%d so'z, %d sahna)",
