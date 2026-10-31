@@ -4,9 +4,10 @@ on:
   schedule:
     # Vaqtlar UTC'da. Toshkent = UTC+5
     # Kuniga 3 ta video: ertalab, tushda, kechqurun
-    - cron: "7 3 * * *"     # 08:07 Toshkent
-    - cron: "23 8 * * *"    # 13:23
-    - cron: "17 15 * * *"   # 20:17
+    # Analitika (2026-10-31): katta natijalar 13:00-19:00 da chiqqan, kechasi yuklanganlar 9 ko'rishdan oshmagan
+    - cron: "23 8 * * *"    # 13:23 Toshkent
+    - cron: "47 10 * * *"   # 15:47
+    - cron: "23 13 * * *"   # 18:23
   workflow_dispatch:
     inputs:
       count:

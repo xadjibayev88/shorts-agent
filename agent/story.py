@@ -291,6 +291,21 @@ def _llm_chain(cfg: dict) -> list:
     return chain
 
 
+def clean_title(title: str) -> str:
+    """Sarlavha darvozasi (analitika 2026-10-31): "!" va KATTA so'zli sarlavhalar mediana 6-9 ko'rish olgan.
+
+    Undov, qo'shtirnoq va #teglarni olib tashlaydi, 4+ harfli KATTA so'zlarni oddiy yozuvga o'tkazadi,
+    60 belgidan uzun bo'lsa so'z chegarasida qisqartiradi.
+    """
+    t = re.sub(r"#\w+", "", title or "")
+    t = re.sub(r"[!\"“”«»]", "", t)
+    t = re.sub(r"\b(\w*[A-Z]{4,}\w*)\b", lambda m: m.group(1).capitalize(), t)
+    t = re.sub(r"\s+", " ", t).strip(" -–—:")
+    if len(t) > 60:
+        t = t[:60].rsplit(" ", 1)[0].rstrip(" ,-–—:")
+    return t[:1].upper() + t[1:] if t else "Qiziqarli fakt"
+
+
 def validate(story: dict, cfg: dict) -> dict:
     sc = cfg["story"]
     scenes = [s for s in story.get("scenes", []) if s.get("text", "").strip()]
@@ -308,7 +323,7 @@ def validate(story: dict, cfg: dict) -> dict:
     if not (sc["min_words"] * 0.7 <= words <= sc["max_words"] * 1.2):
         raise ValueError(f"So'z soni mos emas: {words}")
     story["scenes"] = scenes
-    story["title"] = story.get("title", "Qiziqarli hikoya").strip()[:90]
+    story["title"] = clean_title(story.get("title", "Qiziqarli hikoya"))
     story["hook"] = (story.get("hook") or "").strip()[:40]
     # Har videoda bir xil "BILARMIDINGIZ?" ilmog'i e'tiborni tortmaydi — o'rniga faktning o'zi
     if not story["hook"] or (opener and opener.lower() in story["hook"].lower()):

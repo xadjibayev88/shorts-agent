@@ -2,8 +2,8 @@ name: apex_wealths (YouTube + Instagram)
 
 on:
   schedule:
-    # Vaqtlar UTC'da. Toshkent = UTC+5. Kuniga 2 ta: 10:43 va 18:37
-    - cron: "43 5 * * *"
+    # Vaqtlar UTC'da. Toshkent = UTC+5. Kuniga 2 ta: 13:43 va 18:37
+    - cron: "43 8 * * *"    # 13:43 Toshkent
     - cron: "37 13 * * *"
   workflow_dispatch:
     inputs:

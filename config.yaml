@@ -8,16 +8,17 @@ channel:
   niche: "Bilarmidingiz — qiziqarli faktlar"   # kanal yo'nalishi
   # Har safar shu mavzulardan biri navbat bilan tanlanadi
   genres:
-    - "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt"
-    - "hayvonlar olamidagi g'aroyib fakt"
-    - "inson tanasi va miyasi haqida kam odam biladigan fakt"
-    - "tarixdagi kutilmagan, ishonish qiyin fakt"
+    # Analitika: okean va hayvonlar eng ko'p ko'rilgan; mahalliy mavzu raqobatchilarda eng kuchli signal
     - "okean va dengiz tubidagi sirli fakt"
-    - "texnologiya va ixtirolar haqida qiziq fakt"
+    - "hayvonlar olamidagi g'aroyib fakt"
+    - "O'zbekiston va Markaziy Osiyo haqida kam odam biladigan haqiqiy fakt (tabiat, shaharlar, rekordlar)"
+    - "inson tanasi va miyasi haqida kam odam biladigan fakt"
+    - "chuqur dengiz jonzotlari va ularning g'aroyib xususiyatlari"
+    - "hayvonlar rekordlari: eng tez, eng katta, eng uzoq yashaydigan"
+    - "O'zbekiston tarixi va buyuk olimlari (Ibn Sino, Al-Xorazmiy, Ulug'bek, Beruniy) haqida aniq fakt"
+    - "koinot, sayyoralar va yulduzlar haqida hayratlanarli fakt"
     - "tabiat hodisalari va ob-havo haqida fakt"
-    - "dunyo davlatlari va shaharlari haqida g'alati fakt"
-    - "ovqat va ichimliklar haqida bilmagan faktingiz"
-    - "qadimiy sivilizatsiyalar va ularning sirlari"
+    - "tarixdagi kutilmagan, ishonish qiyin fakt"
 
 story:
   min_words: 45
