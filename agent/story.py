@@ -333,6 +333,9 @@ Agar barcha asosiy faktlar va raqamlar haqiqatga to'g'ri kelsa "true", biror muh
 yoki to'qima bo'lsa "false", ishonchli bilmasang "uncertain" de. "Umrbod", "yagona", "hamma" kabi mutlaq
 da'volarga ayniqsa qattiq qara. Matndagi har bir nom (odam, joy, hayvon, inshoot, atama) haqiqatda
 mavjudligini tekshir: to'qima, buzilgan yoki ma'nosiz nom/so'z bo'lsa (sarlavhada ham) "false" de.
+Maslahat, fikr va motivatsion gaplar ("bugun eng muhim ishdan boshlang", "kichik ishlar charchatadi") fakt emas:
+ularni hukmga qo'shma. Faqat tekshiriladigan da'volarni baholab: nomlar, raqamlar, sanalar, kim nima qilgan yoki degan.
+Mashhur qoida yoki tamoyilni o'z nomi bilan aytish (masalan, "80/20 qoidasi") noto'g'ri emas.
 Avval har bir da'voni qisqa tekshir, keyin hukm chiqar.
 FAQAT shu JSON formatda javob ber:
 {{"issues": "har bir asosiy da'vo bo'yicha 1-2 gapli tekshiruv", "verdict": "true | false | uncertain"}}
@@ -357,10 +360,19 @@ FAQAT tuzatilgan to'liq JSON bilan javob ber.
 """
 
 
+TEMPLATE_ECHO = ("har bir asosiy da'vo bo'yicha", "har bir nom haqiqatda mavjud")
+
+
+def _usable(issues: str) -> bool:
+    """Tekshiruvchi haqiqatan tekshirganmi: juda qisqa yoki shablonni qaytargan javob ovoz emas."""
+    low = issues.lower()
+    return len(issues) >= 25 and not any(t in low for t in TEMPLATE_ECHO)
+
+
 def _verdict(res: dict, label: str, story: dict) -> bool:
     """Tekshiruvchi javobini baholaydi. True = qabul, False = javob yaroqsiz (keyingisiga o'tamiz)."""
     verdict = str(res.get("verdict", "")).lower().strip()
-    if len(str(res.get("issues", ""))) < 25:
+    if not _usable(str(res.get("issues", ""))):
         log.warning("Tekshiruvchi %s izohsiz javob berdi — keyingisiga o'tamiz", label)
         return False
     log.info("Fakt tekshiruvi (%s): %s — %s", label, verdict, str(res.get("issues", ""))[:200])
@@ -415,7 +427,7 @@ def _fact_check(story: dict, chain: list, author: str, cfg: dict) -> None:
             log.warning("Tekshiruvchi %s ishlamadi: %s", label, e)
             continue
         issues = str(res.get("issues", ""))
-        if len(issues) < 25:
+        if not _usable(issues):
             log.warning("Tekshiruvchi %s izohsiz javob berdi — keyingisiga o'tamiz", label)
             continue
         ok = str(res.get("verdict", "")).lower().strip() == "true"
