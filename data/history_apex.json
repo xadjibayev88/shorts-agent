@@ -7,6 +7,14 @@
       "video_id": null,
       "instagram_id": "18141364000620792",
       "words": 54
+    },
+    {
+      "date": "2026-10-31T13:14:21+00:00",
+      "title": "80/20 qoidasi: oz ishdan katta natija",
+      "genre": null,
+      "video_id": "1IoMiMT_v0A",
+      "instagram_id": "18129883157499422",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -21,7 +29,13 @@
     "pb138129",
     "pb195",
     "pb204326",
-    "pb293085"
+    "pb293085",
+    "pb129481",
+    "pb140587",
+    "pb148596",
+    "pb267741",
+    "pb367686",
+    "pb43869"
   ],
   "genre_index": 0
 }
