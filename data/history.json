@@ -195,6 +195,13 @@
       "genre": "qadimiy sivilizatsiyalar va ularning sirlari",
       "video_id": "gCt7WZ2Gt0k",
       "words": 48
+    },
+    {
+      "date": "2026-10-31T08:51:43+00:00",
+      "title": "Xitoy devori kosmosdan ko'rinadimi? Afsona",
+      "genre": null,
+      "video_id": "h6Xz4RCCbIo",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -373,7 +380,13 @@
     "pb189018",
     "pb33239",
     "pb354976",
-    "pb373499"
+    "pb373499",
+    "pb199127",
+    "pb211988",
+    "pb232",
+    "pb34608",
+    "pb66433",
+    "pb846"
   ],
   "genre_index": 10
 }
