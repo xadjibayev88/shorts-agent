@@ -110,7 +110,8 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ github.event.schedule != '57 11 * * *' && (secrets.YT_REFRESH_TOKEN_APEX || env.YT_APEX_FILE_TOKEN) || '' }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_APEX }}
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          # Bepul limit oyiga ~10-12 video: ElevenLabs faqat 14:53 dagi videoga (va qo'lda ishga tushirilganda), qolganlari Edge
+          ELEVENLABS_API_KEY: ${{ (github.event_name == 'workflow_dispatch' || github.event.schedule == '53 9 * * *') && secrets.ELEVENLABS_API_KEY || '' }}
           VIDEO_REPO: ${{ secrets.VIDEO_REPO }}
           VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
           HISTORY_FILE: data/history_apex.json

@@ -43,7 +43,9 @@ gemini:
   temperature: 0.9
 tts:
   # Tabiiy ovoz: ElevenLabs (ELEVENLABS_API_KEY secret bo'lsa). Bo'lmasa yoki limit tugasa: Edge (pastdagi voice).
-  elevenlabs_voice: rwtcHtZgYU6HN2zLNBlf   # "SARHAD-SIZ Narrator", o'zbekcha erkak hikoyachi
+  # Bepul tarifda kutubxona ovozlari API orqali ishlamaydi (402 paid_plan_required), shuning uchun premade ovoz.
+  # Pullik tarifga o'tilsa, o'zbekcha "SARHAD-SIZ Narrator" (rwtcHtZgYU6HN2zLNBlf) ga almashtiring.
+  elevenlabs_voice: hpp4J3VqNfWAUOO0d1Us   # premade "Bella", eleven_multilingual_v2 bilan o'zbekcha sinovdan o'tgan
   elevenlabs_model: eleven_multilingual_v2
   voice: uz-UZ-SardorNeural
   rate: +5%
