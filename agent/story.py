@@ -354,6 +354,9 @@ mavjudligini tekshir: to'qima, buzilgan yoki ma'nosiz nom/so'z bo'lsa (sarlavhad
 Maslahat, fikr va motivatsion gaplar ("bugun eng muhim ishdan boshlang", "kichik ishlar charchatadi") fakt emas:
 ularni hukmga qo'shma. Faqat tekshiriladigan da'volarni baholab: nomlar, raqamlar, sanalar, kim nima qilgan yoki degan.
 Mashhur qoida yoki tamoyilni o'z nomi bilan aytish (masalan, "80/20 qoidasi") noto'g'ri emas.
+Xorijiy ismlar o'zbek lotin imlosida yoziladi va bu XATO EMAS: "Uorren Baffet" = Warren Buffett, "Devid Allen" = David Allen,
+"Dayson" = James Dyson, "Jeff Bezos", "Kerolin Devidson" = Carolyn Davidson. Ismni asl inglizcha shakliga solishtirib tekshir,
+faqat butunlay boshqa odam yoki to'qima ism bo'lsa "false" de.
 Avval har bir da'voni qisqa tekshir, keyin hukm chiqar.
 FAQAT shu JSON formatda javob ber:
 {{"issues": "har bir asosiy da'vo bo'yicha 1-2 gapli tekshiruv", "verdict": "true | false | uncertain"}}
