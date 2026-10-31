@@ -70,7 +70,7 @@ def ffprobe_duration(path: str | Path) -> float:
 
 
 # ---------- tarix (takrorlanmaslik uchun) ----------
-HISTORY = ROOT / "data" / "history.json"
+HISTORY = ROOT / os.environ.get("HISTORY_FILE", "data/history.json")
 
 
 def load_history() -> dict:

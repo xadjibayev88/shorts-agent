@@ -81,7 +81,7 @@ def make_thumbnail(video: Path, story: dict, cfg: dict, out: Path) -> Path:
     fp = _font_path(cfg)
     text = _clean(story.get("thumbnail_text") or story.get("hook") or story["title"])
 
-    y = _badge(draw, "BILARMIDINGIZ?", ImageFont.truetype(fp, 78), W / 2, 170, ACCENT, (0, 0, 0)) + 70
+    y = _badge(draw, cfg.get("thumbnail", {}).get("top", "BILARMIDINGIZ?"), ImageFont.truetype(fp, 78), W / 2, 170, ACCENT, (0, 0, 0)) + 70
     font, lines = _fit(draw, text, fp, W - 120, 5)
     lh = sum(font.getmetrics()) + 10
     y = max(y, (H - lh * len(lines)) // 2 - 80)
@@ -91,7 +91,7 @@ def make_thumbnail(video: Path, story: dict, cfg: dict, out: Path) -> Path:
         draw.text(((W - w) / 2, y), line, font=font, fill=color, stroke_width=12, stroke_fill=(0, 0, 0))
         y += lh
 
-    _badge(draw, "OXIRIGACHA KO'RING", ImageFont.truetype(fp, 64), W / 2, H - 420, ACCENT, (0, 0, 0))
+    _badge(draw, cfg.get("thumbnail", {}).get("bottom", "OXIRIGACHA KO'RING"), ImageFont.truetype(fp, 64), W / 2, H - 420, ACCENT, (0, 0, 0))
     img.save(out, "JPEG", quality=90)
     log.info("Muqova tayyor: %s", out.name)
     return out

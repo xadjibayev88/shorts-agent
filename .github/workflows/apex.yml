@@ -1,0 +1,126 @@
+name: apex_wealths (YouTube + Instagram)
+
+on:
+  schedule:
+    # Vaqtlar UTC'da. Toshkent = UTC+5. Kuniga 2 ta: 10:43 va 18:37
+    - cron: "43 5 * * *"
+    - cron: "37 13 * * *"
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Nechta video"
+        default: "1"
+      upload:
+        description: "YouTube'ga joylansinmi? (true/false)"
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-agent
+  cancel-in-progress: false
+
+jobs:
+  make-short:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: ffmpeg va shriftlar
+        timeout-minutes: 8
+        run: |
+          # Ubuntu mirror ba'zan osilib qoladi — update'ni cheklaymiz, ffmpeg bor bo'lsa o'tkazib yuboramiz
+          if ! command -v ffmpeg > /dev/null || ! fc-list | grep -qi dejavu; then
+            timeout 180 sudo apt-get update -qq || echo "apt update sekin — davom etamiz"
+            sudo apt-get install -y -qq -o Acquire::Retries=3 ffmpeg fonts-dejavu-core
+          fi
+          mkdir -p assets/fonts
+          if [ ! -f assets/fonts/Montserrat-ExtraBold.ttf ]; then
+            curl -fsSL -o assets/fonts/Montserrat-ExtraBold.ttf \
+              https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf/Montserrat-ExtraBold.ttf \
+              || echo "Montserrat yuklanmadi — DejaVu ishlatiladi"
+          fi
+
+      - name: Python kutubxonalari
+        run: pip install -r requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # OmniRoute: bepul provayderlar orasida avtomatik aylanadigan lokal LLM router.
+      # Ishlamay qolsa ham agent to'g'ridan-to'g'ri provayderlar bilan davom etadi.
+      - name: OmniRoute (LLM router)
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          CI: "1"
+          OMNIROUTE_SKIP_POSTINSTALL: "1"
+          REQUIRE_API_KEY: "false"
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+        run: |
+          npm install -g omniroute --no-fund --no-audit --loglevel=error
+          nohup omniroute serve --no-open --no-tray --port 20128 > omniroute.log 2>&1 &
+          for i in $(seq 1 60); do curl -s -o /dev/null http://127.0.0.1:20128/v1/models && break; sleep 2; done
+          for p in groq:GROQ_API_KEY openrouter:OPENROUTER_API_KEY gemini:GEMINI_API_KEY mistral:MISTRAL_API_KEY cerebras:CEREBRAS_API_KEY; do
+            omniroute providers add "${p%%:*}" --credential-env "${p#*:}" --yes > /dev/null && echo "OK ${p%%:*}" || echo "FAIL ${p%%:*}"
+          done
+
+      - name: Shorts yaratish va joylash
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          SAMBANOVA_API_KEY: ${{ secrets.SAMBANOVA_API_KEY }}
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_APEX }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_APEX }}
+          VIDEO_REPO: ${{ secrets.VIDEO_REPO }}
+          VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
+          HISTORY_FILE: data/history_apex.json
+          QUEUE_DIR: queue_apex
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          COUNT="${{ github.event.inputs.count || '1' }}"
+          UPLOAD="${{ github.event.inputs.upload || 'true' }}"
+          FLAGS=""
+          [ "$UPLOAD" = "false" ] && FLAGS="--no-upload"
+          python -m agent.main --config config_apex.yaml --count "$COUNT" $FLAGS
+
+      - name: Tarixni saqlash (takrorlanmaslik uchun)
+        if: always()
+        run: |
+          git config user.name "shorts-agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/history_apex.json queue_apex
+          git diff --cached --quiet || git commit -m "history: $(date -u +%F_%H%M)"
+          git pull --rebase -q || true
+          git push || echo "push qilinmadi"
+
+      - name: Videoni artifact sifatida saqlash
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apex-${{ github.run_id }}
+          path: output/**/*
+          retention-days: 5
+          if-no-files-found: ignore

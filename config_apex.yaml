@@ -1,0 +1,105 @@
+# ===============================================================
+#  apex_wealths (YouTube + Instagram) — sozlamalar. Kod umumiy, faqat shu fayl farq qiladi.
+#  Kalitlar GitHub Secrets'da: YT_REFRESH_TOKEN_APEX, IG_ACCESS_TOKEN_APEX, VIDEO_REPO, VIDEO_REPO_TOKEN.
+# ===============================================================
+channel:
+  name: apex_wealths
+  language: uz
+  niche: Apex — motivatsiya va biznes
+  genres:
+  - pul bilan bog'liq foydali odat (tejash, xarajatni nazorat qilish, jamg'arma)
+  - mashhur tadbirkorning haqiqiy hayotidan bitta saboq
+  - intizom va erta turish haqida amaliy maslahat
+  - biznes boshlashdagi keng tarqalgan xato va undan qochish
+  - vaqtni boshqarish usuli (masalan, Pareto qoidasi yoki Eyzenxauer matritsasi)
+  - murakkab foiz va sabr kuchi oddiy misolda
+  - muvaffaqiyatli odamlarning kitob o'qish odati
+  - muvaffaqiyatsizlikdan keyin qayta turish haqida haqiqiy misol
+  - sotuv va muzokara bo'yicha oddiy maslahat
+  - diqqatni jamlash va telefon qaramligidan qutulish
+story:
+  min_words: 45
+  max_words: 75
+  scenes_min: 5
+  scenes_max: 8
+  history_avoid_last: 120
+  opener: ''
+  style: motivation
+fact_check:
+  web_search: true
+  required: true
+llm:
+  order:
+  - gemini
+  - omniroute
+  - groq
+  - mistral
+  - kilo
+  - ovh
+gemini:
+  models:
+  - gemini-3.8-flash
+  - gemini-3.7-flash
+  temperature: 0.9
+tts:
+  voice: uz-UZ-SardorNeural
+  rate: +5%
+  pitch: +0Hz
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  max_duration: 40
+  crf: 20
+  preset: medium
+  progress_bar: true
+  progress_color: '0xFFFFFF'
+subtitles:
+  font_file: assets/fonts/Montserrat-ExtraBold.ttf
+  font_size: 92
+  words_per_line: 3
+  highlight_color: '&H00FFFFFF'
+  base_color: '&H00FFFFFF'
+  outline: 7
+  position_y: 1150
+  hook_seconds: 2.6
+music:
+  enabled: true
+  folder: assets/music
+  volume: 0.16
+pexels:
+  per_page: 15
+  min_height: 1280
+youtube:
+  privacy: public
+  category_id: '22'
+  made_for_kids: false
+  synthetic_media: true
+  extra_tags:
+  - shorts
+  - motivatsiya
+  - biznes
+  - pul
+  - muvaffaqiyat
+  - intizom
+  - uzbek
+  - apex
+  hashtags:
+  - '#shorts'
+  - '#motivatsiya'
+  - '#biznes'
+thumbnail:
+  top: APEX
+  bottom: SAQLAB QO'YING
+instagram:
+  enabled: true
+  call_to_action: Foydali bo'lsa, saqlab qo'ying va kerakli odamga yuboring.
+  hashtags:
+  - '#motivatsiya'
+  - '#biznes'
+  - '#pul'
+  - '#muvaffaqiyat'
+  - '#intizom'
+  - '#uzbekistan'
+  - '#apex_wealths'
+  - '#reels'

@@ -7,6 +7,7 @@ YouTube Shorts Agent — bitta ishga tushirishda 1 ta (yoki --count N) Shorts ya
 """
 import argparse
 import json
+import os
 import shutil
 import sys
 import time
@@ -16,7 +17,7 @@ from pathlib import Path
 from .utils import ROOT, load_config, load_history, log, save_history, setup_logging
 
 
-QUEUE = ROOT / "queue"
+QUEUE = ROOT / os.environ.get("QUEUE_DIR", "queue")
 
 
 def _move(path: Path, sub: str) -> None:
@@ -94,22 +95,35 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     out = workdir / "short.mp4"
     render(story, clips, voice, words, dur, cfg, workdir, out)
 
-    # 5) Joylash
-    video_id = None
+    # 5) Joylash: YouTube (kalit bo'lsa) + Instagram (yoqilgan va kalit bo'lsa)
+    video_id, ig_id = None, None
     if not args.no_upload:
-        from .uploader import upload
-        video_id = upload(out, story, cfg)
+        if os.environ.get("YT_REFRESH_TOKEN"):
+            from .uploader import upload
+            video_id = upload(out, story, cfg)
+        else:
+            log.warning("YT_REFRESH_TOKEN yo'q — YouTube'ga joylanmadi")
+        if cfg.get("instagram", {}).get("enabled") and os.environ.get("IG_ACCESS_TOKEN"):
+            try:
+                from .instagram import publish_reel
+                ig_id = publish_reel(out, story, cfg)
+            except Exception as e:  # noqa: BLE001 — Instagram xatosi YouTube natijasini buzmasin
+                log.warning("Instagram'ga joylanmadi: %s", e)
+        elif cfg.get("instagram", {}).get("enabled"):
+            log.warning("IG_ACCESS_TOKEN yo'q — Instagram'ga joylanmadi")
 
     record = {
         "date": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "title": story["title"],
         "genre": story.get("genre"),
         "video_id": video_id,
+        "instagram_id": ig_id,
         "words": story["word_count"],
     }
-    if video_id:
+    published = video_id or ig_id
+    if published:
         history.setdefault("videos", []).append(record)
-    if queued and video_id:  # sinov (--no-upload) navbatni sarflamaydi
+    if queued and published:  # sinov (--no-upload) navbatni sarflamaydi
         _move(queued, "done")
 
     # Joy tejash: oraliq fayllarni o'chiramiz
@@ -144,8 +158,11 @@ def main():
             log.info("========== Video %d/%d ==========", n + 1, args.count)
             r = make_one(cfg, history, args)
             ok += 1
+            name = cfg.get("channel", {}).get("name", "Shorts")
             if r["video_id"]:
-                telegram(f"✅ Yangi Shorts joylandi:\n{r['title']}\nhttps://youtube.com/shorts/{r['video_id']}")
+                telegram(f"✅ {name}: YouTube'ga joylandi:\n{r['title']}\nhttps://youtube.com/shorts/{r['video_id']}")
+            if r.get("instagram_id"):
+                telegram(f"✅ {name}: Instagram Reels joylandi:\n{r['title']}")
         except Exception as e:  # noqa: BLE001
             fail += 1
             log.exception("Video yasashda xato: %s", e)

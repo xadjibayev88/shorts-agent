@@ -81,6 +81,44 @@ FAQAT shu JSON formatda javob ber:
 """
 
 
+MOTIVATION_PROMPT = """Sen "{niche}" yo'nalishidagi o'zbek tilidagi Shorts va Reels kanali uchun ssenariynavissan.
+Bugungi mavzu: {genre}.
+
+VAZIFA: shu mavzuda bitta aniq, foydali g'oya tanla va qisqa video matni yoz. Tomoshabin videodan keyin bitta narsani boshqacha qilsin.
+Talablar:
+- Faqat haqiqiy ma'lumot: mashhur odam, kompaniya yoki raqam keltirsang, u aniq va tekshiriladigan bo'lsin. Iqtibosni faqat muallifi aniq bo'lsa ishlat. To'qima hikoya, soxta statistika, "milliarder bo'lasiz" kabi va'dalar YO'Q.
+- Moliyaviy maslahat berma: aniq aksiya, kripto yoki "pul ikki baravar bo'ladi" kabi gaplar yo'q. Odatlar, fikrlash, intizom, biznes saboqlari haqida gapir.
+- Til: sof, jonli o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof: o', g'. Inglizcha so'z aralashtirma.
+- Matn {min_words}-{max_words} so'z (ovozda ~20-30 soniya).
+- 1-gap kuchli ilmoq: savol yoki kutilmagan fikr, 10 so'zdan oshmasin. Undov belgisi ishlatma.
+- Keyin: nega bu muhim, bitta misol yoki raqam, va bugun qilish mumkin bo'lgan bitta aniq qadam.
+- Oxirgi gap izohga undovchi qisqa savol. "Obuna bo'ling" deb yozma.
+- Gaplar qisqa, ovozda o'qishga qulay. Raqamlarni so'z bilan yoz. Emoji ishlatma.
+- Matnni {scenes_min}-{scenes_max} ta sahnaga bo'l (har sahna 1-2 qisqa gap).
+- Har sahna uchun 2-4 so'zli INGLIZCHA stok-video kalit so'z: harakatli, premium ko'rinishli kadr
+  ("businessman walking city", "sunrise running track", "writing notebook desk", "stock chart screen", "city skyline night").
+
+Shu sarlavhalar ALLAQACHON ishlatilgan, takrorlama:
+{used}
+
+FAQAT shu JSON formatda javob ber:
+{{
+  "title": "Xatosiz o'zbekcha sarlavha, 35-60 belgi, undov belgisisiz",
+  "hook": "Ekran tepasidagi 2-4 so'zli KATTA HARFLI yozuv",
+  "thumbnail_text": "Muqova uchun 2-3 so'zli KATTA HARFLI yozuv, sarlavhani takrorlamasin",
+  "scenes": [
+    {{"text": "sahnadagi ovozli matn (1-2 gap)", "keywords": "english video search words"}}
+  ],
+  "description": "2-3 gaplik tavsif",
+  "source": "Ishlatilgan fakt yoki iqtibosning manbasi (kitob, muallif, nashr); faktsiz bo'lsa: Umumiy maslahat",
+  "tags": ["8-12 ta o'zbekcha va inglizcha teg"],
+  "hashtags": ["#3-5", "#ta", "#heshteg"]
+}}
+"""
+
+PROMPTS = {"facts": PROMPT, "motivation": MOTIVATION_PROMPT}
+
+
 def _word_count(s: str) -> int:
     return len(re.findall(r"\w[\w']*", s))
 
@@ -261,10 +299,11 @@ def validate(story: dict, cfg: dict) -> dict:
     for s in scenes:
         s["text"] = re.sub(r"\s+", " ", s["text"]).strip()
         s["keywords"] = (s.get("keywords") or "nature landscape").strip()
-    # Kanal uslubi: har video "Bilarmidingiz," bilan boshlanadi
+    # Kanal uslubi: har video bir xil so'z bilan boshlanadi (config: story.opener, bo'sh = yo'q)
+    opener = cfg["story"].get("opener", "Bilarmidingiz")
     first = scenes[0]["text"]
-    if not first.lower().startswith("bilarmidingiz"):
-        scenes[0]["text"] = "Bilarmidingiz, " + first[:1].lower() + first[1:]
+    if opener and not first.lower().startswith(opener.lower()):
+        scenes[0]["text"] = f"{opener}, " + first[:1].lower() + first[1:]
     words = sum(_word_count(s["text"]) for s in scenes)
     if not (sc["min_words"] * 0.7 <= words <= sc["max_words"] * 1.2):
         raise ValueError(f"So'z soni mos emas: {words}")
@@ -272,7 +311,7 @@ def validate(story: dict, cfg: dict) -> dict:
     story["title"] = story.get("title", "Qiziqarli hikoya").strip()[:90]
     story["hook"] = (story.get("hook") or "").strip()[:40]
     # Har videoda bir xil "BILARMIDINGIZ?" ilmog'i e'tiborni tortmaydi — o'rniga faktning o'zi
-    if not story["hook"] or "bilarmidingiz" in story["hook"].lower():
+    if not story["hook"] or (opener and opener.lower() in story["hook"].lower()):
         story["hook"] = (story.get("thumbnail_text") or story["title"]).strip()[:40]
     story["thumbnail_text"] = (story.get("thumbnail_text") or story["hook"] or story["title"]).strip()[:60]
     story["tags"] = [t.strip("# ").strip() for t in story.get("tags", []) if t.strip()][:15]
@@ -410,7 +449,8 @@ def generate_story(cfg: dict, history: dict) -> dict:
     gi = history.get("genre_index", 0) % len(genres)
     genre = genres[gi]
     used = [v["title"] for v in history.get("videos", [])][-cfg["story"]["history_avoid_last"]:]
-    prompt = PROMPT.format(
+    template = PROMPTS.get(cfg["story"].get("style", "facts"), PROMPT)
+    prompt = template.format(
         niche=cfg["channel"]["niche"], genre=genre,
         min_words=cfg["story"]["min_words"], max_words=cfg["story"]["max_words"],
         scenes_min=cfg["story"]["scenes_min"], scenes_max=cfg["story"]["scenes_max"],
