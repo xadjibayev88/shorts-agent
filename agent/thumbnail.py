@@ -10,7 +10,7 @@ FALLBACK_FONTS = [
     "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
     "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
 ]
-YELLOW = (255, 212, 0)
+ACCENT = (255, 255, 255)  # brend qoidasi: muqova to'liq oq
 RED = (230, 30, 45)
 
 
@@ -82,14 +82,13 @@ def make_thumbnail(video: Path, story: dict, cfg: dict, out: Path) -> Path:
     fp = _font_path(cfg)
     text = _clean(story.get("thumbnail_text") or story.get("hook") or story["title"])
 
-    y = _badge(draw, "BILARMIDINGIZ?", ImageFont.truetype(fp, 78), W / 2, 170, YELLOW, (0, 0, 0)) + 70
+    y = _badge(draw, "BILARMIDINGIZ?", ImageFont.truetype(fp, 78), W / 2, 170, ACCENT, (0, 0, 0)) + 70
     font, lines = _fit(draw, text, fp, W - 120, 5)
     lh = sum(font.getmetrics()) + 10
     y = max(y, (H - lh * len(lines)) // 2 - 80)
     for i, line in enumerate(lines):
         w = draw.textlength(line, font=font)
-        # Oxirgi qatorni sariq qilib ajratamiz — ko'z o'sha yerga tushadi
-        color = YELLOW if i == len(lines) - 1 and len(lines) > 1 else (255, 255, 255)
+        color = ACCENT
         draw.text(((W - w) / 2, y), line, font=font, fill=color, stroke_width=12, stroke_fill=(0, 0, 0))
         y += lh
 
