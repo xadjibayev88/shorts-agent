@@ -42,6 +42,9 @@ gemini:
   - gemini-3.7-flash
   temperature: 0.9
 tts:
+  # Tabiiy ovoz: ElevenLabs (ELEVENLABS_API_KEY secret bo'lsa). Bo'lmasa yoki limit tugasa: Edge (pastdagi voice).
+  elevenlabs_voice: rwtcHtZgYU6HN2zLNBlf   # "SARHAD-SIZ Narrator", o'zbekcha erkak hikoyachi
+  elevenlabs_model: eleven_multilingual_v2
   voice: uz-UZ-SardorNeural
   rate: +5%
   pitch: +0Hz
