@@ -53,7 +53,7 @@ video:
   crf: 20
   preset: "medium"
   progress_bar: true
-  progress_color: "0xFFD400"
+  progress_color: "0xFFFFFF"
 
 subtitles:
   font_file: "assets/fonts/Montserrat-ExtraBold.ttf"   # bo'lmasa DejaVu ishlatiladi

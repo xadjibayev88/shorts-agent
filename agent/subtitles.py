@@ -40,7 +40,7 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Sub,{font_name},{s['font_size']},{s['base_color']},&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,{s['outline']},3,5,60,60,0,1
-Style: Hook,{font_name},74,&H00000000,&H000000FF,&H0000D4FF,&H0000D4FF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1
+Style: Hook,{font_name},74,&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
