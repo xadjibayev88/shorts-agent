@@ -8,7 +8,7 @@ runs:
       uses: actions/cache@v4
       with:
         path: ~/omnivoice-bin
-        key: omnivoice-bin-static-1a468d8b9d65b3544ca1004d2d7c05dfc65d1f3e
+        key: omnivoice-bin-portable-1a468d8b9d65b3544ca1004d2d7c05dfc65d1f3e
     - name: omnivoice.cpp ni yig'ish
       if: steps.bin.outputs.cache-hit != 'true'
       shell: bash
@@ -17,7 +17,7 @@ runs:
         git clone -q --recurse-submodules https://github.com/ServeurpersoCom/omnivoice.cpp.git ~/ovsrc
         git -C ~/ovsrc checkout -q 1a468d8b9d65b3544ca1004d2d7c05dfc65d1f3e
         git -C ~/ovsrc submodule update -q --init --recursive
-        cmake -S ~/ovsrc -B ~/ovsrc/build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF > /dev/null
+        cmake -S ~/ovsrc -B ~/ovsrc/build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON > /dev/null
         cmake --build ~/ovsrc/build --config Release -j "$(nproc)" > /dev/null
         mkdir -p ~/omnivoice-bin && cp ~/ovsrc/build/omnivoice-tts ~/omnivoice-bin/
         find ~/ovsrc/build -name '*.so*' -exec cp -P {} ~/omnivoice-bin/ \; || true
