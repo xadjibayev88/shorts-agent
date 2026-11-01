@@ -5,12 +5,15 @@ ElevenLabs ishlamasa (kalit yo'q, limit tugagan, xato) avtomatik Edge'ga qaytadi
 """
 import asyncio
 import base64
+import os
 import re
+import subprocess
+from pathlib import Path
 
 import edge_tts
 import requests
 
-from .utils import env, ffprobe_duration, log, retry
+from .utils import ROOT, env, ffprobe_duration, log, retry, run
 
 TICKS = 10_000_000  # edge-tts vaqt birligi: 100 ns
 
@@ -101,9 +104,49 @@ def _elevenlabs(text: str, voice: str, model: str, out_mp3: str) -> list[dict]:
     return words
 
 
+def _omnivoice(text: str, o: dict, out_mp3: str) -> None:
+    """OmniVoice (omnivoice.cpp, CPU): bepul o'zbekcha ovoz. Ovoz bir xil qolishi uchun doim bitta namunadan klonlanadi."""
+    wav = Path(out_mp3).with_suffix(".omni.wav")
+    cmd = [os.environ["OMNIVOICE_BIN"], "--model", os.environ["OMNIVOICE_MODEL"], "--codec", os.environ["OMNIVOICE_CODEC"],
+           "--lang", o.get("lang", "Uzbek"), "--steps", str(o.get("steps", 16)), "--seed", str(o.get("seed", 7)), "-o", str(wav)]
+    if o.get("ref"):
+        cmd += ["--ref-wav", str(ROOT / o["ref"]), "--ref-text", str(ROOT / o["ref_text"])]
+    res = subprocess.run(cmd, input=text, capture_output=True, text=True, timeout=o.get("timeout", 900))
+    if res.returncode != 0 or not wav.exists():
+        raise RuntimeError("OmniVoice xato: " + "\n".join(res.stderr.strip().splitlines()[-5:]))
+    # boshidagi/oxiridagi jimlikni kesib, mp3 ga aylantiramiz
+    run(["ffmpeg", "-y", "-i", str(wav), "-af",
+         "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse",
+         "-b:a", "192k", out_mp3])
+    wav.unlink(missing_ok=True)
+
+
+def _weighted_words(text: str, duration: float) -> list[dict]:
+    """Vaqt belgilari yo'q ovoz uchun: so'z uzunligi + tinish belgidagi pauza bo'yicha taqsimlash."""
+    toks = _split_words(text)
+    w = [len(t) + 1 + (3 if t[-1] in ".!?" else 1.5 if t[-1] in ",;:" else 0) for t in toks]
+    total, cur, out = sum(w) or 1, 0.05, []
+    span = max(duration - 0.1, 1.0)
+    for t, k in zip(toks, w):
+        d = span * k / total
+        out.append({"start": cur, "end": cur + d * .85, "word": t}); cur += d
+    return out
+
+
 @retry(times=3, delay=4)
 def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
     t = cfg["tts"]
+    o = t.get("omnivoice") or {}
+    if o.get("enabled") and os.environ.get("OMNIVOICE_BIN") and Path(os.environ["OMNIVOICE_BIN"]).exists():
+        try:
+            log.info("Ovoz yozilmoqda (OmniVoice, %s qadam)...", o.get("steps", 16))
+            _omnivoice(text, o, out_mp3)
+            duration = ffprobe_duration(out_mp3)
+            timed = _weighted_words(text, duration)
+            log.info("Ovoz: %.1fs (OmniVoice)", duration)
+            return timed, duration
+        except Exception as e:  # noqa: BLE001 — ishlamasa ElevenLabs/Edge
+            log.warning("OmniVoice ishlamadi: %s", e)
     if env("ELEVENLABS_API_KEY", required=False):
         # Navbat bilan: asosiy ovoz (o'zbekcha, v3) -> zaxira ovoz -> Edge TTS
         options = [(t["elevenlabs_voice"], t.get("elevenlabs_model", "eleven_multilingual_v2"))] if t.get("elevenlabs_voice") else []

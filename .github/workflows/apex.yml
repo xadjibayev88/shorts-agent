@@ -27,7 +27,7 @@ concurrency:
 jobs:
   make-short:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
 
@@ -92,6 +92,11 @@ jobs:
             echo "YT_APEX_FILE_TOKEN=$T" >> "$GITHUB_ENV"
             echo "Token shifrlangan fayldan olindi"
           fi
+
+      - name: OmniVoice (bepul o'zbekcha ovoz)
+        continue-on-error: true
+        timeout-minutes: 12
+        uses: ./.github/actions/omnivoice
 
       - name: Shorts yaratish va joylash
         env:

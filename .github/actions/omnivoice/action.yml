@@ -1,0 +1,44 @@
+name: OmniVoice
+description: Builds (or restores) omnivoice.cpp and the Q4_K_M OmniVoice GGUF, and exports OMNIVOICE_* paths for agent/tts.py.
+runs:
+  using: composite
+  steps:
+    - name: omnivoice.cpp (kesh)
+      id: bin
+      uses: actions/cache@v4
+      with:
+        path: ~/omnivoice-bin
+        key: omnivoice-bin-static-1a468d8b9d65b3544ca1004d2d7c05dfc65d1f3e
+    - name: omnivoice.cpp ni yig'ish
+      if: steps.bin.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        sudo apt-get install -y -qq cmake build-essential > /dev/null
+        git clone -q --recurse-submodules https://github.com/ServeurpersoCom/omnivoice.cpp.git ~/ovsrc
+        git -C ~/ovsrc checkout -q 1a468d8b9d65b3544ca1004d2d7c05dfc65d1f3e
+        git -C ~/ovsrc submodule update -q --init --recursive
+        cmake -S ~/ovsrc -B ~/ovsrc/build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF > /dev/null
+        cmake --build ~/ovsrc/build --config Release -j "$(nproc)" > /dev/null
+        mkdir -p ~/omnivoice-bin && cp ~/ovsrc/build/omnivoice-tts ~/omnivoice-bin/
+        find ~/ovsrc/build -name '*.so*' -exec cp -P {} ~/omnivoice-bin/ \; || true
+    - name: Model (kesh)
+      id: model
+      uses: actions/cache@v4
+      with:
+        path: ~/omnivoice-models
+        key: omnivoice-models-361609388ae572a820d085185bbbe2a2aac4b30e-omnivoice-base-Q4_K_M.gguf
+    - name: Modelni yuklab olish
+      if: steps.model.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        mkdir -p ~/omnivoice-models
+        for f in omnivoice-base-Q4_K_M.gguf omnivoice-tokenizer-Q4_K_M.gguf; do
+          curl -fsSL -o ~/omnivoice-models/$f "https://huggingface.co/Serveurperso/OmniVoice-GGUF/resolve/361609388ae572a820d085185bbbe2a2aac4b30e/$f"
+        done
+    - name: Yo'llarni eksport qilish
+      shell: bash
+      run: |
+        echo "OMNIVOICE_BIN=$HOME/omnivoice-bin/omnivoice-tts" >> "$GITHUB_ENV"
+        echo "OMNIVOICE_MODEL=$HOME/omnivoice-models/omnivoice-base-Q4_K_M.gguf" >> "$GITHUB_ENV"
+        echo "OMNIVOICE_CODEC=$HOME/omnivoice-models/omnivoice-tokenizer-Q4_K_M.gguf" >> "$GITHUB_ENV"
+        echo "LD_LIBRARY_PATH=$HOME/omnivoice-bin:${LD_LIBRARY_PATH}" >> "$GITHUB_ENV"

@@ -46,6 +46,13 @@ gemini:
   temperature: 0.9
 
 tts:
+  # Asosiy: OmniVoice (bepul, GitHub'da CPU'da). Egasi tanlagan "B" erkak ovozidan klon. Notijorat litsenziya.
+  omnivoice:
+    enabled: true
+    ref: assets/voice/omni_ref.wav
+    ref_text: assets/voice/omni_ref.txt
+    steps: 16
+    seed: 7
   # Asosiy: o'zimiz yaratgan "Bilarmidingiz Narrator" (eleven_v3, bepul API). Ishlamasa Bella, keyin Edge.
   elevenlabs_voice: Curb9hizxeRZfhwGj6iT
   elevenlabs_model: eleven_v3
