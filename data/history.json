@@ -476,9 +476,12 @@
     "pb264272",
     "pb304019",
     "pb355017",
-    "pb85674"
+    "pb85674",
+    "pb120450",
+    "pb32021",
+    "pb39116"
   ],
-  "genre_index": 1,
+  "genre_index": 2,
   "looks": [
     {
       "grade": "natural",
@@ -551,6 +554,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "circleopen",
+      "caption": "low_slide",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
