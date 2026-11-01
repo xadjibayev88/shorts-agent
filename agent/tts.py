@@ -63,14 +63,20 @@ def _align_to_text(boundaries: list[dict], text: str) -> list[dict]:
     return _distribute([(start, end, text)])
 
 
-def _elevenlabs(text: str, t: dict, out_mp3: str) -> list[dict]:
+def _voice_settings(model: str) -> dict:
+    # eleven_v3 stability uchun faqat 0.0 / 0.5 / 1.0 qabul qiladi; 0.5 = tabiiy
+    if model.startswith("eleven_v3"):
+        return {"stability": 0.5, "similarity_boost": 0.8, "use_speaker_boost": True}
+    return {"stability": 0.45, "similarity_boost": 0.8, "style": 0.25, "use_speaker_boost": True}
+
+
+def _elevenlabs(text: str, voice: str, model: str, out_mp3: str) -> list[dict]:
     """ElevenLabs with-timestamps: audio + har harf vaqti -> so'z vaqtlari."""
     r = requests.post(
-        f"https://api.elevenlabs.io/v1/text-to-speech/{t['elevenlabs_voice']}/with-timestamps",
+        f"https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps",
         headers={"xi-api-key": env("ELEVENLABS_API_KEY"), "Content-Type": "application/json"},
         params={"output_format": "mp3_44100_128"},
-        json={"text": text, "model_id": t.get("elevenlabs_model", "eleven_multilingual_v2"),
-              "voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.25, "use_speaker_boost": True}},
+        json={"text": text, "model_id": model, "voice_settings": _voice_settings(model)},
         timeout=120,
     )
     if r.status_code != 200:
@@ -98,16 +104,23 @@ def _elevenlabs(text: str, t: dict, out_mp3: str) -> list[dict]:
 @retry(times=3, delay=4)
 def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
     t = cfg["tts"]
-    if t.get("elevenlabs_voice") and env("ELEVENLABS_API_KEY", required=False):
-        try:
-            log.info("Ovoz yozilmoqda (ElevenLabs %s)...", t["elevenlabs_voice"])
-            timed = _elevenlabs(text, t, out_mp3)
-            duration = ffprobe_duration(out_mp3)
-            timed = _align_to_text(timed, text) if timed else _distribute([(0.15, max(duration - 0.2, 1.0), text)])
-            log.info("Ovoz: %.1fs, %d so'z vaqti (ElevenLabs)", duration, len(timed))
-            return timed, duration
-        except Exception as e:  # noqa: BLE001 — limit tugasa ham video chiqsin
-            log.warning("ElevenLabs ishlamadi, Edge TTS ishlatiladi: %s", e)
+    if env("ELEVENLABS_API_KEY", required=False):
+        # Navbat bilan: asosiy ovoz (o'zbekcha, v3) -> zaxira ovoz -> Edge TTS
+        options = [(t["elevenlabs_voice"], t.get("elevenlabs_model", "eleven_multilingual_v2"))] if t.get("elevenlabs_voice") else []
+        if t.get("elevenlabs_backup_voice"):
+            options.append((t["elevenlabs_backup_voice"], t.get("elevenlabs_backup_model", "eleven_multilingual_v2")))
+        for voice, model in options:
+            try:
+                log.info("Ovoz yozilmoqda (ElevenLabs %s, %s)...", voice, model)
+                timed = _elevenlabs(text, voice, model, out_mp3)
+                duration = ffprobe_duration(out_mp3)
+                timed = _align_to_text(timed, text) if timed else _distribute([(0.15, max(duration - 0.2, 1.0), text)])
+                log.info("Ovoz: %.1fs, %d so'z vaqti (ElevenLabs %s)", duration, len(timed), model)
+                return timed, duration
+            except Exception as e:  # noqa: BLE001 — limit tugasa ham video chiqsin
+                log.warning("ElevenLabs (%s, %s) ishlamadi: %s", voice, model, e)
+        if options:
+            log.warning("ElevenLabs ishlamadi, Edge TTS ishlatiladi")
     log.info("Ovoz yozilmoqda (%s)...", t["voice"])
     words, sentences = asyncio.run(_synth(text, t["voice"], t["rate"], t["pitch"], out_mp3))
     duration = ffprobe_duration(out_mp3)

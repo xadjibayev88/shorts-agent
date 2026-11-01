@@ -46,6 +46,11 @@ gemini:
   temperature: 0.9
 
 tts:
+  # Asosiy: ElevenLabs o'zbekcha "SARHAD-SIZ Narrator" (eleven_v3). Ishlamasa Bella, keyin Edge.
+  elevenlabs_voice: rwtcHtZgYU6HN2zLNBlf
+  elevenlabs_model: eleven_v3
+  elevenlabs_backup_voice: hpp4J3VqNfWAUOO0d1Us
+  elevenlabs_backup_model: eleven_multilingual_v2
   # O'zbek ovozlari: uz-UZ-SardorNeural (erkak), uz-UZ-MadinaNeural (ayol)
   voice: "uz-UZ-SardorNeural"
   rate: "+10%"
