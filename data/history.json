@@ -412,7 +412,13 @@
     "pb234077",
     "pb240973",
     "pb283431",
-    "pb39778"
+    "pb39778",
+    "pb10339",
+    "pb134913",
+    "pb172545",
+    "pb250395",
+    "pb317868",
+    "pb6388"
   ],
   "genre_index": 10,
   "looks": [
@@ -439,6 +445,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "smoothup",
+      "caption": "low_slide",
+      "hook": "black_box",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
