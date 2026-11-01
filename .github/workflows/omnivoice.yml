@@ -8,9 +8,12 @@ on:
       text:
         description: "O'qiladigan o'zbekcha matn"
         default: "Qadimgi Qo'qon xonligi haqida qiziqarli fakt. Qishloqlarda qovun va qulupnay yetishtirilgan. Bilasizmi, Orol dengizi bir paytlar dunyodagi to'rtinchi eng katta ko'l bo'lgan. Sizningcha, bu dengizni qaytarish mumkinmi?"
+      steps:
+        description: "MaskGIT qadamlari (32 = sifatli, 16 = 2 barobar tez)"
+        default: "16"
 
 permissions:
-  contents: read
+  contents: write   # namunalar voice-samples shoxiga yoziladi
 
 env:
   OV_COMMIT: 886fc079838ca7400cb2b42b36e2a65aa1daabe8   # omnivoice.cpp, VoiceStudio bilan bir xil versiya
@@ -68,16 +71,23 @@ jobs:
           sudo apt-get install -y -qq ffmpeg > /dev/null
           mkdir -p out
           printf '%s' "$TEXT" > out/prompt.txt
-          OV="$HOME/omnivoice-bin/omnivoice-tts --model $HOME/omnivoice-models/$OV_BASE --codec $HOME/omnivoice-models/$OV_CODEC --lang Uzbek --seed 7"
+          OV="$HOME/omnivoice-bin/omnivoice-tts --model $HOME/omnivoice-models/$OV_BASE --codec $HOME/omnivoice-models/$OV_CODEC --lang Uzbek --seed 7 --steps ${{ github.event.inputs.steps || '16' }}"
           t0=$(date +%s)
           $OV --ref-wav assets/voice/narrator_ref.wav --ref-text assets/voice/narrator_ref.txt -o out/A_klon.wav < out/prompt.txt || echo "A xato"
           t1=$(date +%s); echo "A (klon): $((t1-t0)) s"
           $OV --instruct "male, middle-aged, low pitch" -o out/B_erkak.wav < out/prompt.txt || echo "B xato"
           t2=$(date +%s); echo "B (erkak, namunasiz): $((t2-t1)) s"
-          $OV -o out/C_avto.wav < out/prompt.txt || echo "C xato"
-          t3=$(date +%s); echo "C (avto): $((t3-t2)) s"
+          t3=$t2
           for f in out/*.wav; do ffmpeg -loglevel error -y -i "$f" -b:a 128k "${f%.wav}.mp3"; done
           ls -la out
+
+      - name: Namunalarni voice-samples shoxiga yozish
+        run: |
+          git config user.name "shorts-agent"; git config user.email "actions@users.noreply.github.com"
+          git fetch -q origin voice-samples && git checkout -q -B voice-samples origin/voice-samples || git checkout -q --orphan voice-samples
+          git rm -rq --cached . > /dev/null 2>&1 || true
+          mkdir -p samples && cp out/*.mp3 samples/ && git add samples/*.mp3
+          git commit -qm "OmniVoice samples (steps ${{ github.event.inputs.steps || '16' }})" && git push -q origin voice-samples
 
       - uses: actions/upload-artifact@v4
         with:
