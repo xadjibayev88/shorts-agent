@@ -400,7 +400,27 @@
     "pb165771",
     "pb22704",
     "pb302404",
-    "pb378590"
+    "pb378590",
+    "pb14955",
+    "pb153559",
+    "pb30096",
+    "pb40041",
+    "pb42696",
+    "pb99115"
   ],
-  "genre_index": 10
+  "genre_index": 10,
+  "looks": [
+    {
+      "grade": "natural",
+      "transition": "circleopen",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "zoom"
+    }
+  ]
 }
