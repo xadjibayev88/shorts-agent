@@ -65,6 +65,27 @@
       "video_id": null,
       "instagram_id": "17995408383047604",
       "words": 52
+    },
+    {
+      "date": "2026-11-01T16:36:14+00:00",
+      "title": "Nike belgisi 35 dollar turgan: kichik ishning kuchi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "smoothup",
+        "caption": "lower_fade",
+        "hook": "middle_zoom",
+        "bar": "top",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "gQ8Xj4998WI",
+      "instagram_id": "18639473917024152",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -115,7 +136,13 @@
     "pb28860",
     "pb335735",
     "pb58142",
-    "pb8686"
+    "pb8686",
+    "pb139365",
+    "pb24449",
+    "pb31547",
+    "pb335734",
+    "pb34972",
+    "pb86867"
   ],
   "genre_index": 0,
   "looks": [
@@ -154,6 +181,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "smoothup",
+      "caption": "lower_fade",
+      "hook": "middle_zoom",
+      "bar": "top",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
