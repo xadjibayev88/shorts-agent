@@ -107,6 +107,27 @@
       "video_id": null,
       "instagram_id": "17955067089295997",
       "words": 56
+    },
+    {
+      "date": "2026-11-01T18:55:45+00:00",
+      "title": "Dayson 5127 ta prototip yasaganini aytgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "hblur",
+        "caption": "low_slide",
+        "hook": "top_slide",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "xQpBLllA25U",
+      "instagram_id": "18086619326338761",
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -169,7 +190,13 @@
     "pb177081",
     "pb20857",
     "pb343478",
-    "pb43633"
+    "pb43633",
+    "pb27197",
+    "pb287292",
+    "pb294",
+    "pb31654",
+    "pb43459",
+    "pb94063"
   ],
   "genre_index": 0,
   "looks": [
@@ -232,6 +259,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "hblur",
+      "caption": "low_slide",
+      "hook": "top_slide",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
