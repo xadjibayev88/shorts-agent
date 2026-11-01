@@ -23,6 +23,27 @@
       "video_id": "Nk7eUYsBATg",
       "instagram_id": "18130952629809522",
       "words": 46
+    },
+    {
+      "date": "2026-11-01T11:17:26+00:00",
+      "title": "Baffet 11 yoshida xato qilgan: 38 dollarlik saboq",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "dissolve",
+        "caption": "center_shadow",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "iMpUeM1wkDo",
+      "instagram_id": null,
+      "words": 57
     }
   ],
   "used_pexels_ids": [
@@ -61,7 +82,13 @@
     "pb160975",
     "pb173333",
     "pb319835",
-    "pb3630"
+    "pb3630",
+    "pb1058",
+    "pb149452",
+    "pb153872",
+    "pb1694",
+    "pb335736",
+    "pb8661"
   ],
   "genre_index": 0,
   "looks": [
@@ -76,6 +103,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "dissolve",
+      "caption": "center_shadow",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
