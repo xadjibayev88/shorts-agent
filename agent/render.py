@@ -4,7 +4,8 @@ from pathlib import Path
 
 from PIL import ImageFont
 
-from .looks import BARS, GRADES
+from .fx import END_SECS, build_sfx, log_fx, sfx_events, video_fx
+from .looks import BARS, GRADES, fix_look
 from .subtitles import build_ass
 from .utils import ROOT, ffprobe_duration, log, run
 
@@ -53,6 +54,7 @@ def scene_timings(scenes: list[dict], words: list[dict], total: float) -> list[t
 
 
 XFADE_T = 0.35  # sahna o'tishi davomiyligi (soniya)
+XFADE_MID = XFADE_T / 2
 
 
 def _prep_scene(src: Path | None, dur: float, cfg: dict, out: Path, grade: str = "natural"):
@@ -101,6 +103,83 @@ def _join(parts: list[Path], spans: list[tuple[float, float]], transition: str, 
     run(["ffmpeg", "-y", "-hide_banner", *inputs, "-filter_complex", ";".join(chain),
          "-map", prev, "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
          "-pix_fmt", "yuv420p", str(out)])
+
+
+def _has_fx(look: dict) -> bool:
+    return any(look.get(k) for k in ("sound", "entrance", "texture", "ending"))
+
+
+def _final(joined: Path, voice_mp3: Path, music: Path | None, ass: Path, font_dir: Path, cfg: dict,
+           total: float, look: dict, centers: list[float], hook_secs: float, workdir: Path,
+           out_mp4: Path, fx_on: bool) -> None:
+    v = cfg["video"]
+    W, H = v["width"], v["height"]
+    bar = BARS.get(look.get("bar", "bottom"), ("bottom", 14))
+    has_bar = bool(v.get("progress_bar") and bar)
+    ending = fx_on and look.get("ending") == "zoom" and has_bar  # loop kanallarda (bar yo'q) o'chiq
+
+    inputs = ["-i", str(joined), "-i", str(voice_mp3)]
+    next_idx = 2
+    if music:
+        inputs += ["-stream_loop", "-1", "-i", str(music)]
+        next_idx += 1
+
+    sfx_idx = None
+    if fx_on and look.get("sound"):
+        try:
+            sfx = build_sfx(workdir, total, sfx_events(look["sound"], centers, hook_secs), voice_mp3)
+        except Exception as e:  # noqa: BLE001 — ovoz effekti bo'lmasa ham video chiqsin
+            log.warning("SFX yasalmadi, ovozsiz davom: %s", e)
+            sfx = None
+        if sfx:
+            inputs += ["-i", str(sfx)]
+            sfx_idx = next_idx
+            next_idx += 1
+
+    fx_inputs, fx_graph, vsrc = [], "", "[0:v]"
+    if fx_on:
+        fx_inputs, fx_graph, vsrc = video_fx(look, total, centers, workdir, W, H, next_idx, ending)
+        inputs += fx_inputs
+        log_fx(look)
+
+    ass_esc = str(ass).replace("\\", "/").replace(":", "\\:")
+    fdir_esc = str(font_dir).replace("\\", "/").replace(":", "\\:")
+    vchain = f"{vsrc}ass='{ass_esc}':fontsdir='{fdir_esc}'"
+    if has_bar:
+        where, bh = bar
+        by = "0" if where == "top" else f"ih-{bh}"
+        fill = f"min(t/{max(total - END_SECS, 1.0):.3f},1)" if ending else f"t/{total:.3f}"
+        vchain += (f",drawbox=x=0:y={by}:w='iw*{fill}':h={bh}:"
+                   f"color={v['progress_color']}@0.95:t=fill")
+    vchain += "[v]"
+    if fx_graph:
+        vchain = fx_graph + ";" + vchain
+
+    fade_st = max(total - 0.6, 0)
+    tail = f"loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st={fade_st:.2f}:d=0.6[a]"
+    vo = f"[1:a]aresample=48000,apad=whole_dur={total:.3f}"
+    sx = f";[{sfx_idx}:a]aresample=48000[sx]" if sfx_idx else ""
+    if music:
+        n = 3 if sfx_idx else 2
+        achain = (
+            f"{vo},asplit=2[vo][sc];"
+            f"[2:a]aresample=48000,volume={cfg['music']['volume']},afade=t=in:d=1[m];"
+            f"[m][sc]sidechaincompress=threshold=0.03:ratio=8:attack=15:release=350[md]{sx};"
+            f"[vo][md]{'[sx]' if sfx_idx else ''}amix=inputs={n}:duration=first:normalize=0,{tail}"
+        )
+    elif sfx_idx:
+        achain = f"{vo}[vo]{sx};[vo][sx]amix=inputs=2:duration=first:normalize=0,{tail}"
+    else:
+        achain = f"{vo},{tail}"
+
+    log.info("Yakuniy render (%.1fs)%s...", total, " + FX" if fx_on else "")
+    run(["ffmpeg", "-y", "-hide_banner", *inputs,
+         "-filter_complex", f"{vchain};{achain}",
+         "-map", "[v]", "-map", "[a]", "-t", f"{total:.3f}",
+         "-c:v", "libx264", "-preset", v["preset"], "-crf", str(v["crf"]),
+         "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", str(v["fps"]),
+         "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+         "-movflags", "+faststart", str(out_mp4)])
 
 
 def render(story: dict, clips: list, voice_mp3: Path, words: list[dict], audio_dur: float,
@@ -153,39 +232,18 @@ def render(story: dict, clips: list, voice_mp3: Path, words: list[dict], audio_d
             music = random.choice(tracks)
             log.info("Musiqa: %s", music.name)
 
-    ass_esc = str(ass).replace("\\", "/").replace(":", "\\:")
-    fdir_esc = str(font_dir).replace("\\", "/").replace(":", "\\:")
-    vchain = f"[0:v]ass='{ass_esc}':fontsdir='{fdir_esc}'"
-    bar = BARS.get(look.get("bar", "bottom"), ("bottom", 14))
-    if v.get("progress_bar") and bar:
-        where, bh = bar
-        by = "0" if where == "top" else f"ih-{bh}"
-        vchain += (f",drawbox=x=0:y={by}:w='iw*t/{total:.3f}':h={bh}:"
-                   f"color={v['progress_color']}@0.95:t=fill")
-    vchain += "[v]"
-
-    inputs = ["-i", str(joined), "-i", str(voice_mp3)]
-    fade_st = max(total - 0.6, 0)
-    if music:
-        inputs += ["-stream_loop", "-1", "-i", str(music)]
-        achain = (
-            f"[1:a]aresample=48000,apad=whole_dur={total:.3f},asplit=2[vo][sc];"
-            f"[2:a]aresample=48000,volume={cfg['music']['volume']},afade=t=in:d=1[m];"
-            f"[m][sc]sidechaincompress=threshold=0.03:ratio=8:attack=15:release=350[md];"
-            f"[vo][md]amix=inputs=2:duration=first:normalize=0,"
-            f"loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st={fade_st:.2f}:d=0.6[a]"
-        )
-    else:
-        achain = (f"[1:a]aresample=48000,apad=whole_dur={total:.3f},"
-                  f"loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st={fade_st:.2f}:d=0.6[a]")
-
-    log.info("Yakuniy render (%.1fs)...", total)
-    run(["ffmpeg", "-y", "-hide_banner", *inputs,
-         "-filter_complex", f"{vchain};{achain}",
-         "-map", "[v]", "-map", "[a]", "-t", f"{total:.3f}",
-         "-c:v", "libx264", "-preset", v["preset"], "-crf", str(v["crf"]),
-         "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", str(v["fps"]),
-         "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-         "-movflags", "+faststart", str(out_mp4)])
+    hook_secs = cfg["subtitles"]["hook_seconds"]
+    centers = [b_ + (XFADE_MID if transition != "cut" else 0.0) for (_a, b_) in spans[:-1]]
+    look = fix_look(dict(look))
+    attempts = [True, False] if _has_fx(look) else [False]
+    for fx_on in attempts:
+        try:
+            _final(joined, voice_mp3, music, ass, font_dir, cfg, total, look, centers, hook_secs,
+                   workdir, out_mp4, fx_on)
+            break
+        except Exception as e:  # effekt ishlamasa oddiy render
+            if not fx_on:
+                raise
+            log.warning("Premium effektlar ishlamadi, oddiy render: %s", e)
     log.info("Video tayyor: %s (%.1f MB)", out_mp4.name, out_mp4.stat().st_size / 1e6)
     return out_mp4

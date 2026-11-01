@@ -20,6 +20,41 @@ def _clean(w: str) -> str:
     return w.replace("{", "(").replace("}", ")").replace("\\", "/")
 
 
+# O'zbekcha son so'zlari (apostrof variantlari _norm da tekislanadi)
+NUMBER_WORDS = {
+    "bir", "ikki", "uch", "to'rt", "besh", "olti", "yetti", "sakkiz", "to'qqiz", "o'n",
+    "yigirma", "o'ttiz", "qirq", "ellik", "oltmish", "yetmish", "sakson", "to'qson",
+    "yuz", "ming", "million", "milliard", "trillion", "foiz", "yarim",
+}
+# "bir" juda ko'p ishlatiladi ("bir kuni"): faqat boshqa son so'z yonida bo'lsa pop bo'ladi
+WEAK_NUMBER_WORDS = {"bir", "yarim"}
+POP_MIN_GAP = 0.6  # ikki pop orasidagi eng kam masofa (s)
+# ASS: (cho'qqi %, tinch holat %, oshish ms, tushish ms). Rang o'zgarmaydi (brend qoidasi).
+POP_STYLES = {"pop": (132, 112, 90, 170), "spring": (146, 108, 70, 230)}
+
+
+def _norm(w: str) -> str:
+    w = w.lower()
+    for ch in "’ʻʼ‘`´":
+        w = w.replace(ch, "'")
+    return w.strip(".,!?…:;\"«»()-–—")
+
+
+def _number_flags(words: list[dict]) -> list[bool]:
+    """Qaysi so'zlar raqam/son (raqamli yoki so'z bilan) — pop uchun."""
+    toks = [_norm(w["word"]) for w in words]
+    flags, last_t = [], -9.0
+    for i, t in enumerate(toks):
+        strong = any(c.isdigit() for c in t) or (t in NUMBER_WORDS and t not in WEAK_NUMBER_WORDS)
+        weak = t in WEAK_NUMBER_WORDS and (
+            (i + 1 < len(toks) and toks[i + 1] in NUMBER_WORDS) or (i > 0 and toks[i - 1] in NUMBER_WORDS))
+        hit = (strong or weak) and words[i]["start"] - last_t >= POP_MIN_GAP
+        if hit:
+            last_t = words[i]["start"]
+        flags.append(hit)
+    return flags
+
+
 def _groups(words: list[dict], per_line: int) -> list[list[dict]]:
     groups, cur = [], []
     for w in words:
@@ -91,6 +126,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     base = s["base_color"]
     x, y = W // 2, cap["y"]
 
+    pop = POP_STYLES.get(look.get("emphasis"))
+    pop_ids = {id(w) for w, f in zip(words, _number_flags(words)) if f} if pop else set()
     groups = _groups(words, s["words_per_line"])
     for gi, g in enumerate(groups):
         g_end = groups[gi + 1][0]["start"] if gi + 1 < len(groups) else total
@@ -103,7 +140,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             parts = []
             for j, ww in enumerate(g):
                 txt = _clean(ww["word"].upper())
-                if j == k and cap["active"] == "scale":
+                if j == k and id(ww) in pop_ids:
+                    peak, rest, up, down = pop
+                    parts.append(f"{{\\fscx100\\fscy100\\t(0,{up},\\fscx{peak}\\fscy{peak})"
+                                 f"\\t({up},{up + down},\\fscx{rest}\\fscy{rest})}}{txt}"
+                                 f"{{\\fscx100\\fscy100}}")
+                elif j == k and cap["active"] == "scale":
                     parts.append(f"{{\\c{hi}\\fscx108\\fscy108}}{txt}{{\\c{base}\\fscx100\\fscy100}}")
                 elif j == k and cap["active"] == "underline":
                     parts.append(f"{{\\u1}}{txt}{{\\u0}}")

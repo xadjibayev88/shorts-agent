@@ -37,9 +37,23 @@ HOOKS = ["white_box", "black_box", "outline_big", "middle_zoom", "top_slide"]
 # Progress bar: (joy, qalinlik) yoki None
 BARS = {"bottom": ("bottom", 14), "top": ("top", 10), "thin": ("bottom", 6), "none": None}
 
+# Premium harakat dizayni (agent/fx.py). Hammasi nozik; xato bo'lsa oddiy renderga qaytiladi.
+# Ovoz: o'tishlarda yumshoq "whoosh", hook ostida impact/riser (ffmpeg lavfi bilan sintez qilinadi)
+SOUNDS = ["whoosh_hit", "whoosh_riser", "whoosh", "hit"]
+# Hook kirishi: birinchi sahnada punch-in zoom, blur-in yoki yumshoq yorug'lik chaqnashi
+ENTRANCES = ["punch", "blur", "flash"]
+# Tekstura: kino donasi, o'tishlarda yorug'lik "leak", "nafas oluvchi" vinyetka
+TEXTURES = ["grain", "leak", "breathe", "grain_leak"]
+# Raqam/son so'zlar subtitrda qisqa scale-pop (rangsiz): ikki xil sur'at
+EMPHASES = ["pop", "spring"]
+# Oxirgi 1.2 s: sekin zoom, progress bar to'ladi (faqat progress bar yoqilgan kanalda)
+ENDINGS = ["zoom", "none"]
+
 AXES = {"grade": list(GRADES), "transition": TRANSITIONS, "caption": list(CAPTIONS),
-        "hook": HOOKS, "bar": list(BARS)}
-AVOID_LAST = {"grade": 3, "transition": 4, "caption": 3, "hook": 2, "bar": 1}
+        "hook": HOOKS, "bar": list(BARS), "sound": SOUNDS, "entrance": ENTRANCES,
+        "texture": TEXTURES, "emphasis": EMPHASES, "ending": ENDINGS}
+AVOID_LAST = {"grade": 3, "transition": 4, "caption": 3, "hook": 2, "bar": 1, "sound": 2,
+              "entrance": 1, "texture": 2, "emphasis": 1, "ending": 1}
 
 
 def pick_look(history: dict, rng: random.Random | None = None) -> dict:
@@ -54,6 +68,18 @@ def pick_look(history: dict, rng: random.Random | None = None) -> dict:
     # O'rtadagi katta hook yuqoridagi subtitr bilan ustma-ust tushmasin
     if look["hook"] == "middle_zoom" and CAPTIONS[look["caption"]]["y"] < 1000:
         look["caption"] = rng.choice([c for c, v in CAPTIONS.items() if v["y"] >= 1000])
+    return fix_look(look, rng)
+
+
+def fix_look(look: dict, rng: random.Random | None = None) -> dict:
+    """Mos kelmaydigan juftliklarni tuzatadi (grade allaqachon dona/vinyetka qo'shgan bo'lsa)."""
+    rng = rng or random.Random()
+    tex = look.get("texture")
+    grade = look.get("grade")
+    if grade == "film" and tex in ("grain", "grain_leak", "breathe"):
+        look["texture"] = "leak"
+    elif grade == "moody" and tex == "breathe":
+        look["texture"] = rng.choice(["grain", "leak"])
     return look
 
 
