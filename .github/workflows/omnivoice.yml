@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/omnivoice-bin
-          key: omnivoice-bin-${{ env.OV_COMMIT }}
+          key: omnivoice-bin-static-${{ env.OV_COMMIT }}
 
       - name: omnivoice.cpp ni yig'ish
         if: steps.bincache.outputs.cache-hit != 'true'
@@ -42,10 +42,12 @@ jobs:
           git clone -q --recurse-submodules https://github.com/ServeurpersoCom/omnivoice.cpp.git ~/ovsrc
           git -C ~/ovsrc checkout -q "$OV_COMMIT"
           git -C ~/ovsrc submodule update -q --init --recursive
-          cmake -S ~/ovsrc -B ~/ovsrc/build -DCMAKE_BUILD_TYPE=Release > /dev/null
+          cmake -S ~/ovsrc -B ~/ovsrc/build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF > /dev/null
           cmake --build ~/ovsrc/build --config Release -j "$(nproc)" > /dev/null
           mkdir -p ~/omnivoice-bin
           cp ~/ovsrc/build/omnivoice-tts ~/omnivoice-bin/
+          find ~/ovsrc/build -name '*.so*' -exec cp -P {} ~/omnivoice-bin/ \; || true
+          ldd ~/omnivoice-bin/omnivoice-tts | grep -i 'not found' || echo 'kutubxonalar joyida'
           ls -la ~/omnivoice-bin
 
       - name: Model (kesh)
@@ -71,6 +73,7 @@ jobs:
           sudo apt-get install -y -qq ffmpeg > /dev/null
           mkdir -p out
           printf '%s' "$TEXT" > out/prompt.txt
+          export LD_LIBRARY_PATH="$HOME/omnivoice-bin:$LD_LIBRARY_PATH"
           OV="$HOME/omnivoice-bin/omnivoice-tts --model $HOME/omnivoice-models/$OV_BASE --codec $HOME/omnivoice-models/$OV_CODEC --lang Uzbek --seed 7 --steps ${{ github.event.inputs.steps || '16' }}"
           t0=$(date +%s)
           $OV --ref-wav assets/voice/narrator_ref.wav --ref-text assets/voice/narrator_ref.txt -o out/A_klon.wav < out/prompt.txt || echo "A xato"
