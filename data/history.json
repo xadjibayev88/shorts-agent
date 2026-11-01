@@ -472,9 +472,13 @@
     "pb29722",
     "pb298736",
     "pb42894",
-    "pb8780"
+    "pb8780",
+    "pb264272",
+    "pb304019",
+    "pb355017",
+    "pb85674"
   ],
-  "genre_index": 10,
+  "genre_index": 1,
   "looks": [
     {
       "grade": "natural",
@@ -535,6 +539,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "moody",
+      "transition": "hblur",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
