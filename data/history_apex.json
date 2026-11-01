@@ -55,7 +55,27 @@
     "pb197",
     "pb261978",
     "pb276067",
-    "pb86866"
+    "pb86866",
+    "pb130645",
+    "pb153874",
+    "pb160975",
+    "pb173333",
+    "pb319835",
+    "pb3630"
   ],
-  "genre_index": 0
+  "genre_index": 0,
+  "looks": [
+    {
+      "grade": "natural",
+      "transition": "cut",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
+    }
+  ]
 }
