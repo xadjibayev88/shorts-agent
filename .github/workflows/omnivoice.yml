@@ -16,7 +16,7 @@ permissions:
   contents: write   # namunalar voice-samples shoxiga yoziladi
 
 env:
-  OV_COMMIT: 886fc079838ca7400cb2b42b36e2a65aa1daabe8   # omnivoice.cpp, VoiceStudio bilan bir xil versiya
+  OV_COMMIT: 1a468d8b9d65b3544ca1004d2d7c05dfc65d1f3e   # omnivoice.cpp (--steps bor versiya)
   OV_MODELS_REV: 361609388ae572a820d085185bbbe2a2aac4b30e  # Serveurperso/OmniVoice-GGUF
   OV_BASE: omnivoice-base-Q4_K_M.gguf
   OV_CODEC: omnivoice-tokenizer-Q4_K_M.gguf
@@ -81,7 +81,7 @@ jobs:
           $OV --instruct "male, middle-aged, low pitch" -o out/B_erkak.wav < out/prompt.txt || echo "B xato"
           t2=$(date +%s); echo "B (erkak, namunasiz): $((t2-t1)) s"
           t3=$t2
-          for f in out/*.wav; do ffmpeg -loglevel error -y -i "$f" -b:a 128k "${f%.wav}.mp3"; done
+          for f in out/*.wav; do [ -f "$f" ] || continue; ffmpeg -loglevel error -y -i "$f" -b:a 128k "${f%.wav}.mp3"; done
           ls -la out
 
       - name: Namunalarni voice-samples shoxiga yozish
