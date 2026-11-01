@@ -210,6 +210,27 @@
       "video_id": "Mn2J6AaBzyc",
       "instagram_id": null,
       "words": 51
+    },
+    {
+      "date": "2026-11-01T11:30:06+00:00",
+      "title": "Ulug'bek mingdan ortiq yulduzni ro'yxatga olgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "zoomin",
+        "caption": "middle_rise",
+        "hook": "outline_big",
+        "bar": "thin",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "7istvMJc8Ok",
+      "instagram_id": null,
+      "words": 42
     }
   ],
   "used_pexels_ids": [
@@ -418,7 +439,13 @@
     "pb172545",
     "pb250395",
     "pb317868",
-    "pb6388"
+    "pb6388",
+    "pb173348",
+    "pb179780",
+    "pb204138",
+    "pb3627",
+    "pb372041",
+    "pb98795"
   ],
   "genre_index": 10,
   "looks": [
@@ -457,6 +484,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "zoomin",
+      "caption": "middle_rise",
+      "hook": "outline_big",
+      "bar": "thin",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
