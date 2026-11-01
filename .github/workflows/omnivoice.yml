@@ -1,0 +1,86 @@
+name: OmniVoice ovoz sinovi
+
+# Bepul, lokal (CPU) o'zbekcha TTS: OmniVoice (k2-fsa) modelini omnivoice.cpp orqali ishga tushiradi.
+# Model og'irliklari notijorat litsenziyada: kanallar monetizatsiya qilinmaguncha ishlatiladi.
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "O'qiladigan o'zbekcha matn"
+        default: "Qadimgi Qo'qon xonligi haqida qiziqarli fakt. Qishloqlarda qovun va qulupnay yetishtirilgan. Bilasizmi, Orol dengizi bir paytlar dunyodagi to'rtinchi eng katta ko'l bo'lgan. Sizningcha, bu dengizni qaytarish mumkinmi?"
+
+permissions:
+  contents: read
+
+env:
+  OV_COMMIT: 886fc079838ca7400cb2b42b36e2a65aa1daabe8   # omnivoice.cpp, VoiceStudio bilan bir xil versiya
+  OV_MODELS_REV: 361609388ae572a820d085185bbbe2a2aac4b30e  # Serveurperso/OmniVoice-GGUF
+  OV_BASE: omnivoice-base-Q4_K_M.gguf
+  OV_CODEC: omnivoice-tokenizer-Q4_K_M.gguf
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: omnivoice.cpp (kesh)
+        id: bincache
+        uses: actions/cache@v4
+        with:
+          path: ~/omnivoice-bin
+          key: omnivoice-bin-${{ env.OV_COMMIT }}
+
+      - name: omnivoice.cpp ni yig'ish
+        if: steps.bincache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get install -y -qq cmake build-essential > /dev/null
+          git clone -q --recurse-submodules https://github.com/ServeurpersoCom/omnivoice.cpp.git ~/ovsrc
+          git -C ~/ovsrc checkout -q "$OV_COMMIT"
+          git -C ~/ovsrc submodule update -q --init --recursive
+          cmake -S ~/ovsrc -B ~/ovsrc/build -DCMAKE_BUILD_TYPE=Release > /dev/null
+          cmake --build ~/ovsrc/build --config Release -j "$(nproc)" > /dev/null
+          mkdir -p ~/omnivoice-bin
+          cp ~/ovsrc/build/omnivoice-tts ~/omnivoice-bin/
+          ls -la ~/omnivoice-bin
+
+      - name: Model (kesh)
+        id: modelcache
+        uses: actions/cache@v4
+        with:
+          path: ~/omnivoice-models
+          key: omnivoice-models-${{ env.OV_MODELS_REV }}-${{ env.OV_BASE }}
+
+      - name: Modelni yuklab olish
+        if: steps.modelcache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/omnivoice-models
+          for f in "$OV_BASE" "$OV_CODEC"; do
+            curl -fsSL -o ~/omnivoice-models/$f "https://huggingface.co/Serveurperso/OmniVoice-GGUF/resolve/$OV_MODELS_REV/$f"
+          done
+          ls -la ~/omnivoice-models
+
+      - name: Ovoz yaratish (3 xil)
+        env:
+          TEXT: ${{ github.event.inputs.text }}
+        run: |
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          mkdir -p out
+          printf '%s' "$TEXT" > out/prompt.txt
+          OV="$HOME/omnivoice-bin/omnivoice-tts --model $HOME/omnivoice-models/$OV_BASE --codec $HOME/omnivoice-models/$OV_CODEC --lang Uzbek --seed 7"
+          t0=$(date +%s)
+          $OV --ref-wav assets/voice/narrator_ref.wav --ref-text assets/voice/narrator_ref.txt -o out/A_klon.wav < out/prompt.txt || echo "A xato"
+          t1=$(date +%s); echo "A (klon): $((t1-t0)) s"
+          $OV --instruct "male, middle-aged, low pitch" -o out/B_erkak.wav < out/prompt.txt || echo "B xato"
+          t2=$(date +%s); echo "B (erkak, namunasiz): $((t2-t1)) s"
+          $OV -o out/C_avto.wav < out/prompt.txt || echo "C xato"
+          t3=$(date +%s); echo "C (avto): $((t3-t2)) s"
+          for f in out/*.wav; do ffmpeg -loglevel error -y -i "$f" -b:a 128k "${f%.wav}.mp3"; done
+          ls -la out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: omnivoice-sinov
+          path: out/*.mp3
+          retention-days: 5
