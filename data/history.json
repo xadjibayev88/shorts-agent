@@ -406,7 +406,13 @@
     "pb30096",
     "pb40041",
     "pb42696",
-    "pb99115"
+    "pb99115",
+    "pb10831",
+    "pb209264",
+    "pb234077",
+    "pb240973",
+    "pb283431",
+    "pb39778"
   ],
   "genre_index": 10,
   "looks": [
@@ -421,6 +427,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "cut",
+      "caption": "lower_fade",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
