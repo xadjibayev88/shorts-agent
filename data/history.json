@@ -231,6 +231,27 @@
       "video_id": "7istvMJc8Ok",
       "instagram_id": null,
       "words": 42
+    },
+    {
+      "date": "2026-11-01T17:03:42+00:00",
+      "title": "O'zbekiston dengizga chiqa olmaydigan 2 davlatdan biri",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "smoothleft",
+        "caption": "center_pop",
+        "hook": "middle_zoom",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "1aEj6z56uh8",
+      "instagram_id": null,
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -445,7 +466,13 @@
     "pb204138",
     "pb3627",
     "pb372041",
-    "pb98795"
+    "pb98795",
+    "pb143213",
+    "pb180970",
+    "pb29722",
+    "pb298736",
+    "pb42894",
+    "pb8780"
   ],
   "genre_index": 10,
   "looks": [
@@ -496,6 +523,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "smoothleft",
+      "caption": "center_pop",
+      "hook": "middle_zoom",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
