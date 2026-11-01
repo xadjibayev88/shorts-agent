@@ -97,6 +97,16 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     story["look"] = look
     out = workdir / "short.mp4"
     render(story, clips, voice, words, dur, cfg, workdir, out, look)
+
+    # 4b) Muqova birinchi kadrga: YouTube muqovani o'rnatishga ruxsat bermasa ham shu ko'rinadi
+    if cfg.get("thumbnail", {}).get("first_frame", True):
+        try:
+            from .thumbnail import add_cover_frame, make_thumbnail
+            clean = workdir / "joined.mp4"  # subtitrsiz kadr: muqova yozuvi bilan ustma-ust tushmaydi
+            cover = make_thumbnail(clean if clean.exists() else out, story, cfg, workdir / "thumb.jpg")
+            add_cover_frame(out, cover, cfg)
+        except Exception as e:  # noqa: BLE001 — muqova chiqmasa ham video joylansin
+            log.warning("Birinchi kadr muqovasi qo'yilmadi: %s", e)
     remember(history, look)
 
     # 5) Joylash: YouTube (kalit bo'lsa) + Instagram (yoqilgan va kalit bo'lsa)
@@ -135,7 +145,7 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     # Joy tejash: oraliq fayllarni o'chiramiz
     if not args.keep_temp:
         for p in workdir.glob("*"):
-            if p.name not in {"short.mp4", "story.json", "subs.ass"}:
+            if p.name not in {"short.mp4", "story.json", "subs.ass", "thumb.jpg"}:
                 p.unlink(missing_ok=True)
     return {**record, "file": str(out)}
 

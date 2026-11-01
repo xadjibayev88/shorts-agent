@@ -93,7 +93,9 @@ def _set_thumbnail(yt, vid: str, video: Path, story: dict, cfg: dict):
     """Diqqatni tortuvchi muqovani o'rnatadi. Xato bo'lsa video baribir joylangan qoladi."""
     try:
         from .thumbnail import make_thumbnail
-        thumb = make_thumbnail(video, story, cfg, video.with_name("thumb.jpg"))
+        thumb = video.with_name("thumb.jpg")
+        if not thumb.exists():  # render bosqichida yasalgan bo'lsa, o'shani ishlatamiz
+            thumb = make_thumbnail(video, story, cfg, thumb)
         yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb), mimetype="image/jpeg")).execute()
         log.info("🖼 Muqova o'rnatildi")
     except HttpError as e:

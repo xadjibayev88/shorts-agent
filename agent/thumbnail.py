@@ -95,3 +95,26 @@ def make_thumbnail(video: Path, story: dict, cfg: dict, out: Path) -> Path:
     img.save(out, "JPEG", quality=90)
     log.info("Muqova tayyor: %s", out.name)
     return out
+
+
+COVER_SECS = 0.4  # muqova kadri qancha turadi (ovoz va subtitr vaqti o'zgarmaydi)
+
+
+def add_cover_frame(video: Path, cover: Path, cfg: dict, secs: float = COVER_SECS) -> Path:
+    """Muqovani videoning birinchi kadrlariga qo'yadi.
+
+    Kanal tasdiqlanmagani uchun YouTube muqova yuklashga ruxsat bermaydi; shunda u
+    muqovani videodan oladi, odatda boshidan. Ovoz va subtitrlar joyida qoladi.
+    """
+    v = cfg["video"]
+    tmp = video.with_name(video.stem + "_cover.mp4")
+    run(["ffmpeg", "-y", "-i", str(video), "-loop", "1", "-t", f"{secs:.2f}", "-i", str(cover),
+         "-filter_complex",
+         f"[1:v]scale={v['width']}:{v['height']},format=yuv420p[c];"
+         f"[0:v][c]overlay=0:0:eof_action=pass:enable='lt(t,{secs:.2f})'[v]",
+         "-map", "[v]", "-map", "0:a?", "-c:v", "libx264", "-preset", v.get("preset", "veryfast"),
+         "-crf", str(v.get("crf", 20)), "-pix_fmt", "yuv420p", "-c:a", "copy",
+         "-movflags", "+faststart", str(tmp)])
+    tmp.replace(video)
+    log.info("Birinchi kadr muqova qilindi (%.1fs)", secs)
+    return video
