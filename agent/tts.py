@@ -113,7 +113,8 @@ def _omnivoice(text: str, o: dict, out_mp3: str) -> None:
         cmd += ["--ref-wav", str(ROOT / o["ref"]), "--ref-text", str(ROOT / o["ref_text"])]
     res = subprocess.run(cmd, input=text, capture_output=True, text=True, timeout=o.get("timeout", 900))
     if res.returncode != 0 or not wav.exists():
-        raise RuntimeError("OmniVoice xato: " + "\n".join(res.stderr.strip().splitlines()[-5:]))
+        tail = (res.stdout + "\n" + res.stderr).strip().splitlines()[-12:]
+        raise RuntimeError(f"OmniVoice xato (kod {res.returncode}): " + " | ".join(tail))
     # boshidagi/oxiridagi jimlikni kesib, mp3 ga aylantiramiz
     run(["ffmpeg", "-y", "-i", str(wav), "-af",
          "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse",
