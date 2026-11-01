@@ -55,10 +55,22 @@ def _number_flags(words: list[dict]) -> list[bool]:
     return flags
 
 
-def _pop_peak(peak: int, group: list[dict], k: int, size: int) -> int:
-    """Qator kengligi LINE_LIMIT_PX dan oshmasligi uchun pop cho'qqisini cheklaydi (100 dan past emas)."""
+def _line_chars(group: list[dict], lo: int, hi: int) -> int:
+    return sum(len(w["word"]) for w in group[lo:hi]) + (hi - lo - 1)
+
+
+def _group_break(group: list[dict], size: int) -> int | None:
+    """Pop bor qator 1 qatorga sig'masa, barcha hodisalarda bir xil joyda aniq \\N bilan bo'linadi."""
+    if len(group) < 2 or _line_chars(group, 0, len(group)) * CHAR_W * size <= LINE_LIMIT_PX:
+        return None
+    return min(range(1, len(group)), key=lambda i: max(_line_chars(group, 0, i), _line_chars(group, i, len(group))))
+
+
+def _pop_peak(peak: int, group: list[dict], k: int, size: int, brk: int | None) -> int:
+    """Pop paytida satr kengligi LINE_LIMIT_PX dan oshmasligi uchun cho'qqini cheklaydi (100 dan past emas)."""
+    lo, hi = (0, len(group)) if brk is None else ((0, brk) if k < brk else (brk, len(group)))
     word_w = len(group[k]["word"]) * CHAR_W * size
-    others = (sum(len(w["word"]) for w in group) - len(group[k]["word"]) + len(group) - 1) * CHAR_W * size
+    others = (_line_chars(group, lo, hi) - len(group[k]["word"])) * CHAR_W * size
     room = (LINE_LIMIT_PX - others) / max(word_w, 1) * 100
     return int(max(100, min(peak, room)))
 
@@ -78,17 +90,26 @@ def _groups(words: list[dict], per_line: int) -> list[list[dict]]:
 
 # Hook uslublari: (ASS style qatori, matn oldidagi teglar). {x} {top} — joy.
 HOOK_BASE = {"black_box": 92, "outline_big": 96, "middle_zoom": 110, "top_slide": 92, "white_box": 92}
-HOOK_MIN, HOOK_MAX_LINES = 66, 2
+HOOK_MIN = 54
 CHAR_W = 0.72           # qalin katta harf o'rtacha kengligi / shrift o'lchami (taxmin)
 LINE_LIMIT_PX = 940     # subtitr qatori shu kenglikdan oshmasin
 HOOK_AVAIL_PX = 860     # hook matni uchun (chetlar va quti ichki bo'shlig'i chiqarilgan)
 
 
-def _hook_size(kind: str, hook: str) -> int:
-    """Hook 2 qatordan oshmaydigan eng katta o'lchamni tanlaydi (taxminiy kenglik bo'yicha)."""
+def _hook_lines(hook: str) -> list[str]:
+    """Hook matnini ko'pi bilan 2 ta muvozanatli qatorga bo'ladi (aniq \\N, animatsiya paytida o'ralmaydi)."""
+    words = hook.split()
+    if len(words) < 2 or len(hook) <= 14:
+        return [hook]
+    best = min(range(1, len(words)), key=lambda i: max(len(" ".join(words[:i])), len(" ".join(words[i:]))))
+    return [" ".join(words[:best]), " ".join(words[best:])]
+
+
+def _hook_size(kind: str, lines: list[str]) -> int:
+    """Eng uzun qator HOOK_AVAIL_PX ga sig'adigan eng katta o'lcham (taxminiy kenglik bo'yicha)."""
     size = HOOK_BASE.get(kind, 92)
-    n = max(len(hook), 1)
-    while size > HOOK_MIN and -(-n * CHAR_W * size // HOOK_AVAIL_PX) > HOOK_MAX_LINES:
+    longest = max(len(ln) for ln in lines) if lines else 1
+    while size > HOOK_MIN and longest * CHAR_W * size > HOOK_AVAIL_PX:
         size -= 2
     return size
 
@@ -129,8 +150,9 @@ def build_ass(words: list[dict], hook: str, total: float, font_name: str, cfg: d
     look = look or {}
     cap = CAPTIONS.get(look.get("caption"), {"y": s["position_y"], "size": s["font_size"],
                                              "anim": "pop", "active": "scale"})
+    hook_lines = _hook_lines(_clean(hook.upper()))
     hook_kind = look.get("hook", "white_box")
-    hook_style, hook_tags = _hook_style(hook_kind, font_name, _hook_size(hook_kind, hook))
+    hook_style, hook_tags = _hook_style(hook_kind, font_name, _hook_size(hook_kind, hook_lines))
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -157,20 +179,20 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     for gi, g in enumerate(groups):
         g_end = groups[gi + 1][0]["start"] if gi + 1 < len(groups) else total
         g_end = min(g_end, g[-1]["end"] + 0.6)  # pauzada ekran bo'shab qolsin
+        has_pop = any(id(ww) in pop_ids for ww in g)
+        brk = _group_break(g, cap["size"]) if has_pop else None
         for k, w in enumerate(g):
             start = w["start"]
             end = g[k + 1]["start"] if k + 1 < len(g) else g_end
             if end <= start:
                 continue
             parts = []
-            pop_event = False
             for j, ww in enumerate(g):
                 txt = _clean(ww["word"].upper())
                 if j == k and id(ww) in pop_ids:
                     peak, rest, up, down = pop
-                    peak = _pop_peak(peak, g, k, cap["size"])
+                    peak = _pop_peak(peak, g, k, cap["size"], brk)
                     rest = min(rest, peak)
-                    pop_event = True
                     parts.append(f"{{\\fscx100\\fscy100\\t(0,{up},\\fscx{peak}\\fscy{peak})"
                                  f"\\t({up},{up + down},\\fscx{rest}\\fscy{rest})}}{txt}"
                                  f"{{\\fscx100\\fscy100}}")
@@ -181,16 +203,21 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                 else:
                     parts.append(txt)
             tags = _enter(cap["anim"], x, y) if k == 0 else f"\\pos({x},{y})"
-            if pop_event:
-                tags += "\\q2"  # pop paytida qator qayta o'ralib ketmasin
-            text = "{" + tags + "}" + " ".join(parts)
+            if has_pop:
+                # pop bor qatorning barcha hodisalarida bir xil: qayta o'ralmasin, sakramasin
+                tags += "\\q2"
+            if brk is None:
+                body = " ".join(parts)
+            else:
+                body = " ".join(parts[:brk]) + "\\N" + " ".join(parts[brk:])
+            text = "{" + tags + "}" + body
             lines.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Sub,,0,0,0,,{text}")
 
     if hook:
         hs = cfg["subtitles"]["hook_seconds"]
         lines.append(
             f"Dialogue: 1,{_ts(0)},{_ts(hs)},Hook,,0,0,0,,"
-            "{" + hook_tags.format(x=W // 2, top=260) + "}" + _clean(hook.upper())
+            "{" + hook_tags.format(x=W // 2, top=260) + "\\q2}" + "\\N".join(hook_lines)
         )
 
     out.write_text(header + "\n".join(lines) + "\n", encoding="utf-8")
