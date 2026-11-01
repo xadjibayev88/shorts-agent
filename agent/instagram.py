@@ -11,9 +11,24 @@ from pathlib import Path
 
 import requests
 
-from .utils import env, log
+from .utils import env, ffprobe_duration, log, run
 
 GRAPH = "https://graph.instagram.com/v23.0"
+MAX_UPLOAD_MB = 18  # jsDelivr serves files up to ~20 MB; GitHub's contents API refuses big files
+
+
+def _small_copy(video: Path) -> Path:
+    """Instagram uchun yengil nusxa: katta FX renderlar (50+ MB) GitHub/jsDelivr'dan o'tmaydi."""
+    if video.stat().st_size <= MAX_UPLOAD_MB * 1024 * 1024:
+        return video
+    dur = max(ffprobe_duration(video), 1.0)
+    kbps = int(MAX_UPLOAD_MB * 8 * 1024 * 0.9 / dur) - 128  # audio 128k, 10% zaxira
+    out = video.with_name(video.stem + "_ig.mp4")
+    run(["ffmpeg", "-y", "-i", str(video), "-c:v", "libx264", "-preset", "veryfast",
+         "-b:v", f"{kbps}k", "-maxrate", f"{kbps}k", "-bufsize", f"{kbps * 2}k",
+         "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(out)])
+    log.info("Instagram nusxasi: %.1f MB -> %.1f MB", video.stat().st_size / 1e6, out.stat().st_size / 1e6)
+    return out
 
 
 def _temp_upload(video: Path) -> tuple[str, callable]:
@@ -59,7 +74,7 @@ def caption(story: dict, cfg: dict) -> str:
 
 def publish_reel(video: Path, story: dict, cfg: dict) -> str:
     token = env("IG_ACCESS_TOKEN")
-    url, cleanup = _temp_upload(video)
+    url, cleanup = _temp_upload(_small_copy(video))
     try:
         r = requests.post(f"{GRAPH}/me/media", timeout=60, data={
             "access_token": token, "media_type": "REELS", "video_url": url,
