@@ -1,0 +1,19 @@
+{
+  "handle": "@apex_wealths",
+  "upper": true,
+  "door": [0.4, 1.5],
+  "walk": [1.5, 2.3],
+  "beam_t": 6.4,
+  "intro": [
+    {"t0": 2.5, "t1": 4.2, "text": "Are you winning, son?", "mood": "happy"},
+    {"t0": 4.4, "t1": 6.2, "text": "Son...", "mood": "sad"}
+  ],
+  "lines": [
+    {"t0": 6.9, "t1": 9.4, "text": "Hamma uxlayotganda"},
+    {"t0": 9.6, "t1": 12.1, "text": "men ishlayman"},
+    {"t0": 12.3, "t1": 14.8, "text": "Charchadim, lekin"},
+    {"t0": 15.0, "t1": 17.5, "text": "to'xtamayman"},
+    {"t0": 17.7, "t1": 20.2, "text": "Bugun og'ir, ertaga"},
+    {"t0": 20.4, "t1": 22.9, "text": "hammasi o'zgaradi"}
+  ]
+}
