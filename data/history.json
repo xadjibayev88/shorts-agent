@@ -252,6 +252,27 @@
       "video_id": "1aEj6z56uh8",
       "instagram_id": null,
       "words": 47
+    },
+    {
+      "date": "2026-11-01T20:19:49+00:00",
+      "title": "86 Millardan Neyroni Nima? Inson Miya Sirri",
+      "genre": "inson tanasi va miyasi haqida kam odam biladigan fakt",
+      "format": "AFSONA VA HAQIQAT",
+      "look": {
+        "grade": "natural",
+        "transition": "radial",
+        "caption": "center_pop",
+        "hook": "outline_big",
+        "bar": "bottom",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "lmdnis6iTOY",
+      "instagram_id": null,
+      "words": 33
     }
   ],
   "used_pexels_ids": [
@@ -483,9 +504,14 @@
     "pb136462",
     "pb149958",
     "pb253720",
-    "pb60780"
+    "pb60780",
+    "pb110734",
+    "pb17285",
+    "pb197486",
+    "pb28042",
+    "pb9579"
   ],
-  "genre_index": 3,
+  "genre_index": 4,
   "looks": [
     {
       "grade": "natural",
@@ -582,6 +608,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "radial",
+      "caption": "center_pop",
+      "hook": "outline_big",
+      "bar": "bottom",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
