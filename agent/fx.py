@@ -152,7 +152,7 @@ def video_fx(look: dict, total: float, centers: list[float], wd: Path, W: int, H
         graph.append(f"{cur}{pre}[f1]")
         cur = "[f1]"
     if entrance == "blur":
-        graph.append(f"{cur}split[bs][bb];[bb]gblur=sigma=16:steps=2,format=yuva420p,"
+        graph.append(f"{cur}split[bs][bb];[bb]trim=duration={BLUR_SECS},setpts=PTS-STARTPTS,gblur=sigma=16:steps=2,format=yuva420p,"
                      f"fade=t=out:st=0:d={BLUR_SECS}:alpha=1[bbl];[bs][bbl]overlay=format=auto[f2]")
         cur = "[f2]"
     idx = first_extra_input

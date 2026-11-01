@@ -55,6 +55,14 @@ def _number_flags(words: list[dict]) -> list[bool]:
     return flags
 
 
+def _pop_peak(peak: int, group: list[dict], k: int, size: int) -> int:
+    """Qator kengligi LINE_LIMIT_PX dan oshmasligi uchun pop cho'qqisini cheklaydi (100 dan past emas)."""
+    word_w = len(group[k]["word"]) * CHAR_W * size
+    others = (sum(len(w["word"]) for w in group) - len(group[k]["word"]) + len(group) - 1) * CHAR_W * size
+    room = (LINE_LIMIT_PX - others) / max(word_w, 1) * 100
+    return int(max(100, min(peak, room)))
+
+
 def _groups(words: list[dict], per_line: int) -> list[list[dict]]:
     groups, cur = [], []
     for w in words:
@@ -69,21 +77,37 @@ def _groups(words: list[dict], per_line: int) -> list[list[dict]]:
 
 
 # Hook uslublari: (ASS style qatori, matn oldidagi teglar). {x} {top} — joy.
-def _hook_style(kind: str, font: str) -> tuple[str, str]:
+HOOK_BASE = {"black_box": 92, "outline_big": 96, "middle_zoom": 110, "top_slide": 92, "white_box": 92}
+HOOK_MIN, HOOK_MAX_LINES = 66, 2
+CHAR_W = 0.72           # qalin katta harf o'rtacha kengligi / shrift o'lchami (taxmin)
+LINE_LIMIT_PX = 940     # subtitr qatori shu kenglikdan oshmasin
+HOOK_AVAIL_PX = 860     # hook matni uchun (chetlar va quti ichki bo'shlig'i chiqarilgan)
+
+
+def _hook_size(kind: str, hook: str) -> int:
+    """Hook 2 qatordan oshmaydigan eng katta o'lchamni tanlaydi (taxminiy kenglik bo'yicha)."""
+    size = HOOK_BASE.get(kind, 92)
+    n = max(len(hook), 1)
+    while size > HOOK_MIN and -(-n * CHAR_W * size // HOOK_AVAIL_PX) > HOOK_MAX_LINES:
+        size -= 2
+    return size
+
+
+def _hook_style(kind: str, font: str, size: int = 92) -> tuple[str, str]:
     if kind == "black_box":
-        return (f"Style: Hook,{font},74,&H00FFFFFF,&H000000FF,&H20000000,&H20000000,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
+        return (f"Style: Hook,{font},{size},&H00FFFFFF,&H000000FF,&H20000000,&H20000000,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
                 "\\fad(120,200)\\fscx85\\fscy85\\t(0,140,\\fscx100\\fscy100)")
     if kind == "outline_big":
-        return (f"Style: Hook,{font},96,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,8,4,8,70,70,250,1",
+        return (f"Style: Hook,{font},{size},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,8,4,8,70,70,250,1",
                 "\\fad(100,200)\\fscx70\\fscy70\\t(0,160,\\fscx100\\fscy100)")
     if kind == "middle_zoom":
-        return (f"Style: Hook,{font},110,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,9,4,5,70,70,0,1",
+        return (f"Style: Hook,{font},{size},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,9,4,5,70,70,0,1",
                 "\\pos({x},560)\\fad(80,220)\\fscx55\\fscy55\\t(0,220,\\fscx100\\fscy100)")
     if kind == "top_slide":
-        return (f"Style: Hook,{font},74,&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
+        return (f"Style: Hook,{font},{size},&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
                 "\\move({x},120,{x},{top},0,200)\\fad(0,200)")
     # white_box (asl uslub)
-    return (f"Style: Hook,{font},74,&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
+    return (f"Style: Hook,{font},{size},&H00000000,&H000000FF,&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,1,0,3,18,0,8,80,80,260,1",
             "\\fad(120,200)\\fscx85\\fscy85\\t(0,140,\\fscx100\\fscy100)")
 
 
@@ -105,7 +129,8 @@ def build_ass(words: list[dict], hook: str, total: float, font_name: str, cfg: d
     look = look or {}
     cap = CAPTIONS.get(look.get("caption"), {"y": s["position_y"], "size": s["font_size"],
                                              "anim": "pop", "active": "scale"})
-    hook_style, hook_tags = _hook_style(look.get("hook", "white_box"), font_name)
+    hook_kind = look.get("hook", "white_box")
+    hook_style, hook_tags = _hook_style(hook_kind, font_name, _hook_size(hook_kind, hook))
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -138,10 +163,14 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             if end <= start:
                 continue
             parts = []
+            pop_event = False
             for j, ww in enumerate(g):
                 txt = _clean(ww["word"].upper())
                 if j == k and id(ww) in pop_ids:
                     peak, rest, up, down = pop
+                    peak = _pop_peak(peak, g, k, cap["size"])
+                    rest = min(rest, peak)
+                    pop_event = True
                     parts.append(f"{{\\fscx100\\fscy100\\t(0,{up},\\fscx{peak}\\fscy{peak})"
                                  f"\\t({up},{up + down},\\fscx{rest}\\fscy{rest})}}{txt}"
                                  f"{{\\fscx100\\fscy100}}")
@@ -152,6 +181,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                 else:
                     parts.append(txt)
             tags = _enter(cap["anim"], x, y) if k == 0 else f"\\pos({x},{y})"
+            if pop_event:
+                tags += "\\q2"  # pop paytida qator qayta o'ralib ketmasin
             text = "{" + tags + "}" + " ".join(parts)
             lines.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Sub,,0,0,0,,{text}")
 
