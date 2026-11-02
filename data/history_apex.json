@@ -128,6 +128,27 @@
       "video_id": "xQpBLllA25U",
       "instagram_id": "18086619326338761",
       "words": 47
+    },
+    {
+      "date": "2026-11-02T20:12:58+00:00",
+      "title": "1954 yil: Bannister 4 daqiqa to'sig'ini buzgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "zoomin",
+        "caption": "center_pop",
+        "hook": "middle_zoom",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "TLlG1GkIvQw",
+      "instagram_id": "17915677320476978",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -196,7 +217,12 @@
     "pb294",
     "pb31654",
     "pb43459",
-    "pb94063"
+    "pb94063",
+    "pb110943",
+    "pb113004",
+    "pb139364",
+    "pb213622",
+    "pb321203"
   ],
   "genre_index": 0,
   "looks": [
@@ -271,6 +297,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "zoomin",
+      "caption": "center_pop",
+      "hook": "middle_zoom",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
