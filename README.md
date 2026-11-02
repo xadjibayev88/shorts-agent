@@ -84,3 +84,13 @@ python -m agent.main --story samples/sample_story.json --no-upload   # Gemini'si
 ## 💡 Kanal o'sishi uchun maslahat
 - YouTube bir xil shablondagi takroriy kontentni monetizatsiyadan chiqarishi mumkin. Shuning uchun janrlarni ko'paytiring, vaqti-vaqti bilan `config.yaml`dagi prompt va ovozni almashtiring.
 - Birinchi 2 haftada qaysi janr ko'proq ko'rilayotganini kuzating va `genres` ro'yxatida o'shalarni ko'paytiring.
+
+---
+
+## 🎞️ Lyric-toon videolar (eshik ochiladi → "Are you winning, son?" → proyektor → subtitr)
+
+Spec JSON'ni `queue_apex/toon/` ga qo'ying (namuna: `samples/lyric_toon_sample.json`). Navbatda toon bo'lsa, u hikoyadan oldin renderlanib YouTube/Instagram'ga joylanadi.
+- Ovoz yo'q (`audio` berilmasa video jim). Musiqani Instagram/YouTube kutubxonasidan qo'shing. Mashhur qo'shiq ovozini faylga solmang: Content ID o'chiradi.
+- `audio` bersangiz `"audio_licensed": true` shart (royalty-free yoki public domain bo'lsa).
+- Noto'g'ri spec `queue_apex/toon/rejected/` ga, joylangani `done/` ga tushadi.
+- Sinov: `QUEUE_DIR=queue_apex python -m agent.main --config config_apex.yaml --no-upload`

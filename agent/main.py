@@ -60,7 +60,56 @@ def next_queued(cfg: dict, history: dict):
     return None, None
 
 
+def _publish(out: Path, story: dict, cfg: dict, args) -> tuple:
+    """YouTube (kalit bo'lsa) + Instagram (yoqilgan va kalit bo'lsa). Qaytaradi: (video_id, ig_id)."""
+    video_id, ig_id = None, None
+    if not args.no_upload:
+        if os.environ.get("YT_REFRESH_TOKEN"):
+            from .uploader import upload
+            video_id = upload(out, story, cfg)
+        else:
+            log.warning("YT_REFRESH_TOKEN yo'q — YouTube'ga joylanmadi")
+        if cfg.get("instagram", {}).get("enabled") and os.environ.get("IG_ACCESS_TOKEN"):
+            try:
+                from .instagram import publish_reel
+                ig_id = publish_reel(out, story, cfg)
+            except Exception as e:  # noqa: BLE001 — Instagram xatosi YouTube natijasini buzmasin
+                log.warning("Instagram'ga joylanmadi: %s", e)
+        elif cfg.get("instagram", {}).get("enabled"):
+            log.warning("IG_ACCESS_TOKEN yo'q — Instagram'ga joylanmadi")
+    return video_id, ig_id
+
+
+def make_toon(cfg: dict, history: dict, args, spec: dict, path: Path) -> dict:
+    """Lyric-toon video: queue_apex/toon/ dagi spec'dan renderlab joylaydi (ovoz/Pexels/fakt-tekshiruv kerak emas)."""
+    from .lyric_toon import render as render_toon
+    from .toon_queue import mark_done
+
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    workdir = ROOT / "output" / stamp
+    workdir.mkdir(parents=True, exist_ok=True)
+    out = workdir / "short.mp4"
+    render_toon(spec, out)
+    story = {"title": spec["title"], "description": spec["description"],
+             "hashtags": spec.get("hashtags", []), "tags": spec.get("tags", [])}
+    video_id, ig_id = _publish(out, story, cfg, args)
+    record = {"date": datetime.now(timezone.utc).isoformat(timespec="seconds"), "title": spec["title"],
+              "genre": "toon", "format": "lyric_toon", "look": None, "video_id": video_id,
+              "instagram_id": ig_id, "words": sum(len(x["text"].split()) for x in spec["lines"])}
+    if video_id or ig_id:
+        history.setdefault("videos", []).append(record)
+        mark_done(path)
+    return {**record, "file": str(out)}
+
+
 def make_one(cfg: dict, history: dict, args) -> dict:
+    if not args.story:  # toon navbati (queue_apex/toon/) hikoyadan oldin ishlatiladi
+        from .toon_queue import next_toon
+        used = {v["title"].lower() for v in history.get("videos", [])}
+        toon_spec, toon_path = next_toon(QUEUE, used)
+        if toon_spec:
+            return make_toon(cfg, history, args, toon_spec, toon_path)
+
     from .media import fetch_clips
     from .render import render
     from .story import generate_story, validate
@@ -109,22 +158,7 @@ def make_one(cfg: dict, history: dict, args) -> dict:
             log.warning("Birinchi kadr muqovasi qo'yilmadi: %s", e)
     remember(history, look)
 
-    # 5) Joylash: YouTube (kalit bo'lsa) + Instagram (yoqilgan va kalit bo'lsa)
-    video_id, ig_id = None, None
-    if not args.no_upload:
-        if os.environ.get("YT_REFRESH_TOKEN"):
-            from .uploader import upload
-            video_id = upload(out, story, cfg)
-        else:
-            log.warning("YT_REFRESH_TOKEN yo'q — YouTube'ga joylanmadi")
-        if cfg.get("instagram", {}).get("enabled") and os.environ.get("IG_ACCESS_TOKEN"):
-            try:
-                from .instagram import publish_reel
-                ig_id = publish_reel(out, story, cfg)
-            except Exception as e:  # noqa: BLE001 — Instagram xatosi YouTube natijasini buzmasin
-                log.warning("Instagram'ga joylanmadi: %s", e)
-        elif cfg.get("instagram", {}).get("enabled"):
-            log.warning("IG_ACCESS_TOKEN yo'q — Instagram'ga joylanmadi")
+    video_id, ig_id = _publish(out, story, cfg, args)
 
     record = {
         "date": datetime.now(timezone.utc).isoformat(timespec="seconds"),
