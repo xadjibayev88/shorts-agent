@@ -1,11 +1,20 @@
 {
- "fetched_at": "2026-11-02T17:05:58+00:00",
+ "fetched_at": "2026-11-02T23:40:31+00:00",
  "channels": {
   "bilarmidingiz": {
    "subscribers": 6,
    "views": 3951,
    "videos": 32,
    "recent": [
+    {
+     "id": "0v-wn8jvIqM",
+     "title": "Sakkizoyoqning 3 ta yuragi va ko'k qoni bor #shorts",
+     "published": "2026-11-02T20:38:32Z",
+     "duration": "PT12S",
+     "views": 0,
+     "likes": 0,
+     "comments": 0
+    },
     {
      "id": "lmdnis6iTOY",
      "title": "86 Millardan Neyroni Nima? Inson Miya Sirri #shorts",
@@ -65,7 +74,7 @@
      "title": "Banan o'simligi o'zi aslida nima? #shorts",
      "published": "2026-10-30T18:07:58Z",
      "duration": "PT24S",
-     "views": 15,
+     "views": 16,
      "likes": 0,
      "comments": 0
     },
@@ -101,7 +110,7 @@
      "title": "Okean SUYIDAGI Qora Tog' Emasmi? #shorts",
      "published": "2026-10-29T18:40:07Z",
      "duration": "PT23S",
-     "views": 19,
+     "views": 22,
      "likes": 0,
      "comments": 0
     },
@@ -155,7 +164,7 @@
      "title": "Qizil qalampirda 127 mg C vitamini – sog'liq uchun ajoyib! #shorts",
      "published": "2026-10-28T14:15:17Z",
      "duration": "PT26S",
-     "views": 12,
+     "views": 13,
      "likes": 2,
      "comments": 0
     },
@@ -182,7 +191,7 @@
      "title": "Nega Eynshteyn miyasi qirqib tashlangan va uning siri nima? #shorts",
      "published": "2026-10-27T18:07:00Z",
      "duration": "PT17S",
-     "views": 12,
+     "views": 14,
      "likes": 2,
      "comments": 0
     },
@@ -200,7 +209,7 @@
      "title": "Batakmantandagi otta asat: 58 ming yil suv ostida #shorts",
      "published": "2026-10-27T09:02:53Z",
      "duration": "PT19S",
-     "views": 316,
+     "views": 317,
      "likes": 4,
      "comments": 0
     },
@@ -298,16 +307,34 @@
   },
   "apex_wealths": {
    "subscribers": 6,
-   "views": 4499,
-   "videos": 10,
+   "views": 5684,
+   "videos": 12,
    "recent": [
+    {
+     "id": "z2SJ57RXgQw",
+     "title": "1943 yil: 17 yoshli Kamprad Ikea kompaniyasini ochgan #shorts",
+     "published": "2026-11-02T22:49:49Z",
+     "duration": "PT24S",
+     "views": 0,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "id": "TLlG1GkIvQw",
+     "title": "1954 yil: Bannister 4 daqiqa to'sig'ini buzgan #shorts",
+     "published": "2026-11-02T20:12:11Z",
+     "duration": "PT21S",
+     "views": 0,
+     "likes": 0,
+     "comments": 0
+    },
     {
      "id": "xQpBLllA25U",
      "title": "Dayson 5127 ta prototip yasaganini aytgan #shorts",
      "published": "2026-11-01T18:54:34Z",
      "duration": "PT22S",
-     "views": 1032,
-     "likes": 5,
+     "views": 1193,
+     "likes": 6,
      "comments": 0
     },
     {
@@ -315,8 +342,8 @@
      "title": "Nike belgisi 35 dollar turgan: kichik ishning kuchi #shorts",
      "published": "2026-11-01T16:36:03Z",
      "duration": "PT26S",
-     "views": 159,
-     "likes": 2,
+     "views": 236,
+     "likes": 4,
      "comments": 0
     },
     {
@@ -387,7 +414,7 @@
      "title": "Hamma \"imkonsiz\" degan va'da 7 yil o'tib tarixga aylandi #shorts",
      "published": "2026-10-27T09:22:51Z",
      "duration": "PT24S",
-     "views": 1670,
+     "views": 1671,
      "likes": 19,
      "comments": 0
     }
