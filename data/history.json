@@ -273,6 +273,27 @@
       "video_id": "lmdnis6iTOY",
       "instagram_id": null,
       "words": 33
+    },
+    {
+      "date": "2026-11-02T20:38:12+00:00",
+      "title": "Sakkizoyoqning 3 ta yuragi va ko'k qoni bor",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "cut",
+        "caption": "upper_bounce",
+        "hook": "top_slide",
+        "bar": "thin",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "0v-wn8jvIqM",
+      "instagram_id": null,
+      "words": 29
     }
   ],
   "used_pexels_ids": [
@@ -509,7 +530,11 @@
     "pb17285",
     "pb197486",
     "pb28042",
-    "pb9579"
+    "pb9579",
+    "pb156155",
+    "pb218364",
+    "pb3012",
+    "pb31722"
   ],
   "genre_index": 4,
   "looks": [
@@ -620,6 +645,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "cut",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "thin",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
