@@ -170,6 +170,27 @@
       "video_id": null,
       "instagram_id": "18129620396311461",
       "words": 54
+    },
+    {
+      "date": "2026-11-02T22:50:42+00:00",
+      "title": "1943 yil: 17 yoshli Kamprad Ikea kompaniyasini ochgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "wipeup",
+        "caption": "lower_fade",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "z2SJ57RXgQw",
+      "instagram_id": "18425703853159759",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -249,7 +270,14 @@
     "pb40353",
     "pb426",
     "pb4372",
-    "pb8256"
+    "pb8256",
+    "pb10120",
+    "pb156928",
+    "pb159066",
+    "pb217250",
+    "pb23008",
+    "pb377601",
+    "pb90752"
   ],
   "genre_index": 0,
   "looks": [
@@ -348,6 +376,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "wipeup",
+      "caption": "lower_fade",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
