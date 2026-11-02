@@ -149,6 +149,27 @@
       "video_id": "TLlG1GkIvQw",
       "instagram_id": "17915677320476978",
       "words": 52
+    },
+    {
+      "date": "2026-11-02T21:13:37+00:00",
+      "title": "Mariya Kyuri: 1903 va 1911 yillardagi ikki Nobel",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "radial",
+        "caption": "upper_bounce",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18129620396311461",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -222,7 +243,13 @@
     "pb113004",
     "pb139364",
     "pb213622",
-    "pb321203"
+    "pb321203",
+    "pb28042",
+    "pb38909",
+    "pb40353",
+    "pb426",
+    "pb4372",
+    "pb8256"
   ],
   "genre_index": 0,
   "looks": [
@@ -309,6 +336,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "radial",
+      "caption": "upper_bounce",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
