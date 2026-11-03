@@ -212,6 +212,27 @@
       "video_id": null,
       "instagram_id": "18016271516974312",
       "words": 53
+    },
+    {
+      "date": "2026-11-03T17:44:12+00:00",
+      "title": "Xarajatlarni nazorat qilishning oddiy usuli",
+      "genre": "pul bilan bog'liq foydali odat (tejash, xarajatni nazorat qilish, jamg'arma)",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "cool",
+        "transition": "slideup",
+        "caption": "middle_rise",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "xaq4PpVkeag",
+      "instagram_id": "17898215622414179",
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -304,9 +325,16 @@
     "pb12040",
     "pb160973",
     "pb21782",
-    "pb263961"
+    "pb263961",
+    "pb136740",
+    "pb160972",
+    "pb217848",
+    "pb349089",
+    "pb3627",
+    "pb61621",
+    "pb6378"
   ],
-  "genre_index": 0,
+  "genre_index": 1,
   "looks": [
     {
       "grade": "natural",
@@ -427,6 +455,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "slideup",
+      "caption": "middle_rise",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
