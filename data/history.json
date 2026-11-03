@@ -294,6 +294,27 @@
       "video_id": "0v-wn8jvIqM",
       "instagram_id": null,
       "words": 29
+    },
+    {
+      "date": "2026-11-03T18:12:29+00:00",
+      "title": "Tuya o'rkachida suv emas, yog' saqlanadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "smoothleft",
+        "caption": "lower_fade",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "OztwPDWZdkY",
+      "instagram_id": null,
+      "words": 27
     }
   ],
   "used_pexels_ids": [
@@ -534,7 +555,11 @@
     "pb156155",
     "pb218364",
     "pb3012",
-    "pb31722"
+    "pb31722",
+    "pb126788",
+    "pb134296",
+    "pb284568",
+    "pb94821"
   ],
   "genre_index": 4,
   "looks": [
@@ -657,6 +682,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "smoothleft",
+      "caption": "lower_fade",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
