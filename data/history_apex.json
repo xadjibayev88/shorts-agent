@@ -233,6 +233,27 @@
       "video_id": "xaq4PpVkeag",
       "instagram_id": "17898215622414179",
       "words": 47
+    },
+    {
+      "date": "2026-11-03T19:05:16+00:00",
+      "title": "Milan kofe safaridan olingan biznes saboqlari",
+      "genre": "mashhur tadbirkorning haqiqiy hayotidan bitta saboq",
+      "format": "TARIXIY VOQEA",
+      "look": {
+        "grade": "film",
+        "transition": "hblur",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18142617136616853",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -332,9 +353,15 @@
     "pb349089",
     "pb3627",
     "pb61621",
-    "pb6378"
+    "pb6378",
+    "pb149453",
+    "pb152798",
+    "pb29172",
+    "pb3132",
+    "pb337459",
+    "pb83875"
   ],
-  "genre_index": 1,
+  "genre_index": 2,
   "looks": [
     {
       "grade": "natural",
@@ -467,6 +494,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "film",
+      "transition": "hblur",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
