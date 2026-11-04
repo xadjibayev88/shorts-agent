@@ -275,6 +275,27 @@
       "video_id": "SZN4NHX0Anc",
       "instagram_id": "18140597728626835",
       "words": 41
+    },
+    {
+      "date": "2026-11-04T06:06:39+00:00",
+      "title": "Biznesdagi eng katta xato: ikkilanib turish",
+      "genre": "biznes boshlashdagi keng tarqalgan xato va undan qochish",
+      "format": "IKKI ODAM",
+      "look": {
+        "grade": "warm",
+        "transition": "circleopen",
+        "caption": "lower_fade",
+        "hook": "black_box",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "fiNCZRaNKS0",
+      "instagram_id": "18129070927911942",
+      "words": 44
     }
   ],
   "used_pexels_ids": [
@@ -385,9 +406,15 @@
     "pb27806",
     "pb427",
     "pb729",
-    "pb8252"
+    "pb8252",
+    "pb1658",
+    "pb303762",
+    "pb3576",
+    "pb39890",
+    "pb45254",
+    "pb6387"
   ],
-  "genre_index": 3,
+  "genre_index": 4,
   "looks": [
     {
       "grade": "natural",
@@ -544,6 +571,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "circleopen",
+      "caption": "lower_fade",
+      "hook": "black_box",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
