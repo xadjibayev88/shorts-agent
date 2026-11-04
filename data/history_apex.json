@@ -412,9 +412,15 @@
     "pb3576",
     "pb39890",
     "pb45254",
-    "pb6387"
+    "pb6387",
+    "pb10839",
+    "pb137265",
+    "pb272517",
+    "pb2860",
+    "pb3145",
+    "pb73847"
   ],
-  "genre_index": 4,
+  "genre_index": 5,
   "looks": [
     {
       "grade": "natural",
@@ -583,6 +589,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "cut",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
