@@ -315,6 +315,27 @@
       "video_id": "OztwPDWZdkY",
       "instagram_id": null,
       "words": 27
+    },
+    {
+      "date": "2026-11-04T18:22:24+00:00",
+      "title": "Eng kichik suyak quloqda: uzunligi atigi 3 mm",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "wipeup",
+        "caption": "center_shadow",
+        "hook": "middle_zoom",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "sARve3hEbO4",
+      "instagram_id": null,
+      "words": 27
     }
   ],
   "used_pexels_ids": [
@@ -559,7 +580,11 @@
     "pb126788",
     "pb134296",
     "pb284568",
-    "pb94821"
+    "pb94821",
+    "pb161063",
+    "pb261107",
+    "pb38084",
+    "pb74540"
   ],
   "genre_index": 4,
   "looks": [
@@ -694,6 +719,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "wipeup",
+      "caption": "center_shadow",
+      "hook": "middle_zoom",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
