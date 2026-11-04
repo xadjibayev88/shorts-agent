@@ -296,6 +296,27 @@
       "video_id": "fiNCZRaNKS0",
       "instagram_id": "18129070927911942",
       "words": 44
+    },
+    {
+      "date": "2026-11-04T20:50:08+00:00",
+      "title": "Besh daqiqalik odat boylikka qanday ta'sir qiladi",
+      "genre": "murakkab foiz va sabr kuchi oddiy misolda",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "natural",
+        "transition": "dissolve",
+        "caption": "center_shadow",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh_riser",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "SXi-QNMs094",
+      "instagram_id": "17963312009998916",
+      "words": 41
     }
   ],
   "used_pexels_ids": [
@@ -418,9 +439,14 @@
     "pb272517",
     "pb2860",
     "pb3145",
-    "pb73847"
+    "pb73847",
+    "pb267744",
+    "pb34258",
+    "pb818",
+    "pb87593",
+    "pb92480"
   ],
-  "genre_index": 5,
+  "genre_index": 6,
   "looks": [
     {
       "grade": "natural",
@@ -601,6 +627,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "dissolve",
+      "caption": "center_shadow",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
