@@ -336,6 +336,27 @@
       "video_id": "sARve3hEbO4",
       "instagram_id": null,
       "words": 27
+    },
+    {
+      "date": "2026-11-05T18:29:46+00:00",
+      "title": "Orol dengizi dunyodagi 4-katta ko'l bo'lgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "circleopen",
+        "caption": "center_pop",
+        "hook": "top_slide",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "xyP8UnFxGDI",
+      "instagram_id": null,
+      "words": 32
     }
   ],
   "used_pexels_ids": [
@@ -584,7 +605,11 @@
     "pb161063",
     "pb261107",
     "pb38084",
-    "pb74540"
+    "pb74540",
+    "pb158229",
+    "pb24515",
+    "pb6399",
+    "pb70860"
   ],
   "genre_index": 4,
   "looks": [
@@ -731,6 +756,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "circleopen",
+      "caption": "center_pop",
+      "hook": "top_slide",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
