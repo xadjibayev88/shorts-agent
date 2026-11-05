@@ -359,6 +359,27 @@
       "video_id": "rAadtH3mGFc",
       "instagram_id": "18155515027588649",
       "words": 48
+    },
+    {
+      "date": "2026-11-05T16:20:14+00:00",
+      "title": "Muvaffaqiyatli sotuv",
+      "genre": "sotuv va muzokara bo'yicha oddiy maslahat",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "cool",
+        "transition": "wipeup",
+        "caption": "center_shadow",
+        "hook": "middle_zoom",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18089836196703522",
+      "words": 34
     }
   ],
   "used_pexels_ids": [
@@ -499,9 +520,16 @@
     "pb208442",
     "pb215751",
     "pb23014",
-    "pb367684"
+    "pb367684",
+    "pb12333",
+    "pb139356",
+    "pb19627",
+    "pb292827",
+    "pb47158",
+    "pb59139",
+    "pb84970"
   ],
-  "genre_index": 8,
+  "genre_index": 9,
   "looks": [
     {
       "grade": "natural",
@@ -718,6 +746,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "wipeup",
+      "caption": "center_shadow",
+      "hook": "middle_zoom",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
