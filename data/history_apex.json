@@ -380,6 +380,27 @@
       "video_id": null,
       "instagram_id": "18089836196703522",
       "words": 34
+    },
+    {
+      "date": "2026-11-05T17:59:17+00:00",
+      "title": "Telefon qaramligidan qutulish uchun bitta oddiy qadam",
+      "genre": "diqqatni jamlash va telefon qaramligidan qutulish",
+      "format": "IKKI ODAM",
+      "look": {
+        "grade": "teal_orange",
+        "transition": "circleopen",
+        "caption": "upper_bounce",
+        "hook": "outline_big",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "-ZqelVNoMDA",
+      "instagram_id": "17928369411429203",
+      "words": 40
     }
   ],
   "used_pexels_ids": [
@@ -527,9 +548,14 @@
     "pb292827",
     "pb47158",
     "pb59139",
-    "pb84970"
+    "pb84970",
+    "pb130213",
+    "pb1360",
+    "pb268230",
+    "pb40797",
+    "pb7269"
   ],
-  "genre_index": 9,
+  "genre_index": 10,
   "looks": [
     {
       "grade": "natural",
@@ -758,6 +784,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "circleopen",
+      "caption": "upper_bounce",
+      "hook": "outline_big",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
