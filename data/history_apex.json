@@ -401,6 +401,27 @@
       "video_id": "-ZqelVNoMDA",
       "instagram_id": "17928369411429203",
       "words": 40
+    },
+    {
+      "date": "2026-11-05T19:32:13+00:00",
+      "title": "Pulni Tejamiz",
+      "genre": "pul bilan bog'liq foydali odat (tejash, xarajatni nazorat qilish, jamg'arma)",
+      "format": "TARIXIY VOQEA",
+      "look": {
+        "grade": "warm",
+        "transition": "dissolve",
+        "caption": "low_slide",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18090237050697969",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -553,9 +574,16 @@
     "pb1360",
     "pb268230",
     "pb40797",
-    "pb7269"
+    "pb7269",
+    "pb253998",
+    "pb27095",
+    "pb3134",
+    "pb50628",
+    "pb6456",
+    "pb86164",
+    "pb9490"
   ],
-  "genre_index": 10,
+  "genre_index": 1,
   "looks": [
     {
       "grade": "natural",
@@ -796,6 +824,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "dissolve",
+      "caption": "low_slide",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
