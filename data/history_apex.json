@@ -317,6 +317,48 @@
       "video_id": "SXi-QNMs094",
       "instagram_id": "17963312009998916",
       "words": 41
+    },
+    {
+      "date": "2026-11-05T12:08:17+00:00",
+      "title": "Muvaffaqiyatli odamlar qanday o'qiydi",
+      "genre": "muvaffaqiyatli odamlarning kitob o'qish odati",
+      "format": "SAVOL-JAVOB",
+      "look": {
+        "grade": "film",
+        "transition": "slideup",
+        "caption": "low_slide",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "_GmgmqnaRlg",
+      "instagram_id": "18213841000362909",
+      "words": 60
+    },
+    {
+      "date": "2026-11-05T12:18:16+00:00",
+      "title": "To'qqiz ming ta xato va buyuk muvaffaqiyat",
+      "genre": "muvaffaqiyatsizlikdan keyin qayta turish haqida haqiqiy misol",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "vivid",
+        "transition": "smoothleft",
+        "caption": "center_pop",
+        "hook": "top_slide",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "rAadtH3mGFc",
+      "instagram_id": "18155515027588649",
+      "words": 48
     }
   ],
   "used_pexels_ids": [
@@ -444,9 +486,22 @@
     "pb34258",
     "pb818",
     "pb87593",
-    "pb92480"
+    "pb92480",
+    "pb122230",
+    "pb144362",
+    "pb145582",
+    "pb156",
+    "pb201188",
+    "pb203260",
+    "pb267743",
+    "pb4952",
+    "pb200657",
+    "pb208442",
+    "pb215751",
+    "pb23014",
+    "pb367684"
   ],
-  "genre_index": 6,
+  "genre_index": 8,
   "looks": [
     {
       "grade": "natural",
@@ -637,6 +692,30 @@
       "sound": "whoosh_riser",
       "entrance": "punch",
       "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "slideup",
+      "caption": "low_slide",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "smoothleft",
+      "caption": "center_pop",
+      "hook": "top_slide",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
     }
