@@ -422,6 +422,27 @@
       "video_id": null,
       "instagram_id": "18090237050697969",
       "words": 49
+    },
+    {
+      "date": "2026-11-05T21:09:51+00:00",
+      "title": "Rey Krok va yosh chegarasi haqidagi saboq",
+      "genre": "mashhur tadbirkorning haqiqiy hayotidan bitta saboq",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "natural",
+        "transition": "fade",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "top",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "jnRyu6UfAec",
+      "instagram_id": "17988559217886486",
+      "words": 46
     }
   ],
   "used_pexels_ids": [
@@ -581,9 +602,15 @@
     "pb50628",
     "pb6456",
     "pb86164",
-    "pb9490"
+    "pb9490",
+    "pb15629",
+    "pb21118",
+    "pb22109",
+    "pb42964",
+    "pb4722",
+    "pb6096"
   ],
-  "genre_index": 1,
+  "genre_index": 2,
   "looks": [
     {
       "grade": "natural",
@@ -836,6 +863,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "fade",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
