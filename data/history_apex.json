@@ -464,6 +464,27 @@
       "video_id": null,
       "instagram_id": "18120306524468818",
       "words": 44
+    },
+    {
+      "date": "2026-11-06T17:21:51+00:00",
+      "title": "Biznesni Sinash va Rejalashtirish O'rtasidagi Farq",
+      "genre": "biznes boshlashdagi keng tarqalgan xato va undan qochish",
+      "format": "IKKI ODAM",
+      "look": {
+        "grade": "moody",
+        "transition": "wipeup",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "-gxLGaea5TA",
+      "instagram_id": "18117599003109771",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -635,9 +656,15 @@
     "pb20454",
     "pb263962",
     "pb3176",
-    "pb50473"
+    "pb50473",
+    "pb134872",
+    "pb177164",
+    "pb3160",
+    "pb424",
+    "pb7817",
+    "pb999"
   ],
-  "genre_index": 3,
+  "genre_index": 4,
   "looks": [
     {
       "grade": "natural",
@@ -914,6 +941,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "wipeup",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
