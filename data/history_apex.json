@@ -506,6 +506,27 @@
       "video_id": null,
       "instagram_id": "17918728440264885",
       "words": 48
+    },
+    {
+      "date": "2026-11-06T20:29:56+00:00",
+      "title": "Murakkab foizni tushun: 1% haftalik vs kunlik",
+      "genre": "murakkab foiz va sabr kuchi oddiy misolda",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "cool",
+        "transition": "zoomin",
+        "caption": "low_slide",
+        "hook": "white_box",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "tR_Sqe_vsQw",
+      "instagram_id": "17989004349086098",
+      "words": 61
     }
   ],
   "used_pexels_ids": [
@@ -688,9 +709,15 @@
     "pb149",
     "pb223269",
     "pb27230",
-    "pb34091"
+    "pb34091",
+    "pb107240",
+    "pb13948",
+    "pb217947",
+    "pb373271",
+    "pb63241",
+    "pb71350"
   ],
-  "genre_index": 5,
+  "genre_index": 6,
   "looks": [
     {
       "grade": "natural",
@@ -991,6 +1018,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "zoomin",
+      "caption": "low_slide",
+      "hook": "white_box",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
