@@ -443,6 +443,27 @@
       "video_id": "jnRyu6UfAec",
       "instagram_id": "17988559217886486",
       "words": 46
+    },
+    {
+      "date": "2026-11-06T15:46:10+00:00",
+      "title": "Erta tong osonligi kechadan boshlanadi",
+      "genre": "intizom va erta turish haqida amaliy maslahat",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "vivid",
+        "transition": "fadeblack",
+        "caption": "center_pop",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18120306524468818",
+      "words": 44
     }
   ],
   "used_pexels_ids": [
@@ -608,9 +629,15 @@
     "pb22109",
     "pb42964",
     "pb4722",
-    "pb6096"
+    "pb6096",
+    "pb169445",
+    "pb177092",
+    "pb20454",
+    "pb263962",
+    "pb3176",
+    "pb50473"
   ],
-  "genre_index": 2,
+  "genre_index": 3,
   "looks": [
     {
       "grade": "natural",
@@ -875,6 +902,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "fadeblack",
+      "caption": "center_pop",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
