@@ -485,6 +485,27 @@
       "video_id": "-gxLGaea5TA",
       "instagram_id": "18117599003109771",
       "words": 52
+    },
+    {
+      "date": "2026-11-06T18:50:46+00:00",
+      "title": "Vaqtni qanday boshqarish kerak",
+      "genre": "vaqtni boshqarish usuli (masalan, Pareto qoidasi yoki Eyzenxauer matritsasi)",
+      "format": "SAVOL-JAVOB",
+      "look": {
+        "grade": "warm",
+        "transition": "radial",
+        "caption": "center_shadow",
+        "hook": "top_slide",
+        "bar": "bottom",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "17918728440264885",
+      "words": 48
     }
   ],
   "used_pexels_ids": [
@@ -662,9 +683,14 @@
     "pb3160",
     "pb424",
     "pb7817",
-    "pb999"
+    "pb999",
+    "pb137264",
+    "pb149",
+    "pb223269",
+    "pb27230",
+    "pb34091"
   ],
-  "genre_index": 4,
+  "genre_index": 5,
   "looks": [
     {
       "grade": "natural",
@@ -953,6 +979,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "radial",
+      "caption": "center_shadow",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
