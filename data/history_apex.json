@@ -527,6 +527,27 @@
       "video_id": "tR_Sqe_vsQw",
       "instagram_id": "17989004349086098",
       "words": 61
+    },
+    {
+      "date": "2026-11-07T14:40:14+00:00",
+      "title": "1978 yil: Maykl Jordan maktab terma jamoasiga olinmagan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "dissolve",
+        "caption": "upper_bounce",
+        "hook": "outline_big",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18121781098752832",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -715,7 +736,13 @@
     "pb217947",
     "pb373271",
     "pb63241",
-    "pb71350"
+    "pb71350",
+    "pb181786",
+    "pb215472",
+    "pb43731",
+    "pb46637",
+    "pb53902",
+    "pb8153"
   ],
   "genre_index": 6,
   "looks": [
@@ -1030,6 +1057,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "dissolve",
+      "caption": "upper_bounce",
+      "hook": "outline_big",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
