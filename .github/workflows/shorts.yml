@@ -7,7 +7,8 @@ on:
     # Analitika (2026-10-31): katta natijalar 13:00-19:00 da chiqqan, kechasi yuklanganlar 9 ko'rishdan oshmagan
     # 2026-11-01 dan 7 kun: kuniga 1 ta, sifatli va qisqa (kanal ko'rsatilishi tiklanguncha).
     # Median 30+ ko'rishga chiqsa, 13:23 (23 8) va 18:23 (23 13) qaytariladi.
-    - cron: "47 10 * * *"   # 15:47 Toshkent
+    # GitHub jadvali 6-7 soat kechikadi (2026-11-05..07): cron 6 soat oldinroq, amalda ~15:47 Toshkent.
+    - cron: "47 4 * * *"   # ~15:47 Toshkent
   workflow_dispatch:
     inputs:
       count:
