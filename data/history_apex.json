@@ -548,6 +548,27 @@
       "video_id": null,
       "instagram_id": "18121781098752832",
       "words": 50
+    },
+    {
+      "date": "2026-11-07T16:19:42+00:00",
+      "title": "2008 yil: Airbnb asoschilari nonushta yormasi sotgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "slideup",
+        "caption": "lower_fade",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "9uK6dajTgqo",
+      "instagram_id": "18114906515113243",
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -742,7 +763,13 @@
     "pb43731",
     "pb46637",
     "pb53902",
-    "pb8153"
+    "pb8153",
+    "pb11543",
+    "pb137250",
+    "pb139360",
+    "pb199106",
+    "pb23258",
+    "pb233400"
   ],
   "genre_index": 6,
   "looks": [
@@ -1069,6 +1096,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "slideup",
+      "caption": "lower_fade",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
