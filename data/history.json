@@ -357,6 +357,27 @@
       "video_id": "xyP8UnFxGDI",
       "instagram_id": null,
       "words": 32
+    },
+    {
+      "date": "2026-11-07T04:48:12+00:00",
+      "title": "Chuqur dengizda qizil hayvonlar qoramtir ko'rinadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "fade",
+        "caption": "low_slide",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "v4Oj2SSEk1I",
+      "instagram_id": null,
+      "words": 31
     }
   ],
   "used_pexels_ids": [
@@ -609,7 +630,11 @@
     "pb158229",
     "pb24515",
     "pb6399",
-    "pb70860"
+    "pb70860",
+    "pb13823",
+    "pb203449",
+    "pb248",
+    "pb28860"
   ],
   "genre_index": 4,
   "looks": [
@@ -768,6 +793,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "moody",
+      "transition": "fade",
+      "caption": "low_slide",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
