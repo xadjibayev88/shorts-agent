@@ -378,6 +378,27 @@
       "video_id": "v4Oj2SSEk1I",
       "instagram_id": null,
       "words": 31
+    },
+    {
+      "date": "2026-11-07T16:47:13+00:00",
+      "title": "Kosmosdan qaytgan astronavt yurishni qayta o'rganadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "cut",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "lh8IJ_Ow_3w",
+      "instagram_id": null,
+      "words": 30
     }
   ],
   "used_pexels_ids": [
@@ -634,7 +655,11 @@
     "pb13823",
     "pb203449",
     "pb248",
-    "pb28860"
+    "pb28860",
+    "pb1105",
+    "pb132338",
+    "pb238",
+    "pb6387"
   ],
   "genre_index": 4,
   "looks": [
@@ -805,6 +830,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "cut",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
