@@ -1,0 +1,41 @@
+{
+  "title": "Beruniy Yer radiusini 1 foizdan kam xato bilan topgan",
+  "hook": "YERNI TOG' BILAN O'LCHAGAN",
+  "thumbnail_text": "BERUNIY",
+  "scenes": [
+    {
+      "text": "Beruniy Yerni bitta tog' bilan o'lchagan.",
+      "keywords": "mountain peak aerial flyover"
+    },
+    {
+      "text": "Avval tog' balandligini, so'ng cho'qqidan ufq burchagini o'lchadi.",
+      "keywords": "man looking at horizon from mountain"
+    },
+    {
+      "text": "Shu burchakdan Yer radiusini topdi, hozirgi qiymatdan bir foizdan kam farq qiladi.",
+      "keywords": "earth rotating from space"
+    },
+    {
+      "text": "Ming yil oldin, faqat bitta tog' bilan.",
+      "keywords": "sunset over mountain ridge timelapse"
+    }
+  ],
+  "description": "XI asrda Beruniy hozirgi Pokistondagi Nandana qal'asi yonidagi tog' balandligini va cho'qqidan ufq pasayish burchagini o'lchab, Yer radiusini taxminan 6340 km deb topgan; bugungi o'rtacha qiymat taxminan 6371 km, farq bir foizdan kam.",
+  "source": "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Biruni/ (MacTutor: Earth radius from mountain height and horizon dip, Nandana); https://arxiv.org/pdf/1312.7288 (analysis of Biruni's measurement, about 6339.6 km); https://www.iranicaonline.org/?p=9562 (Encyclopaedia Iranica). Result 6339.6 km vs modern mean 6371 km is about 0.5 percent below (0.27 percent vs 6356.7 km polar-based figure); published figures vary slightly with unit conversion.",
+  "tags": [
+    "beruniy",
+    "yer radiusi",
+    "matematika",
+    "astronomiya",
+    "xorazm",
+    "olimlar",
+    "bilarmidingiz",
+    "al-Biruni",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#faktlar"
+  ]
+}

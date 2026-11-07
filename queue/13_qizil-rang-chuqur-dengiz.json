@@ -1,0 +1,41 @@
+{
+  "title": "Chuqur dengizda qizil hayvonlar qoramtir ko'rinadi",
+  "hook": "QIZIL NEGA YO'QOLADI",
+  "thumbnail_text": "QIZIL = KO'RINMAS",
+  "scenes": [
+    {
+      "text": "Chuqur dengizda qizil rang ko'rinmaydi.",
+      "keywords": "red shrimp swimming deep sea"
+    },
+    {
+      "text": "Suv quyosh nurining qizil qismini eng avval yutadi.",
+      "keywords": "sunlight rays moving underwater"
+    },
+    {
+      "text": "Taxminan 100 metrda qizil nur qolmaydi, shuning uchun qizil jonzot qoramtir ko'rinadi.",
+      "keywords": "red jellyfish drifting dark ocean"
+    },
+    {
+      "text": "Chuqurlikda qizil bo'lish ko'rinmas bo'lish degani.",
+      "keywords": "diver descending into dark blue water"
+    }
+  ],
+  "description": "Suv quyosh nurining qizil qismini birinchi bo'lib yutadi, taxminan 100 metr chuqurlikda qizil nur deyarli qolmaydi va qizil rangli dengiz jonzotlari qoramtir bo'lib ko'rinadi.",
+  "source": "https://oceanexplorer.noaa.gov/facts/red-color.html (NOAA Ocean Exploration: red light is absorbed first and does not reach about 100 m, red animals look blackish there); https://origin.oceanexplorer.noaa.gov/edu/materials/light-and-color-fact-sheet.pdf (NOAA light and color fact sheet)",
+  "tags": [
+    "chuqur dengiz",
+    "okean",
+    "qizil rang",
+    "dengiz hayvonlari",
+    "yorug'lik",
+    "bilarmidingiz",
+    "qiziqarli faktlar",
+    "deep sea",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#faktlar"
+  ]
+}
