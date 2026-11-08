@@ -611,6 +611,27 @@
       "video_id": "JRoXRFp9B3Y",
       "instagram_id": "18343367011275085",
       "words": 51
+    },
+    {
+      "date": "2026-11-08T12:33:13+00:00",
+      "title": "Julia Child birinchi kitobini 49 yoshida chiqargan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "radial",
+        "caption": "upper_bounce",
+        "hook": "top_slide",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "17912105622580959",
+      "words": 41
     }
   ],
   "used_pexels_ids": [
@@ -829,7 +850,12 @@
     "pb190482",
     "pb4050",
     "pb93264",
-    "pb93287"
+    "pb93287",
+    "pb11291",
+    "pb11638",
+    "pb3595",
+    "pb3654",
+    "pb43653"
   ],
   "genre_index": 6,
   "looks": [
@@ -1204,6 +1230,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "radial",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
