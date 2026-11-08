@@ -70,7 +70,11 @@ def draw_person(d: ImageDraw.ImageDraw, cx: float, cy: float, s: float, skin, sh
         d.line([cx + bw / 2 - 5, by + 20, cx + bw / 2 + 0.25 * s, by + bh * 0.8], fill=skin, width=aw)
     d.line([cx - bw / 2 + 5, by + 20, cx - bw / 2 - 0.25 * s, by + bh * 0.8], fill=skin, width=aw)
     if label:
-        f = font(int(s * 0.75))
+        size = int(s * 0.75)
+        f = font(size)
+        while d.textlength(label, font=f) > bw * 0.82 and size > 12:  # yozuv ko'ylakdan chiqmasin
+            size -= 4
+            f = font(size)
         tw = d.textlength(label, font=f)
         d.text((cx - tw / 2, by + bh * 0.22), label, font=f, fill=(255, 255, 255) if sum(shirt) < 500 else (20, 20, 20))
     # bosh
