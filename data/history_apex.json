@@ -569,6 +569,27 @@
       "video_id": "9uK6dajTgqo",
       "instagram_id": "18114906515113243",
       "words": 47
+    },
+    {
+      "date": "2026-11-08T08:28:09+00:00",
+      "title": "Ford 1914 yilda Model T shassisini 93 daqiqada yig'gan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "wipeup",
+        "caption": "center_shadow",
+        "hook": "top_slide",
+        "bar": "thin",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18133405639774082",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -769,7 +790,13 @@
     "pb139360",
     "pb199106",
     "pb23258",
-    "pb233400"
+    "pb233400",
+    "pb16011",
+    "pb160976",
+    "pb210783",
+    "pb3585",
+    "pb39116",
+    "pb40054"
   ],
   "genre_index": 6,
   "looks": [
@@ -1108,6 +1135,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "wipeup",
+      "caption": "center_shadow",
+      "hook": "top_slide",
+      "bar": "thin",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
