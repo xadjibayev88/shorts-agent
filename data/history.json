@@ -399,6 +399,27 @@
       "video_id": "lh8IJ_Ow_3w",
       "instagram_id": null,
       "words": 30
+    },
+    {
+      "date": "2026-11-08T11:45:46+00:00",
+      "title": "Beruniy Yer radiusini 1 foizdan kam xato bilan topgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "zoomin",
+        "caption": "center_shadow",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "m5BEpR9OAjQ",
+      "instagram_id": null,
+      "words": 33
     }
   ],
   "used_pexels_ids": [
@@ -659,7 +680,11 @@
     "pb1105",
     "pb132338",
     "pb238",
-    "pb6387"
+    "pb6387",
+    "pb181376",
+    "pb190335",
+    "pb236235",
+    "pb26968"
   ],
   "genre_index": 4,
   "looks": [
@@ -842,6 +867,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "zoomin",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
