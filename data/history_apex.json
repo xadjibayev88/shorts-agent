@@ -640,6 +640,27 @@
       "video_id": "ErlZGYOe5n8",
       "instagram_id": "18485427112117565",
       "words": 54
+    },
+    {
+      "date": "2026-11-08T14:52:41+00:00",
+      "title": "Fleming 1928 yilda penitsillinni bitta idishda payqagan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "fade",
+        "caption": "low_slide",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "RdE5rLZJRmA",
+      "instagram_id": "18122349310999993",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -863,7 +884,13 @@
     "pb11638",
     "pb3595",
     "pb3654",
-    "pb43653"
+    "pb43653",
+    "pb129421",
+    "pb15305",
+    "pb22704",
+    "pb262188",
+    "pb262189",
+    "pb27797"
   ],
   "genre_index": 6,
   "looks": [
@@ -1250,6 +1277,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "fade",
+      "caption": "low_slide",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
