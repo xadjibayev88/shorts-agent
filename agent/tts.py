@@ -13,6 +13,7 @@ from pathlib import Path
 import edge_tts
 import requests
 
+from .numbers_uz import spoken_numbers
 from .utils import ROOT, env, ffprobe_duration, log, retry, run
 
 TICKS = 10_000_000  # edge-tts vaqt birligi: 100 ns
@@ -40,15 +41,20 @@ def _split_words(text: str) -> list[str]:
     return re.findall(r"\S+", text)
 
 
+def _spoken_len(tok: str) -> int:
+    """So'zning ovozdagi uzunligi: "1968" aslida "bir ming to'qqiz yuz oltmish sakkiz" deb o'qiladi."""
+    return len(spoken_numbers(tok)) if any(c.isdigit() for c in tok) else len(tok)
+
+
 def _distribute(spans: list[tuple[float, float, str]]) -> list[dict]:
     """Gap vaqtini so'zlarga harf uzunligiga qarab taqsimlash (fallback)."""
     out = []
     for start, end, txt in spans:
         toks = _split_words(txt)
-        total = sum(len(t) + 1 for t in toks) or 1
+        total = sum(_spoken_len(t) + 1 for t in toks) or 1
         cur = start
         for tok in toks:
-            d = (end - start) * (len(tok) + 1) / total
+            d = (end - start) * (_spoken_len(tok) + 1) / total
             out.append({"start": cur, "end": cur + d, "word": tok})
             cur += d
     return out
@@ -125,7 +131,7 @@ def _omnivoice(text: str, o: dict, out_mp3: str) -> None:
 def _weighted_words(text: str, duration: float) -> list[dict]:
     """Vaqt belgilari yo'q ovoz uchun: so'z uzunligi + tinish belgidagi pauza bo'yicha taqsimlash."""
     toks = _split_words(text)
-    w = [len(t) + 1 + (3 if t[-1] in ".!?" else 1.5 if t[-1] in ",;:" else 0) for t in toks]
+    w = [_spoken_len(t) + 1 + (3 if t[-1] in ".!?" else 1.5 if t[-1] in ",;:" else 0) for t in toks]
     total, cur, out = sum(w) or 1, 0.05, []
     span = max(duration - 0.1, 1.0)
     for t, k in zip(toks, w):
@@ -138,10 +144,14 @@ def _weighted_words(text: str, duration: float) -> list[dict]:
 def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
     t = cfg["tts"]
     o = t.get("omnivoice") or {}
+    # Ovoz modellari raqamlarni tashlab ketadi: ovozga so'z bilan beramiz, subtitr (text) raqamligicha qoladi
+    spoken = spoken_numbers(text)
+    if spoken != text:
+        log.info("Ovoz matni (raqamlar so'z bilan): %s", spoken)
     if o.get("enabled") and os.environ.get("OMNIVOICE_BIN") and Path(os.environ["OMNIVOICE_BIN"]).exists():
         try:
             log.info("Ovoz yozilmoqda (OmniVoice, %s qadam)...", o.get("steps", 16))
-            _omnivoice(text, o, out_mp3)
+            _omnivoice(spoken, o, out_mp3)
             duration = ffprobe_duration(out_mp3)
             timed = _weighted_words(text, duration)
             log.info("Ovoz: %.1fs (OmniVoice)", duration)
@@ -156,7 +166,7 @@ def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
         for voice, model in options:
             try:
                 log.info("Ovoz yozilmoqda (ElevenLabs %s, %s)...", voice, model)
-                timed = _elevenlabs(text, voice, model, out_mp3)
+                timed = _elevenlabs(spoken, voice, model, out_mp3)
                 duration = ffprobe_duration(out_mp3)
                 timed = _align_to_text(timed, text) if timed else _distribute([(0.15, max(duration - 0.2, 1.0), text)])
                 log.info("Ovoz: %.1fs, %d so'z vaqti (ElevenLabs %s)", duration, len(timed), model)
@@ -166,7 +176,7 @@ def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
         if options:
             log.warning("ElevenLabs ishlamadi, Edge TTS ishlatiladi")
     log.info("Ovoz yozilmoqda (%s)...", t["voice"])
-    words, sentences = asyncio.run(_synth(text, t["voice"], t["rate"], t["pitch"], out_mp3))
+    words, sentences = asyncio.run(_synth(spoken, t["voice"], t["rate"], t["pitch"], out_mp3))
     duration = ffprobe_duration(out_mp3)
     if words:
         timed = [{"start": s, "end": e, "word": w} for s, e, w in words]
