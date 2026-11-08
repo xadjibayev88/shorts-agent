@@ -393,6 +393,9 @@ Mashhur qoida yoki tamoyilni o'z nomi bilan aytish (masalan, "80/20 qoidasi") no
 Xorijiy ismlar o'zbek lotin imlosida yoziladi va bu XATO EMAS: "Uorren Baffet" = Warren Buffett, "Devid Allen" = David Allen,
 "Dayson" = James Dyson, "Jeff Bezos", "Kerolin Devidson" = Carolyn Davidson. Ismni asl inglizcha shakliga solishtirib tekshir,
 faqat butunlay boshqa odam yoki to'qima ism bo'lsa "false" de.
+IMPORTANT (English): names are transliterated into Uzbek Latin script on purpose ("Uilma Rudolf" = Wilma Rudolph,
+"Raytlar" = the Wright brothers, "Spenser Silver" = Spencer Silver, "Sara Bleykli" = Sara Blakely). A transliterated
+spelling is NEVER a factual error; judge only the person, number, date and event behind it.
 Avval har bir da'voni qisqa tekshir, keyin hukm chiqar.
 FAQAT shu JSON formatda javob ber:
 {{"issues": "har bir asosiy da'vo bo'yicha 1-2 gapli tekshiruv", "verdict": "true | false | uncertain"}}
@@ -449,6 +452,9 @@ def _fact_check(story: dict, chain: list, author: str, cfg: dict) -> None:
     provider = author.split("/")[0]
     text = (f"Sarlavha: {story['title']}\nEkrandagi yozuv: {story.get('hook', '')}\n"
             f"Muqova: {story.get('thumbnail_text', '')}\n" + " ".join(s["text"] for s in story["scenes"]))
+    names = story.get("names") or {}
+    if names:  # o'zbekcha yozilgan xorijiy ismlarning asl shakli: tekshiruvchi ularni "xato ism" demasin
+        text += "\nIsmlarning asl yozilishi (original spelling): " + "; ".join(f"{k} = {v}" for k, v in names.items())
     prompt = VERIFY_PROMPT.format(text=text, today=datetime.now(timezone.utc).date().isoformat())
 
     # 1) Internet bilan tekshiruv (Gemini + Google Search) — eskirgan faktlarni ham ushlaydi
