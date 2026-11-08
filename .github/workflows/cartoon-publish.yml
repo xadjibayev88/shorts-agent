@@ -1,0 +1,67 @@
+name: apex_wealths multfilm reel joylash (soatiga 1 ta)
+
+# Egasining buyrug'i (2026-11-08): 2D multfilm reellarni har soatda bittadan apex_wealths YouTube + Instagram'ga.
+# Navbat: cartoon/publish_queue.json; bo'shasa ish darhol tugaydi. Jadval faqat 8-9 noyabr uchun.
+on:
+  schedule:
+    - cron: "23 * 8,9 11 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cartoon-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: ffmpeg
+        timeout-minutes: 10
+        run: |
+          if ! command -v ffmpeg > /dev/null; then
+            timeout 120 sudo apt-get update -qq || true
+            if ! timeout 180 sudo apt-get install -y -qq ffmpeg; then
+              curl -fsSL -o /tmp/ff.tar.xz https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
+              tar -xf /tmp/ff.tar.xz -C /tmp
+              sudo cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ffmpeg /tmp/ffmpeg-master-latest-linux64-gpl/bin/ffprobe /usr/local/bin/
+            fi
+          fi
+      - name: Python kutubxonalari
+        run: pip install -r requirements.txt
+      - name: apex YouTube tokeni
+        env:
+          CSECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
+          SECRET_TOK: ${{ secrets.YT_REFRESH_TOKEN_APEX }}
+        run: |
+          if [ -z "$SECRET_TOK" ] && [ -f data/yt_apex_token.enc ]; then
+            T=$(openssl enc -d -aes-256-cbc -pbkdf2 -in data/yt_apex_token.enc -pass env:CSECRET) || { echo "token faylini ochib bo'lmadi"; exit 0; }
+            echo "::add-mask::$T"
+            echo "YT_APEX_FILE_TOKEN=$T" >> "$GITHUB_ENV"
+          fi
+      - name: Navbatdagi multfilmni joylash
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID_APEX || secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET_APEX || secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN_APEX || env.YT_APEX_FILE_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_APEX }}
+          VIDEO_REPO: ${{ secrets.VIDEO_REPO }}
+          VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
+          HISTORY_FILE: data/history_apex.json
+        run: python -m agent.cartoon_publish
+      - name: Tarixni saqlash
+        if: always()
+        run: |
+          git config user.name "shorts-agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/history_apex.json queue_apex
+          git diff --cached --quiet || git commit -m "history: cartoon $(date -u +%F_%H%M)"
+          git pull --rebase -q || true
+          git push || echo "push qilinmadi"
