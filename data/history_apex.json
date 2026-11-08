@@ -590,6 +590,27 @@
       "video_id": null,
       "instagram_id": "18133405639774082",
       "words": 54
+    },
+    {
+      "date": "2026-11-08T11:02:27+00:00",
+      "title": "Coca-Cola 1886 yilda kuniga o'rtacha 9 stakan sotilgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "smoothleft",
+        "caption": "center_pop",
+        "hook": "black_box",
+        "bar": "none",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "JRoXRFp9B3Y",
+      "instagram_id": "18343367011275085",
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -802,7 +823,13 @@
     "pb40135",
     "pb44647",
     "pb57307",
-    "pb93280"
+    "pb93280",
+    "pb13100",
+    "pb154835",
+    "pb190482",
+    "pb4050",
+    "pb93264",
+    "pb93287"
   ],
   "genre_index": 6,
   "looks": [
@@ -1165,6 +1192,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "smoothleft",
+      "caption": "center_pop",
+      "hook": "black_box",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
