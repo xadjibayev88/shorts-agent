@@ -1,0 +1,77 @@
+{
+ "scenes": [
+  {
+   "type": "year",
+   "value": 1928,
+   "from": 1910,
+   "top": "LONDON",
+   "caption": "1928 YIL",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "petri",
+   "sub": "BITTA IDISH",
+   "caption": "BITTA IDISH",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    240,
+    240,
+    240
+   ],
+   "hair": [
+    200,
+    200,
+    200
+   ],
+   "label": "DR",
+   "caption": "MOG'OR?",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "petri",
+   "sub": "BAKTERIYA YO'Q",
+   "caption": "YO'QOLIB KETDI",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "x",
+   "caption": "TASHLAMADI",
+   "dur": 2.5
+  },
+  {
+   "type": "character",
+   "shirt": [
+    240,
+    240,
+    240
+   ],
+   "hair": [
+    200,
+    200,
+    200
+   ],
+   "label": "DR",
+   "arm_up": true,
+   "caption": "PENITSILLIN",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "trophy",
+   "sub": "1945",
+   "caption": "NOBEL MUKOFOTI",
+   "dur": 3
+  },
+  {
+   "type": "ending",
+   "caption": "SIZ-CHI?",
+   "dur": 4
+  }
+ ]
+}

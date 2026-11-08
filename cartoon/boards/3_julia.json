@@ -1,0 +1,82 @@
+{
+ "scenes": [
+  {
+   "type": "number",
+   "value": 49,
+   "from": 0,
+   "top": "YOSH",
+   "label": "BIRINCHI KITOB",
+   "caption": "49 YOSHDA",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "book",
+   "sub": "1961",
+   "caption": "BIRINCHI KITOB",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    240,
+    240,
+    240
+   ],
+   "skin": [
+    250,
+    210,
+    170
+   ],
+   "hair": [
+    150,
+    90,
+    50
+   ],
+   "label": "PARIJ",
+   "caption": "37 YOSHDA",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "dish",
+   "sub": "RETSEPTLAR",
+   "caption": "YILLAR DAVOMIDA",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "tv",
+   "sub": "1963",
+   "caption": "TELEVIDENIYE",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    30,
+    90,
+    200
+   ],
+   "skin": [
+    250,
+    210,
+    170
+   ],
+   "hair": [
+    150,
+    90,
+    50
+   ],
+   "arm_up": true,
+   "prop": "dish",
+   "caption": "JULIA CHILD",
+   "dur": 3
+  },
+  {
+   "type": "ending",
+   "caption": "SIZ-CHI?",
+   "dur": 4
+  }
+ ]
+}

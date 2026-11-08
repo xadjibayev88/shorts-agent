@@ -1,0 +1,69 @@
+{
+ "scenes": [
+  {
+   "type": "year",
+   "value": 1928,
+   "from": 1915,
+   "top": "HOLLIVUD",
+   "caption": "1928 YIL",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "rabbit",
+   "sub": "OSVALD",
+   "caption": "YO'QOTDI",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    30,
+    90,
+    200
+   ],
+   "mood": "sad",
+   "tear": true,
+   "label": "WALT",
+   "caption": "HAMMA KETDI",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    30,
+    90,
+    200
+   ],
+   "label": "WALT",
+   "caption": "LEKIN...",
+   "dur": 2.5
+  },
+  {
+   "type": "icon",
+   "prop": "mouse",
+   "sub": "YANGI QAHRAMON",
+   "caption": "MIKKI MAUS!",
+   "dur": 3.5
+  },
+  {
+   "type": "number",
+   "value": 18,
+   "from": 1,
+   "top": "NOYABR",
+   "label": "STEAMBOAT WILLIE",
+   "caption": "OVOZLI MULTFILM",
+   "dur": 3
+  },
+  {
+   "type": "crowd",
+   "caption": "BUTUN DUNYO",
+   "dur": 3
+  },
+  {
+   "type": "ending",
+   "caption": "SIZ-CHI?",
+   "dur": 4
+  }
+ ]
+}

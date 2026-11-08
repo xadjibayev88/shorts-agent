@@ -1,0 +1,80 @@
+name: 2D multfilm reel (cartoon)
+
+# Egasi ko'rsatgan uslub: kod bilan chizilgan 2D qahramonlar, katta yozuvlar, 30 soniya, 1080x1920.
+# Kadrlar rejasi: cartoon/boards/<nom>.json, ovoz matni: <nom>.voice.txt.
+# Tayyor videolar cartoon-out shoxiga yoziladi (avtomatik joylanmaydi).
+on:
+  workflow_dispatch:
+    inputs:
+      names:
+        description: "Vergul bilan nomlar (bo'sh = cartoon/boards dagi hammasi)"
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.n.outputs.names }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: n
+        run: |
+          if [ -n "${{ github.event.inputs.names }}" ]; then
+            N=$(echo "${{ github.event.inputs.names }}" | python3 -c "import sys,json;print(json.dumps([x.strip() for x in sys.stdin.read().split(',') if x.strip()]))")
+          else
+            N=$(ls cartoon/boards/*.json | xargs -n1 basename | sed 's/\.json$//' | python3 -c "import sys,json;print(json.dumps(sys.stdin.read().split()))")
+          fi
+          echo "names=$N" >> "$GITHUB_OUTPUT"
+
+  render:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        name: ${{ fromJson(needs.list.outputs.names) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: ffmpeg
+        timeout-minutes: 10
+        run: |
+          if ! command -v ffmpeg > /dev/null; then
+            timeout 120 sudo apt-get update -qq || true
+            if ! timeout 180 sudo apt-get install -y -qq ffmpeg; then
+              curl -fsSL -o /tmp/ff.tar.xz https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
+              tar -xf /tmp/ff.tar.xz -C /tmp
+              sudo cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ffmpeg /tmp/ffmpeg-master-latest-linux64-gpl/bin/ffprobe /usr/local/bin/
+            fi
+          fi
+      - name: Python kutubxonalari
+        run: pip install -r requirements.txt
+      - name: OmniVoice (bepul o'zbekcha ovoz)
+        continue-on-error: true
+        timeout-minutes: 12
+        uses: ./.github/actions/omnivoice
+      - name: Reel yasash
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python -m agent.cartoon "${{ matrix.name }}"
+      - name: cartoon-out shoxiga yozish
+        run: |
+          git config user.name "shorts-agent"; git config user.email "actions@users.noreply.github.com"
+          mkdir -p /tmp/o && cp out/cartoon/${{ matrix.name }}.mp4 /tmp/o/
+          for i in 1 2 3 4 5; do
+            if git fetch -q origin cartoon-out; then
+              git checkout -q -f -B cartoon-out origin/cartoon-out
+            else
+              git checkout -q --orphan cartoon-out && git rm -rq --cached . > /dev/null
+            fi
+            cp /tmp/o/${{ matrix.name }}.mp4 . && git add ${{ matrix.name }}.mp4
+            git commit -qm "cartoon: ${{ matrix.name }}" && git push -q origin cartoon-out && break
+            sleep $((i * 7))
+          done

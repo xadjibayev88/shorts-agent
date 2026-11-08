@@ -1,0 +1,113 @@
+{
+ "scenes": [
+  {
+   "type": "year",
+   "value": 1960,
+   "from": 1940,
+   "top": "RIM OLIMPIADASI",
+   "caption": "1960 YIL",
+   "dur": 2.5
+  },
+  {
+   "type": "icon",
+   "prop": "medal",
+   "sub": "3 TA OLTIN",
+   "caption": "UCHTA OLTIN",
+   "dur": 2.5
+  },
+  {
+   "type": "character",
+   "shirt": [
+    240,
+    240,
+    240
+   ],
+   "skin": [
+    198,
+    140,
+    96
+   ],
+   "mood": "sad",
+   "tear": true,
+   "caption": "POLIOMIELIT",
+   "dur": 3
+  },
+  {
+   "type": "icon",
+   "prop": "brace",
+   "sub": "BIR NECHA YIL",
+   "caption": "TEMIR TAYANCH",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    30,
+    90,
+    200
+   ],
+   "skin": [
+    198,
+    140,
+    96
+   ],
+   "label": "USA",
+   "caption": "BASKETBOL",
+   "dur": 2.5
+  },
+  {
+   "type": "split",
+   "left": {
+    "top": "100 M",
+    "value": "1",
+    "label": "O'RIN",
+    "color": [
+     240,
+     200,
+     40
+    ]
+   },
+   "right": {
+    "top": "200 M",
+    "value": "1",
+    "label": "O'RIN",
+    "color": [
+     240,
+     200,
+     40
+    ]
+   },
+   "caption": "BIRINCHI",
+   "dur": 3
+  },
+  {
+   "type": "crowd",
+   "caption": "ESTAFETA HAM",
+   "dur": 2.5
+  },
+  {
+   "type": "character",
+   "shirt": [
+    30,
+    90,
+    200
+   ],
+   "skin": [
+    198,
+    140,
+    96
+   ],
+   "label": "USA",
+   "arm_up": true,
+   "prop": "medal",
+   "caption": "UILMA RUDOLF",
+   "dur": 3
+  },
+  {
+   "type": "ending",
+   "caption": "SIZ-CHI?",
+   "label": "?",
+   "dur": 4
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "scenes": [
+  {
+   "type": "number",
+   "value": 93,
+   "from": 0,
+   "top": "DAQIQA",
+   "label": "MODEL T",
+   "caption": "93 DAQIQA",
+   "dur": 3
+  },
+  {
+   "type": "year",
+   "value": 1914,
+   "from": 1900,
+   "top": "FORD ZAVODI",
+   "caption": "1914 YIL",
+   "dur": 3
+  },
+  {
+   "type": "split",
+   "left": {
+    "top": "OLDIN",
+    "value": "12",
+    "label": "SOAT",
+    "color": [
+     200,
+     30,
+     45
+    ]
+   },
+   "right": {
+    "top": "KEYIN",
+    "value": "93",
+    "label": "DAQIQA",
+    "color": [
+     30,
+     150,
+     70
+    ]
+   },
+   "caption": "12 SOAT EMAS",
+   "dur": 3.5
+  },
+  {
+   "type": "icon",
+   "prop": "car",
+   "sub": "MODEL T",
+   "caption": "SIR NIMADA?",
+   "dur": 2.5
+  },
+  {
+   "type": "icon",
+   "prop": "clock",
+   "sub": "KONVEYER",
+   "caption": "KONVEYER!",
+   "dur": 3
+  },
+  {
+   "type": "character",
+   "shirt": [
+    30,
+    90,
+    200
+   ],
+   "hat": [
+    40,
+    40,
+    40
+   ],
+   "label": "FORD",
+   "caption": "MASHINA O'ZI KELADI",
+   "dur": 3
+  },
+  {
+   "type": "crowd",
+   "caption": "BUTUN SANOAT",
+   "dur": 3
+  },
+  {
+   "type": "ending",
+   "caption": "SIZ-CHI?",
+   "dur": 4
+  }
+ ]
+}
