@@ -706,6 +706,27 @@
       "video_id": null,
       "instagram_id": "18150227167583621",
       "words": 50
+    },
+    {
+      "date": "2026-11-09T12:30:31+00:00",
+      "title": "Post-it yelimi 1968 yilda muvaffaqiyatsiz tajriba edi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "dissolve",
+        "caption": "center_shadow",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "m5u43Qs44aE",
+      "instagram_id": "18134665249666779",
+      "words": 55
     }
   ],
   "used_pexels_ids": [
@@ -941,7 +962,13 @@
     "pb222039",
     "pb242",
     "pb24388",
-    "pb85872"
+    "pb85872",
+    "pb201528",
+    "pb2335",
+    "pb262187",
+    "pb4973",
+    "pb88",
+    "pb9037"
   ],
   "genre_index": 6,
   "looks": [
@@ -1352,6 +1379,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "dissolve",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
