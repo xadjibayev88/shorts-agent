@@ -1,0 +1,47 @@
+{
+  "title": "30 metrgacha yetadigan, dinozavrdan og'ir bu hayvon qaysi?",
+  "hook": "Bu hayvon har qanday dinozavrdan og'irroq.",
+  "thumbnail_text": "QAYSI HAYVON?",
+  "scenes": [
+    {
+      "text": "Bu hayvon fanga ma'lum har qanday dinozavrdan ham og'irroq.",
+      "keywords": "dinosaur skeleton museum hall"
+    },
+    {
+      "text": "Uzunligi 30 metrgacha yetadi, bu ketma-ket qo'yilgan ikkita shahar avtobusidan ham uzun.",
+      "keywords": "city buses driving street aerial"
+    },
+    {
+      "text": "Lekin u quruqlikda emas, okeanda yashaydi va havo bilan nafas oladi.",
+      "keywords": "whale blowing spout ocean surface"
+    },
+    {
+      "text": "Bu ko'k kit, fanga ma'lum eng katta hayvon.",
+      "keywords": "blue whale swimming underwater aerial"
+    },
+    {
+      "text": "Shunday ulkan jonzot esa asosan bir necha santimetrlik mayda kril bilan oziqlanadi.",
+      "keywords": "krill swarm underwater close up"
+    }
+  ],
+  "description": "Ko'k kitning uzunligi 30 metrgacha yetadi va u fanga ma'lum eng katta hayvon hisoblanadi. U asosan bir necha santimetrlik mayda kril bilan oziqlanadi.\n\nSiz buni bilarmidingiz? Izohda \"ha\" yoki \"yo'q\" deb yozing.",
+  "source": "Fact-check 2026-11-09: MISLEADING title fixed ('30 metrlik' implied every blue whale is 30 m; typical adults are shorter, the maximum is about 30 m, so the title now says 'gacha'). Heavier than any dinosaur: TRUE (blue whale roughly 100-190 t versus largest sauropods roughly 60-90 t by most estimates), https://www.popsci.com/?p=770195 and https://www.discoverwildlife.com/animal-facts/marine-animals/biggest-marine-animals ; length: up to about 30 m (largest reports about 33-34 m, https://livescience.com/64459-blue-whale.html), Britannica, https://www.britannica.com/animal/blue-whale ; diet almost entirely krill, NOAA Fisheries, https://www.fisheries.noaa.gov/species/blue-whale (page could not be opened in this session, claim confirmed via Live Science and Britannica). Caveat kept in script: only 'heavier', never 'longer', because the longest sauropods may match or exceed a blue whale in length.",
+  "tags": [
+    "ko'k kit",
+    "kit",
+    "eng katta hayvon",
+    "dinozavr",
+    "okean",
+    "kril",
+    "bilarmidingiz",
+    "qiziqarli faktlar",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#qiziqarlifaktlar",
+    "#faktlar",
+    "#uzbek"
+  ]
+}
