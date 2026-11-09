@@ -748,6 +748,27 @@
       "video_id": null,
       "instagram_id": "18127420667511582",
       "words": 49
+    },
+    {
+      "date": "2026-11-09T18:06:49+00:00",
+      "title": "2000 yil: Blockbuster Netflix'ni 50 million dollarga olmadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "radial",
+        "caption": "low_slide",
+        "hook": "top_slide",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "QEzQSVHulgk",
+      "instagram_id": "18032782049688061",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -994,7 +1015,12 @@
     "pb27092",
     "pb3171",
     "pb4315",
-    "pb8246"
+    "pb8246",
+    "pb1046",
+    "pb15936",
+    "pb185341",
+    "pb211204",
+    "pb32231"
   ],
   "genre_index": 6,
   "looks": [
@@ -1429,6 +1455,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "radial",
+      "caption": "low_slide",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
