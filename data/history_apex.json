@@ -685,6 +685,27 @@
       "video_id": "L2InFhw3Ink",
       "instagram_id": "18346369612261065",
       "words": 55
+    },
+    {
+      "date": "2026-11-09T09:05:07+00:00",
+      "title": "1903 yil: birinchi parvoz atigi 12 soniya davom etgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "slideup",
+        "caption": "lower_fade",
+        "hook": "middle_zoom",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18150227167583621",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -914,7 +935,13 @@
     "pb22704",
     "pb262188",
     "pb262189",
-    "pb27797"
+    "pb27797",
+    "pb11168",
+    "pb181704",
+    "pb222039",
+    "pb242",
+    "pb24388",
+    "pb85872"
   ],
   "genre_index": 6,
   "looks": [
@@ -1313,6 +1340,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "slideup",
+      "caption": "lower_fade",
+      "hook": "middle_zoom",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
