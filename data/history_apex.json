@@ -727,6 +727,27 @@
       "video_id": "m5u43Qs44aE",
       "instagram_id": "18134665249666779",
       "words": 55
+    },
+    {
+      "date": "2026-11-09T14:47:51+00:00",
+      "title": "Sara Bleykli Spanx'ni 5000 dollar jamg'arma bilan boshlagan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "hblur",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18127420667511582",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -968,7 +989,12 @@
     "pb262187",
     "pb4973",
     "pb88",
-    "pb9037"
+    "pb9037",
+    "pb110936",
+    "pb27092",
+    "pb3171",
+    "pb4315",
+    "pb8246"
   ],
   "genre_index": 6,
   "looks": [
@@ -1391,6 +1417,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "hblur",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
