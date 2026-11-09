@@ -420,6 +420,27 @@
       "video_id": "m5BEpR9OAjQ",
       "instagram_id": null,
       "words": 33
+    },
+    {
+      "date": "2026-11-09T13:41:16+00:00",
+      "title": "Oydagi krater farg'onalik olim nomi bilan atalgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "fadeblack",
+        "caption": "upper_bounce",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "Mib-wIYDdf8",
+      "instagram_id": null,
+      "words": 35
     }
   ],
   "used_pexels_ids": [
@@ -684,7 +705,11 @@
     "pb181376",
     "pb190335",
     "pb236235",
-    "pb26968"
+    "pb26968",
+    "pb197166",
+    "pb207982",
+    "pb35417",
+    "pb43292"
   ],
   "genre_index": 4,
   "looks": [
@@ -879,6 +904,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "fadeblack",
+      "caption": "upper_bounce",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
