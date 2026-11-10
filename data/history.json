@@ -441,6 +441,27 @@
       "video_id": "Mib-wIYDdf8",
       "instagram_id": null,
       "words": 35
+    },
+    {
+      "date": "2026-11-10T13:18:03+00:00",
+      "title": "Quyosh nuri Yerga taxminan 8 daqiqa 20 soniyada yetadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "dissolve",
+        "caption": "low_slide",
+        "hook": "outline_big",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "Wd04-eItNqQ",
+      "instagram_id": null,
+      "words": 33
     }
   ],
   "used_pexels_ids": [
@@ -709,7 +730,11 @@
     "pb197166",
     "pb207982",
     "pb35417",
-    "pb43292"
+    "pb43292",
+    "pb109817",
+    "pb201404",
+    "pb306505",
+    "pb63559"
   ],
   "genre_index": 4,
   "looks": [
@@ -916,6 +941,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "dissolve",
+      "caption": "low_slide",
+      "hook": "outline_big",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
