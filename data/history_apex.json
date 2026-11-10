@@ -832,6 +832,27 @@
       "video_id": null,
       "instagram_id": "17919342063524672",
       "words": 50
+    },
+    {
+      "date": "2026-11-10T16:04:25+00:00",
+      "title": "1997 yil: Microsoft Apple'ga 150 million dollar kiritdi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "dissolve",
+        "caption": "center_pop",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "PTy1bOOiqXs",
+      "instagram_id": "17933854686411568",
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -1099,22 +1120,15 @@
     "pb12866",
     "pb26771",
     "pb4753",
-    "pb70345"
+    "pb70345",
+    "pb10824",
+    "pb110942",
+    "pb28976",
+    "pb34818",
+    "pb4731"
   ],
   "genre_index": 6,
   "looks": [
-    {
-      "grade": "natural",
-      "transition": "cut",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "thin",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "teal_orange",
       "transition": "dissolve",
@@ -1582,6 +1596,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "dissolve",
+      "caption": "center_pop",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
