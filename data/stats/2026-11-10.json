@@ -1,11 +1,20 @@
 {
- "fetched_at": "2026-11-10T00:24:59+00:00",
+ "fetched_at": "2026-11-10T21:56:18+00:00",
  "channels": {
   "bilarmidingiz": {
    "subscribers": 6,
-   "views": 4294,
-   "videos": 40,
+   "views": 4339,
+   "videos": 41,
    "recent": [
+    {
+     "id": "Wd04-eItNqQ",
+     "title": "Quyosh nuri Yerga taxminan 8 daqiqa 20 soniyada yetadi #shorts",
+     "published": "2026-11-10T13:18:30Z",
+     "duration": "PT15S",
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
     {
      "id": "Mib-wIYDdf8",
      "title": "Oydagi krater farg'onalik olim nomi bilan atalgan #shorts",
@@ -20,7 +29,7 @@
      "title": "Beruniy Yer radiusini 1 foizdan kam xato bilan topgan #shorts",
      "published": "2026-11-08T11:46:00Z",
      "duration": "PT13S",
-     "views": 12,
+     "views": 22,
      "likes": 1,
      "comments": 0
     },
@@ -65,7 +74,7 @@
      "title": "Tuya o'rkachida suv emas, yog' saqlanadi #shorts",
      "published": "2026-11-03T18:12:50Z",
      "duration": "PT12S",
-     "views": 32,
+     "views": 43,
      "likes": 0,
      "comments": 0
     },
@@ -74,7 +83,7 @@
      "title": "Sakkizoyoqning 3 ta yuragi va ko'k qoni bor #shorts",
      "published": "2026-11-02T20:38:32Z",
      "duration": "PT12S",
-     "views": 44,
+     "views": 57,
      "likes": 0,
      "comments": 0
     },
@@ -92,7 +101,7 @@
      "title": "O'zbekiston dengizga chiqa olmaydigan 2 davlatdan biri #shorts",
      "published": "2026-11-01T17:04:03Z",
      "duration": "PT19S",
-     "views": 15,
+     "views": 17,
      "likes": 1,
      "comments": 0
     },
@@ -101,7 +110,7 @@
      "title": "Ulug'bek mingdan ortiq yulduzni ro'yxatga olgan #shorts",
      "published": "2026-11-01T11:30:21Z",
      "duration": "PT19S",
-     "views": 11,
+     "views": 12,
      "likes": 1,
      "comments": 0
     },
@@ -344,7 +353,7 @@
      "title": "Mariana chuqurligida 1,100 bar bosim – hayratlanarli haqiqat #shorts",
      "published": "2026-10-26T10:05:04Z",
      "duration": "PT40S",
-     "views": 1809,
+     "views": 1812,
      "likes": 8,
      "comments": 0
     },
@@ -370,15 +379,33 @@
   },
   "apex_wealths": {
    "subscribers": 6,
-   "views": 7190,
-   "videos": 31,
+   "views": 7226,
+   "videos": 33,
    "recent": [
+    {
+     "id": "PTy1bOOiqXs",
+     "title": "1997 yil: Microsoft Apple'ga 150 million dollar kiritdi #shorts",
+     "published": "2026-11-10T16:03:39Z",
+     "duration": "PT23S",
+     "views": 0,
+     "likes": 0,
+     "comments": 0
+    },
+    {
+     "id": "XuRWMJGRTrU",
+     "title": "2012 yil: 13 xodimli Instagram 1 milliard dollarga sotildi #shorts",
+     "published": "2026-11-10T12:11:40Z",
+     "duration": "PT21S",
+     "views": 2,
+     "likes": 0,
+     "comments": 0
+    },
     {
      "id": "QEzQSVHulgk",
      "title": "2000 yil: Blockbuster Netflix'ni 50 million dollarga olmadi #shorts",
      "published": "2026-11-09T18:06:10Z",
      "duration": "PT26S",
-     "views": 1,
+     "views": 2,
      "likes": 0,
      "comments": 0
     },
@@ -387,7 +414,7 @@
      "title": "Post-it yelimi 1968 yilda muvaffaqiyatsiz tajriba edi #shorts",
      "published": "2026-11-09T12:29:55Z",
      "duration": "PT28S",
-     "views": 0,
+     "views": 1,
      "likes": 0,
      "comments": 0
     },
@@ -405,7 +432,7 @@
      "title": "Fleming 1928 yilda penitsillinni bitta idishda payqagan #shorts",
      "published": "2026-11-08T17:49:43Z",
      "duration": "PT24S",
-     "views": 0,
+     "views": 2,
      "likes": 0,
      "comments": 0
     },
@@ -414,7 +441,7 @@
      "title": "Julia Child birinchi kitobini 49 yoshida chiqargan #shorts",
      "published": "2026-11-08T16:47:33Z",
      "duration": "PT22S",
-     "views": 227,
+     "views": 235,
      "likes": 0,
      "comments": 0
     },
@@ -423,7 +450,7 @@
      "title": "Fleming 1928 yilda penitsillinni bitta idishda payqagan #shorts",
      "published": "2026-11-08T14:52:10Z",
      "duration": "PT26S",
-     "views": 1,
+     "views": 6,
      "likes": 0,
      "comments": 0
     },
@@ -459,7 +486,7 @@
      "title": "Murakkab foizni tushun: 1% haftalik vs kunlik #shorts",
      "published": "2026-11-06T20:27:54Z",
      "duration": "PT23S",
-     "views": 0,
+     "views": 1,
      "likes": 0,
      "comments": 0
     },
@@ -468,7 +495,7 @@
      "title": "Biznesni Sinash va Rejalashtirish O'rtasidagi Farq #shorts",
      "published": "2026-11-06T17:19:28Z",
      "duration": "PT22S",
-     "views": 6,
+     "views": 7,
      "likes": 0,
      "comments": 0
     },
@@ -477,7 +504,7 @@
      "title": "Rey Krok va yosh chegarasi haqidagi saboq #shorts",
      "published": "2026-11-05T21:08:28Z",
      "duration": "PT19S",
-     "views": 0,
+     "views": 2,
      "likes": 0,
      "comments": 0
     },
@@ -486,7 +513,7 @@
      "title": "Telefon qaramligidan qutulish uchun bitta oddiy qadam #shorts",
      "published": "2026-11-05T17:58:42Z",
      "duration": "PT20S",
-     "views": 18,
+     "views": 22,
      "likes": 0,
      "comments": 0
     },
@@ -531,7 +558,7 @@
      "title": "Erta turish haqiqatan foydalimi #shorts",
      "published": "2026-11-03T20:33:46Z",
      "duration": "PT18S",
-     "views": 6,
+     "views": 7,
      "likes": 0,
      "comments": 0
     },
@@ -540,7 +567,7 @@
      "title": "Xarajatlarni nazorat qilishning oddiy usuli #shorts",
      "published": "2026-11-03T17:43:41Z",
      "duration": "PT21S",
-     "views": 7,
+     "views": 8,
      "likes": 0,
      "comments": 0
     },
@@ -567,7 +594,7 @@
      "title": "Dayson 5127 ta prototip yasaganini aytgan #shorts",
      "published": "2026-11-01T18:54:34Z",
      "duration": "PT22S",
-     "views": 1968,
+     "views": 1969,
      "likes": 10,
      "comments": 0
     },
