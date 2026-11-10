@@ -769,6 +769,27 @@
       "video_id": "QEzQSVHulgk",
       "instagram_id": "18032782049688061",
       "words": 53
+    },
+    {
+      "date": "2026-11-10T09:13:01+00:00",
+      "title": "1975 yil: Kodak muhandisi birinchi raqamli kamerani yasadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "fadeblack",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "thin",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18116165090155355",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1020,7 +1041,13 @@
     "pb15936",
     "pb185341",
     "pb211204",
-    "pb32231"
+    "pb32231",
+    "pb110946",
+    "pb11285",
+    "pb147041",
+    "pb19706",
+    "pb49340",
+    "pb8577"
   ],
   "genre_index": 6,
   "looks": [
@@ -1467,6 +1494,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "fadeblack",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "thin",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
