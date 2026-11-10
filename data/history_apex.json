@@ -811,6 +811,27 @@
       "video_id": "XuRWMJGRTrU",
       "instagram_id": "18104078174351696",
       "words": 49
+    },
+    {
+      "date": "2026-11-10T14:12:32+00:00",
+      "title": "2014 yil: 55 xodimli WhatsApp 19 milliard dollarga sotildi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "zoomin",
+        "caption": "center_shadow",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "17919342063524672",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -1073,7 +1094,12 @@
     "pb2340",
     "pb251587",
     "pb41263",
-    "pb6398"
+    "pb6398",
+    "pb110595",
+    "pb12866",
+    "pb26771",
+    "pb4753",
+    "pb70345"
   ],
   "genre_index": 6,
   "looks": [
@@ -1544,6 +1570,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "zoomin",
+      "caption": "center_shadow",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
