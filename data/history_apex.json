@@ -790,6 +790,27 @@
       "video_id": null,
       "instagram_id": "18116165090155355",
       "words": 54
+    },
+    {
+      "date": "2026-11-10T12:12:47+00:00",
+      "title": "2012 yil: 13 xodimli Instagram 1 milliard dollarga sotildi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "circleopen",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "XuRWMJGRTrU",
+      "instagram_id": "18104078174351696",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -1047,7 +1068,12 @@
     "pb147041",
     "pb19706",
     "pb49340",
-    "pb8577"
+    "pb8577",
+    "pb135849",
+    "pb2340",
+    "pb251587",
+    "pb41263",
+    "pb6398"
   ],
   "genre_index": 6,
   "looks": [
@@ -1506,6 +1532,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "circleopen",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
