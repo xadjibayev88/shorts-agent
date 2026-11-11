@@ -1177,22 +1177,15 @@
     "pb30033",
     "pb4894",
     "pb6395",
-    "pb69952"
+    "pb69952",
+    "pb28659",
+    "pb31392",
+    "pb3172",
+    "pb3180",
+    "pb41315"
   ],
   "genre_index": 6,
   "looks": [
-    {
-      "grade": "moody",
-      "transition": "smoothup",
-      "caption": "lower_fade",
-      "hook": "middle_zoom",
-      "bar": "top",
-      "sound": "whoosh_riser",
-      "entrance": "flash",
-      "texture": "leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "vivid",
       "transition": "fadeblack",
@@ -1660,6 +1653,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "hblur",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "top",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
