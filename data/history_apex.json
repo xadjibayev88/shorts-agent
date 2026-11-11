@@ -853,6 +853,27 @@
       "video_id": "PTy1bOOiqXs",
       "instagram_id": "17933854686411568",
       "words": 51
+    },
+    {
+      "date": "2026-11-11T08:44:08+00:00",
+      "title": "Minecraft 2014 yilda 2,5 milliard dollarga sotilgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "fade",
+        "caption": "upper_bounce",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "17910464931329583",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -1125,22 +1146,15 @@
     "pb110942",
     "pb28976",
     "pb34818",
-    "pb4731"
+    "pb4731",
+    "pb11230",
+    "pb11305",
+    "pb132",
+    "pb3188",
+    "pb4733"
   ],
   "genre_index": 6,
   "looks": [
-    {
-      "grade": "teal_orange",
-      "transition": "dissolve",
-      "caption": "center_shadow",
-      "hook": "outline_big",
-      "bar": "none",
-      "sound": "whoosh",
-      "entrance": "flash",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "film",
       "transition": "wipeup",
@@ -1608,6 +1622,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "fade",
+      "caption": "upper_bounce",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
