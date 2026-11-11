@@ -874,6 +874,27 @@
       "video_id": null,
       "instagram_id": "17910464931329583",
       "words": 56
+    },
+    {
+      "date": "2026-11-11T11:52:40+00:00",
+      "title": "1 million dollarga ham olinmagan sayt...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "radial",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "none",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "WO1Y7k1m6P0",
+      "instagram_id": "17933796744162377",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1151,22 +1172,15 @@
     "pb11305",
     "pb132",
     "pb3188",
-    "pb4733"
+    "pb4733",
+    "pb2967",
+    "pb30033",
+    "pb4894",
+    "pb6395",
+    "pb69952"
   ],
   "genre_index": 6,
   "looks": [
-    {
-      "grade": "film",
-      "transition": "wipeup",
-      "caption": "center_pop",
-      "hook": "top_slide",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "moody",
       "transition": "smoothup",
@@ -1634,6 +1648,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "radial",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "none",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
