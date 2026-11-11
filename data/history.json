@@ -462,6 +462,27 @@
       "video_id": "Wd04-eItNqQ",
       "instagram_id": null,
       "words": 33
+    },
+    {
+      "date": "2026-11-11T12:36:25+00:00",
+      "title": "Bir choy qoshiq neytron yulduz taxminan 1 milliard tonna",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "hblur",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "_fh6dhzw-AY",
+      "instagram_id": null,
+      "words": 34
     }
   ],
   "used_pexels_ids": [
@@ -734,7 +755,11 @@
     "pb109817",
     "pb201404",
     "pb306505",
-    "pb63559"
+    "pb63559",
+    "pb107312",
+    "pb1373",
+    "pb139119",
+    "pb3249"
   ],
   "genre_index": 4,
   "looks": [
@@ -953,6 +978,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "hblur",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
