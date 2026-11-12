@@ -1,0 +1,50 @@
+{
+  "title": "Ochiq kosmosda 10 kun bo'lib, tirik qaytgan hayvon qaysi?",
+  "hook": "Bu jonzot 10 kun ochiq kosmosda bo'ldi.",
+  "thumbnail_text": "QAYSI HAYVON?",
+  "scenes": [
+    {
+      "text": "2007 yilda Yevropa olimlari kichik jonzotlarni sun'iy yo'ldoshda 10 kun ochiq kosmosda qoldirishdi.",
+      "keywords": "satellite orbiting earth space"
+    },
+    {
+      "text": "U yerda havo yo'q, Quyoshning ultrabinafsha nurlari esa juda kuchli.",
+      "keywords": "sun glare in dark space"
+    },
+    {
+      "text": "Yerga qaytgach, jonzotlarning bir qismi tirik chiqdi. Bular tardigradlar edi.",
+      "keywords": "tardigrade microscope"
+    },
+    {
+      "text": "Ular taxminan yarim millimetr, suv ayig'i deb ham ataladi.",
+      "keywords": "scientist looking through microscope lab"
+    },
+    {
+      "text": "Qizig'i, ulardan ba'zilari keyin tuxum qo'ydi, tuxumlardan bolalar chiqdi.",
+      "keywords": "moss close up water drops macro"
+    }
+  ],
+  "description": "2007 yilda FOTON-M3 missiyasida quritilgan tardigradlar 10 kun ochiq kosmosda bo'ldi va ularning bir qismi tirik qaytdi. Ba'zilari keyin tuxum qo'ydi va tuxumlardan bolalar chiqdi.\n\nSiz buni bilarmidingiz? Izohda \"ha\" yoki \"yo'q\" deb yozing.",
+  "source": "Fact-check 2026-11-12 (web search): all claims TRUE, no text change. Jonsson et al., Current Biology, Sept 2008 (Cell Press release): two species of dried tardigrades flew on ESA's FOTON-M3 (launched Sept 2007) and were exposed to open space in low Earth orbit for 10 days. About 68% of one species shielded from the hardest solar UV revived within 30 min of rehydration, many laid eggs that hatched; with full solar UV only a few survived, so 'bir qismi' is correct. Typical length about 0.5 mm. Note: the title question implies tardigrades are the answer; the claim is not stated as 'the only animal', so keep it that way. Sources: https://www.sciencedaily.com/releases/2008/09/080908135906.htm ; https://phys.org/news/2008-09-space-not-so-final-frontier.html ; https://www.photonics.com/Article.aspx?AID=35602",
+  "tags": [
+    "tardigrad",
+    "suv ayig'i",
+    "kosmos",
+    "hayvonlar",
+    "g'aroyib hayvonlar",
+    "fan",
+    "bilarmidingiz",
+    "qiziqarli faktlar",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#qiziqarlifaktlar",
+    "#faktlar",
+    "#uzbek"
+  ],
+  "names": {
+    "FOTON-M3": "FOTON-M3"
+  }
+}

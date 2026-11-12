@@ -1,0 +1,52 @@
+{
+  "title": "Raketasi 3 marta orbitaga chiqmagan kompaniya nima qildi?",
+  "hook": "Raketa uch marta orbitaga yetmadi.",
+  "thumbnail_text": "TO'RTINCHI URINISH?",
+  "scenes": [
+    {
+      "text": "2006-2008 yillarda bir yosh kompaniya kichik raketani uch marta uchirdi, uchalasi ham orbitaga yetmadi.",
+      "keywords": "rocket launch smoke desert"
+    },
+    {
+      "text": "Asoschining aytishicha, to'rtinchi urinish ham muvaffaqiyatsiz bo'lsa, kompaniya tugardi.",
+      "keywords": "engineers in control room tense"
+    },
+    {
+      "text": "2008 yil 28 sentabrda to'rtinchi raketa orbitaga chiqdi. Bu Ilon Maskning SpaceX kompaniyasi edi.",
+      "keywords": "rocket rising into blue sky"
+    },
+    {
+      "text": "Falcon 1 orbitaga chiqqan birinchi xususiy ishlab chiqilgan suyuq yoqilg'ili raketa bo'ldi.",
+      "keywords": "earth from orbit view space"
+    },
+    {
+      "text": "Ba'zan hammasi oxirgi urinishga bog'liq bo'ladi.",
+      "keywords": "person climbing mountain final steps"
+    }
+  ],
+  "description": "SpaceX'ning Falcon 1 raketasi 2006, 2007 va 2008 yillarda uch marta orbitaga chiqa olmadi. To'rtinchi uchirish 2008 yil 28 sentabrda muvaffaqiyatli bo'ldi va Falcon 1 orbitaga chiqqan birinchi xususiy ishlab chiqilgan suyuq yoqilg'ili raketaga aylandi.\n\nBu saboq sizga kerakmi? Izohda bitta so'z bilan yozing.",
+  "source": "Fact-check 2026-11-12 (web search). Failures: March 2006 (fuel-line leak), March 2007 (second stage shut down near orbital velocity), 3 Aug 2008 (stage collision at separation). Flight 4 reached orbit 28 Sept 2008 (23:15 UTC) from Omelek, carrying RatSat; first privately developed, fully liquid-fuelled rocket to reach orbit (Wikipedia, Aviation Week, Space.com). SOFTENED: the 'money for only three launches' detail is reported inconsistently (some sources say funds for one more attempt after three failures, others for three in total), so the script keeps only Musk's own reported remark that SpaceX would not have survived a failed fourth launch, attributed with 'aytishicha' (Teslarati). Wording 'xususiy ishlab chiqilgan' matches the 'privately developed' phrasing. Sources: https://en.wikipedia.org/wiki/Falcon_1 ; https://www.space.com/5905-spacex-successfully-launches-falcon-1-rocket-orbit.html ; https://aviationweek.com/falcon-1-makes-orbit-fourth-attempt ; https://teslarati.com/elon-musk-spacex-would-not-exist-crucial-early-launch-failed",
+  "tags": [
+    "spacex",
+    "ilon mask",
+    "falcon 1",
+    "raketa",
+    "kosmos",
+    "tarixdan saboq",
+    "biznes",
+    "tadbirkorlik",
+    "qat'iyat"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#biznes",
+    "#tadbirkorlik",
+    "#muvaffaqiyat",
+    "#uzbek"
+  ],
+  "names": {
+    "Ilon Mask": "Elon Musk",
+    "SpaceX": "SpaceX",
+    "Falcon 1": "Falcon 1"
+  }
+}

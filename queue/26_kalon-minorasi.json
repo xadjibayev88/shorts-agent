@@ -1,0 +1,51 @@
+{
+  "title": "1220 yilda yoqilgan Buxoroda qaysi minora omon qoldi?",
+  "hook": "Buxoro yonib ketdi, lekin bir minora omon qoldi.",
+  "thumbnail_text": "NIMA OMON QOLDI?",
+  "scenes": [
+    {
+      "text": "1220 yilda Chingizxon qo'shini Buxoroni egallab, shaharning katta qismini yoqib yubordi.",
+      "keywords": "ancient city ruins smoke dramatic sky"
+    },
+    {
+      "text": "Ko'p binolar vayron bo'ldi, lekin baland minora tik qoldi.",
+      "keywords": "old brick tower against sky"
+    },
+    {
+      "text": "Bu 1127 yilda Arslonxon qurdirgan Kalon minorasi edi. Uning balandligi taxminan 46 metr.",
+      "keywords": "bukhara kalon minaret"
+    },
+    {
+      "text": "Rivoyatga ko'ra, minoraga qarayotganda Chingizxonning bosh kiyimi tushib ketgan va u minorani buzdirmagan.",
+      "keywords": "looking up at tall ancient minaret"
+    },
+    {
+      "text": "Minora bugun ham Buxoroning ramzi.",
+      "keywords": "bukhara old city sunset aerial"
+    }
+  ],
+  "description": "Buxorodagi Kalon minorasi 1127 yilda Qoraxoniy hukmdor Arslonxon davrida qurilgan, balandligi taxminan 46 metr. 1220 yilda Chingizxon Buxoroni egallab, shaharni yoqqanida minora omon qolgan. Chingizxon minoraga qoyil qolgani haqidagi hikoya esa rivoyat.\n\nSiz buni bilarmidingiz? Izohda \"ha\" yoki \"yo'q\" deb yozing.",
+  "source": "Fact-check 2026-11-12 (web search). Built 1127 under the Karakhanid ruler Arslan Khan (Wikipedia, Lonely Planet). Height reported as 45.6 m (tip 48 m) to about 47 m, so 'taxminan 46 metr' is safe. Mongols took and burned Bukhara in 1220; the minaret survived while the adjoining mosque was destroyed. The Genghis Khan hat/helmet story is a legend with no primary source (marked 'Rivoyatga ko'ra'). CHANGED: the old title/hook/scene 2 implied the minaret was the only thing left ('bir inshoot', 'bitta baland inshoot'); sources only say it was spared, so the wording is now 'qaysi minora omon qoldi', 'bir minora' and 'baland minora'. 'Tallest in Central Asia' remains out. The old UNESCO URL was not confirmed in search and was removed. Sources: https://en.wikipedia.org/wiki/Kalyan_Minaret ; https://www.lonelyplanet.com/points-of-interest/kalon-minaret/443693 ; https://uzbekistan.travel/en/o/minaret-minorai-kalon-bukhara",
+  "tags": [
+    "kalon minorasi",
+    "buxoro",
+    "chingizxon",
+    "o'zbekiston tarixi",
+    "o'zbekiston sirlari",
+    "tarix",
+    "bilarmidingiz",
+    "qiziqarli faktlar",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#qiziqarlifaktlar",
+    "#faktlar",
+    "#uzbek"
+  ],
+  "names": {
+    "Chingizxon": "Genghis Khan",
+    "Arslonxon": "Arslan Khan"
+  }
+}
