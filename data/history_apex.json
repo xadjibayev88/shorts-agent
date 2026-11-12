@@ -937,6 +937,27 @@
       "video_id": null,
       "instagram_id": "18191317219371221",
       "words": 56
+    },
+    {
+      "date": "2026-11-12T16:42:31+00:00",
+      "title": "Ronald Ueyn Apple ulushini 1976 yilda 800 dollarga sotgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "dissolve",
+        "caption": "center_shadow",
+        "hook": "white_box",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "U4VaY4TXqqs",
+      "instagram_id": "17916541575540161",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -1244,23 +1265,16 @@
     "pb125431",
     "pb163333",
     "pb42814",
-    "pb4723"
+    "pb4723",
+    "pb109277",
+    "pb113",
+    "pb2143",
+    "pb2303",
+    "pb42305"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "teal_orange",
-      "transition": "radial",
-      "caption": "upper_bounce",
-      "hook": "black_box",
-      "bar": "bottom",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "natural",
       "transition": "wipeup",
       "caption": "lower_fade",
@@ -1727,6 +1741,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "dissolve",
+      "caption": "center_shadow",
+      "hook": "white_box",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
