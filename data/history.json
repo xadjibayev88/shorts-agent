@@ -483,6 +483,27 @@
       "video_id": "_fh6dhzw-AY",
       "instagram_id": null,
       "words": 34
+    },
+    {
+      "date": "2026-11-12T13:35:08+00:00",
+      "title": "Chaqaloq taxminan 270 ta suyak bilan tug'iladi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "cut",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "jUbuSPXZ_70",
+      "instagram_id": null,
+      "words": 38
     }
   ],
   "used_pexels_ids": [
@@ -759,7 +780,11 @@
     "pb107312",
     "pb1373",
     "pb139119",
-    "pb3249"
+    "pb3249",
+    "pb1917",
+    "pb218645",
+    "pb2300",
+    "pb63533"
   ],
   "genre_index": 4,
   "looks": [
@@ -990,6 +1015,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "cut",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
