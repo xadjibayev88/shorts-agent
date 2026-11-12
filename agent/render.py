@@ -148,8 +148,9 @@ def _final(joined: Path, voice_mp3: Path, music: Path | None, ass: Path, font_di
     if has_bar:
         where, bh = bar
         by = "0" if where == "top" else f"ih-{bh}"
-        fill = f"min(t/{max(total - END_SECS, 1.0):.3f},1)" if ending else f"t/{total:.3f}"
-        vchain += (f",drawbox=x=0:y={by}:w='iw*{fill}':h={bh}:"
+        fill = f"min(t/{max(total - END_SECS, 1.0):.3f},1)" if ending else f"min(t/{total:.3f},1)"
+        # yangi ffmpeg nol kenglikdagi (t=0) yoki kadrdan chiqqan to'rtburchakni rad etadi: 2 px..iw oralig'ida ushlaymiz
+        vchain += (f",drawbox=x=0:y={by}:w='max(iw*{fill},2)':h={bh}:"
                    f"color={v['progress_color']}@0.95:t=fill")
     vchain += "[v]"
     if fx_graph:
