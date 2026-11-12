@@ -916,6 +916,27 @@
       "video_id": "QAS-QXLKRU4",
       "instagram_id": "18359057800172054",
       "words": 54
+    },
+    {
+      "date": "2026-11-12T14:23:51+00:00",
+      "title": "10 million dollarlik xarid 20 yildan keyin nimaga aylandi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "slideup",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18191317219371221",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -1218,23 +1239,16 @@
     "pb122",
     "pb14214",
     "pb223892",
-    "pb43559"
+    "pb43559",
+    "pb107142",
+    "pb125431",
+    "pb163333",
+    "pb42814",
+    "pb4723"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "film",
-      "transition": "zoomin",
-      "caption": "center_pop",
-      "hook": "middle_zoom",
-      "bar": "thin",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "teal_orange",
       "transition": "radial",
       "caption": "upper_bounce",
@@ -1701,6 +1715,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "moody",
+      "transition": "slideup",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
