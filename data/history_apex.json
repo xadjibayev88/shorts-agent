@@ -895,6 +895,27 @@
       "video_id": "WO1Y7k1m6P0",
       "instagram_id": "17933796744162377",
       "words": 54
+    },
+    {
+      "date": "2026-11-12T12:19:54+00:00",
+      "title": "1 million dollarlik aksiya evaziga nimani ko'rsatishgan?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "cut",
+        "caption": "center_pop",
+        "hook": "outline_big",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "QAS-QXLKRU4",
+      "instagram_id": "18359057800172054",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1192,22 +1213,15 @@
     "pb19459",
     "pb2294",
     "pb3757",
-    "pb90"
+    "pb90",
+    "pb110923",
+    "pb122",
+    "pb14214",
+    "pb223892",
+    "pb43559"
   ],
   "genre_index": 6,
   "looks": [
-    {
-      "grade": "cool",
-      "transition": "hblur",
-      "caption": "low_slide",
-      "hook": "top_slide",
-      "bar": "top",
-      "sound": "hit",
-      "entrance": "flash",
-      "texture": "grain_leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "film",
       "transition": "zoomin",
@@ -1675,6 +1689,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "cut",
+      "caption": "center_pop",
+      "hook": "outline_big",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
