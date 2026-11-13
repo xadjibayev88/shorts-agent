@@ -979,6 +979,27 @@
       "video_id": null,
       "instagram_id": "18145601005719297",
       "words": 55
+    },
+    {
+      "date": "2026-11-13T11:59:39+00:00",
+      "title": "Masayoshi Son 2000 yilda Alibaba'ga 20 million dollar tikkan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "hblur",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "bottom",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "ALm0tuq1OfI",
+      "instagram_id": "18104826311646840",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1296,23 +1317,16 @@
     "pb135320",
     "pb138495",
     "pb148208",
-    "pb335443"
+    "pb335443",
+    "pb129427",
+    "pb258794",
+    "pb308076",
+    "pb4544",
+    "pb6409"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "moody",
-      "transition": "fadeblack",
-      "caption": "center_shadow",
-      "hook": "middle_zoom",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "cool",
       "transition": "slideup",
       "caption": "middle_rise",
@@ -1779,6 +1793,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "hblur",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "bottom",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
