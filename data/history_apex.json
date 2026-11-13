@@ -958,6 +958,27 @@
       "video_id": "U4VaY4TXqqs",
       "instagram_id": "17916541575540161",
       "words": 56
+    },
+    {
+      "date": "2026-11-13T09:03:02+00:00",
+      "title": "300 ming dollarga yaqin taklifni rad etgan aktyor kim?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "radial",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "thin",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18145601005719297",
+      "words": 55
     }
   ],
   "used_pexels_ids": [
@@ -1270,23 +1291,16 @@
     "pb113",
     "pb2143",
     "pb2303",
-    "pb42305"
+    "pb42305",
+    "pb130646",
+    "pb135320",
+    "pb138495",
+    "pb148208",
+    "pb335443"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "natural",
-      "transition": "wipeup",
-      "caption": "lower_fade",
-      "hook": "white_box",
-      "bar": "top",
-      "sound": "whoosh_hit",
-      "entrance": "flash",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "moody",
       "transition": "fadeblack",
       "caption": "center_shadow",
@@ -1753,6 +1767,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "radial",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "thin",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
