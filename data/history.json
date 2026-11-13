@@ -504,6 +504,27 @@
       "video_id": "jUbuSPXZ_70",
       "instagram_id": null,
       "words": 38
+    },
+    {
+      "date": "2026-11-13T13:02:12+00:00",
+      "title": "8849 metrli Everest okean tubiga sig'adimi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "fade",
+        "caption": "center_shadow",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "CyIFBKmLrus",
+      "instagram_id": null,
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -784,7 +805,12 @@
     "pb1917",
     "pb218645",
     "pb2300",
-    "pb63533"
+    "pb63533",
+    "pb227567",
+    "pb236232",
+    "pb258654",
+    "pb26572",
+    "pb751"
   ],
   "genre_index": 4,
   "looks": [
@@ -1027,6 +1053,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "fade",
+      "caption": "center_shadow",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
