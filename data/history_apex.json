@@ -1322,23 +1322,16 @@
     "pb258794",
     "pb308076",
     "pb4544",
-    "pb6409"
+    "pb6409",
+    "pb113565",
+    "pb151707",
+    "pb44621",
+    "pb4915",
+    "pb8437"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "cool",
-      "transition": "slideup",
-      "caption": "middle_rise",
-      "hook": "outline_big",
-      "bar": "top",
-      "sound": "whoosh",
-      "entrance": "blur",
-      "texture": "breathe",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "film",
       "transition": "hblur",
       "caption": "center_pop",
@@ -1805,6 +1798,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "cut",
+      "caption": "center_pop",
+      "hook": "top_slide",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
