@@ -1000,6 +1000,27 @@
       "video_id": "ALm0tuq1OfI",
       "instagram_id": "18104826311646840",
       "words": 54
+    },
+    {
+      "date": "2026-11-13T16:00:13+00:00",
+      "title": "Bu kompaniya 1889 yilda qog'oz o'yin kartalari yasagan...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "wipeup",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "HZXQ03r3ej0",
+      "instagram_id": "17937318354184765",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1327,23 +1348,16 @@
     "pb151707",
     "pb44621",
     "pb4915",
-    "pb8437"
+    "pb8437",
+    "pb113561",
+    "pb3174",
+    "pb53789",
+    "pb6340",
+    "pb65390"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "film",
-      "transition": "hblur",
-      "caption": "center_pop",
-      "hook": "white_box",
-      "bar": "thin",
-      "sound": "whoosh_hit",
-      "entrance": "punch",
-      "texture": "leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "vivid",
       "transition": "fade",
       "caption": "low_slide",
@@ -1810,6 +1824,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "wipeup",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
