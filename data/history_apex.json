@@ -1042,6 +1042,27 @@
       "video_id": "reHgqlyHkDY",
       "instagram_id": "18130217839870230",
       "words": 56
+    },
+    {
+      "date": "2026-11-15T13:44:26+00:00",
+      "title": "Duradgorning yog'och o'yinchoqlari nimaga aylandi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "smoothup",
+        "caption": "center_shadow",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "MfeNC7Rk1AY",
+      "instagram_id": null,
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1379,23 +1400,16 @@
     "pb235",
     "pb24072",
     "pb846",
-    "pb86576"
+    "pb86576",
+    "pb1638",
+    "pb21985",
+    "pb32248",
+    "pb348676",
+    "pb63970"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "warm",
-      "transition": "circleopen",
-      "caption": "lower_fade",
-      "hook": "black_box",
-      "bar": "none",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "breathe",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "teal_orange",
       "transition": "cut",
       "caption": "upper_bounce",
@@ -1862,6 +1876,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "smoothup",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
