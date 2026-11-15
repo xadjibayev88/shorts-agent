@@ -525,6 +525,27 @@
       "video_id": "CyIFBKmLrus",
       "instagram_id": null,
       "words": 56
+    },
+    {
+      "date": "2026-11-15T13:26:59+00:00",
+      "title": "30 metrgacha yetadigan, dinozavrdan og'ir bu hayvon qaysi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "slideup",
+        "caption": "low_slide",
+        "hook": "top_slide",
+        "bar": "bottom",
+        "sound": "whoosh_riser",
+        "entrance": "punch",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "RxSANKcYBNM",
+      "instagram_id": null,
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -810,7 +831,12 @@
     "pb236232",
     "pb258654",
     "pb26572",
-    "pb751"
+    "pb751",
+    "pb210947",
+    "pb216737",
+    "pb2277",
+    "pb233867",
+    "pb7268"
   ],
   "genre_index": 4,
   "looks": [
@@ -1065,6 +1091,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "slideup",
+      "caption": "low_slide",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "whoosh_riser",
+      "entrance": "punch",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
