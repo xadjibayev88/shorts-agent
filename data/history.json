@@ -546,6 +546,27 @@
       "video_id": "RxSANKcYBNM",
       "instagram_id": null,
       "words": 53
+    },
+    {
+      "date": "2026-11-15T13:49:35+00:00",
+      "title": "Markaziy Osiyodagi ilk metro 1977 yilda Toshkentda ochilgan",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "smoothleft",
+        "caption": "middle_rise",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "7fZXuu3ZLZs",
+      "instagram_id": null,
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -836,7 +857,12 @@
     "pb216737",
     "pb2277",
     "pb233867",
-    "pb7268"
+    "pb7268",
+    "pb140069",
+    "pb19706",
+    "pb29998",
+    "pb31511",
+    "pb9831"
   ],
   "genre_index": 4,
   "looks": [
@@ -1103,6 +1129,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "smoothleft",
+      "caption": "middle_rise",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
