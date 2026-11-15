@@ -46,7 +46,9 @@ gemini:
   temperature: 0.9
 
 tts:
-  # Asosiy: OmniVoice (bepul, GitHub'da CPU'da). Egasi tanlagan "B" erkak ovozidan klon. Notijorat litsenziya.
+  # Egasi 2026-11-15: multfilm-studio dagi ovoz (Edge Sardor, to'g'ri o'/g' talaffuzi). "edge" ni olib tashlasangiz eski zanjir qaytadi.
+  engine: edge
+  # Zaxira: OmniVoice (bepul, GitHub'da CPU'da). Egasi tanlagan "B" erkak ovozidan klon. Notijorat litsenziya.
   omnivoice:
     enabled: true
     ref: assets/voice/omni_ref.wav

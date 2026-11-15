@@ -140,6 +140,28 @@ def _weighted_words(text: str, duration: float) -> list[dict]:
     return out
 
 
+def uz_okina(text: str) -> str:
+    """Sardor (Edge) o'/g' ni faqat o'zbekcha okina (U+02BB) bilan to'g'ri o'qiydi; oddiy apostrof bilan "g" va "a" deb o'qiydi."""
+    return re.sub(r"([oOgG])['\u2019\u2018\u02bc`]", "\\1\u02bb", text)
+
+
+def _edge(text: str, spoken: str, t: dict, out_mp3: str) -> tuple[list[dict], float]:
+    log.info("Ovoz yozilmoqda (%s)...", t["voice"])
+    words, sentences = asyncio.run(_synth(uz_okina(spoken), t["voice"], t["rate"], t["pitch"], out_mp3))
+    duration = ffprobe_duration(out_mp3)
+    if duration < 0.5:
+        raise RuntimeError("Edge TTS ovoz bermadi")
+    if words:
+        timed = [{"start": s, "end": e, "word": w} for s, e, w in words]
+        timed = _align_to_text(timed, text)
+    elif sentences:
+        timed = _distribute(sentences)
+    else:
+        timed = _distribute([(0.15, max(duration - 0.2, 1.0), text)])
+    log.info("Ovoz: %.1fs, %d so'z vaqti (Edge)", duration, len(timed))
+    return timed, duration
+
+
 @retry(times=3, delay=4)
 def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
     t = cfg["tts"]
@@ -148,6 +170,11 @@ def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
     spoken = spoken_numbers(text)
     if spoken != text:
         log.info("Ovoz matni (raqamlar so'z bilan): %s", spoken)
+    if t.get("engine") == "edge":  # multfilm-studio bilan bir xil ovoz: Edge Sardor + aniq so'z vaqtlari
+        try:
+            return _edge(text, spoken, t, out_mp3)
+        except Exception as e:  # noqa: BLE001 — ishlamasa eski zanjir (OmniVoice -> ElevenLabs -> Edge)
+            log.warning("Edge TTS ishlamadi: %s", e)
     if o.get("enabled") and os.environ.get("OMNIVOICE_BIN") and Path(os.environ["OMNIVOICE_BIN"]).exists():
         try:
             log.info("Ovoz yozilmoqda (OmniVoice, %s qadam)...", o.get("steps", 16))
@@ -175,15 +202,4 @@ def synthesize(text: str, cfg: dict, out_mp3: str) -> tuple[list[dict], float]:
                 log.warning("ElevenLabs (%s, %s) ishlamadi: %s", voice, model, e)
         if options:
             log.warning("ElevenLabs ishlamadi, Edge TTS ishlatiladi")
-    log.info("Ovoz yozilmoqda (%s)...", t["voice"])
-    words, sentences = asyncio.run(_synth(spoken, t["voice"], t["rate"], t["pitch"], out_mp3))
-    duration = ffprobe_duration(out_mp3)
-    if words:
-        timed = [{"start": s, "end": e, "word": w} for s, e, w in words]
-        timed = _align_to_text(timed, text)
-    elif sentences:
-        timed = _distribute(sentences)
-    else:
-        timed = _distribute([(0.15, max(duration - 0.2, 1.0), text)])
-    log.info("Ovoz: %.1fs, %d so'z vaqti", duration, len(timed))
-    return timed, duration
+    return _edge(text, spoken, t, out_mp3)
