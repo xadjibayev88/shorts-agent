@@ -1021,6 +1021,27 @@
       "video_id": "HZXQ03r3ej0",
       "instagram_id": "17937318354184765",
       "words": 54
+    },
+    {
+      "date": "2026-11-15T13:20:47+00:00",
+      "title": "Raketasi 3 marta orbitaga chiqmagan kompaniya nima qildi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "circleopen",
+        "caption": "middle_rise",
+        "hook": "outline_big",
+        "bar": "thin",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "reHgqlyHkDY",
+      "instagram_id": "18130217839870230",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -1353,23 +1374,16 @@
     "pb3174",
     "pb53789",
     "pb6340",
-    "pb65390"
+    "pb65390",
+    "pb1346",
+    "pb235",
+    "pb24072",
+    "pb846",
+    "pb86576"
   ],
   "genre_index": 6,
   "looks": [
     {
-      "grade": "vivid",
-      "transition": "fade",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "bottom",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "warm",
       "transition": "circleopen",
       "caption": "lower_fade",
@@ -1836,6 +1850,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "circleopen",
+      "caption": "middle_rise",
+      "hook": "outline_big",
+      "bar": "thin",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
