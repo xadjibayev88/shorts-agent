@@ -1063,6 +1063,27 @@
       "video_id": "MfeNC7Rk1AY",
       "instagram_id": null,
       "words": 54
+    },
+    {
+      "date": "2026-11-15T15:03:51+00:00",
+      "title": "Buffett har kuni 500 bet o'qiydi – bu nima uchun?",
+      "genre": "muvaffaqiyatli odamlarning kitob o'qish odati",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "natural",
+        "transition": "fade",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "7pHtCBMOKDE",
+      "instagram_id": "18201861718388616",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -1405,22 +1426,16 @@
     "pb21985",
     "pb32248",
     "pb348676",
-    "pb63970"
+    "pb63970",
+    "pb137263",
+    "pb15484",
+    "pb216462",
+    "pb33654",
+    "pb35590",
+    "pb68056"
   ],
-  "genre_index": 6,
+  "genre_index": 7,
   "looks": [
-    {
-      "grade": "teal_orange",
-      "transition": "cut",
-      "caption": "upper_bounce",
-      "hook": "top_slide",
-      "bar": "top",
-      "sound": "whoosh",
-      "entrance": "flash",
-      "texture": "grain",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "natural",
       "transition": "dissolve",
@@ -1888,6 +1903,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "fade",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
