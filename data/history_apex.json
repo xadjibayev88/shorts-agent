@@ -1105,6 +1105,27 @@
       "video_id": null,
       "instagram_id": "18056880806807225",
       "words": 44
+    },
+    {
+      "date": "2026-11-16T12:15:52+00:00",
+      "title": "42 km yalangoyoq yugurib oltin olgan sportchi kim?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "dissolve",
+        "caption": "low_slide",
+        "hook": "top_slide",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "D6AG6YV-CFk",
+      "instagram_id": "18026728355867972",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -1458,22 +1479,15 @@
     "pb11635",
     "pb198477",
     "pb265356",
-    "pb35841"
+    "pb35841",
+    "pb10809",
+    "pb138443",
+    "pb149927",
+    "pb206294",
+    "pb31543"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "film",
-      "transition": "slideup",
-      "caption": "low_slide",
-      "hook": "black_box",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "flash",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "vivid",
       "transition": "smoothleft",
@@ -1941,6 +1955,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "dissolve",
+      "caption": "low_slide",
+      "hook": "top_slide",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
