@@ -1484,22 +1484,15 @@
     "pb138443",
     "pb149927",
     "pb206294",
-    "pb31543"
+    "pb31543",
+    "pb14476",
+    "pb177401",
+    "pb64118",
+    "pb8573",
+    "pb91679"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "vivid",
-      "transition": "smoothleft",
-      "caption": "center_pop",
-      "hook": "top_slide",
-      "bar": "top",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "breathe",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "cool",
       "transition": "wipeup",
@@ -1967,6 +1960,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "film",
+      "transition": "fadeblack",
+      "caption": "center_shadow",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
