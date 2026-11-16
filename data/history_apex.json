@@ -1126,6 +1126,27 @@
       "video_id": "D6AG6YV-CFk",
       "instagram_id": "18026728355867972",
       "words": 53
+    },
+    {
+      "date": "2026-11-16T17:36:43+00:00",
+      "title": "538 dollar bilan boshlangan ishning birinchi yirik",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "cut",
+        "caption": "upper_bounce",
+        "hook": "black_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "Cs9wGEfuYR8",
+      "instagram_id": null,
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1489,22 +1510,15 @@
     "pb177401",
     "pb64118",
     "pb8573",
-    "pb91679"
+    "pb91679",
+    "pb177415",
+    "pb27803",
+    "pb28014",
+    "pb326677",
+    "pb58013"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "cool",
-      "transition": "wipeup",
-      "caption": "center_shadow",
-      "hook": "middle_zoom",
-      "bar": "none",
-      "sound": "whoosh_hit",
-      "entrance": "blur",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "teal_orange",
       "transition": "circleopen",
@@ -1972,6 +1986,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "cut",
+      "caption": "upper_bounce",
+      "hook": "black_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
