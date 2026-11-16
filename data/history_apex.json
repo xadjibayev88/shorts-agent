@@ -1084,6 +1084,27 @@
       "video_id": "7pHtCBMOKDE",
       "instagram_id": "18201861718388616",
       "words": 49
+    },
+    {
+      "date": "2026-11-16T08:43:29+00:00",
+      "title": "1938 yilda baliq va ugra sotgan firma nimaga aylandi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "slideup",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18056880806807225",
+      "words": 44
     }
   ],
   "used_pexels_ids": [
@@ -1432,22 +1453,15 @@
     "pb216462",
     "pb33654",
     "pb35590",
-    "pb68056"
+    "pb68056",
+    "pb10339",
+    "pb11635",
+    "pb198477",
+    "pb265356",
+    "pb35841"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "natural",
-      "transition": "dissolve",
-      "caption": "center_shadow",
-      "hook": "outline_big",
-      "bar": "none",
-      "sound": "whoosh_riser",
-      "entrance": "punch",
-      "texture": "grain_leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "film",
       "transition": "slideup",
@@ -1915,6 +1929,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "slideup",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
