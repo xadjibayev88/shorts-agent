@@ -567,6 +567,27 @@
       "video_id": "7fZXuu3ZLZs",
       "instagram_id": null,
       "words": 51
+    },
+    {
+      "date": "2026-11-16T13:14:38+00:00",
+      "title": "Ochiq kosmosda 10 kun bo'lib, tirik qaytgan hayvon qaysi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "circleopen",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "jrKrt9PNz9M",
+      "instagram_id": null,
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -862,7 +883,12 @@
     "pb19706",
     "pb29998",
     "pb31511",
-    "pb9831"
+    "pb9831",
+    "pb192281",
+    "pb217708",
+    "pb240292",
+    "pb26967",
+    "pb86260"
   ],
   "genre_index": 4,
   "looks": [
@@ -1141,6 +1167,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "moody",
+      "transition": "circleopen",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
