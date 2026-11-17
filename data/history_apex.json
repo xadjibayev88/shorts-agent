@@ -1210,6 +1210,27 @@
       "video_id": null,
       "instagram_id": "18132400802478807",
       "words": 54
+    },
+    {
+      "date": "2026-11-17T17:11:53+00:00",
+      "title": "Bankrot bo'lgan kompaniya 13 yildan keyin qanchaga sotildi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "smoothleft",
+        "caption": "lower_fade",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "Npm6m8NUryk",
+      "instagram_id": "18472901752140400",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -1593,22 +1614,15 @@
     "pb138500",
     "pb22355",
     "pb335407",
-    "pb80314"
+    "pb80314",
+    "pb111280",
+    "pb16224",
+    "pb217105",
+    "pb24496",
+    "pb268770"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "vivid",
-      "transition": "fadeblack",
-      "caption": "center_pop",
-      "hook": "outline_big",
-      "bar": "none",
-      "sound": "hit",
-      "entrance": "flash",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "moody",
       "transition": "wipeup",
@@ -2076,6 +2090,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "smoothleft",
+      "caption": "lower_fade",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
