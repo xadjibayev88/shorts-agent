@@ -1168,6 +1168,27 @@
       "video_id": null,
       "instagram_id": "18121473470084506",
       "words": 54
+    },
+    {
+      "date": "2026-11-17T12:41:36+00:00",
+      "title": "51 ta o'yini mashhur bo'lmagan studiyaning 52-o'yini...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "circleopen",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "7S9krOWwIGU",
+      "instagram_id": "18210277885374100",
+      "words": 57
     }
   ],
   "used_pexels_ids": [
@@ -1541,22 +1562,15 @@
     "pb202760",
     "pb25608",
     "pb28098",
-    "pb63973"
+    "pb63973",
+    "pb16166",
+    "pb1651",
+    "pb180386",
+    "pb42696",
+    "pb63967"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "warm",
-      "transition": "dissolve",
-      "caption": "low_slide",
-      "hook": "white_box",
-      "bar": "thin",
-      "sound": "whoosh",
-      "entrance": "flash",
-      "texture": "breathe",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "natural",
       "transition": "fade",
@@ -2024,6 +2038,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "circleopen",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
