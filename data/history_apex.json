@@ -1189,6 +1189,27 @@
       "video_id": "7S9krOWwIGU",
       "instagram_id": "18210277885374100",
       "words": 57
+    },
+    {
+      "date": "2026-11-17T15:03:06+00:00",
+      "title": "Yopilgan o'yindan 27,7 milliardlik kompaniya chiqdi...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "zoomin",
+        "caption": "center_shadow",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18132400802478807",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1567,22 +1588,15 @@
     "pb1651",
     "pb180386",
     "pb42696",
-    "pb63967"
+    "pb63967",
+    "pb10024",
+    "pb138500",
+    "pb22355",
+    "pb335407",
+    "pb80314"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "natural",
-      "transition": "fade",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "top",
-      "sound": "whoosh_hit",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "vivid",
       "transition": "fadeblack",
@@ -2050,6 +2064,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "zoomin",
+      "caption": "center_shadow",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
