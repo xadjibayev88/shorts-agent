@@ -588,6 +588,27 @@
       "video_id": "jrKrt9PNz9M",
       "instagram_id": null,
       "words": 51
+    },
+    {
+      "date": "2026-11-17T13:58:02+00:00",
+      "title": "Oy har yili Yerdan taxminan 3,8 santimetr uzoqlashadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "radial",
+        "caption": "center_shadow",
+        "hook": "black_box",
+        "bar": "none",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "4_Q-Sqtafn0",
+      "instagram_id": null,
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -888,7 +909,12 @@
     "pb217708",
     "pb240292",
     "pb26967",
-    "pb86260"
+    "pb86260",
+    "pb245594",
+    "pb365737",
+    "pb39125",
+    "pb51659",
+    "pb90998"
   ],
   "genre_index": 4,
   "looks": [
@@ -1179,6 +1205,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "radial",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
