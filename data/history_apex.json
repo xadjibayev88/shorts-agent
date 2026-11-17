@@ -1147,6 +1147,27 @@
       "video_id": "Cs9wGEfuYR8",
       "instagram_id": null,
       "words": 54
+    },
+    {
+      "date": "2026-11-17T09:50:15+00:00",
+      "title": "Devor qog'ozini tozalagan massa 1956 yilda nima bo'ldi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "radial",
+        "caption": "middle_rise",
+        "hook": "top_slide",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18121473470084506",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1515,22 +1536,15 @@
     "pb27803",
     "pb28014",
     "pb326677",
-    "pb58013"
+    "pb58013",
+    "pb17246",
+    "pb202760",
+    "pb25608",
+    "pb28098",
+    "pb63973"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "teal_orange",
-      "transition": "circleopen",
-      "caption": "upper_bounce",
-      "hook": "outline_big",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "warm",
       "transition": "dissolve",
@@ -1998,6 +2012,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "radial",
+      "caption": "middle_rise",
+      "hook": "top_slide",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
