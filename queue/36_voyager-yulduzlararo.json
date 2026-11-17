@@ -1,0 +1,52 @@
+{
+  "title": "Yulduzlararo fazoga birinchi bo'lib chiqqan apparat qaysi?",
+  "hook": "Bu apparat 35 yil uchib, chegaradan o'tdi.",
+  "thumbnail_text": "35 YIL PARVOZ",
+  "scenes": [
+    {
+      "text": "1977 yilda NASA kichik bir apparatni koinotga uchirdi.",
+      "keywords": "rocket launch night"
+    },
+    {
+      "text": "U Yupiter va Saturn yonidan o'tib, ularni yaqindan suratga oldi.",
+      "keywords": "jupiter planet space"
+    },
+    {
+      "text": "2012 yilda, taxminan 35 yildan keyin, u Quyosh shamoli tugaydigan chegarani kesib o'tdi.",
+      "keywords": "deep space stars"
+    },
+    {
+      "text": "Bu Voyager 1 edi, yulduzlararo fazoga chiqqan birinchi apparat.",
+      "keywords": "space probe antenna"
+    },
+    {
+      "text": "2023 yilda uning signali Yerga taxminan 22 soatda yetib kelardi.",
+      "keywords": "radio telescope dish night"
+    }
+  ],
+  "description": "Voyager 1 1977 yil 5 sentyabrda uchirilgan. 2012 yil avgustida u geliopauzani kesib o'tib, yulduzlararo fazoga chiqqan birinchi apparat bo'ldi. NASA buni 2013 yil sentyabrida tasdiqladi. 2023 yilda uning signali Yerga taxminan 22 soatda yetib kelardi.\n\nSiz buni bilarmidingiz? Izohda \"ha\" yoki \"yo'q\" deb yozing.",
+  "source": "NASA JPL: Voyager mission (Voyager 1 launched 5 Sept 1977, Jupiter flyby 1979, Saturn 1980, crossed the heliopause 25 Aug 2012, announced Sept 2013, first human-made object in interstellar space); NASA Voyager mission status 2023 (one-way light time about 22 hours)",
+  "tags": [
+    "voyager",
+    "voyager 1",
+    "kosmos",
+    "nasa",
+    "koinot",
+    "bilarmidingiz",
+    "qiziqarli faktlar",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#qiziqarlifaktlar",
+    "#faktlar",
+    "#uzbek"
+  ],
+  "names": {
+    "Voyager 1": "Voyager 1",
+    "NASA": "NASA",
+    "Yupiter": "Jupiter",
+    "Saturn": "Saturn"
+  }
+}
