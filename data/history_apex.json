@@ -1252,6 +1252,27 @@
       "video_id": null,
       "instagram_id": "18103494320435919",
       "words": 54
+    },
+    {
+      "date": "2026-11-18T12:32:57+00:00",
+      "title": "Muvaffaqiyatsizlikdan qayta turish: Rowling",
+      "genre": "muvaffaqiyatsizlikdan keyin qayta turish haqida haqiqiy misol",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "teal_orange",
+        "transition": "slideup",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "dQ8esjqjnsQ",
+      "instagram_id": "17997744591023673",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -1645,22 +1666,16 @@
     "pb13534",
     "pb236256",
     "pb3158",
-    "pb45358"
+    "pb45358",
+    "pb10808",
+    "pb130210",
+    "pb1655",
+    "pb185096",
+    "pb336755",
+    "pb8667"
   ],
-  "genre_index": 7,
+  "genre_index": 8,
   "looks": [
-    {
-      "grade": "warm",
-      "transition": "radial",
-      "caption": "center_shadow",
-      "hook": "top_slide",
-      "bar": "bottom",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "cool",
       "transition": "zoomin",
@@ -2128,6 +2143,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "slideup",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
