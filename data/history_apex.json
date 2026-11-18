@@ -1231,6 +1231,27 @@
       "video_id": "Npm6m8NUryk",
       "instagram_id": "18472901752140400",
       "words": 49
+    },
+    {
+      "date": "2026-11-18T09:17:54+00:00",
+      "title": "242 investordan 217 tasi rad etgan odam keyin nima qildi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "fade",
+        "caption": "middle_rise",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18103494320435919",
+      "words": 54
     }
   ],
   "used_pexels_ids": [
@@ -1619,22 +1640,15 @@
     "pb16224",
     "pb217105",
     "pb24496",
-    "pb268770"
+    "pb268770",
+    "pb123",
+    "pb13534",
+    "pb236256",
+    "pb3158",
+    "pb45358"
   ],
   "genre_index": 7,
   "looks": [
-    {
-      "grade": "moody",
-      "transition": "wipeup",
-      "caption": "middle_rise",
-      "hook": "black_box",
-      "bar": "thin",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "warm",
       "transition": "radial",
@@ -2102,6 +2116,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "fade",
+      "caption": "middle_rise",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
