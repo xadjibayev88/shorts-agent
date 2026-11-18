@@ -609,6 +609,27 @@
       "video_id": "4_Q-Sqtafn0",
       "instagram_id": null,
       "words": 51
+    },
+    {
+      "date": "2026-11-18T13:36:42+00:00",
+      "title": "2992 metr chuqurlikka tushgan sut emizuvchi qaysi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "hblur",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "l8AGD5n3meA",
+      "instagram_id": null,
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -914,7 +935,12 @@
     "pb365737",
     "pb39125",
     "pb51659",
-    "pb90998"
+    "pb90998",
+    "pb19609",
+    "pb244188",
+    "pb25903",
+    "pb386877",
+    "pb750"
   ],
   "genre_index": 4,
   "looks": [
@@ -1217,6 +1243,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "hblur",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
