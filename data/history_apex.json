@@ -1273,6 +1273,27 @@
       "video_id": "dQ8esjqjnsQ",
       "instagram_id": "17997744591023673",
       "words": 56
+    },
+    {
+      "date": "2026-11-18T16:59:08+00:00",
+      "title": "Telefon qaramligidan qutulishning oddiy usuli",
+      "genre": "diqqatni jamlash va telefon qaramligidan qutulish",
+      "format": "SAVOL-JAVOB",
+      "look": {
+        "grade": "natural",
+        "transition": "smoothup",
+        "caption": "center_shadow",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "lLn0nTwwGcg",
+      "instagram_id": null,
+      "words": 40
     }
   ],
   "used_pexels_ids": [
@@ -1677,22 +1698,15 @@
     "pb214394",
     "pb30470",
     "pb349094",
-    "pb4947"
+    "pb4947",
+    "pb3135",
+    "pb31461",
+    "pb374811",
+    "pb42408",
+    "pb61704"
   ],
-  "genre_index": 9,
+  "genre_index": 10,
   "looks": [
-    {
-      "grade": "teal_orange",
-      "transition": "dissolve",
-      "caption": "upper_bounce",
-      "hook": "outline_big",
-      "bar": "thin",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "moody",
       "transition": "slideup",
@@ -2160,6 +2174,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "smoothup",
+      "caption": "center_shadow",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
