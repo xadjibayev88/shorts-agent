@@ -1357,6 +1357,27 @@
       "video_id": null,
       "instagram_id": "18399960793202130",
       "words": 46
+    },
+    {
+      "date": "2026-11-19T16:57:27+00:00",
+      "title": "Biznes boshlashdagi eng kulgili xato",
+      "genre": "biznes boshlashdagi keng tarqalgan xato va undan qochish",
+      "format": "SAVOL-JAVOB",
+      "look": {
+        "grade": "teal_orange",
+        "transition": "dissolve",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "13ktSerw5Nc",
+      "instagram_id": null,
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -1784,22 +1805,17 @@
     "pb210786",
     "pb258792",
     "pb335737",
-    "pb49981"
+    "pb49981",
+    "pb1044",
+    "pb1049",
+    "pb122389",
+    "pb206272",
+    "pb277042",
+    "pb47551",
+    "pb83865"
   ],
-  "genre_index": 3,
+  "genre_index": 4,
   "looks": [
-    {
-      "grade": "film",
-      "transition": "smoothleft",
-      "caption": "center_pop",
-      "hook": "black_box",
-      "bar": "none",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "cool",
       "transition": "radial",
@@ -2267,6 +2283,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "dissolve",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
