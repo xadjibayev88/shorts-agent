@@ -1294,6 +1294,27 @@
       "video_id": "lLn0nTwwGcg",
       "instagram_id": null,
       "words": 40
+    },
+    {
+      "date": "2026-11-19T09:42:49+00:00",
+      "title": "Kichik xarajatlarni nazorat qilishning oddiy usuli",
+      "genre": "pul bilan bog'liq foydali odat (tejash, xarajatni nazorat qilish, jamg'arma)",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "moody",
+        "transition": "fadeblack",
+        "caption": "lower_fade",
+        "hook": "white_box",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18094242419682985",
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -1703,23 +1724,17 @@
     "pb31461",
     "pb374811",
     "pb42408",
-    "pb61704"
+    "pb61704",
+    "pb12751",
+    "pb185092",
+    "pb232538",
+    "pb33569",
+    "pb4854",
+    "pb61298"
   ],
-  "genre_index": 10,
+  "genre_index": 1,
   "looks": [
     {
-      "grade": "moody",
-      "transition": "slideup",
-      "caption": "lower_fade",
-      "hook": "black_box",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "flash",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "natural",
       "transition": "wipeup",
       "caption": "center_shadow",
@@ -2186,6 +2201,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "fadeblack",
+      "caption": "lower_fade",
+      "hook": "white_box",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
