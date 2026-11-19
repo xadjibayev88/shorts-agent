@@ -1315,6 +1315,27 @@
       "video_id": null,
       "instagram_id": "18094242419682985",
       "words": 51
+    },
+    {
+      "date": "2026-11-19T12:27:06+00:00",
+      "title": "Ijobiy natijani qadrlagan ikki tadbirkor",
+      "genre": "mashhur tadbirkorning haqiqiy hayotidan bitta saboq",
+      "format": "IKKI ODAM",
+      "look": {
+        "grade": "cool",
+        "transition": "cut",
+        "caption": "center_pop",
+        "hook": "top_slide",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "vCtlnubpcM0",
+      "instagram_id": "18132431716878075",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -1730,23 +1751,16 @@
     "pb232538",
     "pb33569",
     "pb4854",
-    "pb61298"
+    "pb61298",
+    "pb137260",
+    "pb26533",
+    "pb30154",
+    "pb39125",
+    "pb97998"
   ],
-  "genre_index": 1,
+  "genre_index": 2,
   "looks": [
     {
-      "grade": "natural",
-      "transition": "wipeup",
-      "caption": "center_shadow",
-      "hook": "top_slide",
-      "bar": "thin",
-      "sound": "whoosh_hit",
-      "entrance": "blur",
-      "texture": "breathe",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "warm",
       "transition": "circleopen",
       "caption": "middle_rise",
@@ -2213,6 +2227,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "cut",
+      "caption": "center_pop",
+      "hook": "top_slide",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
