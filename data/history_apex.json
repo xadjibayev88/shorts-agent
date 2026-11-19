@@ -1336,6 +1336,27 @@
       "video_id": "vCtlnubpcM0",
       "instagram_id": "18132431716878075",
       "words": 53
+    },
+    {
+      "date": "2026-11-19T14:56:20+00:00",
+      "title": "Erta turish uchun bugun 5 daqiqalik sinov",
+      "genre": "intizom va erta turish haqida amaliy maslahat",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "film",
+        "transition": "radial",
+        "caption": "upper_bounce",
+        "hook": "black_box",
+        "bar": "none",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18399960793202130",
+      "words": 46
     }
   ],
   "used_pexels_ids": [
@@ -1756,22 +1777,17 @@
     "pb26533",
     "pb30154",
     "pb39125",
-    "pb97998"
+    "pb97998",
+    "pb107189",
+    "pb126560",
+    "pb16346",
+    "pb210786",
+    "pb258792",
+    "pb335737",
+    "pb49981"
   ],
-  "genre_index": 2,
+  "genre_index": 3,
   "looks": [
-    {
-      "grade": "warm",
-      "transition": "circleopen",
-      "caption": "middle_rise",
-      "hook": "outline_big",
-      "bar": "top",
-      "sound": "whoosh",
-      "entrance": "flash",
-      "texture": "grain_leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "film",
       "transition": "smoothleft",
@@ -2239,6 +2255,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "film",
+      "transition": "radial",
+      "caption": "upper_bounce",
+      "hook": "black_box",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
