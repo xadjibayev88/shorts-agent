@@ -630,6 +630,27 @@
       "video_id": "l8AGD5n3meA",
       "instagram_id": null,
       "words": 53
+    },
+    {
+      "date": "2026-11-19T14:01:23+00:00",
+      "title": "To'pponcha krevetka pufagida kamida 4700 daraja issiqlik",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "zoomin",
+        "caption": "center_pop",
+        "hook": "middle_zoom",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "hZFmp8v4IGA",
+      "instagram_id": null,
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -940,7 +961,12 @@
     "pb244188",
     "pb25903",
     "pb386877",
-    "pb750"
+    "pb750",
+    "pb156151",
+    "pb207990",
+    "pb217028",
+    "pb6456",
+    "pb73863"
   ],
   "genre_index": 4,
   "looks": [
@@ -1255,6 +1281,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "zoomin",
+      "caption": "center_pop",
+      "hook": "middle_zoom",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
