@@ -651,6 +651,27 @@
       "video_id": "hZFmp8v4IGA",
       "instagram_id": null,
       "words": 47
+    },
+    {
+      "date": "2026-11-20T13:42:42+00:00",
+      "title": "24 ta ko'zi bor, lekin miyasi yo'q jonzot qaysi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "fadeblack",
+        "caption": "low_slide",
+        "hook": "top_slide",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "1b5uoHHroWM",
+      "instagram_id": null,
+      "words": 45
     }
   ],
   "used_pexels_ids": [
@@ -966,7 +987,12 @@
     "pb207990",
     "pb217028",
     "pb6456",
-    "pb73863"
+    "pb73863",
+    "pb15063",
+    "pb26593",
+    "pb273304",
+    "pb908",
+    "pb9219"
   ],
   "genre_index": 4,
   "looks": [
@@ -1293,6 +1319,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "moody",
+      "transition": "fadeblack",
+      "caption": "low_slide",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
