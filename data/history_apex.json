@@ -1378,6 +1378,27 @@
       "video_id": "13ktSerw5Nc",
       "instagram_id": null,
       "words": 51
+    },
+    {
+      "date": "2026-11-20T09:20:39+00:00",
+      "title": "Eisenxauer matritsasi: avariya o'rniga strategiya",
+      "genre": "vaqtni boshqarish usuli (masalan, Pareto qoidasi yoki Eyzenxauer matritsasi)",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "warm",
+        "transition": "hblur",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18471733108139352",
+      "words": 59
     }
   ],
   "used_pexels_ids": [
@@ -1812,22 +1833,17 @@
     "pb206272",
     "pb277042",
     "pb47551",
-    "pb83865"
+    "pb83865",
+    "pb107264",
+    "pb1105",
+    "pb180776",
+    "pb21827",
+    "pb26537",
+    "pb3161",
+    "pb6389"
   ],
-  "genre_index": 4,
+  "genre_index": 5,
   "looks": [
-    {
-      "grade": "cool",
-      "transition": "radial",
-      "caption": "upper_bounce",
-      "hook": "top_slide",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "natural",
       "transition": "fade",
@@ -2295,6 +2311,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "hblur",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
