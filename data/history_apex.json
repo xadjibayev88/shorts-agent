@@ -1399,6 +1399,27 @@
       "video_id": null,
       "instagram_id": "18471733108139352",
       "words": 59
+    },
+    {
+      "date": "2026-11-20T12:26:49+00:00",
+      "title": "Kuniga 1 foiz: 365 kunda 37 baravar o'sish",
+      "genre": "murakkab foiz va sabr kuchi oddiy misolda",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "natural",
+        "transition": "wipeup",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "thin",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "Mvb2pCNrXM0",
+      "instagram_id": "18149583292584210",
+      "words": 45
     }
   ],
   "used_pexels_ids": [
@@ -1840,22 +1861,16 @@
     "pb21827",
     "pb26537",
     "pb3161",
-    "pb6389"
+    "pb6389",
+    "pb149958",
+    "pb24105",
+    "pb37799",
+    "pb68978",
+    "pb8251",
+    "pb88644"
   ],
-  "genre_index": 5,
+  "genre_index": 6,
   "looks": [
-    {
-      "grade": "natural",
-      "transition": "fade",
-      "caption": "low_slide",
-      "hook": "outline_big",
-      "bar": "none",
-      "sound": "whoosh_hit",
-      "entrance": "flash",
-      "texture": "breathe",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "teal_orange",
       "transition": "slideup",
@@ -2323,6 +2338,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "natural",
+      "transition": "wipeup",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "thin",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
