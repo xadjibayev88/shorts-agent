@@ -1,0 +1,46 @@
+{
+  "title": "Kosmik stansiyada kuniga 16 marta quyosh chiqadi",
+  "hook": "Kosmik stansiyada kuniga 16 marta tong otadi.",
+  "thumbnail_text": "16 TONG",
+  "scenes": [
+    {
+      "text": "Xalqaro kosmik stansiyadagi astronavtlar bir kunda 16 marta quyosh chiqishini ko'radi.",
+      "keywords": "sunrise over earth from space"
+    },
+    {
+      "text": "Stansiya Yerdan taxminan 400 kilometr balandda, soatiga taxminan 28 ming kilometr tezlikda uchadi.",
+      "keywords": "space station orbit earth"
+    },
+    {
+      "text": "U Yer atrofini taxminan 90 daqiqada bir marta aylanib chiqadi.",
+      "keywords": "earth rotating night lights"
+    },
+    {
+      "text": "Shuning uchun stansiyada kun quyoshga qarab emas, Grinvich vaqti bo'yicha belgilanadi.",
+      "keywords": "astronaut inside spacecraft window"
+    }
+  ],
+  "description": "Xalqaro kosmik stansiya taxminan 400 kilometr balandda, soatiga taxminan 28 ming kilometr tezlikda uchadi va Yerni taxminan 90 daqiqada aylanib chiqadi. Shuning uchun astronavtlar bir kunda 16 marta quyosh chiqishini ko'radi.\n\nSiz buni bilarmidingiz? Izohda \"ha\" yoki \"yo'q\" deb yozing.",
+  "source": "Web fact-check 2026-11-20 (web search summaries; pages could not be opened from this session). NASA (nasa.gov image articles and science.nasa.gov Earth Observatory 'Sunrise to Sunset': ISS crew sees 16 sunrises and sunsets a day, some pages say 15 or 16; orbit about 90-92 minutes; speed about 17,100-17,500 mph, about 28,000 km/h; altitude about 354-420 km depending on date, so 'taxminan 400 km' holds); Astronomy magazine 'Ask Astro', Sky at Night, Digital Trends (station clocks run on GMT/UTC, chosen as a compromise for the international crew). The 'shuning uchun' link is a reasonable summary: UTC keeps one fixed schedule despite the sunrises.",
+  "tags": [
+    "kosmik stansiya",
+    "xks",
+    "kosmos",
+    "astronavt",
+    "quyosh chiqishi",
+    "bilarmidingiz",
+    "qiziqarli faktlar",
+    "faktlar"
+  ],
+  "hashtags": [
+    "#shorts",
+    "#bilarmidingiz",
+    "#qiziqarlifaktlar",
+    "#kosmos",
+    "#uzbek"
+  ],
+  "names": {
+    "Xalqaro kosmik stansiya": "International Space Station (ISS)",
+    "Grinvich vaqti": "Greenwich Mean Time (GMT/UTC)"
+  }
+}
