@@ -1441,6 +1441,27 @@
       "video_id": null,
       "instagram_id": "18101319311554537",
       "words": 48
+    },
+    {
+      "date": "2026-11-20T16:32:07+00:00",
+      "title": "Muvaffaqiyatsizlikdan qayta turish: Jobs misoli",
+      "genre": "muvaffaqiyatsizlikdan keyin qayta turish haqida haqiqiy misol",
+      "format": "IKKI ODAM",
+      "look": {
+        "grade": "teal_orange",
+        "transition": "smoothleft",
+        "caption": "low_slide",
+        "hook": "outline_big",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "EyRah-6UaBc",
+      "instagram_id": "18440603941178648",
+      "words": 45
     }
   ],
   "used_pexels_ids": [
@@ -1893,22 +1914,15 @@
     "pb122229",
     "pb126558",
     "pb421",
-    "pb4953"
+    "pb4953",
+    "pb110734",
+    "pb129289",
+    "pb133801",
+    "pb1625",
+    "pb42923"
   ],
-  "genre_index": 7,
+  "genre_index": 8,
   "looks": [
-    {
-      "grade": "vivid",
-      "transition": "dissolve",
-      "caption": "center_shadow",
-      "hook": "black_box",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "blur",
-      "texture": "grain",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "cool",
       "transition": "hblur",
@@ -2376,6 +2390,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "smoothleft",
+      "caption": "low_slide",
+      "hook": "outline_big",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
