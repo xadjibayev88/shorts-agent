@@ -672,6 +672,27 @@
       "video_id": "1b5uoHHroWM",
       "instagram_id": null,
       "words": 45
+    },
+    {
+      "date": "2026-11-21T13:07:56+00:00",
+      "title": "Everestdan 2,5 baravar baland tog' qayerda joylashgan?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "dissolve",
+        "caption": "center_shadow",
+        "hook": "black_box",
+        "bar": "top",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "L0Fc-cvn9Os",
+      "instagram_id": null,
+      "words": 46
     }
   ],
   "used_pexels_ids": [
@@ -992,7 +1013,12 @@
     "pb26593",
     "pb273304",
     "pb908",
-    "pb9219"
+    "pb9219",
+    "pb106311",
+    "pb23403",
+    "pb26085",
+    "pb27539",
+    "pb42388"
   ],
   "genre_index": 4,
   "looks": [
@@ -1331,6 +1357,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "dissolve",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "top",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
