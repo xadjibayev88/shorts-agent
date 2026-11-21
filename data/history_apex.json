@@ -1504,6 +1504,27 @@
       "video_id": "I3_O6J0xJEg",
       "instagram_id": "18117676787015078",
       "words": 60
+    },
+    {
+      "date": "2026-11-21T15:45:00+00:00",
+      "title": "Aka-uka janjallashdi, bitta shaharda nima paydo bo'ldi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "fadeblack",
+        "caption": "center_pop",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "PF_JaAZsbx4",
+      "instagram_id": "17957788533314326",
+      "words": 71
     }
   ],
   "used_pexels_ids": [
@@ -1971,23 +1992,16 @@
     "pb11453",
     "pb24114",
     "pb42926",
-    "pb47601"
+    "pb47601",
+    "pb120450",
+    "pb12332",
+    "pb15748",
+    "pb197345",
+    "pb207982"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "teal_orange",
-      "transition": "fadeblack",
-      "caption": "middle_rise",
-      "hook": "black_box",
-      "bar": "thin",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "vivid",
       "transition": "circleopen",
       "caption": "lower_fade",
@@ -2454,6 +2468,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "fadeblack",
+      "caption": "center_pop",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
