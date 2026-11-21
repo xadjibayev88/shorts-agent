@@ -1483,6 +1483,27 @@
       "video_id": null,
       "instagram_id": "17978131992154221",
       "words": 70
+    },
+    {
+      "date": "2026-11-21T11:59:41+00:00",
+      "title": "44 yoshida yangi do'kon ochgan savdogar kim edi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "radial",
+        "caption": "middle_rise",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "I3_O6J0xJEg",
+      "instagram_id": "18117676787015078",
+      "words": 60
     }
   ],
   "used_pexels_ids": [
@@ -1945,23 +1966,16 @@
     "pb172598",
     "pb32246",
     "pb39930",
-    "pb45985"
+    "pb45985",
+    "pb1023",
+    "pb11453",
+    "pb24114",
+    "pb42926",
+    "pb47601"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "film",
-      "transition": "radial",
-      "caption": "low_slide",
-      "hook": "top_slide",
-      "bar": "bottom",
-      "sound": "whoosh",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "teal_orange",
       "transition": "fadeblack",
       "caption": "middle_rise",
@@ -2428,6 +2442,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "radial",
+      "caption": "middle_rise",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
