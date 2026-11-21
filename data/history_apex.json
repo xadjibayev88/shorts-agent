@@ -1462,6 +1462,27 @@
       "video_id": "EyRah-6UaBc",
       "instagram_id": "18440603941178648",
       "words": 45
+    },
+    {
+      "date": "2026-11-21T08:52:39+00:00",
+      "title": "Kompaniyasidan ketgan asoschi 12 yildan keyin...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "cut",
+        "caption": "lower_fade",
+        "hook": "middle_zoom",
+        "bar": "bottom",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "17978131992154221",
+      "words": 70
     }
   ],
   "used_pexels_ids": [
@@ -1919,23 +1940,16 @@
     "pb129289",
     "pb133801",
     "pb1625",
-    "pb42923"
+    "pb42923",
+    "pb136268",
+    "pb172598",
+    "pb32246",
+    "pb39930",
+    "pb45985"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "cool",
-      "transition": "hblur",
-      "caption": "center_pop",
-      "hook": "white_box",
-      "bar": "top",
-      "sound": "whoosh_hit",
-      "entrance": "flash",
-      "texture": "breathe",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "film",
       "transition": "radial",
       "caption": "low_slide",
@@ -2402,6 +2416,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "cut",
+      "caption": "lower_fade",
+      "hook": "middle_zoom",
+      "bar": "bottom",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
