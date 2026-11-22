@@ -1588,6 +1588,27 @@
       "video_id": null,
       "instagram_id": "18129119344899716",
       "words": 60
+    },
+    {
+      "date": "2026-11-22T15:47:04+00:00",
+      "title": "Bankrot bo'lgan savdogar 1 yildan keyin nima chiqardi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "natural",
+        "transition": "smoothleft",
+        "caption": "center_pop",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "hyIlSq80cIw",
+      "instagram_id": "17915448717482125",
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -2075,23 +2096,16 @@
     "pb11364",
     "pb26286",
     "pb326897",
-    "pb3936"
+    "pb3936",
+    "pb11606",
+    "pb238823",
+    "pb2818",
+    "pb71743",
+    "pb906"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "moody",
-      "transition": "fade",
-      "caption": "upper_bounce",
-      "hook": "outline_big",
-      "bar": "top",
-      "sound": "whoosh_hit",
-      "entrance": "flash",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "natural",
       "transition": "radial",
       "caption": "low_slide",
@@ -2558,6 +2572,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "smoothleft",
+      "caption": "center_pop",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
