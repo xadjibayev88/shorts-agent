@@ -1567,6 +1567,27 @@
       "video_id": "nR1gsqRRn3k",
       "instagram_id": "18100792079104302",
       "words": 59
+    },
+    {
+      "date": "2026-11-22T13:43:56+00:00",
+      "title": "14 yoshda maktabni tashlagan bola nimani qurdi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "dissolve",
+        "caption": "low_slide",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18129119344899716",
+      "words": 60
     }
   ],
   "used_pexels_ids": [
@@ -2049,23 +2070,16 @@
     "pb203449",
     "pb212453",
     "pb293788",
-    "pb41146"
+    "pb41146",
+    "pb1016",
+    "pb11364",
+    "pb26286",
+    "pb326897",
+    "pb3936"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "film",
-      "transition": "dissolve",
-      "caption": "center_pop",
-      "hook": "black_box",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "moody",
       "transition": "fade",
       "caption": "upper_bounce",
@@ -2532,6 +2546,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "dissolve",
+      "caption": "low_slide",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
