@@ -1525,6 +1525,27 @@
       "video_id": "PF_JaAZsbx4",
       "instagram_id": "17957788533314326",
       "words": 71
+    },
+    {
+      "date": "2026-11-22T08:56:38+00:00",
+      "title": "Kvartirada 18 kishi boshlagan sayt nimaga aylandi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "zoomin",
+        "caption": "center_shadow",
+        "hook": "top_slide",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18474920656143167",
+      "words": 64
     }
   ],
   "used_pexels_ids": [
@@ -1997,23 +2018,16 @@
     "pb12332",
     "pb15748",
     "pb197345",
-    "pb207982"
+    "pb207982",
+    "pb203404",
+    "pb214806",
+    "pb3013",
+    "pb335408",
+    "pb33632"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "vivid",
-      "transition": "circleopen",
-      "caption": "lower_fade",
-      "hook": "outline_big",
-      "bar": "none",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "breathe",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "warm",
       "transition": "zoomin",
       "caption": "center_shadow",
@@ -2480,6 +2494,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "zoomin",
+      "caption": "center_shadow",
+      "hook": "top_slide",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
