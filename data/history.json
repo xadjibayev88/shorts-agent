@@ -693,6 +693,27 @@
       "video_id": "L0Fc-cvn9Os",
       "instagram_id": null,
       "words": 46
+    },
+    {
+      "date": "2026-11-22T12:57:52+00:00",
+      "title": "Yulduzlararo fazoga birinchi bo'lib chiqqan apparat qaysi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "smoothup",
+        "caption": "middle_rise",
+        "hook": "outline_big",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "ZSDsh__bva8",
+      "instagram_id": null,
+      "words": 50
     }
   ],
   "used_pexels_ids": [
@@ -1018,7 +1039,12 @@
     "pb23403",
     "pb26085",
     "pb27539",
-    "pb42388"
+    "pb42388",
+    "pb1346",
+    "pb213804",
+    "pb40040",
+    "pb48563",
+    "pb54073"
   ],
   "genre_index": 4,
   "looks": [
@@ -1369,6 +1395,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "smoothup",
+      "caption": "middle_rise",
+      "hook": "outline_big",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
