@@ -1546,6 +1546,27 @@
       "video_id": null,
       "instagram_id": "18474920656143167",
       "words": 64
+    },
+    {
+      "date": "2026-11-22T12:09:14+00:00",
+      "title": "Tikuvchining shimdagi g'oyasi nimaga aylandi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "slideup",
+        "caption": "lower_fade",
+        "hook": "middle_zoom",
+        "bar": "bottom",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "nR1gsqRRn3k",
+      "instagram_id": "18100792079104302",
+      "words": 59
     }
   ],
   "used_pexels_ids": [
@@ -2023,23 +2044,16 @@
     "pb214806",
     "pb3013",
     "pb335408",
-    "pb33632"
+    "pb33632",
+    "pb11363",
+    "pb203449",
+    "pb212453",
+    "pb293788",
+    "pb41146"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "warm",
-      "transition": "zoomin",
-      "caption": "center_shadow",
-      "hook": "white_box",
-      "bar": "top",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain_leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "film",
       "transition": "dissolve",
       "caption": "center_pop",
@@ -2506,6 +2520,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "slideup",
+      "caption": "lower_fade",
+      "hook": "middle_zoom",
+      "bar": "bottom",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
