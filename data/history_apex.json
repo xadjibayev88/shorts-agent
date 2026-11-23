@@ -1651,6 +1651,27 @@
       "video_id": "BF6XzLri0iI",
       "instagram_id": "18195223867405638",
       "words": 66
+    },
+    {
+      "date": "2026-11-23T16:40:55+00:00",
+      "title": "3 dollarlik qo'g'irchoq birinchi yili qancha sotildi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "zoomin",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "thin",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "breathe",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18082002386736644",
+      "words": 60
     }
   ],
   "used_pexels_ids": [
@@ -2153,23 +2174,16 @@
     "pb159908",
     "pb298643",
     "pb4852",
-    "pb7118"
+    "pb7118",
+    "pb11414",
+    "pb161455",
+    "pb237643",
+    "pb28097",
+    "pb387404"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "film",
-      "transition": "fadeblack",
-      "caption": "lower_fade",
-      "hook": "white_box",
-      "bar": "none",
-      "sound": "whoosh_hit",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "vivid",
       "transition": "cut",
       "caption": "center_pop",
@@ -2636,6 +2650,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "zoomin",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "thin",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "breathe",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
