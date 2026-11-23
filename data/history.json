@@ -714,6 +714,27 @@
       "video_id": "ZSDsh__bva8",
       "instagram_id": null,
       "words": 50
+    },
+    {
+      "date": "2026-11-23T15:30:39+00:00",
+      "title": "8336 metr chuqurlikda suratga olingan baliq",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "fade",
+        "caption": "upper_bounce",
+        "hook": "white_box",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "oec6O6u6g18",
+      "instagram_id": null,
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -1044,7 +1065,12 @@
     "pb213804",
     "pb40040",
     "pb48563",
-    "pb54073"
+    "pb54073",
+    "pb12866",
+    "pb147384",
+    "pb216582",
+    "pb349452",
+    "pb4294"
   ],
   "genre_index": 4,
   "looks": [
@@ -1407,6 +1433,18 @@
       "texture": "grain_leak",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "film",
+      "transition": "fade",
+      "caption": "upper_bounce",
+      "hook": "white_box",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
