@@ -1609,6 +1609,27 @@
       "video_id": "hyIlSq80cIw",
       "instagram_id": "17915448717482125",
       "words": 50
+    },
+    {
+      "date": "2026-11-23T09:57:04+00:00",
+      "title": "3 yoshda ko'zini jarohatlagan bola 15 yoshda nima yaratdi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "radial",
+        "caption": "center_pop",
+        "hook": "middle_zoom",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "18423734383158672",
+      "words": 64
     }
   ],
   "used_pexels_ids": [
@@ -2101,23 +2122,16 @@
     "pb238823",
     "pb2818",
     "pb71743",
-    "pb906"
+    "pb906",
+    "pb103196",
+    "pb135877",
+    "pb140593",
+    "pb275",
+    "pb41392"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "natural",
-      "transition": "radial",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "none",
-      "sound": "whoosh",
-      "entrance": "blur",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "warm",
       "transition": "hblur",
       "caption": "center_shadow",
@@ -2584,6 +2598,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "radial",
+      "caption": "center_pop",
+      "hook": "middle_zoom",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
