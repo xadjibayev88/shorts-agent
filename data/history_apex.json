@@ -1630,6 +1630,27 @@
       "video_id": null,
       "instagram_id": "18423734383158672",
       "words": 64
+    },
+    {
+      "date": "2026-11-23T13:50:44+00:00",
+      "title": "500 dollarga sotilgan patent qaysi o'yinni tug'di...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "wipeup",
+        "caption": "lower_fade",
+        "hook": "white_box",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "BF6XzLri0iI",
+      "instagram_id": "18195223867405638",
+      "words": 66
     }
   ],
   "used_pexels_ids": [
@@ -2127,23 +2148,16 @@
     "pb135877",
     "pb140593",
     "pb275",
-    "pb41392"
+    "pb41392",
+    "pb153460",
+    "pb159908",
+    "pb298643",
+    "pb4852",
+    "pb7118"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "warm",
-      "transition": "hblur",
-      "caption": "center_shadow",
-      "hook": "black_box",
-      "bar": "top",
-      "sound": "whoosh_riser",
-      "entrance": "flash",
-      "texture": "breathe",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "film",
       "transition": "fadeblack",
       "caption": "lower_fade",
@@ -2610,6 +2624,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "wipeup",
+      "caption": "lower_fade",
+      "hook": "white_box",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
