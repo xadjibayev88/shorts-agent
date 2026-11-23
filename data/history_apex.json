@@ -1672,6 +1672,27 @@
       "video_id": null,
       "instagram_id": "18082002386736644",
       "words": 60
+    },
+    {
+      "date": "2026-11-23T19:37:32+00:00",
+      "title": "Dunyo o'ynagan o'yin muallifi 12 yil mualliflik haqi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "teal_orange",
+        "transition": "cut",
+        "caption": "upper_bounce",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh_riser",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "qmKPqLDWyu0",
+      "instagram_id": "18133324942699063",
+      "words": 73
     }
   ],
   "used_pexels_ids": [
@@ -2179,23 +2200,16 @@
     "pb161455",
     "pb237643",
     "pb28097",
-    "pb387404"
+    "pb387404",
+    "pb180777",
+    "pb24603",
+    "pb347568",
+    "pb51961",
+    "pb63974"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "vivid",
-      "transition": "cut",
-      "caption": "center_pop",
-      "hook": "outline_big",
-      "bar": "bottom",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "moody",
       "transition": "slideup",
       "caption": "low_slide",
@@ -2662,6 +2676,18 @@
       "texture": "breathe",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "cut",
+      "caption": "upper_bounce",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh_riser",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
