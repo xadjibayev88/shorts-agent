@@ -735,6 +735,27 @@
       "video_id": "oec6O6u6g18",
       "instagram_id": null,
       "words": 49
+    },
+    {
+      "date": "2026-11-24T15:23:51+00:00",
+      "title": "12 xil rang retseptori bor jonzot ranglarni qanday ko'radi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "cool",
+        "transition": "hblur",
+        "caption": "lower_fade",
+        "hook": "top_slide",
+        "bar": "bottom",
+        "sound": "whoosh_riser",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "CHczJf9E3Sw",
+      "instagram_id": null,
+      "words": 55
     }
   ],
   "used_pexels_ids": [
@@ -1070,7 +1091,12 @@
     "pb147384",
     "pb216582",
     "pb349452",
-    "pb4294"
+    "pb4294",
+    "pb11713",
+    "pb14791",
+    "pb155563",
+    "pb277495",
+    "pb6636"
   ],
   "genre_index": 4,
   "looks": [
@@ -1445,6 +1471,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "hblur",
+      "caption": "lower_fade",
+      "hook": "top_slide",
+      "bar": "bottom",
+      "sound": "whoosh_riser",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
