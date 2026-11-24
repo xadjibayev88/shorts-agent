@@ -1693,6 +1693,27 @@
       "video_id": "qmKPqLDWyu0",
       "instagram_id": "18133324942699063",
       "words": 73
+    },
+    {
+      "date": "2026-11-24T11:46:05+00:00",
+      "title": "Traktor yasagan odam 15 yildan keyin nima qurdi...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "film",
+        "transition": "smoothup",
+        "caption": "low_slide",
+        "hook": "middle_zoom",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": null,
+      "instagram_id": "17918819946541715",
+      "words": 61
     }
   ],
   "used_pexels_ids": [
@@ -2205,23 +2226,16 @@
     "pb24603",
     "pb347568",
     "pb51961",
-    "pb63974"
+    "pb63974",
+    "pb1295",
+    "pb13596",
+    "pb232561",
+    "pb41388",
+    "pb57993"
   ],
   "genre_index": 8,
   "looks": [
     {
-      "grade": "moody",
-      "transition": "slideup",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "thin",
-      "sound": "whoosh_riser",
-      "entrance": "flash",
-      "texture": "grain",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "cool",
       "transition": "dissolve",
       "caption": "center_shadow",
@@ -2688,6 +2702,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "smoothup",
+      "caption": "low_slide",
+      "hook": "middle_zoom",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
