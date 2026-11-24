@@ -1735,6 +1735,27 @@
       "video_id": "DGopsvGhWHE",
       "instagram_id": "18032777117691620",
       "words": 64
+    },
+    {
+      "date": "2026-11-24T19:14:09+00:00",
+      "title": "Telefon yaqinida bo'lish diqqatni qanday o'g'irlaydi",
+      "genre": "diqqatni jamlash va telefon qaramligidan qutulish",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "vivid",
+        "transition": "wipeup",
+        "caption": "center_shadow",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "azO-sRa-ty8",
+      "instagram_id": "18350684923260745",
+      "words": 49
     }
   ],
   "used_pexels_ids": [
@@ -2259,23 +2280,17 @@
     "pb189731",
     "pb218504",
     "pb36888",
-    "pb45986"
+    "pb45986",
+    "pb126557",
+    "pb136259",
+    "pb189018",
+    "pb19600",
+    "pb233390",
+    "pb81241"
   ],
-  "genre_index": 9,
+  "genre_index": 10,
   "looks": [
     {
-      "grade": "natural",
-      "transition": "radial",
-      "caption": "middle_rise",
-      "hook": "black_box",
-      "bar": "thin",
-      "sound": "hit",
-      "entrance": "punch",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
-    {
       "grade": "vivid",
       "transition": "hblur",
       "caption": "lower_fade",
@@ -2742,6 +2757,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "vivid",
+      "transition": "wipeup",
+      "caption": "center_shadow",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
