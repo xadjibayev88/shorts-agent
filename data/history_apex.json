@@ -1714,6 +1714,27 @@
       "video_id": null,
       "instagram_id": "17918819946541715",
       "words": 61
+    },
+    {
+      "date": "2026-11-24T14:31:33+00:00",
+      "title": "Sotuvda eng katta xato: gapirish emas, tinglash",
+      "genre": "sotuv va muzokara bo'yicha oddiy maslahat",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "warm",
+        "transition": "fadeblack",
+        "caption": "lower_fade",
+        "hook": "white_box",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": "DGopsvGhWHE",
+      "instagram_id": "18032777117691620",
+      "words": 64
     }
   ],
   "used_pexels_ids": [
@@ -2231,23 +2252,18 @@
     "pb13596",
     "pb232561",
     "pb41388",
-    "pb57993"
+    "pb57993",
+    "pb133077",
+    "pb137254",
+    "pb1631",
+    "pb189731",
+    "pb218504",
+    "pb36888",
+    "pb45986"
   ],
-  "genre_index": 8,
+  "genre_index": 9,
   "looks": [
     {
-      "grade": "cool",
-      "transition": "dissolve",
-      "caption": "center_shadow",
-      "hook": "white_box",
-      "bar": "bottom",
-      "sound": "whoosh",
-      "entrance": "blur",
-      "texture": "grain_leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "natural",
       "transition": "radial",
       "caption": "middle_rise",
@@ -2714,6 +2730,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "fadeblack",
+      "caption": "lower_fade",
+      "hook": "white_box",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
