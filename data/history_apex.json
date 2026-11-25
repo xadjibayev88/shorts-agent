@@ -1756,6 +1756,27 @@
       "video_id": "azO-sRa-ty8",
       "instagram_id": "18350684923260745",
       "words": 49
+    },
+    {
+      "date": "2026-11-25T10:37:49+00:00",
+      "title": "Jamg'armani maosh oshgandan keyinga qoldirish xatosi",
+      "genre": "pul bilan bog'liq foydali odat (tejash, xarajatni nazorat qilish, jamg'arma)",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "natural",
+        "transition": "smoothleft",
+        "caption": "upper_bounce",
+        "hook": "top_slide",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "punch",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18578259529076952",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -2286,23 +2307,18 @@
     "pb189018",
     "pb19600",
     "pb233390",
-    "pb81241"
+    "pb81241",
+    "pb103",
+    "pb117",
+    "pb192281",
+    "pb2301",
+    "pb326898",
+    "pb44860",
+    "pb4899"
   ],
-  "genre_index": 10,
+  "genre_index": 1,
   "looks": [
     {
-      "grade": "vivid",
-      "transition": "hblur",
-      "caption": "lower_fade",
-      "hook": "outline_big",
-      "bar": "bottom",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "breathe",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
-    {
       "grade": "warm",
       "transition": "cut",
       "caption": "center_pop",
@@ -2769,6 +2785,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "smoothleft",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "punch",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
