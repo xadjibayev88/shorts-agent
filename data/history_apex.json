@@ -1777,6 +1777,27 @@
       "video_id": null,
       "instagram_id": "18578259529076952",
       "words": 53
+    },
+    {
+      "date": "2026-11-25T13:48:10+00:00",
+      "title": "Nega Stiv Jobs mahsulotlarni to'rttaga qisqartirdi",
+      "genre": "mashhur tadbirkorning haqiqiy hayotidan bitta saboq",
+      "format": "SAVOL-JAVOB",
+      "look": {
+        "grade": "film",
+        "transition": "dissolve",
+        "caption": "center_shadow",
+        "hook": "middle_zoom",
+        "bar": "bottom",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "uBFUs3iFlVs",
+      "instagram_id": "17903280111613266",
+      "words": 51
     }
   ],
   "used_pexels_ids": [
@@ -2314,22 +2335,17 @@
     "pb2301",
     "pb326898",
     "pb44860",
-    "pb4899"
+    "pb4899",
+    "pb151085",
+    "pb168344",
+    "pb173211",
+    "pb3899",
+    "pb63040",
+    "pb82130",
+    "pb87050"
   ],
-  "genre_index": 1,
+  "genre_index": 2,
   "looks": [
-    {
-      "grade": "warm",
-      "transition": "cut",
-      "caption": "center_pop",
-      "hook": "top_slide",
-      "bar": "top",
-      "sound": "whoosh_hit",
-      "entrance": "flash",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "moody",
       "transition": "wipeup",
@@ -2797,6 +2813,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "dissolve",
+      "caption": "center_shadow",
+      "hook": "middle_zoom",
+      "bar": "bottom",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
