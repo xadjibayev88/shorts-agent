@@ -756,6 +756,27 @@
       "video_id": "CHczJf9E3Sw",
       "instagram_id": null,
       "words": 55
+    },
+    {
+      "date": "2026-11-25T15:03:46+00:00",
+      "title": "Kosmosdan ko'rinadigan narsani mitti jonzotlar qurgan...",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "vivid",
+        "transition": "cut",
+        "caption": "center_pop",
+        "hook": "middle_zoom",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "96X3QXDUh3I",
+      "instagram_id": null,
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -1096,7 +1117,11 @@
     "pb14791",
     "pb155563",
     "pb277495",
-    "pb6636"
+    "pb6636",
+    "pb26819",
+    "pb33014",
+    "pb386226",
+    "pb67358"
   ],
   "genre_index": 4,
   "looks": [
@@ -1483,6 +1508,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "cut",
+      "caption": "center_pop",
+      "hook": "middle_zoom",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
