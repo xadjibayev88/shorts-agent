@@ -1819,6 +1819,27 @@
       "video_id": null,
       "instagram_id": "18004340840814158",
       "words": 32
+    },
+    {
+      "date": "2026-11-25T18:19:43+00:00",
+      "title": "Biznes boshlashda eng katta xato: bozorni tekshirmaslik",
+      "genre": "biznes boshlashdagi keng tarqalgan xato va undan qochish",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "teal_orange",
+        "transition": "fade",
+        "caption": "center_pop",
+        "hook": "white_box",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "FwCMXblaz5g",
+      "instagram_id": "18114919721247668",
+      "words": 41
     }
   ],
   "used_pexels_ids": [
@@ -2367,22 +2388,15 @@
     "pb148050",
     "pb155588",
     "pb1906",
-    "pb35535"
+    "pb35535",
+    "pb139",
+    "pb20564",
+    "pb31106",
+    "pb349091",
+    "pb5635"
   ],
-  "genre_index": 3,
+  "genre_index": 4,
   "looks": [
-    {
-      "grade": "film",
-      "transition": "circleopen",
-      "caption": "middle_rise",
-      "hook": "outline_big",
-      "bar": "thin",
-      "sound": "hit",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "vivid",
       "transition": "smoothup",
@@ -2850,6 +2864,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "fade",
+      "caption": "center_pop",
+      "hook": "white_box",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
