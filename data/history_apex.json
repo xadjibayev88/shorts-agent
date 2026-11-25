@@ -1798,6 +1798,27 @@
       "video_id": "uBFUs3iFlVs",
       "instagram_id": "17903280111613266",
       "words": 51
+    },
+    {
+      "date": "2026-11-25T16:18:49+00:00",
+      "title": "Mikki Maussning erta turish sirri",
+      "genre": "intizom va erta turish haqida amaliy maslahat",
+      "format": "TARIXIY VOQEA",
+      "look": {
+        "grade": "warm",
+        "transition": "circleopen",
+        "caption": "lower_fade",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18004340840814158",
+      "words": 32
     }
   ],
   "used_pexels_ids": [
@@ -2342,22 +2363,14 @@
     "pb3899",
     "pb63040",
     "pb82130",
-    "pb87050"
+    "pb87050",
+    "pb148050",
+    "pb155588",
+    "pb1906",
+    "pb35535"
   ],
-  "genre_index": 2,
+  "genre_index": 3,
   "looks": [
-    {
-      "grade": "moody",
-      "transition": "wipeup",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "bottom",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "film",
       "transition": "circleopen",
@@ -2825,6 +2838,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "warm",
+      "transition": "circleopen",
+      "caption": "lower_fade",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
