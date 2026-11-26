@@ -777,6 +777,27 @@
       "video_id": "96X3QXDUh3I",
       "instagram_id": null,
       "words": 47
+    },
+    {
+      "date": "2026-11-26T14:34:37+00:00",
+      "title": "Kosmik stansiyada kuniga 16 marta quyosh chiqadi",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "warm",
+        "transition": "slideup",
+        "caption": "low_slide",
+        "hook": "outline_big",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "flash",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "none"
+      },
+      "video_id": "zRm2uIOXhf4",
+      "instagram_id": null,
+      "words": 45
     }
   ],
   "used_pexels_ids": [
@@ -1121,7 +1142,11 @@
     "pb26819",
     "pb33014",
     "pb386226",
-    "pb67358"
+    "pb67358",
+    "pb159306",
+    "pb21116",
+    "pb8884",
+    "pb92481"
   ],
   "genre_index": 4,
   "looks": [
@@ -1520,6 +1545,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "slideup",
+      "caption": "low_slide",
+      "hook": "outline_big",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "flash",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "none"
     }
   ]
 }
