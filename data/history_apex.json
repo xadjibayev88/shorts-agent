@@ -1861,6 +1861,27 @@
       "video_id": null,
       "instagram_id": "18122135815788637",
       "words": 52
+    },
+    {
+      "date": "2026-11-26T13:29:29+00:00",
+      "title": "Kuniga 1% yaxshilanish: 38 baravar o'sish siri",
+      "genre": "murakkab foiz va sabr kuchi oddiy misolda",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "film",
+        "transition": "smoothleft",
+        "caption": "center_shadow",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "hit",
+        "entrance": "flash",
+        "texture": "leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "YoHbLVIAPXc",
+      "instagram_id": "18115761938615112",
+      "words": 38
     }
   ],
   "used_pexels_ids": [
@@ -2419,22 +2440,15 @@
     "pb231752",
     "pb33742",
     "pb42854",
-    "pb87592"
+    "pb87592",
+    "pb154834",
+    "pb1656",
+    "pb2119",
+    "pb28446",
+    "pb3608"
   ],
-  "genre_index": 5,
+  "genre_index": 6,
   "looks": [
-    {
-      "grade": "natural",
-      "transition": "fade",
-      "caption": "center_pop",
-      "hook": "white_box",
-      "bar": "top",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "grain",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "cool",
       "transition": "slideup",
@@ -2902,6 +2916,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "film",
+      "transition": "smoothleft",
+      "caption": "center_shadow",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "hit",
+      "entrance": "flash",
+      "texture": "leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
