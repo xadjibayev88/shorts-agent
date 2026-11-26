@@ -1903,6 +1903,27 @@
       "video_id": null,
       "instagram_id": "18348438733274989",
       "words": 52
+    },
+    {
+      "date": "2026-11-26T18:01:18+00:00",
+      "title": "12 marta rad etish: Rowlingning sabri siri",
+      "genre": "muvaffaqiyatsizlikdan keyin qayta turish haqida haqiqiy misol",
+      "format": "BITTA RAQAM",
+      "look": {
+        "grade": "teal_orange",
+        "transition": "circleopen",
+        "caption": "lower_fade",
+        "hook": "middle_zoom",
+        "bar": "thin",
+        "sound": "whoosh_riser",
+        "entrance": "flash",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "FMpLyCNOycU",
+      "instagram_id": "18130917136656401",
+      "words": 56
     }
   ],
   "used_pexels_ids": [
@@ -2472,22 +2493,16 @@
     "pb272633",
     "pb84005",
     "pb88686",
-    "pb91189"
+    "pb91189",
+    "pb143683",
+    "pb148597",
+    "pb224387",
+    "pb5269",
+    "pb7102",
+    "pb8698"
   ],
-  "genre_index": 7,
+  "genre_index": 8,
   "looks": [
-    {
-      "grade": "warm",
-      "transition": "dissolve",
-      "caption": "low_slide",
-      "hook": "top_slide",
-      "bar": "none",
-      "sound": "hit",
-      "entrance": "flash",
-      "texture": "leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "film",
       "transition": "fadeblack",
@@ -2955,6 +2970,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "teal_orange",
+      "transition": "circleopen",
+      "caption": "lower_fade",
+      "hook": "middle_zoom",
+      "bar": "thin",
+      "sound": "whoosh_riser",
+      "entrance": "flash",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
