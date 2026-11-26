@@ -1882,6 +1882,27 @@
       "video_id": "YoHbLVIAPXc",
       "instagram_id": "18115761938615112",
       "words": 38
+    },
+    {
+      "date": "2026-11-26T15:58:18+00:00",
+      "title": "Kitob o'qishda eng katta xato va to'g'ri yo'l",
+      "genre": "muvaffaqiyatli odamlarning kitob o'qish odati",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "cool",
+        "transition": "dissolve",
+        "caption": "upper_bounce",
+        "hook": "white_box",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18348438733274989",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -2445,22 +2466,16 @@
     "pb1656",
     "pb2119",
     "pb28446",
-    "pb3608"
+    "pb3608",
+    "pb124252",
+    "pb1310",
+    "pb272633",
+    "pb84005",
+    "pb88686",
+    "pb91189"
   ],
-  "genre_index": 6,
+  "genre_index": 7,
   "looks": [
-    {
-      "grade": "cool",
-      "transition": "slideup",
-      "caption": "lower_fade",
-      "hook": "outline_big",
-      "bar": "bottom",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain_leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "warm",
       "transition": "dissolve",
@@ -2928,6 +2943,18 @@
       "texture": "leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "cool",
+      "transition": "dissolve",
+      "caption": "upper_bounce",
+      "hook": "white_box",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
