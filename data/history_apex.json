@@ -1840,6 +1840,27 @@
       "video_id": "FwCMXblaz5g",
       "instagram_id": "18114919721247668",
       "words": 41
+    },
+    {
+      "date": "2026-11-26T10:08:20+00:00",
+      "title": "Eisenhower matritsasi bilan vaqtni ikki baravarga oshiring",
+      "genre": "vaqtni boshqarish usuli (masalan, Pareto qoidasi yoki Eyzenxauer matritsasi)",
+      "format": "IKKI ODAM",
+      "look": {
+        "grade": "natural",
+        "transition": "cut",
+        "caption": "middle_rise",
+        "hook": "top_slide",
+        "bar": "top",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18122135815788637",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -2393,22 +2414,15 @@
     "pb20564",
     "pb31106",
     "pb349091",
-    "pb5635"
+    "pb5635",
+    "pb217843",
+    "pb231752",
+    "pb33742",
+    "pb42854",
+    "pb87592"
   ],
-  "genre_index": 4,
+  "genre_index": 5,
   "looks": [
-    {
-      "grade": "vivid",
-      "transition": "smoothup",
-      "caption": "center_shadow",
-      "hook": "black_box",
-      "bar": "bottom",
-      "sound": "whoosh_hit",
-      "entrance": "punch",
-      "texture": "breathe",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "natural",
       "transition": "fade",
@@ -2876,6 +2890,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "natural",
+      "transition": "cut",
+      "caption": "middle_rise",
+      "hook": "top_slide",
+      "bar": "top",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
