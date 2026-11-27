@@ -1966,6 +1966,27 @@
       "video_id": "0YvRkjVYNiQ",
       "instagram_id": "18109182344360668",
       "words": 40
+    },
+    {
+      "date": "2026-11-27T15:48:34+00:00",
+      "title": "Pulim qayerga ketdi? Bitta xarajatni yozib ko'ring",
+      "genre": "pul bilan bog'liq foydali odat (tejash, xarajatni nazorat qilish, jamg'arma)",
+      "format": "SAVOL-JAVOB",
+      "look": {
+        "grade": "film",
+        "transition": "zoomin",
+        "caption": "lower_fade",
+        "hook": "middle_zoom",
+        "bar": "top",
+        "sound": "hit",
+        "entrance": "blur",
+        "texture": "leak",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "18137279965786167",
+      "words": 53
     }
   ],
   "used_pexels_ids": [
@@ -2554,22 +2575,17 @@
     "pb231259",
     "pb23841",
     "pb24333",
-    "pb47743"
+    "pb47743",
+    "pb106379",
+    "pb11066",
+    "pb111279",
+    "pb168485",
+    "pb238826",
+    "pb275498",
+    "pb96"
   ],
-  "genre_index": 10,
+  "genre_index": 1,
   "looks": [
-    {
-      "grade": "moody",
-      "transition": "radial",
-      "caption": "middle_rise",
-      "hook": "top_slide",
-      "bar": "none",
-      "sound": "whoosh_hit",
-      "entrance": "flash",
-      "texture": "leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "vivid",
       "transition": "circleopen",
@@ -3037,6 +3053,18 @@
       "texture": "grain",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "film",
+      "transition": "zoomin",
+      "caption": "lower_fade",
+      "hook": "middle_zoom",
+      "bar": "top",
+      "sound": "hit",
+      "entrance": "blur",
+      "texture": "leak",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
