@@ -1987,6 +1987,27 @@
       "video_id": null,
       "instagram_id": "18137279965786167",
       "words": 53
+    },
+    {
+      "date": "2026-11-27T17:45:33+00:00",
+      "title": "Oltmish ikki yoshda boshlagan tadbirkor",
+      "genre": "mashhur tadbirkorning haqiqiy hayotidan bitta saboq",
+      "format": "XATO VA SABOQ",
+      "look": {
+        "grade": "cool",
+        "transition": "cut",
+        "caption": "upper_bounce",
+        "hook": "top_slide",
+        "bar": "thin",
+        "sound": "whoosh",
+        "entrance": "punch",
+        "texture": "grain_leak",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "wDlRpmPMt8U",
+      "instagram_id": "17885257491630649",
+      "words": 42
     }
   ],
   "used_pexels_ids": [
@@ -2582,22 +2603,16 @@
     "pb168485",
     "pb238826",
     "pb275498",
-    "pb96"
+    "pb96",
+    "pb11613",
+    "pb11657",
+    "pb126924",
+    "pb197698",
+    "pb220480",
+    "pb253997"
   ],
-  "genre_index": 1,
+  "genre_index": 2,
   "looks": [
-    {
-      "grade": "vivid",
-      "transition": "circleopen",
-      "caption": "low_slide",
-      "hook": "middle_zoom",
-      "bar": "top",
-      "sound": "hit",
-      "entrance": "blur",
-      "texture": "breathe",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "natural",
       "transition": "zoomin",
@@ -3065,6 +3080,18 @@
       "texture": "leak",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "cool",
+      "transition": "cut",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "thin",
+      "sound": "whoosh",
+      "entrance": "punch",
+      "texture": "grain_leak",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
