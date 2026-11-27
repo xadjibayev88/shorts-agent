@@ -798,6 +798,27 @@
       "video_id": "zRm2uIOXhf4",
       "instagram_id": null,
       "words": 45
+    },
+    {
+      "date": "2026-11-27T14:28:13+00:00",
+      "title": "Tanga ustiga bemalol sig'adigan umurtqali hayvon qaysi?",
+      "genre": null,
+      "format": null,
+      "look": {
+        "grade": "moody",
+        "transition": "smoothup",
+        "caption": "upper_bounce",
+        "hook": "top_slide",
+        "bar": "none",
+        "sound": "whoosh_hit",
+        "entrance": "blur",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "zoom"
+      },
+      "video_id": "Wh1sx8hM51k",
+      "instagram_id": null,
+      "words": 47
     }
   ],
   "used_pexels_ids": [
@@ -1146,7 +1167,11 @@
     "pb159306",
     "pb21116",
     "pb8884",
-    "pb92481"
+    "pb92481",
+    "pb11721",
+    "pb2827",
+    "pb39124",
+    "pb39270"
   ],
   "genre_index": 4,
   "looks": [
@@ -1557,6 +1582,18 @@
       "texture": "grain",
       "emphasis": "spring",
       "ending": "none"
+    },
+    {
+      "grade": "moody",
+      "transition": "smoothup",
+      "caption": "upper_bounce",
+      "hook": "top_slide",
+      "bar": "none",
+      "sound": "whoosh_hit",
+      "entrance": "blur",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "zoom"
     }
   ]
 }
