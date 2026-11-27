@@ -1945,6 +1945,27 @@
       "video_id": null,
       "instagram_id": "17990893341087114",
       "words": 52
+    },
+    {
+      "date": "2026-11-27T13:22:46+00:00",
+      "title": "Telefonni yashirish: diqqatni qaytarish usuli",
+      "genre": "diqqatni jamlash va telefon qaramligidan qutulish",
+      "format": "KICHIK QADAM",
+      "look": {
+        "grade": "warm",
+        "transition": "fadeblack",
+        "caption": "middle_rise",
+        "hook": "black_box",
+        "bar": "bottom",
+        "sound": "whoosh_hit",
+        "entrance": "punch",
+        "texture": "grain",
+        "emphasis": "pop",
+        "ending": "none"
+      },
+      "video_id": "0YvRkjVYNiQ",
+      "instagram_id": "18109182344360668",
+      "words": 40
     }
   ],
   "used_pexels_ids": [
@@ -2526,22 +2547,17 @@
     "pb154833",
     "pb227113",
     "pb65543",
-    "pb8281"
+    "pb8281",
+    "pb110924",
+    "pb130212",
+    "pb180",
+    "pb231259",
+    "pb23841",
+    "pb24333",
+    "pb47743"
   ],
-  "genre_index": 9,
+  "genre_index": 10,
   "looks": [
-    {
-      "grade": "teal_orange",
-      "transition": "cut",
-      "caption": "upper_bounce",
-      "hook": "black_box",
-      "bar": "thin",
-      "sound": "whoosh",
-      "entrance": "punch",
-      "texture": "grain_leak",
-      "emphasis": "pop",
-      "ending": "none"
-    },
     {
       "grade": "moody",
       "transition": "radial",
@@ -3009,6 +3025,18 @@
       "texture": "breathe",
       "emphasis": "spring",
       "ending": "zoom"
+    },
+    {
+      "grade": "warm",
+      "transition": "fadeblack",
+      "caption": "middle_rise",
+      "hook": "black_box",
+      "bar": "bottom",
+      "sound": "whoosh_hit",
+      "entrance": "punch",
+      "texture": "grain",
+      "emphasis": "pop",
+      "ending": "none"
     }
   ]
 }
