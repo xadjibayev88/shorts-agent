@@ -1,0 +1,86 @@
+{
+  "title": "Kechgi tayyorgarlik ertalabki qarorni olib tashlaydi",
+  "hook": "KECHDA BITTA QADAM",
+  "thumbnail_text": "ERTALAB QAROR YO'Q",
+  "scenes": [
+    {
+      "text": "Ikki kishidan farqni nima hal qiladi?",
+      "keywords": "two people sunrise"
+    },
+    {
+      "text": "Maqsad bir xil bo'lsa, farq odatda.",
+      "keywords": "woman morning stretch"
+    },
+    {
+      "text": "Biri kechqurun tayyorgarlik ko'radi. Ertalab oson.",
+      "keywords": "man night preparation"
+    },
+    {
+      "text": "Ikkinchisi ertalab qaror qilishga urinadi. Vaqt ketadi.",
+      "keywords": "man alarm struggle"
+    },
+    {
+      "text": "Tayyor kiyim qarorni osonlashtiradi. Harakat tezlashadi.",
+      "keywords": "shoes by door"
+    },
+    {
+      "text": "Tongdagi qaror ko'p vaqt ketadi. U charchatadi.",
+      "keywords": "clock morning closeup"
+    },
+    {
+      "text": "Kechgi qaror irodani tejaydi. Ertalab kurash kamayadi.",
+      "keywords": "journal warm lamp"
+    },
+    {
+      "text": "Muhitni oldindan tayyorlash kerak. Bu kichik qadam.",
+      "keywords": "desk night flatlay"
+    },
+    {
+      "text": "Oyoq kiyimi eshik oldida tursin.",
+      "keywords": "sneakers doorway"
+    },
+    {
+      "text": "Daftar va qalam stol ustida bo'lsin.",
+      "keywords": "notebook pen desk"
+    },
+    {
+      "text": "Kiyim yoki mashg'ulot libosini oldinga qo'ying.",
+      "keywords": "clothes ready flatlay"
+    },
+    {
+      "text": "Bugun uxlagandan oldin bitta narsani tayyorlang.",
+      "keywords": "hands phone alarm"
+    },
+    {
+      "text": "Siz qaysi birini tanlaysiz: kechqurun tayyorlash yoki ertalab kurashish? Izohda bitta so'z yozing.",
+      "keywords": "hiker summit sunrise"
+    }
+  ],
+  "description": "Bu qisqa video erta turishni osonlashtirish uchun kechqurun bitta narsani tayyorlashni maslahat beradi. Ikki kishining farqi muhit va oldindan qarorda. Bugun uxlagandan oldin kiyim yoki daftarni oldinga qo'ying.\n\nManba: Umumiy maslahat",
+  "source": "Umumiy maslahat",
+  "tags": [
+    "intizom",
+    "erta turish",
+    "odat",
+    "muhit dizayni",
+    "qaror",
+    "kechgi tayyorgarlik",
+    "discipline",
+    "morning routine",
+    "habit",
+    "environment design",
+    "decision",
+    "shorts"
+  ],
+  "hashtags": [
+    "#intizom",
+    "#ertaTurish",
+    "#odat",
+    "#qaror"
+  ],
+  "word_count": 88,
+  "verified_by": "omniroute/auto, groq/openai/gpt-oss-120b",
+  "genre": "intizom va erta turish haqida amaliy maslahat",
+  "format": "IKKI ODAM",
+  "model": "kilo/baidu/ernie-5.5-flash-preview:free"
+}

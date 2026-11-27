@@ -1,0 +1,75 @@
+{
+  "title": "Vaqtni boshqarish: uchta muhim ish usuli",
+  "hook": "ENG MUHIM ISH",
+  "thumbnail_text": "BIRINCHI QADAM",
+  "scenes": [
+    {
+      "text": "Bugun eng muhim ishingiz qaysi?",
+      "keywords": "young man thinking"
+    },
+    {
+      "text": "Avval hamma ishni bir varaqqa yozing. Shunda tanlash osonlashadi.",
+      "keywords": "hands writing fast"
+    },
+    {
+      "text": "Keyin o'zingizga savol bering: qaysi bittasi eng katta natija beradi?",
+      "keywords": "sticky notes planning"
+    },
+    {
+      "text": "Javob bitta bo'lsin. Uchta ish tanlang, qolganini keyinga suring.",
+      "keywords": "woman planner desk"
+    },
+    {
+      "text": "Birinchi ishni ertalab, telefonni uzoqqa qo'yib boshlang.",
+      "keywords": "phone silent sunrise"
+    },
+    {
+      "text": "Yigirma besh daqiqa faqat shu ishga bering. Taymer tugagach, qisqa tanaffus qiling.",
+      "keywords": "focused man timer"
+    },
+    {
+      "text": "Misol: hisobot yozish kerak bo'lsa, avval rejasini uch qator qilib yozing.",
+      "keywords": "typing laptop cafe"
+    },
+    {
+      "text": "Shunda qayerdan boshlashni bilasiz. Kechiktirish kamayadi.",
+      "keywords": "pen crossing checklist"
+    },
+    {
+      "text": "Kun oxirida bajarilgan uchta ishni belgilang. Ertangi birinchi ishni hozir yozib qo'ying.",
+      "keywords": "calendar planning closeup"
+    },
+    {
+      "text": "Siz qaysi birini tanlaysiz: reja yoki tartibsizlik? Izohda bitta so'z yozing.",
+      "keywords": "crossroads aerial drone"
+    }
+  ],
+  "description": "Ko'p ishni birdan boshlamaslik uchun uchta muhim vazifani tanlang. Avval eng katta natija beradigan ishga yigirma besh daqiqa ajrating. Ertangi birinchi ishni bugun yozib qo'ying.\n\nManba: Umumiy maslahat",
+  "source": "Umumiy maslahat",
+  "tags": [
+    "vaqtni boshqarish",
+    "time management",
+    "uchta ish",
+    "diqqat",
+    "focus",
+    "productivity",
+    "reja",
+    "planning",
+    "odat",
+    "habits",
+    "motivatsiya",
+    "shorts"
+  ],
+  "hashtags": [
+    "#vaqtniBoshqarish",
+    "#diqqat",
+    "#reja",
+    "#odat",
+    "#motivatsiya"
+  ],
+  "word_count": 92,
+  "verified_by": "groq/openai/gpt-oss-120b, kilo/baidu/ernie-5.5-flash-preview:free",
+  "genre": "vaqtni boshqarish usuli (masalan, Pareto qoidasi yoki Eyzenxauer matritsasi)",
+  "format": "SAVOL-JAVOB",
+  "model": "omniroute/auto"
+}

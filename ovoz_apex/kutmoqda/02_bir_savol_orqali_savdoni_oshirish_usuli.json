@@ -1,0 +1,79 @@
+{
+  "title": "Bir savol orqali savdoni oshirish usuli",
+  "hook": "KUCHLI SAVOL KUCHI",
+  "thumbnail_text": "SAVDO SIRRIdi",
+  "scenes": [
+    {
+      "text": "Mijozingiz bilan gaplashayotganda eng kichik xatoningizni bilasizmi?",
+      "keywords": "confused man looking at phone"
+    },
+    {
+      "text": "Ko'pchilik sotuvchi o'z mahsulotini taqdim etishga harakat qiladi.",
+      "keywords": "businessman talking aggressively"
+    },
+    {
+      "text": "Ammo haqiqiy muammolar odatda o'z-o'zidan aytilmaydi.",
+      "keywords": "woman thinking deeply cafe"
+    },
+    {
+      "text": "Eng samarali strategiya birorta narsani sotmaslikda emas.",
+      "keywords": "hands writing notes notebook"
+    },
+    {
+      "text": "U to'g'ri savolni berishda yotadi. Shunchaki biringni so'rang.",
+      "keywords": "close up eye contact serious"
+    },
+    {
+      "text": "Masalan: Bugun sizni qanday muammo tashvishga tushiradi?",
+      "keywords": "person listening attentively office"
+    },
+    {
+      "text": "Mijoz javob berayotganda, u nima kerakligini o'zi aytadi.",
+      "keywords": "woman speaking passionately desk"
+    },
+    {
+      "text": "Shunda siz keraksiz gaplarni to'xtatib, aniq yechim taklif qilasiz.",
+      "keywords": "shake hands deal closing"
+    },
+    {
+      "text": "Bu yondashuv ishonchni darhol oshiradi va savdoni tezlashtiradi.",
+      "keywords": "happy customer smiling shop"
+    },
+    {
+      "text": "Bugun uni sinab ko'ring. Natija sizni hayratga soladi.",
+      "keywords": "man checking results laptop"
+    },
+    {
+      "text": "Siz qaysi birini tanlaysiz: tinglash yoki gapirish? Izohda bitta so'z yozing.",
+      "keywords": "silhouette person decision crossroad"
+    }
+  ],
+  "description": "Biznes boshlashdagi eng keng tarqalgan xato ortiqcha gapirishdir. Bu videoda mijozni tirband qilmasdan, uning haqiqiy ehtiyoji aniqlashni o'rganasiz. Bugun qiladigan aniq qadam bilan savdoni oshiring.\n\nManba: Umumiy maslahat",
+  "source": "Umumiy maslahat",
+  "tags": [
+    "biznes",
+    "sotuv",
+    "motivatsiya",
+    "moliya",
+    "omoz",
+    "psixologiya",
+    "marketing",
+    "business",
+    "sales",
+    "tips",
+    "uzbek",
+    "shorts"
+  ],
+  "hashtags": [
+    "#biznes",
+    "#sotuv",
+    "#motivatsiya",
+    "#omoz",
+    "#biznistsirri"
+  ],
+  "word_count": 88,
+  "verified_by": "kilo/baidu/ernie-5.5-flash-preview:free",
+  "genre": "biznes boshlashdagi keng tarqalgan xato va undan qochish",
+  "format": "KICHIK QADAM",
+  "model": "groq/qwen/qwen3.8-27b"
+}
