@@ -92,7 +92,7 @@ Talablar:
 - Faqat haqiqiy ma'lumot: mashhur odam, kompaniya yoki raqam keltirsang, u aniq va tekshiriladigan bo'lsin. Iqtibosni faqat muallifi aniq bo'lsa ishlat. To'qima hikoya, soxta statistika, "milliarder bo'lasiz" kabi va'dalar YO'Q.
 - Moliyaviy maslahat berma: aniq aksiya, kripto yoki "pul ikki baravar bo'ladi" kabi gaplar yo'q. Odatlar, fikrlash, intizom, biznes saboqlari haqida gapir.
 - Til: sof, jonli o'zbek tili (lotin yozuvi). O' va G' uchun oddiy apostrof: o', g'. Inglizcha so'z aralashtirma.
-- Matn {min_words}-{max_words} so'z (ovozda 15-25 soniya).
+- Matn {min_words}-{max_words} so'z (ovozda {seconds} soniya).
 - 1-gap kuchli ilmoq: savol yoki kutilmagan fikr, 10 so'zdan oshmasin. Undov belgisi ishlatma.
 - Keyin: nega bu muhim, bitta misol yoki raqam, va bugun qilish mumkin bo'lgan bitta aniq qadam.
 - Oxirgi gap ikki variantli tanlov savoli, javobi bitta so'z (masalan: "Siz qaysi birini tanlaysiz: tejash yoki ishlash? Izohda bitta so'z yozing.").
@@ -530,6 +530,7 @@ def generate_story(cfg: dict, history: dict) -> dict:
         niche=cfg["channel"]["niche"], genre=genre,
         min_words=cfg["story"]["min_words"], max_words=cfg["story"]["max_words"],
         scenes_min=cfg["story"]["scenes_min"], scenes_max=cfg["story"]["scenes_max"],
+        seconds=cfg["story"].get("seconds", "15-25"),
         used="\n".join(f"- {t}" for t in used) or "- (hali yo'q)",
     )
     fmt = _pick_format(style, history)

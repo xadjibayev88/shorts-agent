@@ -18,10 +18,12 @@ channel:
   - sotuv va muzokara bo'yicha oddiy maslahat
   - diqqatni jamlash va telefon qaramligidan qutulish
 story:
-  min_words: 35
-  max_words: 55
-  scenes_min: 5
-  scenes_max: 8
+  # Egasi 2026-11-27: uzunroq video (45-60 s), o'z ovozida o'qiydi
+  min_words: 85
+  max_words: 120
+  seconds: 45-60
+  scenes_min: 8
+  scenes_max: 13
   history_avoid_last: 120
   opener: ''
   style: motivation
@@ -42,8 +44,11 @@ gemini:
   - gemini-3.7-flash
   temperature: 0.9
 tts:
-  # Egasi 2026-11-15: multfilm-studio dagi ovoz (Edge Sardor, to'g'ri o'/g' talaffuzi). "edge" ni olib tashlasangiz eski zanjir qaytadi.
-  engine: edge
+  # Egasi 2026-11-27: "tiniq ovoz, TTS emas" — egasi matnni o'zi o'qib yozadi (agent/recorded.py).
+  # Ovoz bo'lmasa video chiqmaydi. Eski kompyuter ovoziga qaytish: engine: edge
+  engine: recorded
+  recorded_dir: ovoz_apex
+  # Egasi 2026-11-15: multfilm-studio dagi ovoz (Edge Sardor, to'g'ri o'/g' talaffuzi) — 2026-11-27 dan ishlatilmaydi.
   # Zaxira: OmniVoice (bepul, GitHub'da CPU'da). Egasi tanlagan "B" erkak ovozidan klon. Notijorat litsenziya.
   omnivoice:
     enabled: true
@@ -63,7 +68,7 @@ video:
   width: 1080
   height: 1920
   fps: 30
-  max_duration: 28
+  max_duration: 62
   crf: 20
   preset: medium
   progress_bar: true
