@@ -1924,6 +1924,27 @@
       "video_id": "FMpLyCNOycU",
       "instagram_id": "18130917136656401",
       "words": 56
+    },
+    {
+      "date": "2026-11-27T10:14:36+00:00",
+      "title": "Muzokaralarda tinglashning kuchi: Mirroring texnikasi",
+      "genre": "sotuv va muzokara bo'yicha oddiy maslahat",
+      "format": "TARIXIY VOQEA",
+      "look": {
+        "grade": "vivid",
+        "transition": "fade",
+        "caption": "low_slide",
+        "hook": "outline_big",
+        "bar": "none",
+        "sound": "whoosh",
+        "entrance": "blur",
+        "texture": "breathe",
+        "emphasis": "spring",
+        "ending": "zoom"
+      },
+      "video_id": null,
+      "instagram_id": "17990893341087114",
+      "words": 52
     }
   ],
   "used_pexels_ids": [
@@ -2499,22 +2520,16 @@
     "pb224387",
     "pb5269",
     "pb7102",
-    "pb8698"
+    "pb8698",
+    "pb112429",
+    "pb137253",
+    "pb154833",
+    "pb227113",
+    "pb65543",
+    "pb8281"
   ],
-  "genre_index": 8,
+  "genre_index": 9,
   "looks": [
-    {
-      "grade": "film",
-      "transition": "fadeblack",
-      "caption": "center_shadow",
-      "hook": "white_box",
-      "bar": "top",
-      "sound": "whoosh_riser",
-      "entrance": "blur",
-      "texture": "leak",
-      "emphasis": "spring",
-      "ending": "zoom"
-    },
     {
       "grade": "teal_orange",
       "transition": "cut",
@@ -2982,6 +2997,18 @@
       "texture": "grain_leak",
       "emphasis": "pop",
       "ending": "none"
+    },
+    {
+      "grade": "vivid",
+      "transition": "fade",
+      "caption": "low_slide",
+      "hook": "outline_big",
+      "bar": "none",
+      "sound": "whoosh",
+      "entrance": "blur",
+      "texture": "breathe",
+      "emphasis": "spring",
+      "ending": "zoom"
     }
   ]
 }
