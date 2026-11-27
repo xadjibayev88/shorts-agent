@@ -70,9 +70,13 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     workdir = ROOT / "output" / stamp
     workdir.mkdir(parents=True, exist_ok=True)
 
-    # 1) Hikoya: qo'lda berilgan fayl > queue/ navbati > model yozadi
-    queued = None
-    if args.story:
+    # 1) Hikoya: egasining yozilgan ovozi bilan ssenariy > qo'lda berilgan fayl > queue/ navbati > model yozadi
+    queued, recorded = None, None
+    if cfg["tts"].get("engine") == "recorded":
+        from .recorded import next_ready
+        story, rec_json, rec_audio = next_ready(cfg)  # ovoz yo'q bo'lsa NoRecording
+        recorded = (rec_json, rec_audio)
+    elif args.story:
         story = validate(json.loads(Path(args.story).read_text(encoding="utf-8")), cfg)
     else:
         story, queued = next_queued(cfg, history)
@@ -83,7 +87,12 @@ def make_one(cfg: dict, history: dict, args) -> dict:
     # 2) Ovoz
     narration = " ".join(s["text"] for s in story["scenes"])
     voice = workdir / "voice.mp3"
-    words, dur = synthesize(narration, cfg, str(voice))
+    if recorded:
+        from .recorded import align, clean_audio
+        dur = clean_audio(recorded[1], voice)
+        words = align(narration, voice, dur)
+    else:
+        words, dur = synthesize(narration, cfg, str(voice))
 
     # 3) Kadrlar
     if args.no_stock:
@@ -141,6 +150,9 @@ def make_one(cfg: dict, history: dict, args) -> dict:
         history.setdefault("videos", []).append(record)
     if queued and published:  # sinov (--no-upload) navbatni sarflamaydi
         _move(queued, "done")
+    if recorded and published:
+        from .recorded import finish
+        finish(cfg, *recorded)
 
     # Joy tejash: oraliq fayllarni o'chiramiz
     if not args.keep_temp:
@@ -159,6 +171,8 @@ def main():
     ap.add_argument("--story", help="tayyor hikoya JSON fayli (Gemini'siz)")
     ap.add_argument("--keep-temp", action="store_true")
     ap.add_argument("--config")
+    ap.add_argument("--prepare", type=int, metavar="N",
+                    help="ovoz kutayotgan ssenariylar N taga yetguncha yangilarini yozish (video yasamaydi)")
     args = ap.parse_args()
 
     if not shutil.which("ffmpeg"):
@@ -168,17 +182,30 @@ def main():
 
     cfg = load_config(args.config)
     history = load_history()
+    name = cfg.get("channel", {}).get("name", "Shorts")
+    if args.prepare is not None:
+        from .recorded import prepare
+        made = prepare(cfg, history, args.prepare)
+        save_history(history)
+        for js in made:
+            telegram(f"🎙 {name}: yangi ssenariy ovoz kutmoqda — {js.stem}.txt\n\n" + js.with_suffix(".txt").read_text(encoding="utf-8")[:3500])
+        log.info("%d ta yangi ssenariy yozildi", len(made))
+        return
+    from .recorded import NoRecording
     ok, fail = 0, 0
     for n in range(args.count):
         try:
             log.info("========== Video %d/%d ==========", n + 1, args.count)
             r = make_one(cfg, history, args)
             ok += 1
-            name = cfg.get("channel", {}).get("name", "Shorts")
             if r["video_id"]:
                 telegram(f"✅ {name}: YouTube'ga joylandi:\n{r['title']}\nhttps://youtube.com/shorts/{r['video_id']}")
             if r.get("instagram_id"):
                 telegram(f"✅ {name}: Instagram Reels joylandi:\n{r['title']}")
+        except NoRecording as e:
+            log.warning("Bugun video yo'q: ovozi yozilgan ssenariy topilmadi (%s)", e)
+            telegram(f"🎙 {name}: bugungi video uchun ovoz yo'q ({e}). ovoz_apex/kutmoqda/ dagi matnni o'qib yuklang.")
+            return
         except Exception as e:  # noqa: BLE001
             fail += 1
             log.exception("Video yasashda xato: %s", e)
